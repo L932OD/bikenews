@@ -25,7 +25,7 @@ IST date: `TZ=Asia/Kolkata date +%F`.
    ```
    If `main` moved: `git pull --rebase origin main` and push again.
 
-7. **Verify.** Fetch `https://<site>/content/latest.json` (the Vercel production URL) every 30 seconds until it shows
+7. **Verify.** Fetch `https://bikenews.vercel.app/content/latest.json` every 30 seconds until it shows
    today's `edition`, for up to 5 minutes. Report the outcome: the number of stories, the lead, and any failed sources.
 
 ## Dry run (for tuning DESK.md)
