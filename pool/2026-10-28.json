@@ -1,0 +1,790 @@
+{
+  "date": "2026-10-28",
+  "generated_at": "2026-10-28T01:03:53+05:30",
+  "window_hours": 36,
+  "sources": [
+    {
+      "id": "rushlane",
+      "name": "Rushlane",
+      "status": "ok",
+      "in_feed": 8,
+      "in_window": 5,
+      "in_pool": 5
+    },
+    {
+      "id": "autocar",
+      "name": "Autocar India",
+      "status": "ok",
+      "in_feed": 6,
+      "in_window": 5,
+      "in_pool": 2
+    },
+    {
+      "id": "bikewale",
+      "name": "BikeWale",
+      "status": "ok",
+      "in_feed": 14,
+      "in_window": 12,
+      "in_pool": 12
+    },
+    {
+      "id": "ndtv",
+      "name": "NDTV Auto",
+      "status": "ok",
+      "in_feed": 10,
+      "in_window": 10,
+      "in_pool": 10
+    },
+    {
+      "id": "motorbeam",
+      "name": "MotorBeam",
+      "status": "ok",
+      "in_feed": 15,
+      "in_window": 0,
+      "in_pool": 0
+    },
+    {
+      "id": "bikeadvice",
+      "name": "BikeAdvice",
+      "status": "ok",
+      "in_feed": 7,
+      "in_window": 7,
+      "in_pool": 7
+    },
+    {
+      "id": "etauto",
+      "name": "ET Auto",
+      "status": "ok",
+      "in_feed": 15,
+      "in_window": 13,
+      "in_pool": 13
+    },
+    {
+      "id": "trends",
+      "name": "Google Trends (India)",
+      "status": "ok",
+      "in_feed": 10
+    }
+  ],
+  "sources_failed": [],
+  "dropped": {
+    "unresolved": 0,
+    "off_section": 3,
+    "duplicate": 0
+  },
+  "items": [
+    {
+      "id": "rushlane-6481e4fa",
+      "source": "Rushlane",
+      "source_id": "rushlane",
+      "title": "Royal Enfield Classic 350 Spied With Tubeless Spoke Wheels – Launch Soon",
+      "published_at": "2026-10-27T14:20:24.000Z",
+      "summary": "A Classic 350 in Medallion Bronze has spied at at dealership with a different spoke-wheel setup - finally getting tubeless option on best selling RE",
+      "url": "https://www.rushlane.com/royal-enfield-classic-350-spied-with-tubeless-spoke-wheels-launch-soon-12559644.html",
+      "text": "After years of waiting, Royal Enfield could finally launch the much awaited practical update for the Classic 350, with spyshots from dealership showing the motorcycle equipped with what appears to be a tubeless-compatible spoke wheel. The Medallion Bronze Classic 350 retains its familiar retro design, but a closer look at the front wheel reveals a different rim and spoke attachment arrangement. The close-up images show a black-finished front rim with spokes attaching to a raised flange. This differs from the conventional arrangement in which spoke pass through the central section of the rim. The visible construction appears consistent with a design intended to accommodate tubeless tyres. The motorcycle otherwise retains familiar components, including its telescopic front fork, front disc brake with ByBre caliper and ABS sensor ring. The wheel design appears to resemble the tubeless spoke-wheel setup associated with the Meteor 350 Sundowner Edition, rather than the side-laced arrangement seen on the Goan Classic 350. For Classic buyers who prefer the appearance of spokes, such an option could remove one reason to choose alloy wheels. The main attraction is puncture-repair convenience. Many small tread punctures in a tubeless tyre can be temporarily plugged without removing the wheel, making roadside repairs more manageable. A conventional tube-type setup generally requires access to the inner tube to repair or replace it. A limited-edition Classic 350 is one possible way to…"
+    },
+    {
+      "id": "rushlane-64bba079",
+      "source": "Rushlane",
+      "source_id": "rushlane",
+      "title": "New Honda CB350C Black Edition Launched – First Look",
+      "published_at": "2026-10-27T09:54:57.000Z",
+      "summary": "Ahead of Diwali, Honda has just launched CB350C Black Edition (name not official) with more Black elements than standard Black colour",
+      "url": "https://www.rushlane.com/new-honda-cb350c-black-edition-launched-first-look-12559632.html",
+      "text": "Honda Motorcycles and Scooters India (HMSI) has been expanding their CB lineup to take on Royal Enfield’s extensive range of classic retro motorcycles. Now, the Japanese 2W juggernaut has just launched a new colour variant of its popular CB350C ahead of Diwali. This new variant is only a colour variation and is based on the base STD variant. As seen in the video by Machine Decode, the new colour variant is much Black-er than the already existing Black colour of CB350C. It costs around Rs 2.32 lakh (OTR) and is likely to appeal to audiences looking for a stealthy look. Up until now, if you wanted a Black version of Honda CB350C, there was the Pearl Igneous Black colour offered with DLX and DLX Pro variants. It was not an all-Black colourway. The just launched Black Edition (not official name) is much Black-er than being outright all-Black murdered look. More elements are Blacked out in this new Edition which were usually Chrome up until now. We’re talking about the Black highlights just now introduced to get it closer to an all-Black look, without being all-Black. There are some Chrome elements like the exhaust, handlebar and rear twin shock suspension. Also, there are a few Silver elements remaining like in the handlebar clamps. Apart from these, most elements are now Black. These include the stalks to hold both fenders are now Black, headlight cowl is now Black and then lower part of front RSU telescopic front forks are now Black and even the horns are Black. On the engine…"
+    },
+    {
+      "id": "rushlane-921b6a6f",
+      "source": "Rushlane",
+      "source_id": "rushlane",
+      "title": "Royal Enfield Himalayan 750 First Teaser Out – EICMA Debut Confirmed",
+      "published_at": "2026-10-27T06:50:09.000Z",
+      "summary": "Royal Enfield’s latest teaser points to Milan, suggesting an EICMA 2026 unveiling for the bigger Himalayan, which was already spotted undisguised during a TVC shoot in Uttarakhand.",
+      "url": "https://www.rushlane.com/royal-enfield-himalayan-750-first-teaser-out-eicma-debut-confirmed-12559610.html",
+      "text": "Royal Enfield has released the first official teaser believed to preview its upcoming Himalayan 750. The image shows an adventure motorcycle and rider silhouetted against a red sky, accompanied by the coordinates 45.4647° N, 9.1885° E. These point to central Milan, providing a strong clue about the motorcycle’s likely debut location. Rather than revealing specifications or a model name, Royal Enfield has used the location coordinates to build anticipation. While the coordinates identify central Milan rather than the Fiera Milano Rho exhibition grounds, the timing strongly suggests a connection with EICMA, where Royal Enfield has been regularly unveiling new motorcycles and concepts. EICMA 2026 dates are November 3–8. New Himalayan 750’s arrival could also help Royal Enfield strengthen its larger-capacity portfolio, where sales have been declining despite overall growth. Volumes in the above-350cc category fell 26.04% YoY to 12,463 units in September 2026, while Q3 sales declined 11.84% to 38,983 units. Across April–September, the category recorded 74,784 units, down 9.12%. A new twin-cylinder adventure tourer aimed at both India and overseas markets could attract customers upgrading from smaller motorcycles and broaden Royal Enfield’s global touring appeal, potentially supporting a recovery in this category. Himalayan 750 is expected to use a larger-displacement development of Royal Enfield’s existing 650cc parallel-twin engine. Earlier estimates suggested output around 55…"
+    },
+    {
+      "id": "rushlane-96905f1a",
+      "source": "Rushlane",
+      "source_id": "rushlane",
+      "title": "Harley Davidson Sprint 440 Cruiser Spied Undisguised – Launch Soon",
+      "published_at": "2026-10-26T16:09:49.000Z",
+      "summary": "First undisguised photos reveal the upcoming Harley-Davidson Sprint 440’s cruiser styling, tank graphics and hardware, following its teaser earlier this month.",
+      "url": "https://www.rushlane.com/harley-davidson-sprint-440-cruiser-spied-undisguised-launch-soon-12559576.html",
+      "text": "Harley-Davidson’s upcoming Sprint 440 has been spotted without camouflage as the motorcycle starts arriving at dealerships. The latest spy shots provide the clearest look yet at the new cruiser, revealing details that remained hidden in the teaser covered earlier this month. The undisguised motorcycle carries a more traditional cruiser appearance than the X440 roadster. A new fuel tank, scooped rider seat (single piece) and raised pulled-back handlebar define its profile, while extensive black finishes are contrasted by machined engine fins and a bright exhaust heat shield. The exhaust end can is also new, when compared to X440. The black motorcycle features prominent Harley-Davidson lettering within an orange-bordered, patterned tank graphic. Sprint branding is also visible on the new side panel , reinforcing the identity of the motorcycle seen in the earlier teaser. Other motorcycles in the photos show blue, grey and red tank finishes. At the front, the entry level Harley cruiser gets a circular headlamp with a bright surrounding trim, separate turn indicators and a compact front mudguard. The exposed headlamp assembly and absence of a large windscreen keep the front profile relatively simple. We can see a pronounced dip in the rider’s seating area, followed by a raised pillion section. Combined with the elevated, pulled-back handlebar , this suggests a riding position aimed at relaxed road use. The wheelbase seems to be more, than the X440, while the rake angle also looks…"
+    },
+    {
+      "id": "rushlane-084fd039",
+      "source": "Rushlane",
+      "source_id": "rushlane",
+      "title": "Bajaj ADV Clearest Spy Shots Yet – New Pulsar TFT Display, Switchgear",
+      "published_at": "2026-10-26T15:24:53.000Z",
+      "summary": "Latest spy shots offer a detailed look at Bajaj’s upcoming adventure motorcycle, revealing its cockpit, front lighting, luggage carrier and high-mounted exhaust.",
+      "url": "https://www.rushlane.com/bajaj-adv-clearest-spy-shots-yet-new-pulsar-tft-display-switchgear-12559546.html",
+      "text": "Bajaj’s upcoming adventure motorcycle has been spotted testing again, with the latest spy shots providing our clearest all-round look yet. While camouflage continues to cover the body panels, the photographs reveal more of its equipment and proportions, including the TFT instrument console resembling that seen on recently launched Pulsar models . The latest Bajaj ADV spy shots show a rectangular TFT display positioned ahead of the handlebar. Although the screen contents are difficult to read, the layout is more clearly visible. Switchgear is slightly different to that we have seen on new Pulsars. The right side switchgear has what looks like a headlight control slider. The left side is same, but ADV has an extra switch on the top. A raised handlebar and relatively central footpeg position give the rider an upright stance. Handguards are also fitted, while conventional stalk-mounted mirrors sit above the controls. Front shots reveal an angular headlamp assembly with an illuminated upper section and LED light elements extending either side. A prominent beak projects forward beneath it, giving the motorcycle a recognisable adventure-bike profile. There is a short headlamp cowl rather than a tall touring windscreen. The sculpted tank area flows into extended side panels, although the camouflage conceals their final detailing. Conventional telescopic front forks feature rubber gaiters, while wire-spoke wheels and disc brakes are visible at both ends. A rear ABS sensor ring can…"
+    },
+    {
+      "id": "autocar-508a7656",
+      "source": "Autocar India",
+      "source_id": "autocar",
+      "title": "Royal Enfield Himalayan 750 teased ahead of global reveal",
+      "published_at": "2026-10-27T07:44:12.000Z",
+      "summary": "Royal Enfield teases the Himalayan 750, the brand’s largest adventure tourer yet, ahead of launch after which it’s expected to rival the likes of the Norton Atlas and Triumph Tiger Sport 660. Tap to know more.",
+      "url": "https://www.autocarindia.com/bike-news/royal-enfield-teases-himalayan-750-ahead-of-global-reveal-441139",
+      "text": ""
+    },
+    {
+      "id": "autocar-a459fae7",
+      "source": "Autocar India",
+      "source_id": "autocar",
+      "title": "Upcoming Hero Karizma XMR 250 spotted",
+      "published_at": "2026-10-26T11:41:17.000Z",
+      "summary": "The Hero Karizma XMR 250 has been spotted at a dealership in a new red colour scheme. Tap here for more details.",
+      "url": "https://www.autocarindia.com/bike-news/upcoming-hero-karizma-xmr-250-spotted-441130",
+      "text": "The upcoming Hero Karizma XMR 250 has been spotted at a dealership in a red colour scheme. This isn’t the first time the bike has been seen in production form. Back in July, the model was spotted in a black colourway, following its initial showcase in white at EICMA 2024. In terms of overall design, the XMR 250 looks much like the XMR 210, with a similar projector LED headlamp and boomerang-shaped daytime running lights (DRLs). The fairing extends lower below the headlamp, and the bike gets integrated winglets. Also visible are a tall windscreen, a gold-finished USD fork, a sculpted fuel tank and a split seat. The Karizma XMR 250 will likely be powered by the same 249cc single-cylinder liquid-cooled engine as the Xtreme 250R, producing 30hp at 9,250rpm and 25.3Nm at 7,500rpm. This engine is paired with a 6-speed gearbox. Hero is yet to announce an official launch date or pricing for the Karizma XMR 250. However, the appearance of a production-ready motorcycle at a dealership suggests that a launch could be close. For reference, the Karizma XMR 210 is priced from Rs 1.86 lakh, while the Xtreme 250R is priced at Rs 1.84 lakh. The XMR 250 is expected to be priced above both models, close to the Rs 2 lakh mark. Its rivals will include the Suzuki Gixxer SF 250, KTM RC 200 and Yamaha R2."
+    },
+    {
+      "id": "bikewale-9962fda2",
+      "source": "BikeWale",
+      "source_id": "bikewale",
+      "title": "Next-generation Triumph Tiger 1200 Unveiled in India; Launch Soon",
+      "published_at": "2026-10-27T15:27:29.000Z",
+      "summary": "The 2027 Triumph Tiger 1200 will be available on sale in India from March 2027.",
+      "url": "https://www.bikewale.com/news/next-generation-triumph-tiger-1200-unveiled-in-india-launch-soon/",
+      "text": "Triumph Motorcycles has unveiled the new-generation Tiger 1200 in India. The 2027 model gets a revised engine, updated suspension, and new rider assistance features. It will be available in India from March 2027 and prices will be revealed closer to the commencement of bookings. The new Triumph Tiger 1200 will be offered in two variants – GT Pro and Rally Explorer. The GT Pro will be available in Sapphire Black and Aluminium Silver/Pacific Blue colourway, while the Rally Explorer will be offered in Ash Grey/Sapphire Black and Matt Khaki Green colours. Powering the adventure tourer is a 1,160cc, liquid-cooled, three-cylinder engine that now produces 155.84bhp at 9,250rpm, up by 8bhp, and a peak torque of 130Nm at 6,750rpm. Triumph claims the engine has received revised internals and updated gearing. Meanwhile, the shaft drive has been refined for smoother operation. The motorcycle also gets a revised chassis, with a 19-inch front and 17-inch rear wheel combination. Suspension duties are handled by semi-active Showa EERA Heightflex units with 200mm wheel travel at both ends. The suspension system automatically lowers the ride height by 30mm when coming to a stop. Along with the optional low seat and adjustable seat mechanism, the seat height can be reduced to 790mm at standstill. Meanwhile, braking duties are managed by dual front discs with Brembo Stylema callipers and a single rear disc setup. The new Tiger 1200 also gets a seven-inch touchscreen TFT display with wireless…"
+    },
+    {
+      "id": "bikewale-ebe85f41",
+      "source": "BikeWale",
+      "source_id": "bikewale",
+      "title": "Bajaj NS200 TFT: Top 5 Highlights",
+      "published_at": "2026-10-27T12:34:45.000Z",
+      "summary": "The updated NS200 gets a host of changes that make it a sweeter package. Here's a round-up of the key changes.",
+      "url": "https://www.bikewale.com/news/bajaj-ns200-tft-top-5-highlights/",
+      "text": "Bajaj has recently launched the NS200 TFT , priced at Rs. 1.60 lakh (ex-showroom, Delhi). Bajaj claims the NS200 TFT is now the most feature-loaded offering in the segment. Here are 5 areas where the NS200 TFT distinguishes itself from its predecessor and the competition. NS200 TFT retains the 199.5cc, liquid-cooled, 4-valve single-cylinder engine. However, Bajaj has managed to extract a bit more performance from the engine, which now makes 25bhp (previously 24bhp) at 9,750rpm and 18.7Nm of torque. Bajaj hasn't specified exactly what has changed within the engine to find more oomph, but more power is always welcome. The NS200 now also comes with traction control, which should help tame the extra horsepower. The NS200 TFT now comes with Bajaj's Sports Shift system, which is marketing terminology for a bi-directional quickshifter. The NS200 becomes the latest model within the Pulsar family to receive quickshifters in recent times, following the N250 SS and N160 SS . The six-speed gearbox and slip-and-assist clutch carry over unchanged from the previous model. Bajaj has made the USD front fork setup on the NS200 TFT thicker, moving from a 33mm unit to a 37mm unit. The increased thickness should offer better rigidity and less flex under braking and cornering, which, in theory, should translate to better front-end feel while riding. A more hands-on experience with the NS200 TFT will help confirm this. Travel remains unchanged at 135mm for the front suspension, while the…"
+    },
+    {
+      "id": "bikewale-edf5dc70",
+      "source": "BikeWale",
+      "source_id": "bikewale",
+      "title": "Upcoming 2027 Honda CBR1000RR-R Spotted Testing",
+      "published_at": "2026-10-27T10:19:10.000Z",
+      "summary": "The upcoming 2027 Honda CBR1000RR has been spotted testing abroad. The bike has undergone some important changes, including the addition of new brake calipers and some improvements to its aero.",
+      "url": "https://www.bikewale.com/news/upcoming-2027-honda-cbr1000rr-r-spotted-testing/",
+      "text": "Honda has started testing the upcoming 2027 CBR1000RR-R abroad, at the Jerez Circuit in Spain. It was ridden by Jonathan Rea, and images of the motorcycle were shared on his social media profile. The bike being tested right after the last round of the 2026 WorldSBK signals that the brand has some big plans for the 2027 WorldSBK. The bike has seen some changes, with the aeros being revised. At the front, the winglets have been enlarged for better downforce. In addition to this, the brand has also added ground effect pods, likely inspired by the Ducati Panigale V4 . These pods should improve the bike’s cornering speed, thus helping to improve lap times. Another interesting change is that the test mule was spotted with a differently shaped ram air intake compared to the current WorldSBK CBR1000RR-R. The reworked ram-air intake could have resulted in an improvement in performance. For reference, the current CBR1000RR-R is powered by a 999cc, liquid-cooled, inline-four engine that produces 217.5bhp at 14,000rpm and 113Nm at 12,000rpm. With the changes in regulations, we can expect the bike’s chassis to have received some tweaks. However, it is not clearly visible just going by the images shared online. Lastly, the brakes have been changed, with the test mule sporting Brembo callipers instead of the Nissin callipers. The change is likely due to Brembo being the new exclusive supplier of braking hardware for 2027 WorldSBK."
+    },
+    {
+      "id": "bikewale-f9dbfe96",
+      "source": "BikeWale",
+      "source_id": "bikewale",
+      "title": "TVS Returns to EICMA as Europe Push Starts Paying Off",
+      "published_at": "2026-10-27T06:38:56.000Z",
+      "summary": "Will unveil new Europe-focused models at EICMA 2026 after doubling sales in Italy and expanding dealer network across the continent.",
+      "url": "https://www.bikewale.com/news/tvs-returns-to-eicma-as-europe-push-starts-paying-off/",
+      "text": "TVS Motor Company returns to EICMA in November 2026 with new models developed for the European market. TVS is setting up a meaningful retail footprint across Europe and early sales numbers suggesting its international expansion is beginning to find traction. There will be new reveals of latest European products at EICMA on 3 November 2026 at 10:00 CET. TVS says its Italian sales have grown by 110 percent over the past year when the wider Italian motorcycle market grew by around 10 percent during the same period. Italy was TVS Motor’s first European market and now has around 100 dealers representing the brand. Dealer network is now spreading beyond Italy as well. TVS is establishing its own national sales companies in France and Germany, with dealerships in both markets due to open soon. Spain and Portugal already have 25 TVS outlets between them and products are on sale in Malta. Hungary, Greece and Serbia are scheduled to follow. EICMA 2025 then became the larger statement as TVS used its first appearance at the show to display six new products across petrol and electric powertrains, while also outlining its European expansion plans. The Apache RTX 300 was among the important products shown alongside the TVS X and M1-S electric scooters. The 2026 show therefore carries a different expectation. TVS no longer needs to simply demonstrate that it wants to enter Europe. It now has to show how the product range will evolve once the distribution and aftersales foundations are…"
+    },
+    {
+      "id": "bikewale-a48c9cdb",
+      "source": "BikeWale",
+      "source_id": "bikewale",
+      "title": "Upcoming Bajaj Adventure Bike: New Details Revealed",
+      "published_at": "2026-10-27T05:03:56.000Z",
+      "summary": "The Bajaj ADV has been spotted testing again, and the new round of spy shots has revealed new details about the bike’s instrument console. Here’s everything you need to know:",
+      "url": "https://www.bikewale.com/news/upcoming-bajaj-adventure-bike-new-details-revealed/",
+      "text": "The upcoming Bajaj ADV has been spotted testing again, and this time a new set of spy shots has revealed more details. The images have shown the instrument console in clearer light, likely the same as the Pulsar N250’s. Earlier, the motorcycle was spotted testing alongside the Pulsar N250. Bajaj likely did this for benchmarking, suggesting it could be powered by the same 249cc, air/oil-cooled, single-cylinder engine. For reference, the motor produces 24.1bhp and 21.5Nm on the Pulsar N250. The console used on this upcoming bike could be the same one on the updated Pulsar N250 launched recently in India . Some of the features available with the updated Pulsar N250 could be carried over, including Google Maps mirroring. The ADV could also come with an electronic ride-by-wire throttle and features such as multiple riding modes and switchable ABS. Apart from that, the bike features longer-travel suspension at both ends and rolls on spoke wheels at the front and rear. Braking duties are taken care of by disc brakes at both ends. The upcoming motorcycle could be developed to better compete with the growing dual-sport and Adventure segment in India. It will also help Bajaj compete better in foreign markets like Latin America."
+    },
+    {
+      "id": "bikewale-ddbc6980",
+      "source": "BikeWale",
+      "source_id": "bikewale",
+      "title": "Next-generation BMW S 1000 RR spotted testing again",
+      "published_at": "2026-10-27T04:03:56.000Z",
+      "summary": "Clearer images of the upcoming S 1000 RR provide a better look at BMW's flagship sportbike.",
+      "url": "https://www.bikewale.com/news/next-generation-bmw-s-1000-rr-spotted-testing-again/",
+      "text": "BMW's next iteration of its flagship S 1000 RR supersport was spotted testing at the Nürburgring Nordschleife earlier in the year. We now have clearer images of what the production-ready S 1000 RR might look like. Keen enthusiasts will remember the asymmetrical faces of the first- and second-generation S 1000; BMW loved asymmetrical designs back then! The design has evolved a lot since then becoming more angular, sharper, angrier. This new S 1000 RR seems to take further strides in that direction with a fully reworked front fascia that incorporates a large intake between the dual headlights and more complex frontal aero. The new S 1000 RR is also expected to get a revised frame. How far BMW will stray from the existing aluminium twin-spar remains to be seen. Seat and seating position have changed hinting at changes to the underlying subframe. The rear swingarm is expected to be different too; the aluminium swingarm spotted on the upcoming S 1000 RR is more enclosed in nature. The overall design looks more purposeful with the additional aero, as well as revised fairings making the bike look more capable. Exhaust design changes too with a shorter muffler. However, the collector, link pipes and underbelly catalytic converter look similar to the current S 1000 RR. While emissions regulations are getting stricter by the minute, the S 1000 RR is expected to make more power out of its 999cc inline-four engine in its eventual Euro 7 guise. The Brembo Hypure front brake calipers,…"
+    },
+    {
+      "id": "bikewale-731ac3b6",
+      "source": "BikeWale",
+      "source_id": "bikewale",
+      "title": "Jawa Yezdi and BSA Expand Spare-Parts Network to Ease Ownership",
+      "published_at": "2026-10-27T03:33:56.000Z",
+      "summary": "All three brands now get a wider access to genuine spare parts beyond dealerships to improve repair times and make ownership easier across smaller cities.",
+      "url": "https://www.bikewale.com/news/jawa-yezdi-and-bsa-expand-spare-parts-network-to-ease-ownership/",
+      "text": "Jawa Yezdi and BSA Motorcycles are expanding their genuine spare-parts distribution network across India allowing customers, independent workshops and service partners to source authorised components beyond the companies’ regular dealership channels. The initiative is being rolled out through authorised distribution partners at multiple strategic locations across the country. The strategy will improve parts procurement, increase availability and shorten service turnaround times across urban, semi-urban and emerging markets. This should mean owners no longer need to wait for a dealership to order and receive relatively routine replacement components before work can begin. This is more useful for smaller cities as spare-parts distribution can cover a much wider area without requiring the investment involved in opening complete sales and service facilities. This gives Jawa Yezdi an easier way to support owners in markets where volumes may not yet justify a full dealership."
+    },
+    {
+      "id": "bikewale-f55a6a1c",
+      "source": "BikeWale",
+      "source_id": "bikewale",
+      "title": "Upcoming Harley-Davidson Sprint 440 Spotted Undisguised Before Launch",
+      "published_at": "2026-10-26T18:59:49.000Z",
+      "summary": "Although the Harley-Davidson Sprint 440 doesn't have a direct rival, it will face competition from the likes of the Honda CB500 and the Rebel 300.",
+      "url": "https://www.bikewale.com/news/upcoming-harley-davidson-sprint-440-spotted-undisguised-before-launch/",
+      "text": "The upcoming Harley-Davidson Sprint 440 has been spotted undisguised ahead of its official debut later this year. The latest spy shots reveal the motorcycle’s production-ready styling, along with a few key details. The Sprint 440 is based on the Harley-Davidson X440 T platform but gets its own unique visual identity. Unlike the X440 and X440 T, the Sprint 440 features a traditional cruiser silhouette with a long, low stance. It gets a raised and swept-back handlebar, teardrop-shaped fuel tank, a scooped single-piece seat, and a compact rear fender. The footpegs also appear to be positioned forward to offer a laid-back, cruiser-like riding position. The circular TFT instrument console appears to be similar to the one on the X440 range. However, it is positioned at the centre of the handlebar. The bike also gets blacked-out components and a new exhaust canister with a metallic shield for added visual drama. The Harley-Davidson Sprint 440 retains the X440’s basic chassis architecture but gets a different rear subframe to accommodate its lower seat profile and cruiser styling. The Sprint 440 is expected to be powered by a 440cc, single-cylinder, air- and oil-cooled engine that produces 27bhp and 38Nm of peak torque. The motor is paired with a six-speed gearbox. Like the X440 and X440 T, the Sprint 440 will be manufactured in India by Hero MotoCorp. The motorcycle is expected to make its global debut at the EICMA trade show in Milan, Italy, on 3 November 2026. We expect the…"
+    },
+    {
+      "id": "bikewale-290209a8",
+      "source": "BikeWale",
+      "source_id": "bikewale",
+      "title": "New Triumph Tiger 1200 Global Debut on 27 October 2026",
+      "published_at": "2026-10-26T17:26:58.000Z",
+      "summary": "The next-generation flagship adventure motorcycle will come with more performance, advanced electronics and Triumph’s most sophisticated suspension yet.",
+      "url": "https://www.bikewale.com/news/new-triumph-tiger-1200-global-debut-on-27-october-2026/",
+      "text": "Triumph Tiger 1200 is preparing for a sizeable update with the next version scheduled to make its global debut on 27 October 2026. Triumph has released the first preview of the motorcycle confirming changes to the engine, electronics and suspension. Triumph says the updated 1200cc three-cylinder engine will deliver increased performance as well as better refinement. Also confirmed is advanced rider technology and what the company describes as the most sophisticated suspension package it has ever fitted to one of its motorcycles. The current India-spec motorcycle uses an 1,160cc, liquid-cooled T-Plane triple producing 148bhp and 130Nm. It is hardly short on performance, so simply adding a few horsepower would not dramatically change the motorcycle. The promise of improved refinement could be more valuable for Indian buyers who use the Tiger primarily for long-distance touring. Triumph has also said the new motorcycle will have a distinctive appearance. The existing Tiger 1200 has a tall, purposeful design built around its large fuel tank, compact triple-cylinder engine and exposed rear subframe. The forthcoming model appears set to evolve that formula rather than abandon it. The suspension update could be particularly significant. The present Tiger 1200 already uses semi-active Showa suspension that automatically responds to changes in load and road conditions. Triumph has therefore set itself a fairly high bar by describing the incoming arrangement as its most advanced yet.…"
+    },
+    {
+      "id": "bikewale-18cb3615",
+      "source": "BikeWale",
+      "source_id": "bikewale",
+      "title": "Ultraviolette X-47 Venom: Top 5 Highlights",
+      "published_at": "2026-10-26T11:46:36.000Z",
+      "summary": "Ultraviolette has updated the X-47 Venom with numerous key changes to the powertrain, tech, and performance.",
+      "url": "https://www.bikewale.com/news/ultraviolette-x-47-venom-top-5-highlights/",
+      "text": "Ultraviolette has launched the X-47 Venom electric motorcycle at an introductory price of Rs. 2.65 lakh (ex-showroom) marking it as the first model built on Ultraviolette's VX-100 architecture. Here are the top five highlights of the new X-47 Venom. X-47 Venom features a new SRB-11 battery pack built on the VX-100 electrical architecture. While the previous iteration was offered in 7.1kWh and 10.5kWh options, Venom offers 7.5kWh and 11kWh battery packs. This results in better usable riding range as the construction and thermal properties have been enhanced. SRB-11 battery pack offers 20 percent greater energy density and twice as much heat dissipation. It can therefore charge faster and offer prolonged performance during faster-paced riding. Ultraviolette has also prioritised power density, lower weight and improved performance with the VX-100 platform. The newly-developed LightFury motor is set to achieve both targets. The permanent magnet synchronous motor (PMSM) now features soft magnetic composites (SMC) that reduce weight by 5kg, with a faster 0-100 time and a higher 150kmph top speed. The battery and motor weight reductions make the X-47 Venom nearly 20kg lighter than the Crossover, which is no small feat! X-47 Venom comes with a larger 7-inch TFT touchscreen display. The new instrument cluster is built with Android OS and features Qualcomm internals. The pack is rated IP67 for water and dust. It also includes a 35W Type-C USB charging port. The 7-inch unit retains…"
+    },
+    {
+      "id": "bikewale-12ebbb19",
+      "source": "BikeWale",
+      "source_id": "bikewale",
+      "title": "Moto Guzzi Trip 500 Unveiling Date Announced",
+      "published_at": "2026-10-26T09:47:39.000Z",
+      "summary": "Moto Guzzi has announced the unveiling date for the Trip 500 retro roadster, based on the Aprilia 457 platform. The bike has been spotted testing multiple times abroad earlier. It could also be showcased at EICMA 2026.",
+      "url": "https://www.bikewale.com/news/moto-guzzi-trip-500-unveiling-date-announced/",
+      "text": "Moto Guzzi has announced the unveiling date for the upcoming Trip 500 retro roadster. The brand shared the announcement via social media, and the upcoming bike will be revealed on 28 October 2026. It could also be showcased at EICMA 2027. The motorcycle’s name was previously revealed in patent filings, and now, with the social media announcement, we have official confirmation. The motorcycle will be based on the Aprilia 457 platform, but with some changes made to its design and underpinnings. From the images, we can see that the motorcycle has a round LED headlight setup, with the Moto Guzzi logo. It also features a muscular tank, but no tank extensions like the Tuono 457. The bike will use the same 457cc, parallel-twin, liquid-cooled engine as the Tuono 457 and the Aprilia RS 457 . The motor produces 47.6bhp and 43.5Nm on the Aprilia Tuono 457 . But Moto Guzzi could go with a different state of tune to suit the retro roadster’s character. The underpinnings have been slightly revised, with the rear suspension- an offset single-shock absorber- mounted on the swingarm. The revised suspension should result in slightly altered handling dynamics compared to the Tuono 457. So far, it is too early to tell if this upcoming retro roadster will come to India or not."
+    },
+    {
+      "id": "bikewale-af8d7f24",
+      "source": "BikeWale",
+      "source_id": "bikewale",
+      "title": "Honda ADV160 Gets Production Push to Cut Wait Times",
+      "published_at": "2026-10-26T08:22:38.000Z",
+      "summary": "Honda is increasing automation at Manesar to speed up ADV160 production as dealer delivery estimates stretch into January 2027 despite the company working towards initial handovers before the end of this year.",
+      "url": "https://www.bikewale.com/news/honda-adv160-gets-production-push-to-cut-wait-times/",
+      "text": "Honda ADV160 production is being accelerated at the company’s Manesar manufacturing facility as HMSI tries to shorten the waiting period for this new flex-fuel scooter. We’ve seen how the ADV160 has attracted enough early interest for delivery estimates at the retail end to stretch into January 2027. Honda is now working towards getting at least the first customer scooters out before the end of 2026. We recently visited HMSI’s Manesar plant where Honda showed us the production preparations made specifically to increase the pace of ADV160 assembly. A complete line involved in the scooter’s final assembly process has been automated further reducing manual intervention in several stages and allowing Honda to push vehicles through the line more consistently. This is significant because the ADV160 has already slipped behind Honda’s original retail schedule. When prices were announced on 25 August 2026, HMSI said bookings had opened at Rs 5,000 and that deliveries of the ADV160 and Rebel 300 would commence from mid-October. That deadline has effectively passed. Retail delivery estimates are being communicated to prospective customers stretch into January 2027. Based on what we learnt during the factory visit, the company is targeting initial customer handovers towards the end of 2026 if the production ramp-up goes according to plan. This is not what Honda has announced, but with the ramped up processes at their plant, looks like they’re working really hard to close the gap. Honda…"
+    },
+    {
+      "id": "ndtv-6f5f8443",
+      "source": "NDTV Auto",
+      "source_id": "ndtv",
+      "title": "Hero Karizma XMR 250 Spotted In Red Colour Ahead Of Launch",
+      "published_at": "2026-10-27T10:44:43.000Z",
+      "summary": "",
+      "url": "https://www.ndtv.com/auto/hero-karizma-xmr-250-spotted-in-red-colour-ahead-of-launch-12242730",
+      "text": ""
+    },
+    {
+      "id": "ndtv-4f697998",
+      "source": "NDTV Auto",
+      "source_id": "ndtv",
+      "title": "Land Rover Defender Gets Up To Rs 34 Lakh Cheaper As Local Assembly Begins",
+      "published_at": "2026-10-27T09:28:07.000Z",
+      "summary": "",
+      "url": "https://www.ndtv.com/auto/land-rover-defender-gets-up-to-rs-34-lakh-cheaper-as-local-assembly-begins-12242232",
+      "text": ""
+    },
+    {
+      "id": "ndtv-387ba0bc",
+      "source": "NDTV Auto",
+      "source_id": "ndtv",
+      "title": "Hyundai Bayon Price List Out: 19 Variants From Rs 9.99 Lakh To Rs 18.15 Lakh",
+      "published_at": "2026-10-27T08:50:45.000Z",
+      "summary": "",
+      "url": "https://www.ndtv.com/auto/hyundai-bayon-price-list-out-19-variants-from-rs-9-99-lakh-to-rs-18-15-lakh-12242042",
+      "text": ""
+    },
+    {
+      "id": "ndtv-b949b831",
+      "source": "NDTV Auto",
+      "source_id": "ndtv",
+      "title": "Royal Enfield Himalayan 750 Teased Ahead Of EICMA Debut",
+      "published_at": "2026-10-27T07:30:56.000Z",
+      "summary": "",
+      "url": "https://www.ndtv.com/auto/royal-enfield-himalayan-750-teased-ahead-of-eicma-debut-12241639",
+      "text": ""
+    },
+    {
+      "id": "ndtv-e31faf2a",
+      "source": "NDTV Auto",
+      "source_id": "ndtv",
+      "title": "E100 Flex-Fuel Rule Change Explained: What It Means For Car Owners",
+      "published_at": "2026-10-27T07:15:42.000Z",
+      "summary": "",
+      "url": "https://www.ndtv.com/auto/e100-flex-fuel-rule-change-explained-what-it-means-for-car-owners-12241556",
+      "text": ""
+    },
+    {
+      "id": "ndtv-8631c86d",
+      "source": "NDTV Auto",
+      "source_id": "ndtv",
+      "title": "Actor Fardeen Khan Buys His First-Ever Royal Enfield, The Guerrilla 450 Apex: Watch",
+      "published_at": "2026-10-27T05:58:08.000Z",
+      "summary": "",
+      "url": "https://www.ndtv.com/auto/actor-fardeen-khan-buys-his-first-ever-royal-enfield-the-guerrilla-450-apex-watch-12241212",
+      "text": ""
+    },
+    {
+      "id": "ndtv-685b5bb5",
+      "source": "NDTV Auto",
+      "source_id": "ndtv",
+      "title": "Harley-Davidson Sprint 440 Cruiser Spotted Undisguised Ahead Of Launch",
+      "published_at": "2026-10-27T05:26:18.000Z",
+      "summary": "",
+      "url": "https://www.ndtv.com/auto/harley-davidson-sprint-440-cruiser-spotted-undisguised-ahead-of-launch-12241097",
+      "text": ""
+    },
+    {
+      "id": "ndtv-68f34316",
+      "source": "NDTV Auto",
+      "source_id": "ndtv",
+      "title": "Yokohama BluEarth-GT AE51 Review: 1,500 Km In An Audi A4",
+      "published_at": "2026-10-26T10:30:01.000Z",
+      "summary": "",
+      "url": "https://www.ndtv.com/auto/yokohama-bluearth-gt-ae51-review-1-500-km-in-an-audi-a4-12236677",
+      "text": ""
+    },
+    {
+      "id": "ndtv-3590946b",
+      "source": "NDTV Auto",
+      "source_id": "ndtv",
+      "title": "Hyundai Bayon Launched In India At Rs 9.99 Lakh: Check Features, Engine, And More",
+      "published_at": "2026-10-26T08:02:17.000Z",
+      "summary": "",
+      "url": "https://www.ndtv.com/auto/hyundai-bayon-launched-in-india-at-rs-9-99-lakh-check-features-engine-and-more-12236621",
+      "text": ""
+    },
+    {
+      "id": "ndtv-ced74f46",
+      "source": "NDTV Auto",
+      "source_id": "ndtv",
+      "title": "Jeep Compass Sport 9AT Launched, Automatic Variant Now Get More Accessible: Price, Specs, Features",
+      "published_at": "2026-10-26T07:49:48.000Z",
+      "summary": "",
+      "url": "https://www.ndtv.com/auto/jeep-compass-sport-9at-launched-automatic-variant-now-get-more-accessible-details-12236566",
+      "text": ""
+    },
+    {
+      "id": "bikeadvice-4efe0cec",
+      "source": "BikeAdvice",
+      "source_id": "bikeadvice",
+      "title": "Royal Enfield Classic 350 to Get Tubeless Spoke Wheels Soon in India",
+      "published_at": "2026-10-27T11:33:53.000Z",
+      "summary": "The tubeless spoke wheels setup is borrowed from the Meteor 350 Sundowner Edition which went on sale at the previous edition of Motoverse in India Royal Enfield Classic 350 is likely to be launched with cross-spoke wheels and tubeless tyres in the Indian market. The Medallion Bronze colour scheme of the classic motorcycle was showcased […]",
+      "url": "https://bikeadvice.in/royal-enfield-classic-350-to-get-tubeless-spoke-wheels-soon-in-india/",
+      "text": ""
+    },
+    {
+      "id": "bikeadvice-5b784109",
+      "source": "BikeAdvice",
+      "source_id": "bikeadvice",
+      "title": "New TVS Motorcycles, Scooters and EVs Debuting at EICMA 2026 on Nov 3",
+      "published_at": "2026-10-27T09:50:24.000Z",
+      "summary": "The brand is expected to unveil a plethora of new models for the European market at the EICMA 2026 on Nov 3 TVS Motor Company will unveil new motorcycles, scooters and EVs on November 3 at the EICMA 2026 in Milan, Italy. The TVS stand will be in Hall 18, Stand I64. The India-based brand […]",
+      "url": "https://bikeadvice.in/new-tvs-motorcycles-scooters-and-evs-debuting-at-eicma-2026-on-nov-3/",
+      "text": ""
+    },
+    {
+      "id": "bikeadvice-1395e383",
+      "source": "BikeAdvice",
+      "source_id": "bikeadvice",
+      "title": "Harley-Davidson Sprint 440 Leaked Ahead of India Launch",
+      "published_at": "2026-10-27T07:19:09.000Z",
+      "summary": "The Sprint 440 cruiser has been spotted at a Harley-Davidson dealership ahead of its global debut in India The upcoming Harley-Davidson Sprint 440 has been captured on camera for the first time ahead of its official debut in the Indian market. It has been learnt that the demo bikes have started arriving at the dealerships […]",
+      "url": "https://bikeadvice.in/harley-davidson-sprint-440-leaked-ahead-of-india-launch/",
+      "text": ""
+    },
+    {
+      "id": "bikeadvice-b3cfc74d",
+      "source": "BikeAdvice",
+      "source_id": "bikeadvice",
+      "title": "Royal Enfield Himalayan 750 Teased Ahead Of EICMA 2026 Debut",
+      "published_at": "2026-10-27T07:09:27.000Z",
+      "summary": "The upcoming adventure tourer is expected to become Royal Enfield’s largest-capacity motorcycle yet, with a new 750cc twin-cylinder engine and touring-focused equipment Royal Enfield has released a teaser for the upcoming Himalayan 750. The teaser image shows a silhouette of the motorcycle, signalling that its flagship adventure motorcycle is nearing its global debut. The teaser […]",
+      "url": "https://bikeadvice.in/royal-enfield-himalayan-750-teased-ahead-of-eicma-2026-debut/",
+      "text": ""
+    },
+    {
+      "id": "bikeadvice-82df7fed",
+      "source": "BikeAdvice",
+      "source_id": "bikeadvice",
+      "title": "Ultraviolette Plans Four New Electric Two-Wheelers By October 2027",
+      "published_at": "2026-10-27T03:30:24.000Z",
+      "summary": "The upcoming line-up will use the new 100V VX-100 platform, with the Tesseract electric scooter, Shockwave motorcycle and an updated F77 among the products in development Ultraviolette Automotive is preparing to expand its electric two-wheeler portfolio with four new products over the next 12 months. The Bengaluru-based manufacturer plans to use its new VX-100 platform […]",
+      "url": "https://bikeadvice.in/ultraviolette-plans-four-new-electric-two-wheelers-by-october-2027/",
+      "text": ""
+    },
+    {
+      "id": "bikeadvice-09970adf",
+      "source": "BikeAdvice",
+      "source_id": "bikeadvice",
+      "title": "Ather Energy to Expand Production Capacity by 2.25 Lakh Units",
+      "published_at": "2026-10-26T13:29:50.000Z",
+      "summary": "The capacity at Hosur plant will be enhanced by 75,000 units while the Phase I of AURIC factory in Chhatrapati Sambhajinagar will start production from Dec 2026 Ather Energy will expand its annual production capacity by 2.25 lakh units by December 2026. The brand stated that manufacturing capacity will be enhanced by 75,000 units, from […]",
+      "url": "https://bikeadvice.in/ather-energy-to-expand-production-capacity-by-2-25-lakh-units/",
+      "text": ""
+    },
+    {
+      "id": "bikeadvice-a9bbc6aa",
+      "source": "BikeAdvice",
+      "source_id": "bikeadvice",
+      "title": "Should You Buy Royal Enfield Classic 350 With a Two-Wheeler Loan?",
+      "published_at": "2026-10-26T09:59:37.000Z",
+      "summary": "This piece shatters all the myths regarding a two-wheeler loan and whether you should apply for one or not while purchasing a new vehicle The Royal Enfield Classic 350 is bought as much for its character as for its transport value. Its 349cc J-platform engine, upright ergonomics and heritage-led design give it a very different […]",
+      "url": "https://bikeadvice.in/should-you-buy-royal-enfield-classic-350-with-a-two-wheeler-loan/",
+      "text": ""
+    },
+    {
+      "id": "etauto-41885c71",
+      "source": "ET Auto",
+      "source_id": "etauto",
+      "title": "Ather Energy delivers 500 Konarc scooters in Delhi in a single day",
+      "published_at": "2026-10-27T17:12:39.000Z",
+      "summary": "",
+      "url": "https://auto.economictimes.indiatimes.com/amp/news/two-wheelers/ather-energy-delivers-500-konarc-scooters-in-delhi-in-a-single-day/135241563",
+      "text": ""
+    },
+    {
+      "id": "etauto-c3337998",
+      "source": "ET Auto",
+      "source_id": "etauto",
+      "title": "Ather’s gross margins overtake legacy two-wheeler OEMs despite lower sales",
+      "published_at": "2026-10-27T13:23:56.000Z",
+      "summary": "",
+      "url": "https://auto.economictimes.indiatimes.com/news/two-wheelers/athers-gross-margins-overtake-legacy-two-wheeler-oems-despite-lower-sales/135235683",
+      "text": ""
+    },
+    {
+      "id": "etauto-9b72c55e",
+      "source": "ET Auto",
+      "source_id": "etauto",
+      "title": "Bajaj Auto appoints Madhusudan Gopalan as Chief Product Officer",
+      "published_at": "2026-10-27T11:38:48.000Z",
+      "summary": "",
+      "url": "https://auto.economictimes.indiatimes.com/amp/news/industry/bajaj-auto-appoints-madhusudan-gopalan-as-chief-product-officer/135232708",
+      "text": ""
+    },
+    {
+      "id": "etauto-8e695469",
+      "source": "ET Auto",
+      "source_id": "etauto",
+      "title": "Ather to rev up monthly capacity by 18,000 units to tap rising demand",
+      "published_at": "2026-10-27T10:05:59.000Z",
+      "summary": "",
+      "url": "https://auto.economictimes.indiatimes.com/news/two-wheelers/ather-to-rev-up-monthly-capacity-by-18000-units-to-tap-rising-demand/135230408",
+      "text": ""
+    },
+    {
+      "id": "etauto-bb243108",
+      "source": "ET Auto",
+      "source_id": "etauto",
+      "title": "TVS Motor to return to EICMA show as Italy sales rise 110%",
+      "published_at": "2026-10-27T09:39:38.000Z",
+      "summary": "",
+      "url": "https://auto.economictimes.indiatimes.com/news/two-wheelers/tvs-motor-to-return-to-eicma-show-as-italy-sales-rise-110/135229914",
+      "text": ""
+    },
+    {
+      "id": "etauto-964e5e5b",
+      "source": "ET Auto",
+      "source_id": "etauto",
+      "title": "Blue Energy Motors, HPCL open Bhiwandi’s first electric truck battery-swap station",
+      "published_at": "2026-10-27T09:19:53.000Z",
+      "summary": "",
+      "url": "https://auto.economictimes.indiatimes.com/news/industry/blue-energy-motors-hpcl-open-bhiwandis-first-electric-truck-battery-swap-station/135229550",
+      "text": ""
+    },
+    {
+      "id": "etauto-66a2ccb8",
+      "source": "ET Auto",
+      "source_id": "etauto",
+      "title": "BAJA SAEINDIA marks 20 years of nurturing engineering talent for India's mobility sector",
+      "published_at": "2026-10-27T02:41:05.000Z",
+      "summary": "",
+      "url": "https://auto.economictimes.indiatimes.com/amp/news/auto-technology/baja-saeindia-marks-20-years-of-nurturing-engineering-talent-for-indias-mobility-sector/135222960",
+      "text": ""
+    },
+    {
+      "id": "etauto-896f6764",
+      "source": "ET Auto",
+      "source_id": "etauto",
+      "title": "Royal Enfield Classic 650 anniversary edition priced at ₹4.26 lakh",
+      "published_at": "2026-10-26T15:10:11.000Z",
+      "summary": "",
+      "url": "https://auto.economictimes.indiatimes.com/amp/news/two-wheelers/royal-enfield-classic-650-anniversary-edition-priced-at-4-26-lakh/135214553",
+      "text": ""
+    },
+    {
+      "id": "etauto-637dc704",
+      "source": "ET Auto",
+      "source_id": "etauto",
+      "title": "Sona Comstar Q2 net profit rises 29% to ₹223 crore",
+      "published_at": "2026-10-26T15:05:50.000Z",
+      "summary": "",
+      "url": "https://auto.economictimes.indiatimes.com/amp/news/auto-components/sona-comstar-q2-net-profit-rises-29-to-223-crore/135214421",
+      "text": ""
+    },
+    {
+      "id": "etauto-c6171e21",
+      "source": "ET Auto",
+      "source_id": "etauto",
+      "title": "Nearly half of two-wheeler buyers open to going electric as market broadens: BCG",
+      "published_at": "2026-10-26T11:12:03.000Z",
+      "summary": "",
+      "url": "https://auto.economictimes.indiatimes.com/news/two-wheelers/nearly-half-of-two-wheeler-buyers-open-to-going-electric-as-market-broadens-bcg/135210205",
+      "text": ""
+    },
+    {
+      "id": "etauto-92e9c18b",
+      "source": "ET Auto",
+      "source_id": "etauto",
+      "title": "Ather Energy swings to ₹1.26 crore profit in Q2 FY27",
+      "published_at": "2026-10-26T10:22:03.000Z",
+      "summary": "",
+      "url": "https://auto.economictimes.indiatimes.com/amp/news/two-wheelers/ather-energy-swings-to-1-26-crore-profit-in-q2-fy27/135209039",
+      "text": ""
+    },
+    {
+      "id": "etauto-9cade2cd",
+      "source": "ET Auto",
+      "source_id": "etauto",
+      "title": "Landmark Cars bags LOIs for five JSW Motors dealerships across Ahmedabad, Bhopal",
+      "published_at": "2026-10-26T08:12:31.000Z",
+      "summary": "",
+      "url": "https://auto.economictimes.indiatimes.com/amp/news/industry/landmark-cars-bags-lois-for-five-jsw-motors-dealerships-across-ahmedabad-bhopal/135206632",
+      "text": ""
+    },
+    {
+      "id": "etauto-e5b6cb92",
+      "source": "ET Auto",
+      "source_id": "etauto",
+      "title": "Hyundai Bayon launched at ₹9.99 lakh, gets Level 2 ADAS and generative AI assistant",
+      "published_at": "2026-10-26T07:46:49.000Z",
+      "summary": "",
+      "url": "https://auto.economictimes.indiatimes.com/amp/news/passenger-vehicle/hyundai-bayon-launched-at-9-99-lakh-gets-level-2-adas-and-generative-ai-assistant/135206253",
+      "text": ""
+    }
+  ],
+  "trends": [
+    {
+      "term": "roma vs cagliari",
+      "traffic": "500+",
+      "published_at": "2026-10-27T19:20:00.000Z",
+      "news": [
+        {
+          "title": "FORMAZIONI UFFICIALI - Fuori Malen! La scelta su Baturina, Mancini, Wesley, Maldini, Valle e la porta del Como",
+          "url": "https://www.sosfanta.com/news/formazioni-ufficiali-roma-cagliari-torino-como-malen-baturina-mancini-valle/",
+          "source": "SOS Fanta"
+        },
+        {
+          "title": "Serie A, oggi Roma-Cagliari – Diretta",
+          "url": "https://www.startupbusiness.it/serie-a-oggi-roma-cagliari-diretta/211703/",
+          "source": "Startupbusiness.it"
+        },
+        {
+          "title": "Roma favorita e due gol nella terzina tra serie A e B",
+          "url": "https://www.corrieredellosport.it/news/scommesse/2026/10/27-152187084/roma_favorita_e_due_gol_nella_terzina_tra_serie_a_e_b",
+          "source": "Corriere dello Sport"
+        }
+      ]
+    },
+    {
+      "term": "windy",
+      "traffic": "5000+",
+      "published_at": "2026-10-27T19:20:00.000Z",
+      "news": [
+        {
+          "title": "Weather warning lifted as third storm to hit Scotland eases off",
+          "url": "https://www.bbc.com/news/articles/c5vgj8xwyj1zo",
+          "source": "BBC"
+        },
+        {
+          "title": "Coastal communities told to remain vigilant for floods as wind warnings lifted",
+          "url": "https://www.freepressseries.co.uk/news/national/26675764.coastal-communities-told-remain-vigilant-floods-wind-warnings-lifted/",
+          "source": "Free Press Series"
+        },
+        {
+          "title": "Schools shut and travel disruption as windy weather sweeps Scotland after storm",
+          "url": "https://www.independent.co.uk/news/uk/home-news/scotland-met-office-schools-largs-john-swinney-b3074042.html",
+          "source": "The Independent"
+        }
+      ]
+    },
+    {
+      "term": "fleetwood vs arsenal",
+      "traffic": "20000+",
+      "published_at": "2026-10-27T19:10:00.000Z",
+      "news": [
+        {
+          "title": "(5) Fleetwood Town v Arsenal: Carabao Cup fourth round – live",
+          "url": "https://www.theguardian.com/football/live/2026/oct/27/fleetwood-town-v-arsenal-carabao-cup-fourth-round-live",
+          "source": "The Guardian"
+        },
+        {
+          "title": "Team news: Dowman starts as two make debuts",
+          "url": "https://www.arsenal.com/news/team-news-dowman-starts-as-two-make-debuts-aDZb65Z9JXMq",
+          "source": "Arsenal.com"
+        },
+        {
+          "title": "Fleetwood vs Arsenal and Bradford vs Peterborough LIVE! Carabao Cup score updates, news, line-ups and how to watch or stream",
+          "url": "https://www.skysports.com/football/live-blog/13604119/fleetwood-vs-arsenal-and-bradford-vs-peterborough-live-carabao-cup-score-updates-news-line-ups-and-how-to-watch-or-stream",
+          "source": "Sky Sports"
+        }
+      ]
+    },
+    {
+      "term": "torino vs como",
+      "traffic": "500+",
+      "published_at": "2026-10-27T19:10:00.000Z",
+      "news": [
+        {
+          "title": "Torino FC - Como | pronósticos + mejores cuotas | 27.10.2026",
+          "url": "https://www.futbol24.com/es/pronosticos-deportivos/previa/27-10-2026-torino-fc-como-pronostico/",
+          "source": "Futbol24"
+        },
+        {
+          "title": "Torino-Como EN DIRECTO: crónica, goles y jugadas destacadas, alineaciones y ficha del partido",
+          "url": "https://es-us.noticias.yahoo.com/deportes/torino-directo-cr%C3%B3nica-goles-jugadas-163212961.html",
+          "source": "Yahoo"
+        },
+        {
+          "title": "Fabregas antes del choque con Torino: Debemos mantene…",
+          "url": "https://www.ysscores.com/es/news/14081067/fabregas-antes-del-choque-con-torino-debemos-mantener-el-enfoque-durante-90-minutos",
+          "source": "YSscores"
+        }
+      ]
+    },
+    {
+      "term": "martin landaluce",
+      "traffic": "100+",
+      "published_at": "2026-10-27T19:10:00.000Z",
+      "news": [
+        {
+          "title": "Alexander Zverev Martin Landaluce live score and H2H results",
+          "url": "https://www.sofascore.com/tennis/match/martin-landaluce-alexander-zverev/nTxsWTqd",
+          "source": "Sofascore"
+        },
+        {
+          "title": "Maria Kononova Josephine Kunz live score and H2H results",
+          "url": "https://www.sofascore.com/tennis/match/josephine-kunz-maria-kononova/FrtbsyoVd",
+          "source": "Sofascore"
+        },
+        {
+          "title": "Ekaterina Tupitsyna Minel Naz Kaynak live score and H2H results",
+          "url": "https://www.sofascore.com/tennis/match/minel-naz-kaynak-ekaterina-tupitsyna/XvNishWbj",
+          "source": "Sofascore"
+        }
+      ]
+    },
+    {
+      "term": "dortmund vs werder",
+      "traffic": "1000+",
+      "published_at": "2026-10-27T18:50:00.000Z",
+      "news": [
+        {
+          "title": "DFB-Pokal 2026/27: Spielplan und Termine – wann spielt der FC Augsburg?",
+          "url": "https://www.augsburger-allgemeine.de/sport/dfb-pokal-26-27-spielplan-und-termine-27-10-26-114720457",
+          "source": "Augsburger Allgemeine"
+        },
+        {
+          "title": "Thioune rotiert: Itten stürmt in Dortmund",
+          "url": "https://www.werder.de/news/maenner/2026-2027/aufstellung-dortmund-27102026",
+          "source": "Werder Bremen"
+        },
+        {
+          "title": "Pokalvorschau mit Nils Petersen: \"Das sind Spiele, die sind untippbar\"",
+          "url": "https://www.kicker.de/pokalvorschau-mit-nils-petersen-das-sind-spiele-die-sind-untippbar-1265485/video",
+          "source": "Kicker"
+        }
+      ]
+    },
+    {
+      "term": "visakhapatnam weather",
+      "traffic": "200+",
+      "published_at": "2026-10-27T18:10:00.000Z",
+      "news": [
+        {
+          "title": "Rain Disrupts Normal Life In Tirupati; More Rains Predicted",
+          "url": "https://www.deccanchronicle.com/southern-states/andhra-pradesh/rain-disrupts-normal-life-in-tirupati-more-rains-predicted-1998869",
+          "source": "Deccan Chronicle"
+        },
+        {
+          "title": "Visakhapatnam High Alert: Heavy Rain Forecast Till October 29",
+          "url": "https://www.yovizag.com/visakhapatnam-high-alert-heavy-rain-forecast-till-october-29/",
+          "source": "Yo Vizag"
+        },
+        {
+          "title": "Thunderstorms likely in Nellore, Tirupati on October 21; heavy rain forecast on October 22",
+          "url": "https://www.thehindu.com/news/national/andhra-pradesh/thunderstorms-likely-in-nellore-tirupati-on-october-21-heavy-rain-forecast-on-october-2/article71606405.ece",
+          "source": "The Hindu"
+        }
+      ]
+    },
+    {
+      "term": "gold price drop october 27",
+      "traffic": "500+",
+      "published_at": "2026-10-27T18:10:00.000Z",
+      "news": [
+        {
+          "title": "Gold and silver price today, October 26: Check rates of 24K, 22K gold in Delhi, Mumbai, Kolkata other cities",
+          "url": "https://www.moneycontrol.com/news/business/personal-finance/gold-and-silver-price-today-october-26-check-rates-of-24k-22k-gold-in-delhi-mumbai-kolkata-other-cities-14059747.html",
+          "source": "Moneycontrol.com"
+        },
+        {
+          "title": "Gold Rate Today, October 27: Check 18, 22 and 24 carat gold prices in Chennai, Mumbai, Delhi, Kolkata and other cities",
+          "url": "https://indianexpress.com/article/india/gold-rate-today-october-27-check-18-22-and-24-carat-gold-prices-in-chennai-mumbai-delhi-kolkata-and-other-cities-10938365/",
+          "source": "The Indian Express"
+        },
+        {
+          "title": "Silver Futures Decline to Rs 1.92 Lakh/kg",
+          "url": "https://money.rediff.com/news/market/silver-futures-decline-to-rs-1-92-lakh-kg/56946320261027",
+          "source": "Rediff"
+        }
+      ]
+    },
+    {
+      "term": "lazio",
+      "traffic": "200+",
+      "published_at": "2026-10-27T18:00:00.000Z",
+      "news": [
+        {
+          "title": "Sassuolo-Lazio, 2-4: Esposito la riapre, poi Zaccagni! FOLLIA Thorstvedt 🟥",
+          "url": "https://onefootball.com/it/notizie/sassuolo-lazio-2-4-esposito-la-riapre-poi-zaccagni-follia-thorstvedt-43681667",
+          "source": "OneFootball"
+        },
+        {
+          "title": "Torino-Como, dove vederla (Sky o Dazn) in tv e streaming: orario, probabili formazioni, arbitro, precedenti e quote",
+          "url": "https://www.ilmessaggero.it/sport/schede/torino_como_orario_formazioni_dove_vederla_sky_dazn_tv_streaming_arbitro_precedenti_quote_serie_a-torino_como_orario_e_dove_si_gioca-2-9851781.html",
+          "source": "Il Messaggero"
+        },
+        {
+          "title": "Lazio, Frattesi: \"Tornare qui è sempre bello, oggi sembra di giocare in casa\"",
+          "url": "https://www.lazialita.com/2026/10/27/lazio-frattesi-tornare-qui-e-sempre-bello-oggi-sembra-di-giocare-in-casa/",
+          "source": "Lazialità"
+        }
+      ]
+    },
+    {
+      "term": "apple m6 macbook pro",
+      "traffic": "2000+",
+      "published_at": "2026-10-27T17:40:00.000Z",
+      "news": [
+        {
+          "title": "Apple introduces the new 14-inch MacBook Pro with M6",
+          "url": "https://www.apple.com/in/newsroom/2026/10/apple-introduces-the-new-14-inch-macbook-pro-with-m6/",
+          "source": "Apple"
+        },
+        {
+          "title": "Apple updates 14-inch MacBook Pro and iMac with the M6 processor - GSMArena.com news",
+          "url": "https://www.gsmarena.com/apple_updates_14inch_macbook_pro_and_imac_with_m6-news-75228.php",
+          "source": "GSMArena.com"
+        },
+        {
+          "title": "Evercore ISI reiterates Apple stock rating on new M6 Macs By Investing.com",
+          "url": "https://in.investing.com/news/stock-market-news/evercore-isi-reiterates-apple-stock-rating-on-new-m6-macs-93CH-5657816",
+          "source": "Investing.com India"
+        }
+      ]
+    }
+  ],
+  "previous_edition": null
+}

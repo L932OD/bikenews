@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bike Desk</title>
+  <meta name="description" content="India's two-wheeler news, once a day.">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#141518" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#E8E6E1" media="(prefers-color-scheme: light)">
+  <link rel="preload" href="fonts/barlow-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/barlow-semi-condensed-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/source-serif-4-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23141518'/%3E%3Cpath d='M11 6h4l-6 20H5zM19 6h4l-6 20h-4z' fill='%23FF5A36'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="cluster">
+    <a class="brand" href="./" aria-label="Bike Desk, today's edition">
+      <span class="stripes stripes--brand" aria-hidden="true"></span>
+      <span class="brand__name">Bike Desk</span>
+    </a>
+    <dl class="readout" id="readout" aria-label="Edition">
+      <div><dt class="sr">Date</dt><dd id="r-date">&nbsp;</dd></div>
+      <div><dt class="sr">Stories</dt><dd id="r-count">&nbsp;</dd></div>
+      <div><dt class="sr">Updated</dt><dd id="r-time">&nbsp;</dd></div>
+    </dl>
+  </header>
+
+  <main id="paper" class="paper" aria-live="polite">
+    <noscript><p class="notice">Bike Desk needs JavaScript to show the day's stories.</p></noscript>
+  </main>
+
+  <footer class="foot">
+    <section class="rides" aria-labelledby="rides-h" hidden id="rides">
+      <h2 class="label" id="rides-h">Earlier rides</h2>
+      <ul class="chips" id="chips"></ul>
+    </section>
+    <p class="foot__note">Gathered every morning at 09:00 IST from Rushlane, Autocar India, BikeWale, NDTV Auto, MotorBeam, BikeAdvice, ET Auto and Google Trends. Every story links to the publishers who reported it.</p>
+  </footer>
+</body>
+</html>
