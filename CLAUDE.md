@@ -1,4 +1,4 @@
-# Bike Desk
+# Bike News
 
 India's two-wheeler news, once a day. Code fetches the news; Claude chooses and writes; Vercel serves a static page.
 

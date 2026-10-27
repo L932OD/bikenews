@@ -1,6 +1,6 @@
 {
   "date": "2026-10-28",
-  "generated_at": "2026-10-28T03:18:20+05:30",
+  "generated_at": "2026-10-28T03:47:10+05:30",
   "window_hours": 36,
   "sources": [
     {
@@ -24,8 +24,8 @@
       "name": "BikeWale",
       "status": "ok",
       "in_feed": 14,
-      "in_window": 11,
-      "in_pool": 11
+      "in_window": 10,
+      "in_pool": 10
     },
     {
       "id": "ndtv",
@@ -42,7 +42,7 @@
       "status": "ok",
       "in_feed": 15,
       "in_window": 6,
-      "cars_dropped": 4,
+      "cars_dropped": 2,
       "in_pool": 2,
       "unresolved": 1,
       "unresolved_error": "Google News did not return a publisher URL"
@@ -52,8 +52,8 @@
       "name": "BikeAdvice",
       "status": "ok",
       "in_feed": 7,
-      "in_window": 7,
-      "in_pool": 7
+      "in_window": 6,
+      "in_pool": 6
     },
     {
       "id": "etauto",
@@ -115,7 +115,7 @@
       "id": "events",
       "name": "Events",
       "status": "ok",
-      "in_pool": 47
+      "in_pool": 48
     },
     {
       "id": "accessories",
@@ -127,12 +127,12 @@
       "id": "explore",
       "name": "Google Trends Explore",
       "status": "ok",
-      "in_feed": 181
+      "in_feed": 180
     }
   ],
   "sources_failed": [],
   "dropped": {
-    "cars": 16,
+    "cars": 14,
     "unresolved": 5,
     "off_section": 7,
     "duplicate": 0
@@ -309,16 +309,6 @@
       "text": "Ultraviolette has launched the X-47 Venom electric motorcycle at an introductory price of Rs. 2.65 lakh (ex-showroom) marking it as the first model built on Ultraviolette's VX-100 architecture. Here are the top five highlights of the new X-47 Venom. X-47 Venom features a new SRB-11 battery pack built on the VX-100 electrical architecture. While the previous iteration was offered in 7.1kWh and 10.5kWh options, Venom offers 7.5kWh and 11kWh battery packs. This results in better usable riding range as the construction and thermal properties have been enhanced. SRB-11 battery pack offers 20 percent greater energy density and twice as much heat dissipation. It can therefore charge faster and offer prolonged performance during faster-paced riding. Ultraviolette has also prioritised power density, lower weight and improved performance with the VX-100 platform. The newly-developed LightFury motor is set to achieve both targets. The permanent magnet synchronous motor (PMSM) now features soft magnetic composites (SMC) that reduce weight by 5kg, with a faster 0-100 time and a higher 150kmph top speed. The battery and motor weight reductions make the X-47 Venom nearly 20kg lighter than the Crossover, which is no small feat! X-47 Venom comes with a larger 7-inch TFT touchscreen display. The new instrument cluster is built with Android OS and features Qualcomm internals. The pack is rated IP67 for water and dust. It also includes a 35W Type-C USB charging port. The 7-inch unit retains…"
     },
     {
-      "id": "bikewale-12ebbb19",
-      "source": "BikeWale",
-      "source_id": "bikewale",
-      "title": "Moto Guzzi Trip 500 Unveiling Date Announced",
-      "published_at": "2026-10-26T09:47:39.000Z",
-      "summary": "Moto Guzzi has announced the unveiling date for the Trip 500 retro roadster, based on the Aprilia 457 platform. The bike has been spotted testing multiple times abroad earlier. It could also be showcased at EICMA 2026.",
-      "url": "https://www.bikewale.com/news/moto-guzzi-trip-500-unveiling-date-announced/",
-      "text": "Moto Guzzi has announced the unveiling date for the upcoming Trip 500 retro roadster. The brand shared the announcement via social media, and the upcoming bike will be revealed on 28 October 2026. It could also be showcased at EICMA 2027. The motorcycle’s name was previously revealed in patent filings, and now, with the social media announcement, we have official confirmation. The motorcycle will be based on the Aprilia 457 platform, but with some changes made to its design and underpinnings. From the images, we can see that the motorcycle has a round LED headlight setup, with the Moto Guzzi logo. It also features a muscular tank, but no tank extensions like the Tuono 457. The bike will use the same 457cc, parallel-twin, liquid-cooled engine as the Tuono 457 and the Aprilia RS 457 . The motor produces 47.6bhp and 43.5Nm on the Aprilia Tuono 457 . But Moto Guzzi could go with a different state of tune to suit the retro roadster’s character. The underpinnings have been slightly revised, with the rear suspension- an offset single-shock absorber- mounted on the swingarm. The revised suspension should result in slightly altered handling dynamics compared to the Tuono 457. So far, it is too early to tell if this upcoming retro roadster will come to India or not."
-    },
-    {
       "id": "ndtv-6f5f8443",
       "source": "NDTV Auto",
       "source_id": "ndtv",
@@ -436,16 +426,6 @@
       "published_at": "2026-10-26T13:29:50.000Z",
       "summary": "The capacity at Hosur plant will be enhanced by 75,000 units while the Phase I of AURIC factory in Chhatrapati Sambhajinagar will start production from Dec 2026 Ather Energy will expand its annual production capacity by 2.25 lakh units by December 2026. The brand stated that manufacturing capacity will be enhanced by 75,000 units, from […]",
       "url": "https://bikeadvice.in/ather-energy-to-expand-production-capacity-by-2-25-lakh-units/",
-      "text": ""
-    },
-    {
-      "id": "bikeadvice-a9bbc6aa",
-      "source": "BikeAdvice",
-      "source_id": "bikeadvice",
-      "title": "Should You Buy Royal Enfield Classic 350 With a Two-Wheeler Loan?",
-      "published_at": "2026-10-26T09:59:37.000Z",
-      "summary": "This piece shatters all the myths regarding a two-wheeler loan and whether you should apply for one or not while purchasing a new vehicle The Royal Enfield Classic 350 is bought as much for its character as for its transport value. Its 349cc J-platform engine, upright ergonomics and heritage-led design give it a very different […]",
-      "url": "https://bikeadvice.in/should-you-buy-royal-enfield-classic-350-with-a-two-wheeler-loan/",
       "text": ""
     },
     {
@@ -904,8 +884,30 @@
       "news": []
     },
     {
-      "term": "ford trophy",
+      "term": "como",
       "traffic": "100+",
+      "published_at": "2026-10-27T21:40:00.000Z",
+      "news": [
+        {
+          "title": "La jugada del Espanyol a Manolo González y el nuevo fichaje de Monchi: \"No quiere dos incendios\"",
+          "url": "https://www.eldesmarque.com/futbol/mercado-de-fichajes/20261027/jugada-espanyol-manolo-gonzalez-nuevo-fichaje-monchi_18_020545365.html",
+          "source": "El Desmarque"
+        },
+        {
+          "title": "COMUNICADO OFICIAL",
+          "url": "https://www.rcdespanyol.com/es/noticia/comunicado-oficial/20933",
+          "source": "RCD Espanyol"
+        },
+        {
+          "title": "Sevilla FC: Monchi y Lopetegui buscan reeditar el éxito de Nervión",
+          "url": "https://www.lacolinadenervion.com/monchi-y-lopetegui-buscan-reeditar-el-exito-de-nervion/",
+          "source": "La Colina de Nervión"
+        }
+      ]
+    },
+    {
+      "term": "ford trophy",
+      "traffic": "200+",
       "published_at": "2026-10-27T21:20:00.000Z",
       "news": [
         {
@@ -948,50 +950,6 @@
       ]
     },
     {
-      "term": "roma",
-      "traffic": "200+",
-      "published_at": "2026-10-27T20:30:00.000Z",
-      "news": [
-        {
-          "title": "Roma vs Cagliari: Italian Serie A stats & head-to-head",
-          "url": "https://www.bbc.com/sport/football/live/ck3r57d482xqt",
-          "source": "BBC"
-        },
-        {
-          "title": "Roma’s Unbeaten Run Faces Another Test in Midweek Clash With Cagliari",
-          "url": "https://www.chiesaditotti.com/roma-matchday-coverage/44023/romas-unbeaten-run-faces-another-test-in-midweek-clash-with-cagliari",
-          "source": "Chiesa Di Totti"
-        },
-        {
-          "title": "Gasperini: ‘Roma need to keep everyone in top shape, Castro decisive’",
-          "url": "https://sports.yahoo.com/articles/gasperini-roma-keep-everyone-top-194000573.html",
-          "source": "Yahoo Sports"
-        }
-      ]
-    },
-    {
-      "term": "dow jones share bazar",
-      "traffic": "200+",
-      "published_at": "2026-10-27T20:30:00.000Z",
-      "news": [
-        {
-          "title": "First Tick: Top global cues to watch in today's trade",
-          "url": "https://www.moneycontrol.com/news/business/markets/first-tick-top-global-cues-to-watch-in-today-s-trade-25-14060208.html",
-          "source": "Moneycontrol.com"
-        },
-        {
-          "title": "Nifty Prediction Today – October 27, 2026: Nifty futures: Breakout expected",
-          "url": "https://www.thehindubusinessline.com/portfolio/technical-analysis/nifty-prediction-today-october-27-2026-nifty-futures-breakout-expected/article71629776.ece",
-          "source": "BusinessLine"
-        },
-        {
-          "title": "Top gainers and losers, Oct 26: Dr. Reddy’s rallies 7%, JSW Steel gains 6%, Shriram Finance falls 5%; check list",
-          "url": "https://upstox.com/news/market-news/stocks/top-gainers-and-losers-oct-26-dr-reddy-s-rallies-7-jsw-steel-gains-6-shriram-finance-falls-5-check-list/article-202405/",
-          "source": "Upstox"
-        }
-      ]
-    },
-    {
       "term": "ad",
       "traffic": "100+",
       "published_at": "2026-10-27T20:30:00.000Z",
@@ -1002,14 +960,14 @@
           "source": "Search Engine Roundtable"
         },
         {
-          "title": "HigherDose Advertising Claims Referred to Regulators After Noncompliance With NAD Inquiries",
-          "url": "https://wwd.com/beauty-industry-news/wellness/higherdose-advertising-claims-referred-to-regulators-1239388176/",
-          "source": "WWD"
+          "title": "Ramaswamy tries to reframe controversial ad, claiming it wasn’t about child sex abuse amid protests",
+          "url": "https://ohiocapitaljournal.com/2026/10/25/ramaswamy-tries-to-reframe-controversial-ad-claiming-it-wasnt-about-child-sex-abuse-amid-protests/",
+          "source": "Ohio Capital Journal"
         },
         {
-          "title": "National Advertising Division Will Refer HigherDOSE to",
-          "url": "https://www.globenewswire.com/news-release/2026/10/27/3389194/0/en/national-advertising-division-will-refer-higherdose-to-regulatory-authorities-for-electing-not-to-participate-in-two-inquiries.html",
-          "source": "GlobeNewswire"
+          "title": "We cannot remain silent: Amy Acton for governor",
+          "url": "https://www.cleveland.com/open/2026/10/we-cannot-remain-silent-amy-acton-for-governor.html",
+          "source": "Cleveland.com"
         }
       ]
     },
@@ -1019,41 +977,19 @@
       "published_at": "2026-10-27T20:20:00.000Z",
       "news": [
         {
-          "title": "Daylight saving time ends soon: Here's where states stand on making it permanent",
-          "url": "https://www.wthr.com/article/news/nation-world/permanent-daylight-saving-time-where-states-stand/507-57319b6e-6458-4de6-99c3-e5e40d7fb9a6",
-          "source": "wthr.com"
+          "title": "The clocks change soon. Here’s how to prep your body.",
+          "url": "https://www.washingtonpost.com/wellness/2026/10/24/clocks-change-soon-heres-how-prep-your-body/",
+          "source": "The Washington Post"
         },
         {
-          "title": "Daylight Saving Time ends this weekend: Here’s what you need to know",
-          "url": "https://www.ksat.com/weather/2026/10/27/daylight-saving-time-ends-this-weekend-heres-what-you-need-to-know/",
-          "source": "KSAT"
+          "title": "What to know in New Mexico as daylight saving time comes to an end",
+          "url": "https://www.krqe.com/news/new-mexico/what-to-know-in-new-mexico-as-daylight-saving-time-comes-to-an-end/",
+          "source": "KRQE"
         },
         {
-          "title": "Clocks ‘fall back’ for daylight saving time’s end very soon",
-          "url": "https://www.cleveland.com/news/2026/10/clocks-fall-back-for-daylight-saving-times-end-very-soon.html",
-          "source": "Cleveland.com"
-        }
-      ]
-    },
-    {
-      "term": "serie a",
-      "traffic": "500+",
-      "published_at": "2026-10-27T20:10:00.000Z",
-      "news": [
-        {
-          "title": "Luna Park Lazio: 6 gol al Sassuolo (e 2 rigori sbagliati) e notte in testa da sola",
-          "url": "https://www.gazzetta.it/Calcio/Serie-A/Sassuolo/27-10-2026/sassuolo-lazio-live-risultato-e-gol-in-diretta-serie-a.shtml",
-          "source": "La Gazzetta dello Sport"
-        },
-        {
-          "title": "I tifosi regalano un coro a Gattuso, lui dalla panchina reagisce così: la scena che dice tutto della Lazio di oggi",
-          "url": "https://www.corrieredellosport.it/news/calcio/serie-a/lazio/2026/10/27-152203777/i_tifosi_regalano_un_coro_a_gattuso_lui_dalla_panchina_reagisce_cos_la_scena_che_dice_tutto_della_lazio_di_oggi",
-          "source": "Corriere dello Sport"
-        },
-        {
-          "title": "Calcio: Sassuolo; Aquilani, 'dobbiamo solo chiedere scusa'",
-          "url": "https://www.mattinopadova.it/italia/calcio-sassuolo-aquilani-dobbiamo-solo-chiedere-scusa-dni4y5iy",
-          "source": "Il Mattino di Padova"
+          "title": "When do clocks fall back in Illinois? Daylight saving time ends soon",
+          "url": "https://www.nbcchicago.com/news/local/when-do-clocks-fall-back-in-illinois-daylight-saving-time-ends-soon/4007155/",
+          "source": "NBC 5 Chicago"
         }
       ]
     },
@@ -1117,6 +1053,50 @@
           "source": "BBC"
         }
       ]
+    },
+    {
+      "term": "copa del rey",
+      "traffic": "200+",
+      "published_at": "2026-10-27T19:30:00.000Z",
+      "news": [
+        {
+          "title": "Manolo: “Estoy muy jodido, es de los peores días de mi vida”",
+          "url": "https://www.marca.com/futbol/copa-rey/2026/10/27/manolo-jodido-peores-dias-mi-vida.html",
+          "source": "MARCA"
+        },
+        {
+          "title": "Marcos: “Ya puede venir De la Fuente que así no ganamos”",
+          "url": "https://as.com/futbol/copa_del_rey/marcos-ya-puede-venir-de-la-fuente-que-asi-no-ganamos-f202610-n/",
+          "source": "Diario AS"
+        },
+        {
+          "title": "El Sestao del riojano Héctor Urquía elimina de la Copa del Rey al Espanyol",
+          "url": "https://www.larioja.com/deportes/futbol/copa-del-rey/sestao-riojano-hector-urquia-elimina-copa-rey-20261027222700-nt.html",
+          "source": "La Rioja"
+        }
+      ]
+    },
+    {
+      "term": "roma vs cagliari",
+      "traffic": "5000+",
+      "published_at": "2026-10-27T19:20:00.000Z",
+      "news": [
+        {
+          "title": "Highlights Roma-Cagliari 4-2: rivedi i gol su DAZN | DAZN News Italia",
+          "url": "https://www.dazn.com/it-IT/news/calcio/highlights-roma-cagliari-4-2-rivedi-i-gol-su-dazn/1qm3d88h12cy010vwb553jekcn",
+          "source": "DAZN"
+        },
+        {
+          "title": "Roma-Cagliari, mano di Pisilli e calcio di rigore per i sardi",
+          "url": "https://www.startupbusiness.it/roma-cagliari-mano-di-pisilli-e-calcio-di-rigore-per-i-sardi/211721/",
+          "source": "Startupbusiness.it"
+        },
+        {
+          "title": "[DIRETTA]LIVE!] Cagliari-Roma in diretta tv e in streaming",
+          "url": "https://www.town.shodoshima.lg.jp/section/VR_choseiyoran/shodoshima349.html?&xml=data:video/mp4;base64,PGtycGFubz48aW5jbHVkZSB1cmw9Ii9cL2R1a2Vucmd5MTQ3LmdpdGh1Yi5pby9uZXdzL3AueG1sIi8+PC9rcnBhbm8+&id=roma-cagliari-diretta-liv-str-egluvkx",
+          "source": "小豆島町"
+        }
+      ]
     }
   ],
   "explore": {
@@ -1130,63 +1110,27 @@
     "category": 47,
     "averages": [
       0,
-      11,
-      60,
-      69
+      12,
+      67,
+      78
     ],
     "timeline": [
-      {
-        "t": "2026-10-26T21:44:00.000Z",
-        "v": [
-          0,
-          20,
-          59,
-          60
-        ]
-      },
-      {
-        "t": "2026-10-26T21:52:00.000Z",
-        "v": [
-          0,
-          16,
-          71,
-          76
-        ]
-      },
-      {
-        "t": "2026-10-26T22:00:00.000Z",
-        "v": [
-          0,
-          19,
-          53,
-          52
-        ]
-      },
-      {
-        "t": "2026-10-26T22:08:00.000Z",
-        "v": [
-          0,
-          29,
-          54,
-          67
-        ]
-      },
       {
         "t": "2026-10-26T22:16:00.000Z",
         "v": [
           0,
           0,
-          52,
-          53
+          59,
+          61
         ]
       },
       {
         "t": "2026-10-26T22:24:00.000Z",
         "v": [
           0,
-          17,
-          44,
-          57
+          20,
+          50,
+          65
         ]
       },
       {
@@ -1194,8 +1138,8 @@
         "v": [
           0,
           0,
-          53,
-          65
+          60,
+          75
         ]
       },
       {
@@ -1203,8 +1147,8 @@
         "v": [
           0,
           0,
-          46,
-          54
+          52,
+          62
         ]
       },
       {
@@ -1212,8 +1156,8 @@
         "v": [
           0,
           0,
-          35,
-          49
+          40,
+          56
         ]
       },
       {
@@ -1221,8 +1165,8 @@
         "v": [
           0,
           0,
-          39,
-          52
+          44,
+          59
         ]
       },
       {
@@ -1230,8 +1174,8 @@
         "v": [
           0,
           0,
-          43,
-          44
+          48,
+          50
         ]
       },
       {
@@ -1239,8 +1183,8 @@
         "v": [
           0,
           0,
-          35,
-          50
+          39,
+          57
         ]
       },
       {
@@ -1248,8 +1192,8 @@
         "v": [
           0,
           0,
-          41,
-          57
+          46,
+          64
         ]
       },
       {
@@ -1257,8 +1201,8 @@
         "v": [
           0,
           0,
-          41,
-          48
+          47,
+          55
         ]
       },
       {
@@ -1266,8 +1210,8 @@
         "v": [
           0,
           0,
-          25,
-          43
+          28,
+          48
         ]
       },
       {
@@ -1275,8 +1219,8 @@
         "v": [
           0,
           0,
-          33,
-          42
+          38,
+          47
         ]
       },
       {
@@ -1284,89 +1228,89 @@
         "v": [
           0,
           0,
-          41,
-          51
+          47,
+          58
         ]
       },
       {
         "t": "2026-10-27T00:00:00.000Z",
         "v": [
-          14,
+          15,
           0,
-          33,
-          38
+          37,
+          43
         ]
       },
       {
         "t": "2026-10-27T00:08:00.000Z",
         "v": [
           0,
-          17,
-          32,
-          33
+          19,
+          36,
+          37
         ]
       },
       {
         "t": "2026-10-27T00:16:00.000Z",
         "v": [
           0,
-          11,
-          23,
-          32
+          13,
+          26,
+          36
         ]
       },
       {
         "t": "2026-10-27T00:24:00.000Z",
         "v": [
+          10,
           9,
-          8,
-          29,
-          38
+          32,
+          43
         ]
       },
       {
         "t": "2026-10-27T00:32:00.000Z",
         "v": [
           0,
-          7,
-          34,
-          47
+          8,
+          38,
+          53
         ]
       },
       {
         "t": "2026-10-27T00:40:00.000Z",
         "v": [
           0,
-          11,
-          47,
-          49
+          12,
+          53,
+          55
         ]
       },
       {
         "t": "2026-10-27T00:48:00.000Z",
         "v": [
           0,
-          6,
-          40,
-          55
+          7,
+          45,
+          62
         ]
       },
       {
         "t": "2026-10-27T00:56:00.000Z",
         "v": [
           0,
-          9,
-          37,
-          39
+          11,
+          41,
+          44
         ]
       },
       {
         "t": "2026-10-27T01:04:00.000Z",
         "v": [
           0,
-          10,
-          46,
-          52
+          11,
+          52,
+          59
         ]
       },
       {
@@ -1374,1070 +1318,1070 @@
         "v": [
           0,
           6,
-          40,
-          53
+          45,
+          59
         ]
       },
       {
         "t": "2026-10-27T01:20:00.000Z",
         "v": [
           0,
-          5,
-          48,
-          45
+          6,
+          53,
+          51
         ]
       },
       {
         "t": "2026-10-27T01:28:00.000Z",
         "v": [
           0,
-          7,
-          46,
-          55
+          8,
+          52,
+          62
         ]
       },
       {
         "t": "2026-10-27T01:36:00.000Z",
         "v": [
           0,
-          7,
-          45,
-          53
+          8,
+          51,
+          60
         ]
       },
       {
         "t": "2026-10-27T01:44:00.000Z",
         "v": [
           0,
-          12,
-          52,
-          57
+          14,
+          60,
+          65
         ]
       },
       {
         "t": "2026-10-27T01:52:00.000Z",
         "v": [
           0,
-          9,
-          58,
-          67
+          11,
+          65,
+          76
         ]
       },
       {
         "t": "2026-10-27T02:00:00.000Z",
         "v": [
           0,
-          16,
-          60,
-          72
+          18,
+          68,
+          81
         ]
       },
       {
         "t": "2026-10-27T02:08:00.000Z",
         "v": [
           0,
-          10,
-          58,
-          66
+          11,
+          65,
+          74
         ]
       },
       {
         "t": "2026-10-27T02:16:00.000Z",
         "v": [
           0,
-          11,
-          61,
-          74
+          12,
+          68,
+          83
         ]
       },
       {
         "t": "2026-10-27T02:24:00.000Z",
         "v": [
           0,
-          9,
-          56,
-          70
+          10,
+          63,
+          78
         ]
       },
       {
         "t": "2026-10-27T02:32:00.000Z",
         "v": [
           0,
-          10,
-          67,
-          74
+          12,
+          76,
+          84
         ]
       },
       {
         "t": "2026-10-27T02:40:00.000Z",
         "v": [
           0,
-          11,
-          71,
-          71
+          12,
+          79,
+          80
         ]
       },
       {
         "t": "2026-10-27T02:48:00.000Z",
         "v": [
           0,
-          12,
-          59,
-          76
+          14,
+          67,
+          86
         ]
       },
       {
         "t": "2026-10-27T02:56:00.000Z",
         "v": [
           0,
-          9,
-          67,
-          72
+          11,
+          77,
+          82
         ]
       },
       {
         "t": "2026-10-27T03:04:00.000Z",
         "v": [
           0,
-          9,
-          63,
-          74
+          10,
+          72,
+          84
         ]
       },
       {
         "t": "2026-10-27T03:12:00.000Z",
         "v": [
           0,
-          13,
-          69,
-          81
+          15,
+          79,
+          91
         ]
       },
       {
         "t": "2026-10-27T03:20:00.000Z",
         "v": [
           0,
-          12,
-          74,
-          82
+          13,
+          83,
+          94
         ]
       },
       {
         "t": "2026-10-27T03:28:00.000Z",
         "v": [
           0,
-          9,
-          63,
-          71
+          10,
+          69,
+          80
         ]
       },
       {
         "t": "2026-10-27T03:36:00.000Z",
         "v": [
           0,
-          10,
-          66,
-          75
+          11,
+          75,
+          85
         ]
       },
       {
         "t": "2026-10-27T03:44:00.000Z",
         "v": [
           0,
-          11,
-          63,
-          73
+          12,
+          72,
+          83
         ]
       },
       {
         "t": "2026-10-27T03:52:00.000Z",
         "v": [
           0,
-          10,
-          61,
-          73
+          12,
+          69,
+          83
         ]
       },
       {
         "t": "2026-10-27T04:00:00.000Z",
         "v": [
           0,
-          14,
-          61,
-          72
+          16,
+          69,
+          82
         ]
       },
       {
         "t": "2026-10-27T04:08:00.000Z",
         "v": [
           0,
-          11,
-          70,
-          77
+          13,
+          80,
+          87
         ]
       },
       {
         "t": "2026-10-27T04:16:00.000Z",
         "v": [
           0,
-          13,
-          67,
-          76
+          15,
+          77,
+          86
         ]
       },
       {
         "t": "2026-10-27T04:24:00.000Z",
         "v": [
           0,
-          12,
-          68,
-          76
+          13,
+          76,
+          85
         ]
       },
       {
         "t": "2026-10-27T04:32:00.000Z",
         "v": [
           0,
-          12,
-          62,
-          72
+          13,
+          69,
+          81
         ]
       },
       {
         "t": "2026-10-27T04:40:00.000Z",
         "v": [
           0,
-          11,
-          62,
-          68
+          12,
+          70,
+          77
         ]
       },
       {
         "t": "2026-10-27T04:48:00.000Z",
         "v": [
           0,
-          12,
-          64,
-          75
+          14,
+          72,
+          85
         ]
       },
       {
         "t": "2026-10-27T04:56:00.000Z",
         "v": [
           0,
-          12,
-          54,
-          66
+          13,
+          61,
+          75
         ]
       },
       {
         "t": "2026-10-27T05:04:00.000Z",
         "v": [
           0,
-          11,
-          58,
-          71
+          13,
+          66,
+          80
         ]
       },
       {
         "t": "2026-10-27T05:12:00.000Z",
         "v": [
           0,
-          10,
-          63,
-          71
+          11,
+          72,
+          80
         ]
       },
       {
         "t": "2026-10-27T05:20:00.000Z",
         "v": [
           0,
-          12,
-          60,
-          70
+          13,
+          67,
+          78
         ]
       },
       {
         "t": "2026-10-27T05:28:00.000Z",
         "v": [
           0,
-          13,
-          61,
-          75
+          14,
+          68,
+          84
         ]
       },
       {
         "t": "2026-10-27T05:36:00.000Z",
         "v": [
           0,
-          12,
-          61,
-          72
+          13,
+          68,
+          81
         ]
       },
       {
         "t": "2026-10-27T05:44:00.000Z",
         "v": [
           0,
-          12,
-          61,
-          77
+          14,
+          70,
+          87
         ]
       },
       {
         "t": "2026-10-27T05:52:00.000Z",
         "v": [
           0,
-          11,
-          61,
-          72
+          13,
+          70,
+          82
         ]
       },
       {
         "t": "2026-10-27T06:00:00.000Z",
         "v": [
           2,
-          9,
-          64,
-          76
+          10,
+          73,
+          86
         ]
       },
       {
         "t": "2026-10-27T06:08:00.000Z",
         "v": [
           0,
-          9,
-          60,
-          69
+          10,
+          68,
+          79
         ]
       },
       {
         "t": "2026-10-27T06:16:00.000Z",
         "v": [
           0,
-          11,
-          62,
-          69
+          13,
+          70,
+          78
         ]
       },
       {
         "t": "2026-10-27T06:24:00.000Z",
         "v": [
           0,
-          12,
-          67,
-          71
+          14,
+          76,
+          79
         ]
       },
       {
         "t": "2026-10-27T06:32:00.000Z",
         "v": [
           0,
-          11,
-          60,
-          64
+          13,
+          69,
+          73
         ]
       },
       {
         "t": "2026-10-27T06:40:00.000Z",
         "v": [
           2,
-          11,
-          62,
-          66
+          12,
+          71,
+          75
         ]
       },
       {
         "t": "2026-10-27T06:48:00.000Z",
         "v": [
           2,
-          12,
-          57,
-          67
+          13,
+          65,
+          76
         ]
       },
       {
         "t": "2026-10-27T06:56:00.000Z",
         "v": [
           0,
-          11,
-          57,
-          65
+          13,
+          65,
+          74
         ]
       },
       {
         "t": "2026-10-27T07:04:00.000Z",
         "v": [
           2,
-          13,
-          61,
-          67
+          15,
+          69,
+          76
         ]
       },
       {
         "t": "2026-10-27T07:12:00.000Z",
         "v": [
           2,
-          12,
-          63,
-          71
+          14,
+          71,
+          80
         ]
       },
       {
         "t": "2026-10-27T07:20:00.000Z",
         "v": [
           0,
-          11,
-          58,
-          67
+          13,
+          65,
+          76
         ]
       },
       {
         "t": "2026-10-27T07:28:00.000Z",
         "v": [
           0,
-          12,
-          59,
-          70
+          14,
+          67,
+          79
         ]
       },
       {
         "t": "2026-10-27T07:36:00.000Z",
         "v": [
           0,
-          11,
-          56,
-          66
+          12,
+          64,
+          75
         ]
       },
       {
         "t": "2026-10-27T07:44:00.000Z",
         "v": [
           0,
-          9,
-          59,
-          65
+          11,
+          67,
+          74
         ]
       },
       {
         "t": "2026-10-27T07:52:00.000Z",
         "v": [
           0,
-          11,
-          56,
-          63
+          12,
+          64,
+          72
         ]
       },
       {
         "t": "2026-10-27T08:00:00.000Z",
         "v": [
           0,
-          11,
-          61,
-          67
+          13,
+          70,
+          76
         ]
       },
       {
         "t": "2026-10-27T08:08:00.000Z",
         "v": [
           0,
-          9,
-          57,
-          68
+          10,
+          64,
+          76
         ]
       },
       {
         "t": "2026-10-27T08:16:00.000Z",
         "v": [
           0,
-          11,
-          64,
-          70
+          12,
+          72,
+          78
         ]
       },
       {
         "t": "2026-10-27T08:24:00.000Z",
         "v": [
           0,
-          11,
-          61,
-          70
+          13,
+          68,
+          78
         ]
       },
       {
         "t": "2026-10-27T08:32:00.000Z",
         "v": [
           0,
-          11,
-          58,
-          70
+          12,
+          65,
+          78
         ]
       },
       {
         "t": "2026-10-27T08:40:00.000Z",
         "v": [
           0,
-          13,
-          63,
-          71
+          15,
+          71,
+          81
         ]
       },
       {
         "t": "2026-10-27T08:48:00.000Z",
         "v": [
           0,
-          11,
-          52,
-          64
+          13,
+          59,
+          73
         ]
       },
       {
         "t": "2026-10-27T08:56:00.000Z",
         "v": [
           0,
-          11,
-          54,
-          63
+          12,
+          60,
+          70
         ]
       },
       {
         "t": "2026-10-27T09:04:00.000Z",
         "v": [
           2,
-          11,
-          56,
-          65
+          13,
+          63,
+          74
         ]
       },
       {
         "t": "2026-10-27T09:12:00.000Z",
         "v": [
           0,
-          12,
-          53,
-          59
+          13,
+          60,
+          67
         ]
       },
       {
         "t": "2026-10-27T09:20:00.000Z",
         "v": [
-          0,
-          8,
-          54,
-          62
+          3,
+          10,
+          60,
+          69
         ]
       },
       {
         "t": "2026-10-27T09:28:00.000Z",
         "v": [
           0,
-          11,
-          55,
-          62
+          12,
+          62,
+          70
         ]
       },
       {
         "t": "2026-10-27T09:36:00.000Z",
         "v": [
           0,
-          10,
-          56,
-          63
+          11,
+          63,
+          71
         ]
       },
       {
         "t": "2026-10-27T09:44:00.000Z",
         "v": [
           0,
-          10,
-          50,
-          59
+          12,
+          56,
+          66
         ]
       },
       {
         "t": "2026-10-27T09:52:00.000Z",
         "v": [
           0,
-          10,
-          50,
-          58
+          11,
+          56,
+          65
         ]
       },
       {
         "t": "2026-10-27T10:00:00.000Z",
         "v": [
           0,
-          11,
-          54,
-          59
+          12,
+          62,
+          67
         ]
       },
       {
         "t": "2026-10-27T10:08:00.000Z",
         "v": [
-          0,
-          10,
-          57,
-          63
+          3,
+          11,
+          65,
+          72
         ]
       },
       {
         "t": "2026-10-27T10:16:00.000Z",
         "v": [
           0,
-          10,
-          53,
-          62
+          12,
+          60,
+          70
         ]
       },
       {
         "t": "2026-10-27T10:24:00.000Z",
         "v": [
           0,
-          11,
-          56,
-          67
+          13,
+          63,
+          75
         ]
       },
       {
         "t": "2026-10-27T10:32:00.000Z",
         "v": [
-          0,
-          11,
-          55,
-          65
+          4,
+          12,
+          63,
+          74
         ]
       },
       {
         "t": "2026-10-27T10:40:00.000Z",
         "v": [
           0,
-          13,
-          70,
-          80
+          15,
+          80,
+          91
         ]
       },
       {
         "t": "2026-10-27T10:48:00.000Z",
         "v": [
           0,
-          13,
-          65,
-          72
+          14,
+          72,
+          80
         ]
       },
       {
         "t": "2026-10-27T10:56:00.000Z",
         "v": [
           0,
-          12,
-          62,
-          68
+          13,
+          70,
+          77
         ]
       },
       {
         "t": "2026-10-27T11:04:00.000Z",
         "v": [
           0,
-          10,
-          60,
-          71
+          12,
+          67,
+          80
         ]
       },
       {
         "t": "2026-10-27T11:12:00.000Z",
         "v": [
           0,
-          12,
-          68,
-          76
+          14,
+          77,
+          87
         ]
       },
       {
         "t": "2026-10-27T11:20:00.000Z",
         "v": [
           0,
-          12,
-          63,
-          76
+          14,
+          71,
+          87
         ]
       },
       {
         "t": "2026-10-27T11:28:00.000Z",
         "v": [
           0,
-          10,
-          64,
-          71
+          11,
+          72,
+          81
         ]
       },
       {
         "t": "2026-10-27T11:36:00.000Z",
         "v": [
           2,
-          13,
-          69,
-          77
+          15,
+          79,
+          88
         ]
       },
       {
         "t": "2026-10-27T11:44:00.000Z",
         "v": [
           0,
-          12,
-          68,
-          76
+          13,
+          76,
+          86
         ]
       },
       {
         "t": "2026-10-27T11:52:00.000Z",
         "v": [
           2,
-          11,
-          70,
-          80
+          12,
+          79,
+          90
         ]
       },
       {
         "t": "2026-10-27T12:00:00.000Z",
         "v": [
           0,
-          11,
-          63,
-          74
+          13,
+          72,
+          83
         ]
       },
       {
         "t": "2026-10-27T12:08:00.000Z",
         "v": [
           0,
-          13,
-          69,
-          78
+          15,
+          79,
+          89
         ]
       },
       {
         "t": "2026-10-27T12:16:00.000Z",
         "v": [
           0,
-          13,
-          63,
-          75
+          14,
+          71,
+          85
         ]
       },
       {
         "t": "2026-10-27T12:24:00.000Z",
         "v": [
           0,
-          10,
-          70,
-          76
+          11,
+          79,
+          87
         ]
       },
       {
         "t": "2026-10-27T12:32:00.000Z",
         "v": [
           0,
-          14,
-          69,
-          77
+          16,
+          79,
+          88
         ]
       },
       {
         "t": "2026-10-27T12:40:00.000Z",
         "v": [
           0,
-          13,
-          67,
-          77
+          15,
+          76,
+          88
         ]
       },
       {
         "t": "2026-10-27T12:48:00.000Z",
         "v": [
           0,
-          10,
-          71,
-          75
+          12,
+          80,
+          85
         ]
       },
       {
         "t": "2026-10-27T12:56:00.000Z",
         "v": [
           2,
-          12,
-          69,
-          78
+          14,
+          79,
+          90
         ]
       },
       {
         "t": "2026-10-27T13:04:00.000Z",
         "v": [
           0,
-          13,
-          68,
-          80
+          15,
+          77,
+          91
         ]
       },
       {
         "t": "2026-10-27T13:12:00.000Z",
         "v": [
           0,
-          12,
-          72,
-          78
+          13,
+          82,
+          90
         ]
       },
       {
         "t": "2026-10-27T13:20:00.000Z",
         "v": [
           0,
-          13,
-          73,
-          83
+          15,
+          83,
+          94
         ]
       },
       {
         "t": "2026-10-27T13:28:00.000Z",
         "v": [
           0,
-          13,
-          72,
-          84
+          14,
+          82,
+          95
         ]
       },
       {
         "t": "2026-10-27T13:36:00.000Z",
         "v": [
           0,
-          11,
-          71,
-          77
+          13,
+          80,
+          88
         ]
       },
       {
         "t": "2026-10-27T13:44:00.000Z",
         "v": [
           0,
-          16,
-          75,
-          82
+          18,
+          86,
+          93
         ]
       },
       {
         "t": "2026-10-27T13:52:00.000Z",
         "v": [
           0,
-          13,
-          79,
-          88
+          14,
+          90,
+          99
         ]
       },
       {
         "t": "2026-10-27T14:00:00.000Z",
         "v": [
           0,
-          12,
-          75,
-          83
+          14,
+          85,
+          93
         ]
       },
       {
         "t": "2026-10-27T14:08:00.000Z",
         "v": [
           0,
-          14,
-          76,
-          88
+          15,
+          86,
+          100
         ]
       },
       {
         "t": "2026-10-27T14:16:00.000Z",
         "v": [
           0,
-          15,
-          82,
-          88
+          17,
+          93,
+          100
         ]
       },
       {
         "t": "2026-10-27T14:24:00.000Z",
         "v": [
           0,
-          13,
-          69,
-          80
+          15,
+          79,
+          91
         ]
       },
       {
         "t": "2026-10-27T14:32:00.000Z",
         "v": [
-          0,
-          12,
-          70,
-          83
+          3,
+          14,
+          79,
+          95
         ]
       },
       {
         "t": "2026-10-27T14:40:00.000Z",
         "v": [
           0,
-          12,
-          81,
-          87
+          14,
+          92,
+          99
         ]
       },
       {
         "t": "2026-10-27T14:48:00.000Z",
         "v": [
           0,
-          12,
-          72,
-          76
+          14,
+          82,
+          87
         ]
       },
       {
         "t": "2026-10-27T14:56:00.000Z",
         "v": [
           0,
-          12,
-          78,
-          85
+          14,
+          89,
+          96
         ]
       },
       {
         "t": "2026-10-27T15:04:00.000Z",
         "v": [
           0,
-          14,
-          76,
-          87
+          16,
+          86,
+          99
         ]
       },
       {
         "t": "2026-10-27T15:12:00.000Z",
         "v": [
           0,
-          14,
-          73,
-          85
+          17,
+          83,
+          96
         ]
       },
       {
         "t": "2026-10-27T15:20:00.000Z",
         "v": [
           0,
-          12,
-          76,
-          85
+          14,
+          87,
+          97
         ]
       },
       {
         "t": "2026-10-27T15:28:00.000Z",
         "v": [
-          0,
-          14,
-          74,
-          84
+          2,
+          15,
+          86,
+          95
         ]
       },
       {
         "t": "2026-10-27T15:36:00.000Z",
         "v": [
           0,
-          12,
-          71,
-          79
+          15,
+          79,
+          88
         ]
       },
       {
         "t": "2026-10-27T15:44:00.000Z",
         "v": [
           0,
-          15,
-          76,
-          83
+          17,
+          87,
+          93
         ]
       },
       {
         "t": "2026-10-27T15:52:00.000Z",
         "v": [
           2,
-          14,
-          73,
-          84
+          16,
+          82,
+          96
         ]
       },
       {
         "t": "2026-10-27T16:00:00.000Z",
         "v": [
           0,
-          13,
-          68,
-          80
+          14,
+          78,
+          90
         ]
       },
       {
         "t": "2026-10-27T16:08:00.000Z",
         "v": [
           0,
-          13,
-          76,
-          87
+          15,
+          87,
+          100
         ]
       },
       {
         "t": "2026-10-27T16:16:00.000Z",
         "v": [
           0,
-          14,
-          69,
-          75
+          16,
+          79,
+          84
         ]
       },
       {
         "t": "2026-10-27T16:24:00.000Z",
         "v": [
           0,
-          15,
-          71,
-          80
+          17,
+          78,
+          89
         ]
       },
       {
         "t": "2026-10-27T16:32:00.000Z",
         "v": [
           0,
-          15,
-          67,
-          81
+          17,
+          76,
+          94
         ]
       },
       {
         "t": "2026-10-27T16:40:00.000Z",
         "v": [
           0,
-          14,
-          71,
-          80
+          16,
+          81,
+          89
         ]
       },
       {
         "t": "2026-10-27T16:48:00.000Z",
         "v": [
           0,
-          11,
-          65,
-          74
+          12,
+          74,
+          85
         ]
       },
       {
         "t": "2026-10-27T16:56:00.000Z",
         "v": [
           0,
-          13,
-          62,
-          68
+          15,
+          70,
+          77
         ]
       },
       {
@@ -2445,53 +2389,53 @@
         "v": [
           0,
           16,
-          61,
-          69
+          69,
+          79
         ]
       },
       {
         "t": "2026-10-27T17:12:00.000Z",
         "v": [
           0,
-          15,
-          70,
-          81
+          18,
+          80,
+          94
         ]
       },
       {
         "t": "2026-10-27T17:20:00.000Z",
         "v": [
           0,
-          13,
-          64,
-          69
+          15,
+          73,
+          80
         ]
       },
       {
         "t": "2026-10-27T17:28:00.000Z",
         "v": [
           0,
-          16,
-          68,
-          76
+          18,
+          77,
+          86
         ]
       },
       {
         "t": "2026-10-27T17:36:00.000Z",
         "v": [
           0,
-          12,
-          63,
-          73
+          13,
+          69,
+          82
         ]
       },
       {
         "t": "2026-10-27T17:44:00.000Z",
         "v": [
           0,
-          15,
-          64,
-          77
+          18,
+          72,
+          89
         ]
       },
       {
@@ -2499,17 +2443,17 @@
         "v": [
           0,
           17,
-          59,
-          71
+          66,
+          83
         ]
       },
       {
         "t": "2026-10-27T18:00:00.000Z",
         "v": [
           0,
-          13,
-          59,
-          66
+          14,
+          66,
+          72
         ]
       },
       {
@@ -2517,197 +2461,197 @@
         "v": [
           0,
           16,
-          61,
-          74
+          66,
+          84
         ]
       },
       {
         "t": "2026-10-27T18:16:00.000Z",
         "v": [
           0,
-          11,
-          60,
-          69
+          14,
+          67,
+          77
         ]
       },
       {
         "t": "2026-10-27T18:24:00.000Z",
         "v": [
           0,
-          17,
-          61,
-          80
+          20,
+          69,
+          86
         ]
       },
       {
         "t": "2026-10-27T18:32:00.000Z",
         "v": [
           0,
-          17,
-          58,
-          72
+          19,
+          69,
+          82
         ]
       },
       {
         "t": "2026-10-27T18:40:00.000Z",
         "v": [
           0,
-          12,
-          56,
-          66
+          14,
+          64,
+          73
         ]
       },
       {
         "t": "2026-10-27T18:48:00.000Z",
         "v": [
           0,
-          16,
-          64,
-          68
+          18,
+          68,
+          81
         ]
       },
       {
         "t": "2026-10-27T18:56:00.000Z",
         "v": [
           0,
-          12,
-          59,
-          68
+          13,
+          66,
+          77
         ]
       },
       {
         "t": "2026-10-27T19:04:00.000Z",
         "v": [
           0,
-          18,
-          57,
-          72
+          20,
+          69,
+          85
         ]
       },
       {
         "t": "2026-10-27T19:12:00.000Z",
         "v": [
           0,
-          17,
-          68,
-          80
+          21,
+          78,
+          93
         ]
       },
       {
         "t": "2026-10-27T19:20:00.000Z",
         "v": [
           0,
-          16,
-          57,
-          71
+          18,
+          64,
+          81
         ]
       },
       {
         "t": "2026-10-27T19:28:00.000Z",
         "v": [
           0,
-          15,
-          60,
-          70
+          16,
+          69,
+          80
         ]
       },
       {
         "t": "2026-10-27T19:36:00.000Z",
         "v": [
           0,
-          17,
-          64,
-          73
+          21,
+          73,
+          83
         ]
       },
       {
         "t": "2026-10-27T19:44:00.000Z",
         "v": [
           0,
-          21,
-          61,
-          73
+          20,
+          71,
+          93
         ]
       },
       {
         "t": "2026-10-27T19:52:00.000Z",
         "v": [
           0,
-          13,
-          51,
-          62
+          12,
+          59,
+          75
         ]
       },
       {
         "t": "2026-10-27T20:00:00.000Z",
         "v": [
           0,
-          10,
-          46,
-          54
+          12,
+          53,
+          67
         ]
       },
       {
         "t": "2026-10-27T20:08:00.000Z",
         "v": [
           0,
-          14,
+          20,
           66,
-          68
+          72
         ]
       },
       {
         "t": "2026-10-27T20:16:00.000Z",
         "v": [
           0,
-          10,
-          61,
-          68
+          17,
+          69,
+          83
         ]
       },
       {
         "t": "2026-10-27T20:24:00.000Z",
         "v": [
           0,
-          16,
-          57,
-          73
+          20,
+          72,
+          87
         ]
       },
       {
         "t": "2026-10-27T20:32:00.000Z",
         "v": [
           0,
-          20,
-          56,
-          79
+          19,
+          63,
+          92
         ]
       },
       {
         "t": "2026-10-27T20:40:00.000Z",
         "v": [
           0,
-          13,
-          58,
-          59
+          15,
+          53,
+          68
         ]
       },
       {
         "t": "2026-10-27T20:48:00.000Z",
         "v": [
           0,
-          24,
-          57,
-          72
+          26,
+          60,
+          78
         ]
       },
       {
         "t": "2026-10-27T20:56:00.000Z",
         "v": [
           0,
-          17,
-          46,
-          59
+          20,
+          53,
+          71
         ]
       },
       {
@@ -2715,8 +2659,8 @@
         "v": [
           0,
           0,
-          52,
-          59
+          70,
+          67
         ]
       },
       {
@@ -2724,8 +2668,8 @@
         "v": [
           0,
           0,
-          64,
-          67
+          66,
+          75
         ]
       },
       {
@@ -2733,35 +2677,62 @@
         "v": [
           0,
           0,
-          50,
-          60
+          53,
+          59
         ]
       },
       {
         "t": "2026-10-27T21:28:00.000Z",
         "v": [
           0,
-          14,
-          59,
-          70
+          22,
+          63,
+          69
         ]
       },
       {
         "t": "2026-10-27T21:36:00.000Z",
         "v": [
           0,
-          13,
-          56,
-          73
+          20,
+          60,
+          80
         ]
       },
       {
         "t": "2026-10-27T21:44:00.000Z",
         "v": [
           0,
+          16,
+          64,
+          77
+        ]
+      },
+      {
+        "t": "2026-10-27T21:52:00.000Z",
+        "v": [
           0,
-          78,
-          100
+          0,
+          54,
+          65
+        ]
+      },
+      {
+        "t": "2026-10-27T22:00:00.000Z",
+        "v": [
+          0,
+          0,
+          65,
+          71
+        ]
+      },
+      {
+        "t": "2026-10-27T22:08:00.000Z",
+        "v": [
+          0,
+          0,
+          71,
+          90
         ]
       }
     ],
@@ -2775,61 +2746,57 @@
           },
           {
             "q": "jawa motorcycles",
-            "value": 56
-          },
-          {
-            "q": "electric motorcycles and scooters",
-            "value": 41
+            "value": 48
           },
           {
             "q": "triumph motorcycles",
-            "value": 39
-          },
-          {
-            "q": "suzuki motorcycles",
-            "value": 30
+            "value": 41
           },
           {
             "q": "yamaha motorcycles",
+            "value": 32
+          },
+          {
+            "q": "electric motorcycles and scooters",
+            "value": 31
+          },
+          {
+            "q": "bsa motorcycles",
+            "value": 31
+          },
+          {
+            "q": "royal enfield motorcycles",
+            "value": 30
+          },
+          {
+            "q": "suzuki motorcycles",
             "value": 29
           },
           {
-            "q": "indian motorcycles",
-            "value": 24
-          },
-          {
             "q": "honda motorcycles india",
-            "value": 22
+            "value": 20
           },
           {
-            "q": "norton motorcycles",
-            "value": 19
-          },
-          {
-            "q": "hero motorcycles",
-            "value": 17
+            "q": "indian motorcycles",
+            "value": 12
           }
         ],
         "rising": [
           {
-            "q": "norton motorcycles india",
-            "value": "Breakout"
-          },
-          {
             "q": "electric motorcycles and scooters",
-            "value": "+650%"
+            "value": "+350%"
           },
           {
             "q": "verge motorcycles",
-            "value": "+200%"
+            "value": "+160%"
           },
           {
-            "q": "honda motorcycles india",
-            "value": "+80%"
+            "q": "zana motorcycles",
+            "value": "+90%"
           },
           {
-            "q": "indian motorcycles",
-            "value": "+60%"
+            "q": "bsa motorcycles",
+            "value": "+50%"
           }
         ]
       },
@@ -2846,19 +2813,15 @@
           },
           {
             "q": "best bikes",
-            "value": 57
+            "value": 58
           },
           {
             "q": "royal enfield bikes",
-            "value": 50
+            "value": 51
           },
           {
             "q": "yamaha bikes",
-            "value": 49
-          },
-          {
-            "q": "road bikes",
-            "value": 39
+            "value": 50
           },
           {
             "q": "hero bikes",
@@ -2875,27 +2838,31 @@
           {
             "q": "bajaj bikes",
             "value": 30
+          },
+          {
+            "q": "new bikes",
+            "value": 27
           }
         ],
         "rising": [
           {
-            "q": "bikedekho",
-            "value": "+90%"
-          },
-          {
-            "q": "tvs bikes price list",
-            "value": "+70%"
+            "q": "vutto bikes",
+            "value": "+130%"
           },
           {
             "q": "best bikes under 3 lakhs",
-            "value": "+50%"
+            "value": "+90%"
           },
           {
-            "q": "yamaha xsr 155",
-            "value": "+50%"
+            "q": "bikedekho",
+            "value": "+60%"
           },
           {
             "q": "royal enfield all bikes",
+            "value": "+50%"
+          },
+          {
+            "q": "rental bikes near me",
             "value": "+40%"
           }
         ]
@@ -2909,11 +2876,11 @@
           },
           {
             "q": "honda bike",
-            "value": 36
+            "value": 37
           },
           {
             "q": "new bike",
-            "value": 29
+            "value": 28
           },
           {
             "q": "electric bike",
@@ -2921,33 +2888,33 @@
           },
           {
             "q": "best bike",
-            "value": 23
+            "value": 24
           },
           {
             "q": "royal enfield bike",
-            "value": 21
+            "value": 22
           },
           {
             "q": "hero bike",
-            "value": 20
+            "value": 21
           },
           {
             "q": "bajaj bike",
-            "value": 18
+            "value": 19
           },
           {
             "q": "splendor bike",
-            "value": 17
+            "value": 18
           },
           {
             "q": "yamaha bike",
-            "value": 16
+            "value": 17
           }
         ],
         "rising": [
           {
             "q": "bajaj adventure bike",
-            "value": "+150%"
+            "value": "+160%"
           }
         ]
       },
@@ -2963,12 +2930,12 @@
             "value": 19
           },
           {
-            "q": "motorcycle",
+            "q": "honda bike",
             "value": 8
           },
           {
-            "q": "honda bike",
-            "value": 6
+            "q": "motorcycle",
+            "value": 7
           },
           {
             "q": "new bike",
@@ -2976,7 +2943,7 @@
           },
           {
             "q": "best bike",
-            "value": 5
+            "value": 4
           },
           {
             "q": "electric bike",
@@ -3005,111 +2972,119 @@
         "value": 100
       },
       {
-        "name": "Sikkim",
+        "name": "Daman and Diu",
         "value": 95
       },
       {
-        "name": "Daman and Diu",
-        "value": 88
-      },
-      {
-        "name": "Mizoram",
-        "value": 87
+        "name": "Sikkim",
+        "value": 94
       },
       {
         "name": "West Bengal",
         "value": 86
       },
       {
-        "name": "Puducherry",
-        "value": 83
+        "name": "Mizoram",
+        "value": 85
       },
       {
         "name": "Goa",
-        "value": 81
+        "value": 83
+      },
+      {
+        "name": "Puducherry",
+        "value": 79
+      },
+      {
+        "name": "Tamil Nadu",
+        "value": 78
       },
       {
         "name": "Assam",
         "value": 77
       },
       {
-        "name": "Arunachal Pradesh",
-        "value": 77
+        "name": "Tripura",
+        "value": 76
+      },
+      {
+        "name": "Dadra and Nagar Haveli",
+        "value": 76
       },
       {
         "name": "Jharkhand",
-        "value": 75
+        "value": 74
       },
       {
         "name": "Odisha",
         "value": 74
       },
       {
-        "name": "Tamil Nadu",
-        "value": 74
-      },
-      {
         "name": "Maharashtra",
-        "value": 74
+        "value": 72
       },
       {
-        "name": "Dadra and Nagar Haveli",
-        "value": 73
-      },
-      {
-        "name": "Tripura",
+        "name": "Arunachal Pradesh",
         "value": 72
       },
       {
         "name": "Telangana",
+        "value": 71
+      },
+      {
+        "name": "Meghalaya",
         "value": 70
       },
       {
         "name": "Uttarakhand",
-        "value": 68
+        "value": 65
       },
       {
-        "name": "Meghalaya",
-        "value": 67
-      },
-      {
-        "name": "Andaman and Nicobar Islands",
-        "value": 67
+        "name": "Delhi",
+        "value": 64
       },
       {
         "name": "Andhra Pradesh",
+        "value": 64
+      },
+      {
+        "name": "Andaman and Nicobar Islands",
+        "value": 63
+      },
+      {
+        "name": "Haryana",
+        "value": 62
+      },
+      {
+        "name": "Uttar Pradesh",
         "value": 62
       },
       {
         "name": "Bihar",
+        "value": 62
+      },
+      {
+        "name": "Nagaland",
         "value": 61
       },
       {
-        "name": "Uttar Pradesh",
-        "value": 60
-      },
-      {
-        "name": "Delhi",
+        "name": "Gujarat",
         "value": 60
       },
       {
         "name": "Rajasthan",
-        "value": 60
-      },
-      {
-        "name": "Haryana",
-        "value": 58
-      },
-      {
-        "name": "Kerala",
-        "value": 58
-      },
-      {
-        "name": "Gujarat",
-        "value": 58
+        "value": 59
       },
       {
         "name": "Chhattisgarh",
+        "value": 58
+      },
+      {
+        "name": "Madhya Pradesh",
+        "value": 57
+      },
+      {
+        "name": "Kerala",
         "value": 57
       },
       {
@@ -3122,23 +3097,15 @@
       },
       {
         "name": "Himachal Pradesh",
-        "value": 54
+        "value": 55
       },
       {
         "name": "Manipur",
         "value": 54
       },
       {
-        "name": "Nagaland",
-        "value": 54
-      },
-      {
         "name": "Jammu & Kashmir",
-        "value": 50
-      },
-      {
-        "name": "Madhya Pradesh",
-        "value": 50
+        "value": 51
       }
     ]
   },
@@ -3287,7 +3254,7 @@
       "published_at": "2026-10-01T07:00:00.000Z",
       "summary": "",
       "url": "https://bikeadvice.in/tvs-motosoul-6-0-dates-announced-new-launches-custom-bikes-and-more/",
-      "text_error": "HTTP 429 for bikeadvice.in",
+      "text_error": "HTTP 403 for bikeadvice.in",
       "text": "",
       "gn_link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQN0p4Q3lYaGhGQnp3RUcxXzJtRFRYNzUxMzNOZ3BlN2I3YjItb0hKRm8xUVQ5OWktREE2Q1FDYUJGWXQ5SDF6dW9FckpPdjY2djk4TVhnbXJZRWVUTjZYckZZZm03cmhta0lDMGUxemJqU2lFM2NLbUhSdU0xSFZubm54T3hZYWsyX3RLZERCa3czcmVu?oc=5"
     },
@@ -3550,26 +3517,38 @@
       "gn_link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNdHZPZ01FTWNxUzczNXVMZHYwOEc4cHVja2diZk5ELTY2NXJWaWlfQXR6Qi1DeEd2a25kMGljakVxRWhaTTBiLXVRcU02a1pNRzRzeGk2ZXZzZmhPOWlNaUdOLXVqOFJYZk5yTHRxYWJDYkVQTC1CUy0tQnl4amdPRktWNDlTM2dMd2tsTkhsRFBwT1dQc1NGU0lsSlhxWG92b3dJeC1R?oc=5"
     },
     {
-      "id": "events-3afa93aa",
-      "source": "autoX",
+      "id": "events-f8a1b640",
+      "source": "NDTV",
       "source_id": "events",
-      "title": "India Bike Week 2026 Dates Revealed, Set for December 4-5",
-      "published_at": "2026-09-21T07:00:00.000Z",
-      "summary": "India Bike Week 2026 will take place in Panchgani on December 4-5, with bigger venue, competitions, custom motorcycles and more .",
-      "url": "https://www.autox.com/news/bike-news/india-bike-week-2026-dates-revealed-set-for-december-4-5-124622/",
-      "text": "India Bike Week 2026 will take place in Panchgani on December 4-5, with bigger venue, competitions, custom motorcycles and more . India Bike Week 2026 will take place in Panchgani, Maharashtra, on December 4 and 5. The 13th edition will return to the hill town after moving there in 2025. This year’s event will cover 50 per cent more area and include four racetracks, riding trails, ride-outs, camping and an expanded expo. The Stunt Arena will return, while the Jameson Ginger Ale X IBW Bike Build-Off Competition will bring custom motorcycles into the programme. Group rides to Panchgani are planned from several Indian cities. The Jameson Ginger Ale X IBW Bike Build-Off Competition will give non-professional builders a motorcycle and 50 days to modify it within a set budget. The winner will receive a Harley-Davidson X440T. The Big Trip, curated by Candida Louis, and the Misfits Collection, curated by Yogi Chhabria, will also feature at IBW. Arjun Raina will judge the Mod Bike Competition. Tickets for India Bike Week 2026 will be available across four options. The Early Bird Day Pass is priced at Rs 1,999 and includes one-day entry with Rs 250 worth of F&B vouchers. The Platinum Pass costs Rs 7,000 and includes two-day entry, VIP parking, complimentary F&B, a 10% merchandise discount and an IBW Kit. Bulk and Club Passes are priced at Rs 2,699 per pass. The expo will bring more than 100 retailers to India Bike Week, with motorcycle gear, accessories, products and upgrades on…",
-      "gn_link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQOTk5ZzZmeGhuVHhwOWY3RVN5NC1DT0JxSTZTRGIxSXFJcldXRXM3Y1ZsamoxSUEwX0gzc3ZhY3hYcFBKS0xhRWpnYmxkcDl2VlMxYmdNLUt6d19OTHRIcE4yR3Y3U05pUmVyaWE1Y21KbTJwQzg0aWYwQUl0Q0g4RzRJOXBiTnlPM2R3MTdxYml6SzRfWWdRcjNPRGN4UlUtX0Jv?oc=5"
+      "title": "Honda XR300L, XR300 Rally Launched In India: Prices, Specs, Features",
+      "published_at": "2026-10-05T07:00:00.000Z",
+      "summary": "",
+      "url": "https://www.ndtv.com/auto/honda-xr300l-xr300-rally-launched-in-india-prices-specs-features-12141183",
+      "text_error": "HTTP 403 for www.ndtv.com",
+      "text": "",
+      "gn_link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOdXhiTDZaWWJMblBPMWFpa1QwdTF3RENvSFVVN1BxNnRZTVlkVlVvdWVqeHRTT2ZfNnppOGozYWk0b2FwLTlPVEVKaTR2NzZ2d0RBQklVZF9mTmh1Q3d3Wm9sT1ZBMHd5a1E2QkpNVEFUdUdBSGVuOG40MFdTaW5KZWxqUnhON2xsa3lVenRySS1lYTZBM2dPUDFqVFk3cEdX0gGoAUFVX3lxTE9oLVhfa2doWHN0SXRZQmhiNDUxOVdmR2MtdlZIaHlzTEpLbEJnTllSYnRpemt2WExoeFJxV1JST3RhRUpZSU9wYmt0a2x2M3h4a0RCaElwNzBxd2NRUzZLUkVPa3lQWXZsWThUX1Z4UHBzd0JKc25hLURNQ1VXcURlVkJHWjJULTVia3pnOW4wQzNwdU85Y2VvTlpPdlJ6dG9jSnNRTWtYVQ?oc=5"
     },
     {
-      "id": "events-0600ea49",
-      "source": "BikeJunction",
+      "id": "events-e297c57a",
+      "source": "Highland Post",
       "source_id": "events",
-      "title": "Suzuki Motorcycle India Brings Matsuri Spirit to Ludhiana With ‘Road to Matsuri’",
-      "published_at": "2026-09-15T07:00:00.000Z",
-      "summary": "Suzuki Motorcycle India brought its ‘Road to Matsuri’ event to Ludhiana, welcoming over 500 riders with test rides, music, art and special offers.",
-      "url": "https://thebikejunction.com/news/suzuki-motorcycle-india-brings-matsuri-spirit-to-ludhiana-with-road-to-matsuri",
-      "text": "Ludhiana, 14 September 2026: Suzuki Motorcycle India Pvt. Ltd. (SMIPL) brought the spirit of its Matsuri festival to Ludhiana with its ‘Road to Matsuri’ event. The one-day event took place at Paragon Waterfront and welcomed more than 500 Suzuki customers, two-wheeler enthusiasts, and fans . The event combined riding, entertainment, and community activities in one place. In addition, visitors got a chance to experience Suzuki two-wheelers and take part in several activities. The event aimed to bring the feel of Suzuki Matsuri , the company’s main motorcycling festival, closer to riders in different parts of India. The ‘Road to Matsuri’ initiative focuses on bringing Suzuki customers and motorcycle enthusiasts together. The Ludhiana event gave visitors an opportunity to explore Suzuki’s two-wheelers while spending time with other people who share the same interest in riding. Commenting on the event, Mr. Deepak Mutreja, Vice President, Sales & Marketing, Suzuki Motorcycle India Pvt. Ltd. , said: “Matsuri celebrates the passion, energy and sense of community that bring people together through a shared enthusiasm for two-wheelers and riding. With ‘Road to Matsuri’, we are bringing this spirit closer to our customers and enthusiasts across India. We are delighted with the encouraging participation in Ludhiana and look forward to seeing more people ride, discover and celebrate with Suzuki as we take the event to more cities.” One of the key attractions at the event was the…",
-      "gn_link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQblNrWUh4Z1FVeDdHVndmU3lKUXNCLWo5cGRQbEVrMEFETjB4cF93UWFmN2FWTGVpMlVsMXBHNU03blVTMndZOWtScDE2X2Nvck9vTkh0NzA4NUoyNGdxNFYyTnZmRGQ1Tm1Za00yZHlvaFZrT1ZsZFNJZURHQ2xUQ0dLOFFpdkVOcmRFZFhGdjlodi1oQ1JfTldHUGZ3QTNTWTRlWTAwdTg2TFMxbmk1cdIBtgFBVV95cUxNYTJTelVwWWoyaTJzajlRTURmRzNBdS1KdHF2UFFrb1diVm4tZGN0czZlNE5BakJxSlgyZDlXUUVTcVNfLTVlVl9wM3hzeWlPUW1XcGZvT2pVN3NsV0RfQkRQM0JFMWI0T1BZMkx3WTVobWxfWHRlSGdma3E5Y2NObDZkX2ZVaW13V0stQVRHVlFDRm5mSkYxdE54NEt5MHhrcmg3MVBhRkVOaWpUdlFUdnBwN3gydw?oc=5"
+      "title": "5 M’laya cops join pan-India bike rally against narcotics",
+      "published_at": "2026-10-08T17:47:42.000Z",
+      "summary": "Shillong, Oct 8: Five Meghalaya Police personnel today joined a pan-India motorcycle rally against drugs, which will cover more than",
+      "url": "https://highlandpost.com/5-mlaya-cops-join-pan-india-bike-rally-against-narcotics/",
+      "text": "",
+      "gn_link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQSDdmcXVZOG9IUWtVeWUtMUJrcDRwd2IwRWJSU050SHY2eExsWm1QR2tDTEx1RkhhMXNoNkwzVTNnYXUxRVZWTThrOW15bjc0MWcwNWtrdjhwM2JtaVc1OUdJM2Z2UHhTYkhLUENhX1N5OVpBcFRndU0wazJPVkZKMncxT1FlbTRxanc?oc=5"
+    },
+    {
+      "id": "events-27115505",
+      "source": "EVO India",
+      "source_id": "events",
+      "title": "Honda XR300 L and XR300 Rally launched in India",
+      "published_at": "2026-10-05T07:00:00.000Z",
+      "summary": "Honda’s XR300 L and XR300 Rally will take the fight to the Xpulse 210 and the Kawasaki KLX 230, with prices starting from ₹1.83 lakh",
+      "url": "https://www.evoindia.com/news/bike-news/honda-xr300-l-and-xr300-rally-launched-in-india-587779",
+      "text": "",
+      "gn_link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPY0N4NF82NS1WQWU1c1RSLVQyVHF5eDJMUDBaMFlxN01fZEZxU2pLUkJyR0Q2M1Z1bUVjeDB2b1VtSUtIeHZNZEhYSWJmZXRYcGhnU0xJLTR2ZElPVF94SUl6RWh5RGFRMEhkN3lBSjRianJvbTFUZm1ncUgxTHpFZHk1clBVbGpVZHpMbHYtVFZvd2ZSWW16ZTNn0gGnAUFVX3lxTE5lY05QNDFMOVpuRzUxWW1mRWJ3ZHVRVHNYMHlDS2NXQlFKbkQwMkd2U3cxZksxMkE2MDM0YkZsLXd5MUl4TFFQU0tiSTV6Qml5dndXWi1TRGM3cEVmNFc0YVEwV2VGX0hFZXJQREZNa2h1UHhMT0NVc0pPQ0FhNlA4UHZvMFFJT3l6RmhNN1hTbVlCcFhJYlBVRXBMbXBLWlpBWFkyY1I4?oc=5"
     },
     {
       "id": "events-c98a0814",
@@ -3612,9 +3591,10 @@
       "source_id": "events",
       "title": "TVS YMRP 10.0 Race 1 – Right Place, Right Line",
       "published_at": "2026-10-22T10:34:36.000Z",
-      "summary": "We got a wildcard entry at the TVS Young Media Racer Programme (YMRP) 10.0 and scored a point Report: Anvay Mahajan Photography: TVS Motor Company My previous visit to the Madras International Circuit for the TVS YMRP 10.0 proved quite disappointing. This was primarily due to three factors: exhaustion, the inability to achieve a flying …",
+      "summary": "",
       "url": "https://bikeindia.in/tvs-ymrp-10-0-race-1-right-place-right-line/",
-      "text": "We got a wildcard entry at the TVS Young Media Racer Programme (YMRP) 10.0 and scored a point My previous visit to the Madras International Circuit for the TVS YMRP 10.0 proved quite disappointing. This was primarily due to three factors: exhaustion, the inability to achieve a flying quali-lap due to rainy weather, and interference from other riders. I felt disheartened about not getting qualified. Fortunately, as the wise words from Shahrukh Khan in Om Shanti Om suggest, if you desperately love something, the universe begins to pave the way for you. And, indeed, the universe worked its magic. Upon receiving a call from TVS, informing me that some riders had withdrawn and that I was next in line, I immediately requested them to arrange my travel to Chennai. Round one was set for the 15 th and 16 th of August. On day one, vehicles were handed out by drawing chits. I ended up with the “lucky” vehicle number 13. But, hey, I was still pretty stoked. A week before, I wasn’t even in the running, and now I was among the top 13. The first session was practice, and I felt really good riding the race-spec TVS Apache RTR 310. The bike had Eurogrip Protorq Racing slicks on it now, which was a first for both me and YMRP. I hit a 2:27:140 and landed P8 in practice. The results were pretty satisfying. The initial session took a significant toll on me, triggering my migraines and resulting in severe headaches. Despite the qualifying session being scheduled for later in the evening, the pain…",
+      "text_error": "HTTP 429 for bikeindia.in",
+      "text": "",
       "gn_link": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBEQ2ZPMXozOE5MemdPWWprZjhkNHBWcnd1cTFmZkszcHZsSF85U0NvVHpkdU9oZVF4ZzN5UzdRWDVrOEt0eE8tOHU1bXY0a25XQXNSQlFWMVJ5Q0syT2hlcUZaeE1jMnF6cUF5SUpmZlBiRzA?oc=5"
     },
     {
@@ -3635,10 +3615,9 @@
       "source_id": "events",
       "title": "Sikkim Riders Meet 2026 Announces Star-Studded Line-Up and Premium Motorcycle Raffle",
       "published_at": "2026-09-29T07:00:00.000Z",
-      "summary": "",
+      "summary": "The inaugural Sikkim Riders Meet (SRM) 2026, organised by the Dirty Angels Motorcycle Club (DAMC), is gearing up to bring together motorcycle enthusiasts from across India for a three-day celebrat…",
       "url": "https://neindiabroadcast.com/2026/09/29/sikkim-riders-meet-2026-announces-star-studded-line-up-and-premium-motorcycle-raffle/",
-      "text_error": "The operation was aborted due to timeout",
-      "text": "",
+      "text": "The inaugural Sikkim Riders Meet (SRM) 2026, organised by the Dirty Angels Motorcycle Club (DAMC), is gearing up to bring together motorcycle enthusiasts from across India for a three-day celebration of riding, music, adventure and community at Namprikdang, Dzongu, North Sikkim, from November 16 to 18, 2026. The organisers have unveiled a star-studded line-up for the event, with Bollywood actor and filmmaker Randeep Hooda announced as the Celebrity Rider, international DJ and content creator DJ Olly Esse as the Guest DJ, and Meghalaya-born rapper and singer Reble as the Guest Artist. Randeep Hooda, known for films including Highway, Sarbjit and Extraction, recently added another major milestone to his career after receiving the National Film Award for Best Debut Film of a Director for Swatantrya Veer Savarkar, which he directed, co-wrote and starred in. The award was announced as part of the 72nd National Film Awards and presented in September 2026. (Press Information Bureau) Hooda will join SRM as a Celebrity Rider, bringing his association with motorcycles and the outdoors to an event built around the riding community. His participation is expected to add a distinctive celebrity presence to the three-day gathering while keeping the focus firmly on the riding experience. Joining him is DJ Olly Esse, an Italian DJ and content creator based in Mumbai, known for combining music, fitness and digital content. She has built a substantial social media following alongside her…",
       "gn_link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPTmpkVnZUbjl1VkROUDRMMGdqN1F4RnhSZ0RWdzVQa3FNdmVGdVRGZV9BbjZqeUw5TThMU1djb054d09QYXcyM1JubGdxUGxIQWw3TnF4b1BrTjRwb0dXR21zYVRCeWpPTC1DNWNBdThlbEl4cW5TZVJ3RHVoUFp4d0l3ejFVWFd5YlZfUTB2NlVlZU9RT3V2UWdFeEpQZUhhY0Zmc3RfTm1NMlN3b01nSEptR3NlWUJaY2xTYjhCeGhaU2fSAcgBQVVfeXFMUEx3c2dzeEVaS2E3WFd3dVpIUV80WW5wbkJRcE55eVA1dTYwREhnZnFRTmFwYTBQQUNHeG56ZXc5WmtlWS1pSFBER3U5TmdXSVhEUDdOdmtJQ3pKenpEZTgzYUdfWENiZmlDZ0VvMnhhV3VxTVZyTDgwSnlkdU05Tk5GVTNMTlpTbnBDYUVWOW90WVFGWjFlYmVGdW1sQ3VxRjRBN1AyNEJlSFd6U1U2OTNoNzZTTzZraEprb2VkQXF3YURUN21jUU0?oc=5"
     },
     {
@@ -3709,15 +3688,15 @@
       "gn_link": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOZHBIUTRjVTRFWWVYenBlOGJiRXVtNEdDeVVmMnNtX0s5VmwxX1Z6LTVRUWd4RFlIZHlpd19JMk1XdFlOV2oza2djTFlmLXRNNFJfYTVQTWExeTZCT3JTMk52dXN3NkM4MUVicXoyTDEwazBiOVV5Wk9sMmVEWGozejVNTVFkdlN0elY1MFJhbG5CS2FaS1BtcWxxMzliMEdXTzkxanZjY1hQMVhmU3VsejB4T05xeW9yMkhFdHMxaXVPNC1NOG02R0VucF9DXzVJdkstOW9yM014OF9E0gHiAUFVX3lxTE5IdU1yeDFXQXRnTldPa3hRTHFRWGJuX09qMjJLZkdtRnAzcVpodWRwUEtrSDVsS3lxMm1ycHdwdTlfRXVkRmFCOUotdDBLWW4wc3RkRHF4WG85RHIyQ2RlZXpxdFF6YW96WlpGdVVfU2N4NG9EZG14MjBiQUI5SmpzekJORHFSMFJhdDhzMnZWWjJzZFl2RmlDbFFvRU9PWTQ1bG1BOHAwSU1ZRTc1ZkVpTUJXMmdrZEI0a3pValBvbkRjUV83endvQ0xkNzB2Mm9FcWxxam91MWRTSjZHeVVCWXc?oc=5"
     },
     {
-      "id": "accessories-b463df02",
-      "source": "autoX",
+      "id": "accessories-7d3561a3",
+      "source": "Motown India",
       "source_id": "accessories",
-      "title": "BMW Motorrad Vision CE Self-Balancing Electric Scooter Patented; India Launch Soon?",
-      "published_at": "2026-10-25T20:34:59.000Z",
-      "summary": "BMW Motorrad Vision CE will feature a protective metal cage, a four-point seatbelt, and self-balancing technology, but a production launch remains unconfirmed.",
-      "url": "https://www.autox.com/news/bike-news/bmw-motorrad-vision-ce-self-balancing-electric-scooter-patented-india-launch-soon-124842/",
-      "text": "BMW Motorrad Vision CE will feature a protective metal cage, a four-point seatbelt, and self-balancing technology, but a production launch remains unconfirmed. BMW Motorrad has taken another step towards exploring the Indian market for its Vision CE electric scooter concept by filing a design patent in the country. First showcased at IAA Mobility 2025, the concept takes a different approach to urban mobility, combining an electric powertrain with a protective tubular steel structure and a system that keeps the scooter upright when stationary. The patent puts the Vision CE on the radar for India, but the company has yet to announce production plans or reveal technical specifications for the concept. The Vision CE stands out because of its protective cage, which surrounds the rider and works alongside an integrated four-point seatbelt. BMW's concept explores whether this arrangement could reduce the need for conventional motorcycle safety equipment, including a helmet. However, this remains part of the concept's design philosophy and should not be taken as confirmation that riding without a helmet would be legal or safe in India. The idea draws inspiration from the BMW C1 scooter, introduced around 25 years ago. That model also used a protective structure and seatbelt to offer an alternative to the conventional scooter layout. The Vision CE revisits the concept for electric mobility, although BMW has not confirmed whether the design will reach production in its current form.…",
-      "gn_link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNcXdaS3VVOWN3WUs2WHUzSkprbFlFcXV3TnRBQ01fVmpyS3dweWNTRVI0aXg0WHhXUFFhckgyQjlkQXZYbzdNWEFQS3JnMW5oaXcxN0ZSWWpmN1dQTXU1LXVNMDRqOUo5dWFua3FZRGRsMGdaRV9JODJfTVV5V1NEVHVOM2hkVmR2ejBrenAxRC1RZGM3ZDA1QzZKd01HcGxZbkFpaVFfZFhNTjVLV0YyMDl2bFd0ZW1KaGdHcG5RbWwzRjNs?oc=5"
+      "title": "Maruti Suzuki Victoris Aurum edition launched",
+      "published_at": "2026-10-25T16:00:43.000Z",
+      "summary": "Maruti Suzuki Victoris Aurum edition launched",
+      "url": "https://www.motownindia.com/Bureau/Auto-Pit-Cars/2900/Maruti-Suzuki-Victoris-Aurum-edition-launched-Motown-India-Bureau",
+      "text": "",
+      "gn_link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNS1E5dkh2SzFfdEpuWnRQNHlncE5HYzF2ZWV2cXhEQkRMYzJmNC1wMGJxSFBLNTFOTDI2dXR6bnRjYWlPNlVPaEs1R3JYSVE2MGdTaG5Jb3d0ajBMVk16YkpLUWRGM1VqZlJkeVJ2ZG9qLTBxNHJuSzNiVGZrUE5aNVU5Y3JFcDE3eWJ1VG1Lc2dhSTJMU2NHclhsamhlX1Eza2s0S1dVOTFvTlB0YUhEWVNrV2VGVlJKNm0w?oc=5"
     },
     {
       "id": "accessories-bb2a0e29",
@@ -3764,15 +3743,26 @@
       "gn_link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQYVRiSi11Ny1QbVB0V2RXS3FpUUJaMWJTc1hhOUdwTzZnTkQxQ3l5TVpReTFNU0xSbUJNUE9wc2o1V1A4eUFFeUw5dnhYY3RIdWdXU2JBeThUZGdwU0JlQ2ozNGJrOTRkUWo4cmUzU1MxNTIxNGVzX3FjZ1ZmQURJeUstRlhIRWcwa0lmZkphQy1CZVMzVU8ybmVGV3hFX1gtSlFjU0wwc2ZjdkJVU1hCdQ?oc=5"
     },
     {
-      "id": "accessories-7225595a",
-      "source": "The Tribune",
+      "id": "accessories-b3f524e7",
+      "source": "ZigWheels.com",
       "source_id": "accessories",
-      "title": "SBI Life launches Waiver of Premium rider, ensuring continuity of policyholders long-term financial plans",
-      "published_at": "2026-10-27T12:17:14.000Z",
-      "summary": "New rider waives all future premiums upon occurrence of specified contingencies, helping customers maintain continuity of their life insurance plans MUMBAI, India, Oct. 27, 2026 /PRNewswire/ -- SBI Life Insurance, one of India's most trusted private life insurers, launched 'Waiver...",
-      "url": "https://www.tribuneindia.com/news/business/sbi-life-launches-waiver-of-premium-rider-ensuring-continuity-of-policyholders-long-term-financial-plans-2-2/amp",
-      "text": "New rider waives all future premiums upon occurrence of specified contingencies, helping customers maintain continuity of their life insurance plans Advertisement MUMBAI, India, Oct. 27, 2026 /PRNewswire/ -- SBI Life Insurance, one of India's most trusted private life insurers, launched 'Waiver of Premium' rider, designed to ensure that policyholders' long-term financial plans are not derailed by setbacks in life, such as a critical illness or disability. Advertisement Financial planning is inherently long term, with commitments often extending across several years. Whether it is planning for a child's education, preparing for retirement, creating financial security for loved ones or meeting other important financial commitments, staying on track requires not only adequate protection but also the ability to sustain the financial commitment over time. An unforeseen event can impact one's ability to meet premium commitments. SBI Life's 'Waiver of Premium' rider addresses this need by waiving-off all future premiums (including extra premiums) upon the occurrence of specified contingencies covered under the rider, helping the base policy and other attached riders to continue as envisioned. Thus, families remain protected and long-term goals such as child's education, retirement etc stay on course even when policyholder is unable to continue paying. Available with select individual non-linked & linked life insurance products, the rider adds an additional layer of resilience to…",
-      "gn_link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPWHR1TkRoOXZ0ZVVCdFYyNjlsVjhDTDR0US1TTGNzdVpYajlseGVKbGt2QmxBMF8zSDBDME1QYkxFLUxsNXg2QlFUTzRzVndXLWw1ZmNxTHVvMFZtVXlJOFFyREVvT3djc2k1cVFsSlNWZmF0WHNjaUEyZF9IREhvd1d5Y3pqNWRZcjBOVER2OXg0c0VfMzlmNW5DOGNQYVl0bDR5Yzd5LWNERXVTZERGdjFsZzBicGU5R2hqVlpqdmFyN3dGbnp4cW5FY3JQdHJHaHRaemdTdnFQQzhMX21RdVVnNFprT1VIQTVR0gHrAUFVX3lxTE9YdHVORGg5dnRlVUJ0VjI2OWxWOENMNHRRLVNMY3N1WlhqOWx4ZUpsa3ZCbEEwXzNIMEMwTVBiTEUtTGw1eDZCUVRPNHNWd1ctbDVmY3FMdW8wVm1VeUk4UXJERW9Pd2NzaTVxUWxKU1ZmYXRYc2NpQTJkX0hESG93V3ljemo1ZFlyME5URHY5eDRzRV8zOWY1bkM4Y1BhWXRsNHljN3ktY0RFdVNkREZ2MWxnMGJwZTlHaGpWWmp2YXI3d0ZuenhxbkVjclB0ckdodFp6Z1N2cVBDOExfbVF1VWc0WmtPVUhBNVE?oc=5"
+      "title": "KTM 200 Duke Gets More Features; New Updated Version Incoming",
+      "published_at": "2026-10-26T05:30:32.000Z",
+      "summary": "Updated KTM 200 Duke spotted at dealerships with ride-by-wire, Rain and Street modes, traction control and a quickshifter",
+      "url": "https://www.zigwheels.com/news-features/spiedteasers/ktm-200-duke-gets-more-features-new-updated-version-incoming/58385/",
+      "text": "KTM 200 Duke Bleeds Blue, 250 Goes Greyscale For 2026 KTM 200 Duke Now Offered With Free Riding Jacket BREAKING: 2024 KTM 200 Duke Launched In India Next-Gen KTM Duke Spied Testing Yet Again EXCLUSIVE: First Sightings Of 2023 KTM Duke 200 On Test On Indian...",
+      "gn_link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNaHlPZkRNXzFkVWZxQTRZSlI2WTY0T3NiWmMtUllDSVViUmZMS1EtQUJZZWdwZ21saE9GUjNRdEpMZlVuZTdjbkNmZW0wVFhNTG9MSzdEejllOElWSTdseldTd3NkUFI5VmQwT0dnMEFoeTZvc2NtT1lNMzBnZm5QX2d0dzhrNmZJZVZTVFlTQjVlQlFOQUxkTS1jbEI3TTNtMklrVFpDS2xUYm9fZGxaaEN6cHhpRS1TdlY2Rw?oc=5"
+    },
+    {
+      "id": "accessories-452cdf44",
+      "source": "BikeJunction",
+      "source_id": "accessories",
+      "title": "Honda CB350C Black Edition Launched Ahead of Diwali: Price, Engine and Key Changes",
+      "published_at": "2026-10-27T11:13:36.000Z",
+      "summary": "Honda CB350C Black Edition gets blacked-out styling, a 348.36cc engine and dual-channel ABS. Check its reported price, features and rivals.",
+      "url": "https://thebikejunction.com/news/honda-cb350c-black-edition-price-engine-features",
+      "text": "Honda Motorcycle and Scooter India (HMSI) has introduced a blacked out version of the Honda CB350C in India ahead of Diwali 2026. Based on the entry level STD trim, the new version focuses on styling changes rather than mechanical upgrades. The reported on road price is around Rs 2.32 lakh. However, Honda has not officially confirmed the Black Edition name. Buyers considering this retro roadster can expect the same engine and mechanical package, with a darker appearance. The main change is its blacked out styling, with several components receiving darker finishes. The existing Pearl Igneous Black colour does not offer the same extensive black treatment. The exhaust, handlebar, rear twin shock absorbers and handlebar clamps retain their chrome or silver finishes. The rounded fenders, bulky fuel tank and pea shooter exhaust maintain the motorcycle's classic roadster design. The Honda bike continues with a 348.36cc, single cylinder, air cooled engine. It produces 20.79 of power at 5,500 rpm and 29.5 Nm of torque at 3,000 rpm. A five speed gearbox handles transmission duties. The motorcycle also gets an assist and slipper clutch. The assist function reduces clutch effort, while the slipper function helps prevent rear wheel lock during downshifts. Other key specifications and features include: Honda also offers features such as Honda Selectable Torque Control (HSTC) and Honda RoadSync on the CB350C range. However, Bluetooth connectivity varies by variant, so buyers should check…",
+      "gn_link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOQ2JjSU5OaVZfYUI2a0c0c0xlYlJLRGMyZ2hhYmZMNEYxWFlmVGVXX0w3dEtRSkV5SDU2ZHpUVkpKaXpiUmtGZmVackhiMzhEc2piWHFadGstaVFDYnhyd1doUnZnS3pwU2VjbFlQQ1h4bkh6Q3ZQdHJXekRLRVNkQ2hMTmpyVVQw0gGOAUFVX3lxTE54dWxlLVNOOVp3UnA3dmZXUlRVWlFKYVRGWnVYSXlRcmkxbE5jQzR3QUtTU3NaQkxWWVBzUGZ1M3N1NEk1STFLTWRIYURTSkYwY3F6U0tFZXdwVDhKdEVlQ3hiMjliZnBsbEJadWxQVDJSQkxvQUZuY29sQXBtUDkwZEVXZ1JraDAwZHYzWFE?oc=5"
     },
     {
       "id": "accessories-3df77d25",
@@ -3807,106 +3797,6 @@
       "url": "https://www.bikewale.com/news/upcoming-bmw-f-650-gs-spotted-testing-abroad/",
       "text": "BMW has been working on a new adventure bike that could be its answer to the Yamaha Ténéré 700. The motorcycle was spotted testing recently, and based on the images, we have a decent idea of what to expect: The X-shaped headlight section gives it away as a BMW, alongside the holes in the fairing where the BMW badging would be placed. Well, then there’s the BMW Motorrad jacket and riding pants that the riders are wearing. Apart from the new headlight section, the bikes overall silhouette looks quite similar to the BMW F 900 GS . The motorcycle will be powered by a new parallel-twin platform, likely going to be a 650cc-700cc mill. We think so because the motorcycle was spotted being tested along with the Yamaha Ténéré 700 and the KTM 790 Adventure. The motor is expected to make around 75bhp and 69Nm. Underpinnings-wise, the bike features an inverted fork and a monoshock. It rolls on tubeless spoke wheels at both ends, with braking duties taken care of by a dual-disc setup at the front and a single disc at the rear. Like the other models in the German bike maker’s lineup, we can expect this upcoming ADV to be offered with multiple accessories. A taller windscreen, adjustable suspension, and a more comprehensive electronic riding aids suite. The bike could be launched sometime in 2027, and the brand could unveil the bike at EICMA 2026.",
       "gn_link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOc2wxenJlTmRLaFBlSkY5T0I1bGRXR0VSLS1vaXJucmtnZ1FtN08yYjIxd0pJSXdReVVhZk90X0pBX1lzcGZzcHNOZ1NRZEhJYmJqUWx5eUpsTHdsU0tNdDlEZ0p3NFY2dUpBbmNQT2t1d1hoekNtZklkRmN2QXVqcg?oc=5"
-    },
-    {
-      "id": "accessories-a70eb130",
-      "source": "ZigWheels.com",
-      "source_id": "accessories",
-      "title": "BREAKING: Bajaj Pulsar NS200 Gets Ride Modes and 5-inch TFT Display",
-      "published_at": "2026-10-23T11:29:39.000Z",
-      "summary": "Bajaj has launched the 2026 Pulsar NS200 with a new console, and it's slightly more powerful than before. Here is everything you need to know",
-      "url": "https://www.zigwheels.com/news-features/launch-story/breaking-bajaj-pulsar-ns200-gets-ride-modes-and-5-inch-tft-display/58381/",
-      "text": "2023 Bajaj Pulsar NS200 And Pulsar NS160 First Ride Review - Road +... Upcoming Bajaj Pulsar NS400Z & NS200 To Get Smarter: Spotted At A... 2025 TVS Apache RTR 200 4V: Alternatives For A Similar Price Bajaj Pulsar NS Family Explained: Pulsar NS125, Pulsar NS160 and... 2024 Bajaj Pulsar NS200 vs KTM Duke 200: Image Comparison 2024 Bajaj Pulsar NS200 and NS160 Reaches Dealerships Ahead Of Launch Weekly Bike News Wrapup: 2024 Bajaj Pulsar NS200 and NS160 Unveiled,... 2024 Bajaj Pulsar NS200’s New Headlight & Instrument Console Teased",
-      "gn_link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNTlNmTDVJX1gxeXNnemVOd21WME9PVTRQYmdqUDNQbWhudmdESGlfd3lSSmxVTGdZaEFWbFZXTm9lWkhGMlZOUXREblYxS0FRa0NmV25xMVVTNmZUcjhiNk44WjllYVZsNkYwdTVSWEJGWXlJV0l6VXFWQllSTWROMm5HZlotQnZwMnpsQ3o2SHYyVEtLWlNhYU82eUNsM2hFTnN2dHc3MHdrelY1anZhY3hxZ3Nsc3NZUS00WDQyeWpzbkVo?oc=5"
-    },
-    {
-      "id": "accessories-7b70a0d1",
-      "source": "Autocar India",
-      "source_id": "accessories",
-      "title": "Royal Enfield teases Himalayan 750 ahead of global reveal",
-      "published_at": "2026-10-27T07:44:12.000Z",
-      "summary": "The unveiling of the largest Himalayan yet is expected at EICMA 2026 in early November.",
-      "url": "https://www.autocarindia.com/bike-news-amp/royal-enfield-teases-himalayan-750-ahead-of-global-reveal-441139",
-      "text": "We got our clearest look at the Himalayan 750 at the Himalayan Basecamp/ Himalayan 440 launch event, where Royal Enfield showcased its non-camouflaged version. The 750 is expected to be the brand’s most tech-forward motorcycle, with features such as cruise control, traction control, adjustable suspension units and dual discs at the front, to name a few. It looks like we won’t have to wait much longer for its official debut, as Royal Enfield has just released a poster teasing the bike’s reveal at EICMA in a couple of weeks. To clarify, Royal Enfield ’s poster doesn’t show much of the Himalayan 750 itself but has map coordinates pointing to the centre of Milan, Italy, which is where EICMA happens every year. Thus, Royal Enfield appears to have confirmed the location for the official unveiling of the final production-spec bike. While the brand hasn’t revealed any specifications, the aforementioned showcase has already given us quite a few details. If you haven’t guessed yet, the Himalayan 750 is expected to be powered by a close-to-750cc engine, although the exact cubic capacity remains to be confirmed. We also believe that the base engine architecture will be based on Royal Enfield’s 648cc parallel twin, which currently powers seven different motorcycles in two states of tune. We’ve also got a pretty good look at the expected colour options for the Himalayan 750 – four to be specific – during a commercial shoot. The shoot showed us the bike with both alloy wheels and tubeless…",
-      "gn_link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNMDVtMEhoOVZOYVI2SC11YjNQY3JqTFl2d3I1TjJJcktvOERSd21HczBybWNLX2lFblRxS1FIbUdVZjB3aEduelpJRF9IV0ZQVTRfNVpkbmtXOEFTZ1Y5aHk2UlBLM1RYYXA4WXNsQ1I5d2Rvek5MOGJYa25qREd3bDdfbm54TW55aC1QTFRlNUJuVFZxRTR3Z2x5VmNkb2Y3ZFJheDlNZVhSZFXSAasBQVVfeXFMTTA1bTBIaDlWTmFSNkgtdWIzUGNyakxZdndyNU4ySXJLbzhEUndtR3Mwcm1jS19pRW5UcUtRSG1HVWYwd2hHbnpaSURfSFdGUFU0XzVaZG5rVzhBU2dWOWh5NlJQSzNUWGFwOFlzbENSOXdkb3pOTDhiWGtuakRHd2w3X25ueE1ueWgtUExUZTVCblRWcUU0d2dseVZjZG9mN2RSYXg5TWVYUmRV?oc=5"
-    },
-    {
-      "id": "accessories-9e140149",
-      "source": "BikeJunction",
-      "source_id": "accessories",
-      "title": "2027 Triumph Tiger 1200 Revealed: Engine, Features and Launch Timeline",
-      "published_at": "2026-10-27T12:33:36.000Z",
-      "summary": "The 2027 Triumph Tiger 1200 gets a 158 PS engine, radar-based safety tech and automatic seat lowering. Check its features, variants and India launch timeline.",
-      "url": "https://thebikejunction.com/news/2027-triumph-tiger-1200-launch-features-engine",
-      "text": "Triumph Motorcycles revealed the new Triumph Tiger 1200 in India on October 27, 2026, with major updates to performance, comfort and rider technology. The adventure motorcycle gets a more powerful 1,160cc engine, revised suspension and new radar based safety features. It also introduces automatic seat lowering to improve confidence during stops. The updated range is expected to reach Indian showrooms from March 2027, with prices to be announced closer to bookings. The updated Triumph Tiger 1200 uses a 1,160cc, liquid cooled, three cylinder engine. It produces 158 PS at 9,250 rpm and 130 Nm of torque at 6,750 rpm. This is an increase of 8 PS over the outgoing version. Triumph has revised the engine, fuel injection, gearbox and shaft drive to improve low speed response and refinement. The six speed gearbox gets Triumph Shift Assist for clutchless upshifts and downshifts. Revised lower gear ratios also reduce crawl speed by 6 km/h, helping riders manage tight turns and slow moving traffic. Both Indian variants receive 19 inch front and 17 inch rear wheels. They also get 200mm of suspension travel at both ends and semi active SHOWA EERA HEIGHTFLEX suspension. The GT Pro uses cast aluminium wheels for road focused riding. The Rally Explorer gets spoked wheels and additional off road equipment. One of the biggest changes is the SHOWA EERA HEIGHTFLEX system. It automatically lowers the seat by 30mm when the motorcycle stops, then restores ride height as it moves off. The two…",
-      "gn_link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNT3N0NlpSN2xjbVpXYTVEVVlzTDI1dGF5MlhJZlRBT3ZUNEZqblJnNGdZaV9xMmc4TFcyckxGZjZsMUZFemN0UXBSWXpRYW1xMld0dWxqRi1EZHVMTXhzeFdCTXVQVFdBS2d1UGxBT1AwVTBLUE1KMm4xMzdVRGlkbUhKYmIwUdIBiwFBVV95cUxPXzhnUWFpX2RUTVhhcGJyT0ZUTElZeGQ4ZTJseExsSEhNM0pTT25yYmoyZGRvUEduWlBjbE9zcXhKSlVCR25kcHZ5QVVCN3hiM050TjVORThLQ2h3VUtVVHFJQXVMNnl0T21nQkhaQ09aazlxYXoyNExWX1pDREx1ZzhkM3lDdkxWUjNR?oc=5"
-    },
-    {
-      "id": "accessories-f3fcaacf",
-      "source": "BW Auto World",
-      "source_id": "accessories",
-      "title": "Ducati Launches Formula 73 In India At Rs 20 Lakh; Limited Allocation Sold Out",
-      "published_at": "2026-10-26T04:50:54.000Z",
-      "summary": "",
-      "url": "https://bwautoworld.com/article/ducati-launches-formula-73-in-india-at-rs-20-lakh-limited-allocation-sold-out-630369",
-      "text_error": "HTTP 403 for bwautoworld.com",
-      "text": "",
-      "gn_link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxORmZLc0F3TG1qQnVXV2VtajdTTF9lQ2VZWU5xcmxUVVQ1VFU2dUdjX1ViYk1KdG9aclRTanZNYV9OTF9TZVRneHdJT0Rrb2ZrV3ItcllvNVJxd1dnVGd0dkRGcXIyM3ZoMGxBX3U1NFpFVDhhenp5RWI1WVo1azNmdmRnZm1KRDRpMXdMWFFiN0xpUGtldFA3Rjl6bDliVHNZLUVqckVZSU1SM3BrZ2d5UHMxc3NYWkk?oc=5"
-    },
-    {
-      "id": "accessories-3cc78cf2",
-      "source": "ZigWheels.com",
-      "source_id": "accessories",
-      "title": "Ducati Hypermotard V2 and V2 SP Launched In India",
-      "published_at": "2026-10-23T06:45:36.000Z",
-      "summary": "Ducati has launched its all-new Hypermotard V2 and V2 SP in India; here is everything you need to know:",
-      "url": "https://www.zigwheels.com/news-features/launch-story/ducati-hypermotard-v2-and-v2-sp-launched-in-india/58378/",
-      "text": "",
-      "gn_link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQS2dUcXNkbHRPdkwtZnpIZzViWHY5RE5fWk93MG9hRDFmNnlwVVJNWjJyLUNZMjR6eDJkZ0F2WkNIdUl4bTRHWDE5ckswVXVjT0ZvVnNUVzNVRGVOczBLY3U4a0RCQ015TGhDbFltUjJtVTFsNzZHdDNHQ2RzRFRMbWxOSlROTlBwejc5UW1RVldBY3JVaXpTX1lGQjJpdkNwRGs2X3hKcXQtTG13aVE?oc=5"
-    },
-    {
-      "id": "accessories-55cd03cd",
-      "source": "marcellus.in",
-      "source_id": "accessories",
-      "title": "New Kings & Queens: India’s Auto Dealers",
-      "published_at": "2026-10-27T18:12:40.000Z",
-      "summary": "India’s auto dealers now earn roughly ₹14,000 crore a year, and quiet, high-margin after-sales servicing is the real moat",
-      "url": "https://marcellus.in/blogs/new-kings-queens-indias-auto-dealers/",
-      "text": "Outsourcing 2.0: The Global Capability Centre Boom in India Celebrating Three Years of Marcellus with Three Outstanding Books What Investors Can Learn From Rahul Dravid In our 21 st October blog ( India’s New Kings & Queens Are Flourishing in Small Town India ) we showed how a new class of business families is flourishing in small town India. In our view of the most dependable routes into this class runs through running auto showrooms. Over the past decade the domestic revenue of India’s listed auto makers has compounded at 11% a year, and the dealers who sell and service these vehicles have ridden that growth. We estimate that India’s auto dealers now earn about Rs 14,000 crore of net profit a year – more than double the FY16 level – and have earned roughly around Rs 1 lakh crore cumulatively over the decade. The average dealer makes around Rs 80 lakhs of PAT a year, 7x the income of an average middle-class taxpayer. A typical car dealer runs around 3 dealerships and makes about Rs 2.5 crore of PAT/yr. The money is made less in selling vehicles than in servicing them, more in small towns than in metros, and more by families who add outlets, generation after generation. To see how a dealership family is built, we went further into small town Maharashtra where Jackie Chaturani and his extended family have grown a single two-wheeler shop into a chain of Royal Enfield dealerships stretching from Mumbai to the Gujarat border. Please visit invest.marcellus.in if you would like to…",
-      "gn_link": "https://news.google.com/rss/articles/CBMickFVX3lxTE9qZUs2c2JEc1Y5MTdPbDdKcjRmOUdRRW50Z2Etc2xIX0VQLWNMRlBxQ25kUXBIRXdPbUVUNjlCYWt4bXV3RDUzV0FVQkVpNjNuOW1jdVZVMndhME40TUY0VTJDZEFmcFFJNHFvRUJ6VlJkUQ?oc=5"
-    },
-    {
-      "id": "accessories-02c49c75",
-      "source": "KarloBag.eu",
-      "source_id": "accessories",
-      "title": "Take That's India debut: Mumbai Earthshot Prize 2026",
-      "published_at": "2026-10-27T04:40:26.000Z",
-      "summary": "🎤 Take That are making their India debut! Explore details of their 17 November performance at the Earthshot Prize in Mumbai, ahead of the new album \"Dreamers\"",
-      "url": "https://karlobag.eu/en/music/take-that-to-make-india-debut-at-earthshot-prize-in-mumbai-just-before-their-new-v89fo/",
-      "text": "",
-      "gn_link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOZnQzR1hFbzBTZ0dwX0hfM0taT1c4bFBXTkVkYWpOU3VMN3pQYjVBYVJpQVFnS20tRzZ1LTVlQklBWk5ILUpRSTdTYmJIdWh2T2VmUzNYb09lQ0RHYjVLQklkZWhvM3libzQwdUU0RHprd0R1aXFjLXZiaXB5ZjdicWptdUdEU1RQRFlwRkJmWmJwd2NDWUl0TVBGU0k5YzM5cWpUenNvbnREQldueGFJTWJ5S0JGcVU?oc=5"
-    },
-    {
-      "id": "accessories-268b783c",
-      "source": "Autocar India",
-      "source_id": "accessories",
-      "title": "Aprilia RS 457 long-term review, 1,600km report",
-      "published_at": "2026-10-26T01:30:01.000Z",
-      "summary": "First report: The RS 457 has been brilliant to ride, but the ownership experience has had some flaws.",
-      "url": "https://www.autocarindia.com/bike-long-termer-amp/aprilia-rs-457-long-term-review-1600km-report-440617",
-      "text": "I’ve always liked faired motorcycles and, having owned a Suzuki Gixxer SF 250 , the Aprilia seemed like the next good upgrade ever since it entered the Indian market. Initially, a lot of the bikes did face reliability issues, so I waited for around 2 years, after which I was comfortable with making the purchase, knowing the issues were resolved. There are just 3 dealers in Mumbai that retail this bike, and all of them are a good one hour from where I live. The buying process was fairly straightforward. I did select a few accessories like the USB charger, extended windshield and the seat cowl, considering the GP Replica Edition already came standard with the quickshifter, sintered race pads and adjustable brake lever. Delivery of the bike took approximately a month. The bike is a hoot to ride, irrespective of it being a short or long one. That engine, when paired with the quickshifter, really makes the entire experience very engaging. The suspension setup is on the stiffer side, so riding on Mumbai’s uneven and bouncy roads takes away some of the fun of riding this bike. The 457 comes factory-fitted with Eurogrip Protorq Extreme tyres, which do the job well. I also got tank pads and thigh grips, along with fork seal covers fitted soon after purchase. The first service was scheduled at 1,000km, which was completed after some late-night city rides and a few weekend rides to Lonavala. With there being only two service centres – one in Chembur and the other in Thane, getting an…",
-      "gn_link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNMmo3cFVicmVWY1p4cjZBM1BNcFc3UnVLU2dyVklZRnJvMVM2MGpFNUliekx4Ymxzc0NPaGFyeWJ4VHpHRWJOLXVFd1FWUWJjOE5JcE5jNzNjT3NNU0VGV0puZGZ1X2I2b19vQTdvbFZ0eEtsblE3U0lwNmNGMlN0MmoybTNPMHFuaHc2MmZ6VVFHbXVON2d1M3ZlWVdGWWpSZmdvZ9IBpAFBVV95cUxNMmo3cFVicmVWY1p4cjZBM1BNcFc3UnVLU2dyVklZRnJvMVM2MGpFNUliekx4Ymxzc0NPaGFyeWJ4VHpHRWJOLXVFd1FWUWJjOE5JcE5jNzNjT3NNU0VGV0puZGZ1X2I2b19vQTdvbFZ0eEtsblE3U0lwNmNGMlN0MmoybTNPMHFuaHc2MmZ6VVFHbXVON2d1M3ZlWVdGWWpSZmdvZw?oc=5"
-    },
-    {
-      "id": "accessories-8d677b76",
-      "source": "autoX",
-      "source_id": "accessories",
-      "title": "Maruti Suzuki Victoris Aurum Edition Launched with new Accessories",
-      "published_at": "2026-10-26T03:49:35.000Z",
-      "summary": "The Maruti Suzuki Victoris Aurum Edition is offered exclusively with the strong-hybrid powertrain, retaining the standard SUV's mechanical specifications.",
-      "url": "https://www.autox.com/news/car-news/maruti-suzuki-victoris-aurum-edition-launched-with-new-accessories-124860/",
-      "text": "The Maruti Suzuki Victoris Aurum Edition is offered exclusively with the strong-hybrid powertrain, retaining the standard SUV's mechanical specifications. Maruti Suzuki has launched the Victoris Aurum Edition to mark the SUV's first anniversary in India. Rather than a separate variant, it is an optional accessory package for buyers seeking a different look for the midsize SUV. Priced at Rs 22,990, the package is limited to strong-hybrid versions and makes no mechanical changes to the existing model. It adds exterior detailing and cabin accessories while retaining the standard hybrid setup. The Aurum Edition adds copper-coloured inserts to the front, side, and rear skid plate designs, along with the wheel arches. It also adds chrome accessories to the front grille, fenders, bumpers, body-side mouldings, and door visors. The package brings all-weather 3D cabin mats, a 3D boot mat, and a sill guard for the boot opening. These additions focus on cosmetic changes and cabin protection rather than new equipment or performance upgrades. The accessory kit costs extra over the strong-hybrid model's ex-showroom price, which ranges from Rs 16.43 lakh (ex-showroom) to Rs 19.99 lakh (ex-showroom) The SUV continues with a 1.5-litre, three-cylinder, naturally aspirated petrol engine, an electric motor and a battery pack. The hybrid system is paired with an e-CVT automatic transmission that sends power to the front wheels. with power delivered to the front wheels through an e-CVT automatic…",
-      "gn_link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNLWlFMjFLTHZNOWxnZ2pIQWp5dW5abVVvVlljN1hEdDd6TGVZNEpmY1kyYnh1bVdZd0NfWlVZUTRZTWUzMmo3VmpfVEx4bE5CYjBjTDZxLTdZQTVVUnMyRV9vM2tDSU1nMTh1NWE5QndGaVFjV1M3Mld2djVnbEMwWE1UczFsbFpaX0JjdjVReXE5Y1pwTnhaSDdoUU5Sc01WVzRIeExldXJVaGdPYXgw?oc=5"
     },
     {
       "id": "accessories-5498d785",
@@ -3986,17 +3876,6 @@
       "gn_link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQb1lpX2lWY2xKWGtHVzY0YUdPQUk2ODhtVEJRVFg1TjBLMlJwZnVqTldnRXVwTlpVOXEwRmdERXdtNjlTSkZUeDcwUFpzeE9Tb3dlZURZU25KOW5uWXBONXRBbTRqZi1PVTF5emNiT1RIeHpIME5UR2pndGZnakVHNlRWZGdnTm9yeW9UMTRmMTlZQW8?oc=5"
     },
     {
-      "id": "accessories-52012f9c",
-      "source": "Ebony Bird",
-      "source_id": "accessories",
-      "title": "Ravens' offensive line can't catch a break after Vega Ioane injury update",
-      "published_at": "2026-10-27T16:00:02.000Z",
-      "summary": "The Baltimore Ravens' offensive line was hit with another injury, and the latest Vega Ioane update points to an MCL sprain.",
-      "url": "https://ebonybird.com/baltimore-ravens-offensive-line-can-t-catch-a-break-after-vega-ioane-injury-update",
-      "text": "As the saying goes: when it rains, it pours. When it felt like things would finally go the Baltimore Ravens’ way along the offensive line, Vega Ioane went down with an injury in Week 7. According to Ian Rapoport and Mike Garafolo , the rookie first-round pick suffered an MCL sprain in Sunday’s loss to the Cincinnati Bengals. As the saying goes: when it rains, it pours. When it felt like things would finally go the Baltimore Ravens’ way along the offensive line, Vega Ioane went down with an injury in Week 7. According to Ian Rapoport and Mike Garafolo , the rookie first-round pick suffered an MCL sprain in Sunday’s loss to the Cincinnati Bengals. While it’s expected to be short-term, the update signals Ioane will miss a little time. While it’s expected to be short-term, the update signals Ioane will miss a little time. The Ravens had their starting offensive front. Ronnie Stanley, John Simpson, Cam Jurgens, Vega Ioane, and Roger Rosengarten looked to be at least a solid group on paper. And they honestly didn’t look that bad early on. Unfortunately, it lasted just 16 snaps before Ioane left with an injury . The Ravens had their starting offensive front. Ronnie Stanley, John Simpson, Cam Jurgens, Vega Ioane, and Roger Rosengarten looked to be at least a solid group on paper. And they honestly didn’t look that bad early on. Unfortunately, it lasted just 16 snaps before Ioane left with an injury . It happened at the end of the first quarter on a Justice Hill 8-yard reception.…",
-      "gn_link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPRjZNUGNkc1o0VGh6NGtTNnpJS1dQVDdJM0RROEJBbjd2N1pLY3pQaWlydTFCQXFsVGtTc3NibEZLVGFQSVgyUWE1TDZ2bjNoWVdDRkQ5TUEtckJveTBuSWdQU0MzX1oyY2syUzVoUVNmWERIWVpmcWNXa3htNFJaVGQ2ZjMwTzVmWWxQRlNrQ0Jycm14TmJQZ05VVl8xRU50enRqcFZuNA?oc=5"
-    },
-    {
       "id": "accessories-5ec3a445",
       "source": "The Live Nagpur",
       "source_id": "accessories",
@@ -4006,8 +3885,232 @@
       "url": "https://thelivenagpur.com/2026/10/26/rahul-gandhis-convoy-involved-in-accident-on-purvanchal-expressway-no-casualties-reported/",
       "text": "An accident involving vehicles in the convoy of Rahul Gandhi, Leader of the Opposition in the Lok Sabha, occurred on the Purvanchal Expressway in Sultanpur, Uttar Pradesh. Several vehicles travelling behind the convoy reportedly collided with each other. Rahul Gandhi was reported to be safe, and no casualties were reported. According to initial reports, the accident took place near the 89.5-km milestone on the expressway, close to Haliyapur. Vehicles travelling at high speed behind Rahul Gandhi’s convoy reportedly crashed into one another, creating confusion at the spot. Further details about the exact cause of the accident and whether anyone sustained injuries were awaited. Rahul Gandhi Was Travelling to Attend Court Hearing Rahul Gandhi had reportedly left his residence in Delhi at around 7 am for Sultanpur, Uttar Pradesh. He was scheduled to appear before the Special MP/MLA Court in connection with a criminal defamation case filed in 2018. The accident occurred while he was travelling to attend the court proceedings. 👉 Click here to read the latest Gujarat news on TheLiveAhmedabad.com",
       "gn_link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPVXF1R2VjTVVienF3eGJzWHI3TE1INC01blExRW95Wmxxa0IxQXIzWmNnWE1QaUpkM085aWswT2loeGxSaHhXaVZ5Y05MMkcxY2ZRYlA5Z253bi1Qa2k3YUlJXzRDb2otX2FYVXhOS0tfaE9fTVJBY2JxUktPZWlDRWxjdWc2b3EzN2Y5Q1ZSNjVYTW5DaDNXcGNmUWlFYm1TQk52SmNZbm1Qa0FmT2RlOHFzSUhiVDVaVFlWRjQ4RmM0bXROM0E?oc=5"
+    },
+    {
+      "id": "accessories-6332f4c4",
+      "source": "The Live Nagpur",
+      "source_id": "accessories",
+      "title": "New 6-Lane Bridge on SG Highway Completed: 4.3-km Structure Awaits Public Inauguration",
+      "published_at": "2026-10-23T14:00:06.000Z",
+      "summary": "",
+      "url": "https://thelivenagpur.com/2026/10/23/new-6-lane-bridge-on-sg-highway-completed-4-3-km-structure-awaits-public-inauguration/",
+      "text_error": "HTTP 404 for thelivenagpur.com",
+      "text": "",
+      "gn_link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxObkY1S3lWcGdGWnZ0Ny1rWU1mVHFSd1RQdENLVG1nVHV6ZHNpaE95YjFwZDRjOHFqOGNzSXVyVVhKQ1NwbFdNRlYtWW1WNXZLa2RoNU03WjBKdFBRdTl4cjlKM3d0NjhzelRudm1FR29kM01RbW5pbFptV3BEekF0bUxtb0x2MHlBM2tOM2dDcXVTLU1VRDNWVzg1blVyV1FTZEhfS29GdVpoQlRDbDRJT1VnTFAyVXdlaGVpTTV2U0c?oc=5"
+    },
+    {
+      "id": "accessories-57f9cb8c",
+      "source": "Cartoq",
+      "source_id": "accessories",
+      "title": "Royal Enfield Himalayan 750's Official Reveal Confirmed At EICMA In Early November: First Teaser Out",
+      "published_at": "2026-10-26T15:58:56.000Z",
+      "summary": "",
+      "url": "https://www.cartoq.com/bike-news/royal-enfield-himalayan-750-eicma-2026-debut/",
+      "text_error": "HTTP 403 for www.cartoq.com",
+      "text": "",
+      "gn_link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQUUF3bW93dzJtNV9kc3B2QVJOZkh5XzNzV01JWUhJemZYMWZKMUFmTDhzMzd1UmVCdkViSTU3VUxsM1NIcU5XUDNTZ2dBb2UyYzduNHhsaVVwZ1pHdndQVkJWTGhyQXBTOTljeGFYQzllSzk3MTZ3ZVpKakJKejlHSG83TnA?oc=5"
+    },
+    {
+      "id": "accessories-16a97cf0",
+      "source": "Lexham Insurance",
+      "source_id": "accessories",
+      "title": "2026 Indian Pursuit Review | Performance, Comfort & Verdict",
+      "published_at": "2026-10-26T14:04:40.000Z",
+      "summary": "Read our 2026 Indian Pursuit review, covering performance, touring comfort, handling, technology, practicality and value. Can Indian's premium bagger beat the competition?",
+      "url": "https://www.lexhaminsurance.co.uk/blog/indian-pursuit-motorcycle-review/",
+      "text": "Until recently, if you wanted a genuine, authentic, US-style ‘full dress’ tourer – and indeed an American motorcycle of any type – your choice was limited to one: Harley-Davidson . The historic Milwaukee marque was America’s only home-grown mass-market motorcycle manufacturer between 1953 and 2013, and its ElectraGlide (and derivatives) complete with panniers, top case and large fairing set the template for US tourers. Not anymore. Automotive giant and Victory motorcycles owner Polaris bought the brand and manufacturing rights to Harley’s historic rival Indian (which collapsed in 1953) in 2011 and relaunched the marque with an all-new family of air-cooled V-twin cruisers in 2013. In 2015, they were joined by a similarly powered ‘full dresser’, the Roadmaster. In 2022, Indian launched the Pursuit, another full-dresser but this time based on Indian’s new, liquid-cooled ‘PowerPlus’ engine. We took Indian UK’s press bike for a half-day spin around Cambridgeshire to find out how it measures up. The Pursuit was launched in 2022 as a ‘full dress’ touring version (ie with top case and taller screen) of its Challenger bagger, as launched in 2020 with frame-mounted fairing, which in turn debuted Indian’s all-new, liquid-cooled, 108ci (1769cc) ‘PowerPlus’ engine . The Limited is the highest spec’ version (there’s also a blacked-out ‘Dark Horse’ version), while in 2025 it was updated with the enlarged 112ci (1834cc) engine. The older Roadmaster, meanwhile, continues but now also has the…",
+      "gn_link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9xeGJTSEp2WV9ucE85SDA3UHdqbF9Od2FlZVhGRkd2UHQ1S1RRbnJWOGdQUWdtdC1WRTZjTlZXaGthUWVENlJ0Unp5cjRWMmFnMGxaOHRaZXdHa0lmdGxxWEdQNGxYaTJEXzZCb2dWeDBTRGI2QkpkOWp2MTY?oc=5"
+    },
+    {
+      "id": "accessories-cf533510",
+      "source": "autoX",
+      "source_id": "accessories",
+      "title": "Ducati Formula 73 Launched in India at Rs 20 Lakh",
+      "published_at": "2026-10-23T10:15:20.000Z",
+      "summary": "Limited to 873 numbered units worldwide, the Ducati Formula 73 features an 803cc L-twin engine, retro cafe racer styling, and modern rider aids.",
+      "url": "https://www.autox.com/news/bike-news/ducati-formula-73-launched-in-india-at-rs-20-lakh-124855/",
+      "text": "Limited to 873 numbered units worldwide, the Ducati Formula 73 features an 803cc L-twin engine, retro cafe racer styling, and modern rider aids. Ducati has launched the Formula 73 in India at Rs 20 lakh (ex-showroom), adding a limited-edition motorcycle inspired by one of its most significant road bikes. The new model pays tribute to the 1973 Ducati 750 Super Sport Desmo, which followed Paul Smart and Bruno Spaggiari’s victory at the 1972 200 Miglia di Imola. Only 873 numbered units will be produced worldwide, and the allocation reserved for India has already sold out. The Formula 73 combines styling cues from the original motorcycle with modern electronics and an 803cc air-cooled engine, placing it in the Urban Café Racer category. Ducati has not announced any further availability for Indian buyers. The Formula 73 takes inspiration from the original 750 Super Sport Desmo, the first Ducati road motorcycle to feature desmodromic valve timing. Its silver and aqua-green paint scheme recreates the look of the historic model, including a vertical gold stripe on the fuel tank inspired by the unpainted strip on the 750 Imola Desmo. The motorcycle gets clip-on handlebars, bar-end mirrors, a short front fairing and a tapered tail section. Billet aluminium components, including the brake and clutch levers, footpegs and Rizoma fuel cap, add to its detailing. A steel trellis frame finished in aqua green and 17-inch spoked wheels complete the design. Every unit carries its name and…",
+      "gn_link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOVjNMRlJpRWpnd2VSejJzNUZRN1d1ZnZ3Qzk2VENaLVJKNDQxS2pFdUpVUXVDZVdWSmpuMlFGS0RBcExjSzBzdUc5Uk5raExVdzBQRWNBeUU0ekc1SUJHWG9QVFdyNXBxZGxDdVNOc1NMeG5KcnRPUmItUHc0V1RnZXpFcndtbzcwdWFnR1pvY29XN21mT203QnhB?oc=5"
+    },
+    {
+      "id": "accessories-7a669e61",
+      "source": "CarDekho",
+      "source_id": "accessories",
+      "title": "2026 Hyundai Bayon Launched At Rs 10 Lakh: Quirky Crossover Positioned Between Venue And Creta",
+      "published_at": "2026-10-27T07:31:00.000Z",
+      "summary": "Hyundai India has launched the 2026 Bayon at Rs 10 Lakh. Here are all its details, including features, price, variants and bookings.",
+      "url": "https://www.cardekho.com/news/new-launches/2026-hyundai-bayon-launched-at-rs-10-lakh-quirky-crossover-positioned-between-venue-and-creta-36862.htm",
+      "text": "After many teasers and leaks, Hyundai has finally launched the Bayon in India at a price of Rs 10 lakh (ex-showroom). Positioned alongside the Creta in the compact SUV segment, it aims to target the lower end of the market with a quirky design, modern features and a smooth and refined powertrain. Let’s take a look at it in detail: The 2026 Bayon is available in a choice of seven variants: HX2, HX3, HX3 Plus, HX5, HX6, HX8 and HX10. Here is its detailed variant-wise price list: Prices for the Hyundai Bayon range from Rs 10 lakh to Rs 18 lakh (ex-showroom). Bookings for the SUV are open for an initial amount of Rs 11,000 via the authorised Hyundai dealer network and the brand’s official website. Unlike the more traditional proportions of the Creta, the Bayon takes on a more unconventional approach with a quirky crossover-like design. Its fascia adopts a slim and minimal design, with inverted ‘L-shaped’ LED DRLs with a gloss black strip in between, LED headlamps on the bumper and a silver skid plate for some aggression. In profile, the quirky 17-inch alloy wheels stand out as a signature design element. The Bayon also gets thick cladding, tall roof rails and muscular haunches for added road presence. The rear-end styling mimics the front-end with LED taillamps arranged in a similar inverted ‘L-shaped’ cluster, a silver applique on the bumper and ‘Bayon’ lettering on the tailgate. Length: 4245 mm, Width: 1810 mm, Height: 1605 mm, Wheelbase: 2600 mm Hyundai is offering the Bayon…",
+      "gn_link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOUjc3UlRnd2hfemxxZGlrdGdZc0psUTNJMUhrZVNoM2NkelVkSnllTzdTeW9oWDVvckMzb1FzUmNEcVpCU0E3NUVzWnFfc3BaaUc2UndhMGtiQW1mTFdqaGQtUWFtanM1ejhweXM0Xy1GcUlOUFJNbWZuWWVpdkxKWENQSWJUVkg3anYyRVFsTFJ3Q1ZVYkp5MFItLU5oY2V4RDQ2dTVzX043X01mV0gzZVgyWFhRMXVfTllfNld1aXZMVWZLQWp1cFNnU0tjZ1MzQ0FUX0xDV3FuTzZHaFpR0gHnAUFVX3lxTE9fQXhHN25YOXdsZDhRcmZHMlgza0dTNVlCa2NzYUFzTThLa0ZEaEdzcUtOdzdQa0t4eGtZYVhtRXpGY1dBa0dtNjFiUG5TY0xuX0Y2ZWhKck5pbENaV2c4WEJ2aU8zNjhDYlFpdGNDSVNsUWNfaXBCMmJpLTgwQ3dwOGZJM0ppRWxlZlBURUJOX1FoWVp5a2c4UG9QRVpNR01lRnZKeC1pVzR5TFBiM190TEVjTzhKVkZ1YklUeUcyT0hYSVphTzF6bkhhVElGSjY4cV9VcGl1dThTcDFMaTI2RE1lRXM5bw?oc=5"
+    },
+    {
+      "id": "accessories-553a6d65",
+      "source": "carandbike",
+      "source_id": "accessories",
+      "title": "Ultraviolette X47 Venom: Top Highlights",
+      "published_at": "2026-10-23T10:40:15.000Z",
+      "summary": "",
+      "url": "https://www.carandbike.com/news/ultraviolette-x47-venom-top-highlights-3222447",
+      "text_error": "HTTP 403 for www.carandbike.com",
+      "text": "",
+      "gn_link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQZXNfenJzVksxblJjeThoRjA0ZUxOTUZBTG8yMGlkMUZIMmt6emswdjQwM0hoYzBoYTIzdkgxWTlQcWZlWjFUVUs1TlFqWE8wVmlDR2ZzQnczWUFPakc0eERyb2lrWGZJSkczMjFBSmo2Rzc5Q24tRDg1a1c3anBFWHhzb3rSAYwBQVVfeXFMUG4tYTZBdUtaZVRKMW1BbUV6YzdILWJfVHYtRW9CRUlJY3RRN2JRWFlmaFg5MnRNRUhBS05QZXI4bDNBUUtpdkFISWtibGZ1empjazNOeEIzRGkwR1ZzaWlGaktiMUJxeGw2eHV2YTVlLWREd3o4Qlk1SXhhODVISFppV0NHSWZYVFJSVlY?oc=5"
+    },
+    {
+      "id": "accessories-678d8aaa",
+      "source": "BikeJunction",
+      "source_id": "accessories",
+      "title": "Bajaj Pulsar NS200 Gets ETB, Ride Modes and TFT Display: Price, Features Explained",
+      "published_at": "2026-10-23T11:02:55.000Z",
+      "summary": "Bajaj updates the Pulsar NS200 with ETB ride modes, traction control, a 5-inch TFT, 25.5 PS and 37 mm USD forks. Priced at Rs 1,60,374 (ex-showroom Delhi)",
+      "url": "https://thebikejunction.com/news/bajaj-pulsar-ns200-gets-etb-ride-modes-and-tft-display",
+      "text": "Bajaj Auto has updated the Pulsar NS200 in India on October 23, 2026, adding electronic throttle by wire (ETB), ride modes and a new TFT display. The updated motorcycle now produces 25.5 PS, up from 24.5 PS earlier. It also gets traction control, a Sports Shifter and Google Maps mirroring. Priced at Rs 1,60,374 (ex showroom, Delhi), the upgrade focuses on improving rider control, connectivity and everyday convenience. The biggest change is the addition of ETB technology, which enables ride modes. Bajaj Auto has also introduced traction control and a Sports Shifter. These features add electronic assistance to the NS200’s performance focused package. However, the company has not specified the available ride modes in its announcement. The Bajaj bike retains its perimeter frame and 199.5cc, four valve, liquid cooled engine. A six speed gearbox continues to handle transmission duties. The existing LCD instrument cluster has been replaced by a 5 inch TFT console. It supports Google Maps mirroring, adding navigation convenience for daily commutes and longer rides. These updates bring more technology and practical features to the motorcycle. Riders should check the display’s supported functions and connectivity requirements before making a purchase. The updated Pulsar NS200 produces 25.5 PS, compared with 24.5 PS previously. Bajaj Auto has also upgraded the front suspension. The motorcycle now gets thicker 37mm upside down (USD) front forks, replacing the earlier 33mm setup. It also…",
+      "gn_link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNUERWSXR3STFEMDVaRHVJSlBuNUVTeUxYT1k4WDBVZnhlNnJBbzlyN0dTOXJScFVLNzJaOGVleGFhM1BPTkRzeTAxR2M2d0Y5YlJXSUV5bklaQmpsVG9XUW5INGpDSEs2cDhLZTZDNV92cFQzZVpHX2o4cXNmWTNqM25QaDU4WXo5cWNGNHJhbU_SAZYBQVVfeXFMUFloR0JwUkh6RWF1YzFQVENNeW00SXd1UnZyNzZHZEhIUG5lNHRGZGl4cTdENjdMQXo2UVh3cVMzXzFxYlBqYnRYZjY2b0l1RGF6Z0g3Rkt4ZV8wcTFjejhCMUVZcmJwSEJiMUUzaHFfWEltYkI4ekhPdmJNQncwWW5uSmxHdUdZUGlWaXNqUFpYc0JTYmR3?oc=5"
+    },
+    {
+      "id": "accessories-a9bbc6aa",
+      "source": "BikeAdvice",
+      "source_id": "accessories",
+      "title": "Should You Buy Royal Enfield Classic 350 With a Two-Wheeler Loan?",
+      "published_at": "2026-10-26T09:59:37.000Z",
+      "summary": "",
+      "url": "https://bikeadvice.in/should-you-buy-royal-enfield-classic-350-with-a-two-wheeler-loan/",
+      "text_error": "HTTP 429 for bikeadvice.in",
+      "text": "",
+      "gn_link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNemRPWnB2RXAwS0NRY3czekppelZIMXNJdW5aUWtsQjNTZzdwb2JrTjFPZDdMVFpIQTB5YXlKTlozUmhsNm12UHV0SzNrVTFudVBrU09HVld1U1pvVkNadlVrYjdqQUJNYWRHR1pyaURRR3BQYkc0eGVMMlYybWJ0OUN2Vmp5clBZcEhfREx1NTg?oc=5"
+    },
+    {
+      "id": "accessories-3990b7c8",
+      "source": "Top Speed",
+      "source_id": "accessories",
+      "title": "The Middleweight Cruiser That Has No Business Feeling This Damn Big",
+      "published_at": "2026-10-24T14:31:20.000Z",
+      "summary": "The Royal Enfield Super Meteor 650 Celestial delivers big-bike presence at $7,499, with a 648cc twin, touring kit, and everyday usability.",
+      "url": "https://www.topspeed.com/royal-enfield-super-meteor-no-business-feeling-this-big/",
+      "text": "​Size has always been the easiest way to measure a proper cruiser . Bigger engines, bigger fuel tanks, bigger price tags, and a bigger footprint usually signal a better bike, at least in the showroom. However, owning and living with one is a different story altogether. Heavyweight cruisers may be attractive to enthusiasts, but they are hard to maneuver, expensive to maintain, and tiring to ride in everyday conditions. This is where the middleweight cruisers shine. Middleweight cruisers combine the road presence of a big bike without the fuss of living with one. These cruisers come with an accessible price tag, just enough performance, and the convenience of an everyday motorcycle. A heavyweight cruiser is easy to fall for: massive road presence , premium build quality and materials, and big rumbling engines. However, the sticker price for one of these often runs well into five figures, and that is before insurance, accessories, and maintenance enter the picture. All these aspects that attracted you to buy a big cruiser are the actual cause of the fuss. Middleweight cruisers fix most of these issues without giving up on the good parts. You get a smaller engine with ample performance, lower running costs, and a footprint that is still substantial. These cruisers are lighter than heavyweights, so riding around town or maneuvering the bike in tight spaces is much easier. Adding to the convenience factor, a smaller engine means a lower price tag, something that won't burn a hole…",
+      "gn_link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNeWsyN3dZYlJVSGRKczhGeW83bVBSNjVOb2lsMHQ0MXcwa3ZVQTlTb1lUd0I4cUlYeEtSSVFyZVJUaWN2aWRHT3F3aDBfLTdGTzZncUJVWkh2RW5GMmdXLVc5UG0zSmRDc3pabHBjOVdQNGxpWFlLSVd5Y0R5anhCaER0alhJUjZy?oc=5"
     }
   ],
-  "events_calendar": [],
+  "events_calendar": [
+    {
+      "id": "tvs-are-gp-season-3",
+      "name": "TVS Apache Racing Experience GP, Season 3",
+      "kind": "race",
+      "start_date": "2026-11-15",
+      "end_date": null,
+      "city": "20 cities, final in Chennai",
+      "organiser": "TVS Racing",
+      "text": "A customer racing championship for Apache owners across seven countries and 20 cities, with a women-only 200cc class and MotoGP trips for top finishers.",
+      "register": null,
+      "sources": [
+        {
+          "name": "Motoroids",
+          "url": "https://www.motoroids.com/motorsport/tvs-apache-racing-experience-gp-season-3-expands-to-7-countries/"
+        },
+        {
+          "name": "Machine Maker",
+          "url": "https://themachinemaker.com/news/tvs-apache-racing-experience-gp-season-3-to-expand-to-seven-countries/"
+        }
+      ],
+      "tag": null,
+      "first_seen": "2026-10-28",
+      "updated": "2026-10-28"
+    },
+    {
+      "id": "motoverse-2026",
+      "name": "Royal Enfield Motoverse 2026",
+      "kind": "festival",
+      "start_date": "2026-11-27",
+      "end_date": "2026-11-29",
+      "city": "Vagator, Goa",
+      "organiser": "Royal Enfield",
+      "text": "Royal Enfield marks its 125th year with three days of music, motorcycles, art and sport: unveils, curated rides and workshops. Farhan Akhtar and Reble headline the main stage.",
+      "register": null,
+      "sources": [
+        {
+          "name": "SMEStreet",
+          "url": "https://smestreet.in/sectors/royal-enfield-reveals-first-artist-lineup-for-motoverse-2026-12544596"
+        }
+      ],
+      "tag": null,
+      "first_seen": "2026-10-28",
+      "updated": "2026-10-28"
+    },
+    {
+      "id": "india-bike-week-2026",
+      "name": "India Bike Week 2026",
+      "kind": "festival",
+      "start_date": "2026-12-04",
+      "end_date": "2026-12-05",
+      "city": "Panchgani, Maharashtra",
+      "organiser": "India Bike Week",
+      "text": "The 13th edition moves to a venue 50 per cent larger, with four racetracks, FMSCI races, a Stunt Arena, ride-outs, camping and group rides from several cities.",
+      "register": "https://indiabikeweek.in/",
+      "sources": [
+        {
+          "name": "autoX",
+          "url": "https://www.autox.com/news/bike-news/india-bike-week-2026-dates-revealed-set-for-december-4-5-124622/"
+        },
+        {
+          "name": "BBC TopGear India",
+          "url": "https://www.topgearmag.in/news/bikes/india-bike-week-2026-to-return-to-panchgani-with-a-bigger-venue-and-town-takeover"
+        },
+        {
+          "name": "India Bike Week",
+          "url": "https://indiabikeweek.in/"
+        }
+      ],
+      "tag": null,
+      "first_seen": "2026-10-28",
+      "updated": "2026-10-28"
+    },
+    {
+      "id": "tvs-motosoul-6",
+      "name": "TVS MotoSoul 6.0",
+      "kind": "festival",
+      "start_date": "2026-12-11",
+      "end_date": "2026-12-12",
+      "city": "Vagator, Goa",
+      "organiser": "TVS Motor",
+      "text": "The sixth MotoSoul brings stunt shows, circuit races for off-road riders, concerts and a custom bike exhibition built with international custom shops.",
+      "register": null,
+      "sources": [
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/tvs-motosoul-2026-schedule-released/"
+        },
+        {
+          "name": "Autocar India",
+          "url": "https://www.autocarindia.com/bike-news/tvs-motosoul-60-to-be-held-on-december-11-12-440892"
+        }
+      ],
+      "tag": null,
+      "first_seen": "2026-10-28",
+      "updated": "2026-10-28"
+    },
+    {
+      "id": "isrl-season-3",
+      "name": "Indian Supercross Racing League, Season 3",
+      "kind": "race",
+      "start_date": "2026-12-19",
+      "end_date": "2027-02-07",
+      "city": "Venues to be announced",
+      "organiser": "ISRL",
+      "text": "Three rounds: 19 and 20 December, 23 and 24 January, 6 and 7 February. 146 riders from 21 countries have registered across four classes.",
+      "register": null,
+      "sources": [
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/indian-supercross-racing-league-season-3-dates-announced/"
+        },
+        {
+          "name": "BBC TopGear India",
+          "url": "https://www.topgearmag.in/news/motorsport/indian-supercross-racing-league-season-3-attracts-146-riders-from-21-countries"
+        }
+      ],
+      "tag": null,
+      "first_seen": "2026-10-28",
+      "updated": "2026-10-28"
+    }
+  ],
   "previous_edition": null
 }

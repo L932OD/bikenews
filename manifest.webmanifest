@@ -1,14 +1,14 @@
 {
-  "name": "Bike Desk",
-  "short_name": "Bike Desk",
+  "name": "Bike News",
+  "short_name": "Bike News",
   "description": "India's two-wheeler news, once a day.",
   "id": "/",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#141518",
-  "theme_color": "#141518",
+  "background_color": "#E8E6E1",
+  "theme_color": "#E8E6E1",
   "icons": [
     { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
     { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },

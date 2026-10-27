@@ -167,19 +167,58 @@ if (Array.isArray(heads)) heads.forEach((s, i) => checkStory(`headlines[${i}]`, 
 const total = (lead ? 1 : 0) + (subs.length || 0) + (heads.length || 0);
 if (total < 5 || total > 12) err('edition', `has ${total} items; it needs 5 to 12 (lead + subs + headlines)`);
 if (subs.length > 3) err('subs', `has ${subs.length}; at most 3`);
-if (trending.length > 2) err('trending', `has ${trending.length}; at most 2`);
+if (trending.length > 5) err('trending', `has ${trending.length}; at most 5`);
+
+// What is trending and why. A term must come from the day's Google Trends data (daily trends, or the Explore
+// searches), its signal must be the value Google gave, and the "why" must cite a story that explains it.
+const signals = new Map();
+const addSignal = (term, value) => {
+  const k = String(term).toLowerCase();
+  if (!signals.has(k)) signals.set(k, new Set());
+  if (value != null && value !== '') signals.get(k).add(String(value));
+};
+for (const t of pool.trends || []) addSignal(t.term, t.traffic);
+for (const r of pool.explore?.related || []) {
+  for (const q of r.top) addSignal(q.q, q.value);
+  for (const q of r.rising) addSignal(q.q, q.value);
+}
+const exploreNumbers = new Set();
+for (const v of [
+  ...(pool.explore?.averages || []),
+  ...(pool.explore?.related || []).flatMap((r) => [...r.top, ...r.rising].map((q) => q.value)),
+  ...(pool.explore?.states || []).map((x) => x.value),
+  ...(pool.trends || []).map((t) => t.traffic),
+]) for (const n of numbersIn(String(v))) exploreNumbers.add(n);
 
 const trendUsed = new Map();
+const trendFound = [];
 if (Array.isArray(trending)) {
   trending.forEach((t, i) => {
     const where = `trending[${i}]`;
+    const known = typeof t?.term === 'string' ? signals.get(t.term.toLowerCase()) : null;
     if (typeof t?.term !== 'string' || !t.term) err(`${where}.term`, 'is missing');
-    else if (!(pool.trends || []).some((p) => p.term.toLowerCase() === t.term.toLowerCase())) err(`${where}.term`, `"${t.term}" is not a trend in the pool`);
-    checkText(`${where}.why`, t?.why, { max: 25 });
-    // A trend is explained by its own news links (RSS trends) or by the day's pool stories about it
-    // (category trends carry no links). It may cite a story the edition also runs.
-    checkSources(where, t?.sources, new Map([...poolByUrl, ...trendUrls]), trendUsed);
+    else if (!known) err(`${where}.term`, `"${t.term}" is not in today's Google Trends data`);
+    else if (t.traffic != null && t.traffic !== '' && !known.has(String(t.traffic))) err(`${where}.traffic`, `"${t.traffic}" is not Google's value for this term (${[...known].join(', ') || 'none'})`);
+    checkText(`${where}.why`, t?.why, { max: 30 });
+    // A trend is explained by its own news links (daily trends) or by the day's pool stories about it.
+    // It may cite a story the edition also runs.
+    const found = checkSources(where, t?.sources, new Map([...poolByUrl, ...trendUrls]), trendUsed);
+    trendFound.push(...found);
+    if (found.length && t.why) {
+      const have = new Set([...exploreNumbers]);
+      for (const it of found) for (const n of numbersIn(`${it.title} ${it.summary ?? ''} ${it.text ?? ''}`)) have.add(n);
+      for (const n of numbersIn(t.why)) if (!have.has(n)) err(`${where}.why`, `the number ${n} is not in Google's data or this trend's sources`);
+    }
   });
+}
+const ts = ed.trends_summary;
+if (ts != null) {
+  checkText('trends_summary.headline', ts.headline, { max: 16 });
+  checkText('trends_summary.text', ts.text, { max: 70 });
+  if (!trending.length) err('trends_summary', 'needs the trending items it sums up');
+  const have = new Set([...exploreNumbers]);
+  for (const it of trendFound) for (const n of numbersIn(`${it.title} ${it.summary ?? ''} ${it.text ?? ''}`)) have.add(n);
+  for (const n of numbersIn(`${ts.headline ?? ''} ${ts.text ?? ''}`)) if (!have.has(n)) err('trends_summary', `the number ${n} is not in Google's data or the trending items' sources`);
 }
 
 // ---------- Events and aftermarket accessories ----------

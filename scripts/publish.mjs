@@ -80,8 +80,8 @@ const risingAll = new Map();
 for (const r of ex?.related ?? []) for (const q of r.rising) if (!trivial.has(q.q.toLowerCase()) && !risingAll.has(q.q)) risingAll.set(q.q, q);
 const risingList = [...risingAll.values()].sort((a, b) => pct(b.value) - pct(a.value));
 const day = ex
-  ? { date: today, keywords: ex.keywords, averages: ex.averages, top_from: lead ?? null, top: topList.slice(0, 10), rising: risingList.slice(0, 10), states: ex.states.slice(0, 8), autos, picks: ed.trending ?? [] }
-  : { date: today, keywords: [], averages: [], top: [], rising: [], states: [], autos, picks: ed.trending ?? [] };
+  ? { date: today, keywords: ex.keywords, averages: ex.averages, top_from: lead ?? null, top: topList.slice(0, 10), rising: risingList.slice(0, 10), states: ex.states.slice(0, 8), autos, picks: ed.trending ?? [], summary: ed.trends_summary ?? null }
+  : { date: today, keywords: [], averages: [], top: [], rising: [], states: [], autos, picks: ed.trending ?? [], summary: ed.trends_summary ?? null };
 trends.days = [day, ...trends.days.filter((d) => d.date !== today)].filter((d) => d.date >= cutoff).sort((a, b) => b.date.localeCompare(a.date));
 trends.updated = ed.published_at;
 trends.timeline = ex ? { keywords: ex.keywords, points: ex.timeline } : trends.timeline ?? null;

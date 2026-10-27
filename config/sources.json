@@ -178,7 +178,10 @@
         "Steelbird helmet",
         "SMK helmet",
         "motorcycle luggage India launched",
-        "riding boots India launched"
+        "riding boots India launched",
+        "Royal Enfield riding gear accessories",
+        "Vega helmets launched",
+        "Solace riding gear"
       ],
       "exclude_title": "\\b(cars?|SUVs?|bathroom|faucet|kitchen|police|challan|violations?|fine[sd]?|rule)\\b",
       "max_per_query": 5

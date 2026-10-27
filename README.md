@@ -1,4 +1,4 @@
-# Bike Desk
+# Bike News
 
 India's two-wheeler news, refreshed once a day at about 09:00 IST. A script gathers the news, Claude chooses and
 writes the edition, and Vercel serves a static page from `main`.

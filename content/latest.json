@@ -1,6 +1,6 @@
 {
   "edition": "2026-10-28",
-  "published_at": "2026-10-28T09:04:00+05:30",
+  "published_at": "2026-10-28T03:48:49+05:30",
   "lead": {
     "id": "re-himalayan-750-teaser",
     "kicker": "Royal Enfield",
@@ -40,8 +40,20 @@
         "url": "https://bikeadvice.in/royal-enfield-himalayan-750-teased-ahead-of-eicma-2026-debut/"
       },
       {
+        "name": "BikeDekho",
+        "url": "https://www.bikedekho.com/news/breaking-royal-enfield-himalayan-750-teased-officially-to-be-showcased-at-eicma-20544"
+      },
+      {
+        "name": "Overdrive",
+        "url": "https://www.overdrive.in/news-cars-auto/royal-enfield-himalayan-750-teased-ahead-of-its-global-debut-in-eicma-heres-what-we-know-so-far/"
+      },
+      {
         "name": "NDTV Auto",
         "url": "https://www.ndtv.com/auto/royal-enfield-himalayan-750-teased-ahead-of-eicma-debut-12241639"
+      },
+      {
+        "name": "Gaadiwaadi",
+        "url": "https://gaadiwaadi.com/royal-enfield-himalayan-750-teased-global-debut-next-week/"
       }
     ],
     "tag": null
@@ -69,6 +81,40 @@
         {
           "name": "NDTV Auto",
           "url": "https://www.ndtv.com/auto/harley-davidson-sprint-440-cruiser-spotted-undisguised-ahead-of-launch-12241097"
+        },
+        {
+          "name": "MotorBeam",
+          "url": "https://www.motorbeam.com/harley-davidson-sprint-440-spied-ahead-of-eicma-2026-debut/amp/"
+        },
+        {
+          "name": "Overdrive",
+          "url": "https://www.overdrive.in/news-cars-auto/harley-davidson-sprint-440-leaked-ahead-of-launch/"
+        },
+        {
+          "name": "Gaadiwaadi",
+          "url": "https://gaadiwaadi.com/harley-davidson-sprint-440-spotted-undisguised-ahead-of-launch/"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "bajaj-q2-fy27",
+      "kicker": "Bajaj Auto",
+      "type": "sales",
+      "figure": {
+        "value": "₹3,354 crore",
+        "label": "Q2 net profit"
+      },
+      "headline": "Bajaj Auto’s Q2 net profit rises 35% to ₹3,354 crore as revenue crosses ₹20,000 crore",
+      "text": "Exports rose 40% and Chetak revenue reached ₹2,000 crore. Bajaj warns that drought, inflation and tighter rural lending could deepen the entry-level motorcycle slowdown in January to March, while premium bikes and EVs keep growing.",
+      "sources": [
+        {
+          "name": "Autocar Professional",
+          "url": "https://www.autocarpro.in/news/bajaj-auto-q2-net-profit-rises-35-percent-to-rs-3354-crore-as-revenue-crosses-rs-20000-crore-135494"
+        },
+        {
+          "name": "Autocar Professional",
+          "url": "https://www.autocarpro.in/news/bajaj-auto-warns-rural-stress-could-deepen-entry-level-motorcycle-slowdown-in-q4-135514"
         }
       ],
       "tag": null
@@ -91,38 +137,14 @@
         {
           "name": "ET Auto",
           "url": "https://auto.economictimes.indiatimes.com/news/two-wheelers/tvs-motor-to-return-to-eicma-show-as-italy-sales-rise-110/135229914"
-        }
-      ],
-      "tag": null
-    },
-    {
-      "id": "triumph-tiger-1200-india",
-      "kicker": "Triumph",
-      "type": "upcoming",
-      "figure": {
-        "value": "March 2027",
-        "label": "on sale in India"
-      },
-      "specs": [
-        [
-          "Engine",
-          "1,160cc triple"
-        ],
-        [
-          "Power",
-          "155.84bhp"
-        ],
-        [
-          "Torque",
-          "130Nm"
-        ]
-      ],
-      "headline": "New-generation Triumph Tiger 1200 unveiled in India, on sale from March 2027",
-      "text": "The triple gains 8bhp and gets revised internals, updated suspension and new rider aids. It comes in GT Pro and Rally Explorer variants. Prices will be announced closer to the start of bookings.",
-      "sources": [
+        },
         {
-          "name": "BikeWale",
-          "url": "https://www.bikewale.com/news/next-generation-triumph-tiger-1200-unveiled-in-india-launch-soon/"
+          "name": "Autocar Professional",
+          "url": "https://www.autocarpro.in/news/tvs-motor-to-showcase-new-models-at-eicma-as-europe-expansion-continues-135497"
+        },
+        {
+          "name": "Gaadiwaadi",
+          "url": "https://gaadiwaadi.com/tvs-motor-confirms-return-to-eicma-to-unveil-new-models/"
         }
       ],
       "tag": null
@@ -130,10 +152,23 @@
   ],
   "headlines": [
     {
+      "id": "triumph-tiger-1200-india",
+      "type": "upcoming",
+      "headline": "New-generation Triumph Tiger 1200 unveiled in India, on sale from March 2027",
+      "published_at": "2026-10-27T15:27:29.000Z",
+      "sources": [
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/next-generation-triumph-tiger-1200-unveiled-in-india-launch-soon/"
+        }
+      ],
+      "tag": null
+    },
+    {
       "id": "re-classic-650-anniversary-price",
       "type": "price",
       "headline": "Royal Enfield Classic 650 anniversary edition is priced at ₹4.26 lakh",
-      "published_at": "2026-10-26T15:10:11Z",
+      "published_at": "2026-10-26T15:10:11.000Z",
       "sources": [
         {
           "name": "ET Auto",
@@ -145,9 +180,13 @@
     {
       "id": "ather-capacity-expansion",
       "type": "ev",
-      "headline": "Ather adds 2.25 lakh units of yearly capacity by December, 18,000 a month",
-      "published_at": "2026-10-27T10:05:59Z",
+      "headline": "Ather adds 2.25 lakh units of yearly capacity, missing up to 20,000 sales a month",
+      "published_at": "2026-10-26T13:04:49.000Z",
       "sources": [
+        {
+          "name": "Autocar Professional",
+          "url": "https://www.autocarpro.in/news/ather-flags-unmet-monthly-sales-of-20000-units-plans-capacity-expansion-135476"
+        },
         {
           "name": "BikeAdvice",
           "url": "https://bikeadvice.in/ather-energy-to-expand-production-capacity-by-2-25-lakh-units/"
@@ -160,14 +199,31 @@
       "tag": null
     },
     {
-      "id": "ather-q2-profit",
-      "type": "sales",
-      "headline": "Ather Energy posts a ₹1.26 crore profit in Q2 FY27",
-      "published_at": "2026-10-26T10:22:03Z",
+      "id": "bcg-ev-intent-43",
+      "type": "ev",
+      "headline": "43% of Indian buyers now consider an electric two-wheeler, up from 30% in 2024",
+      "published_at": "2026-10-26T12:08:11.000Z",
       "sources": [
         {
+          "name": "Autocar Professional",
+          "url": "https://www.autocarpro.in/news/electric-two-wheeler-purchase-intent-rises-to-43-percent-market-penetration-at-99-percent-through-august-bcg-135473"
+        },
+        {
           "name": "ET Auto",
-          "url": "https://auto.economictimes.indiatimes.com/amp/news/two-wheelers/ather-energy-swings-to-1-26-crore-profit-in-q2-fy27/135209039"
+          "url": "https://auto.economictimes.indiatimes.com/news/two-wheelers/nearly-half-of-two-wheeler-buyers-open-to-going-electric-as-market-broadens-bcg/135210205"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "hero-xpulse-421-teaser",
+      "type": "rumour",
+      "headline": "Hero teases what looks like the Xpulse 421 ahead of EICMA",
+      "published_at": "2026-10-27T06:33:07.000Z",
+      "sources": [
+        {
+          "name": "BikeDekho",
+          "url": "https://www.bikedekho.com/news/hero-xpulse-421-teased-could-be-unveiled-at-eicma-20546"
         }
       ],
       "tag": null
@@ -176,7 +232,7 @@
       "id": "re-classic-350-tubeless-spokes",
       "type": "spy",
       "headline": "Royal Enfield Classic 350 seen at a dealer with tubeless spoke wheels",
-      "published_at": "2026-10-27T14:20:24Z",
+      "published_at": "2026-10-27T14:20:24.000Z",
       "sources": [
         {
           "name": "Rushlane",
@@ -190,10 +246,31 @@
       "tag": null
     },
     {
+      "id": "bajaj-adv-spy-tft",
+      "type": "spy",
+      "headline": "Bajaj’s adventure bike tests again with a Pulsar-style TFT and new switchgear",
+      "published_at": "2026-10-26T15:24:53.000Z",
+      "sources": [
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/bajaj-adv-clearest-spy-shots-yet-new-pulsar-tft-display-switchgear-12559546.html"
+        },
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/upcoming-bajaj-adventure-bike-new-details-revealed/"
+        },
+        {
+          "name": "Overdrive",
+          "url": "https://www.overdrive.in/news-cars-auto/bajaj-adventure-bike-spotted-testing/"
+        }
+      ],
+      "tag": null
+    },
+    {
       "id": "hero-karizma-xmr-250-red",
       "type": "spy",
       "headline": "Hero Karizma XMR 250 spotted at a dealership in a new red scheme",
-      "published_at": "2026-10-27T10:44:43Z",
+      "published_at": "2026-10-26T11:41:17.000Z",
       "sources": [
         {
           "name": "Autocar India",
@@ -205,12 +282,17 @@
         }
       ],
       "tag": null
-    },
+    }
+  ],
+  "trends_summary": {
+    "headline": "Bajaj’s adventure bike and electric two-wheelers lead today’s rising bike searches",
+    "text": "Searches for Bajaj’s adventure bike rose 160% after fresh spy shots, and “electric motorcycles and scooters” rose 350% as a BCG survey put electric purchase intent at 43%. Honda’s darker CB350C drew 5000+ searches. Karnataka searched for bikes the most."
+  },
+  "trending": [
     {
-      "id": "bajaj-adv-spy-tft",
-      "type": "spy",
-      "headline": "Bajaj's adventure bike tests again, showing a Pulsar-style TFT and new switchgear",
-      "published_at": "2026-10-27T05:03:56Z",
+      "term": "bajaj adventure bike",
+      "traffic": "+160%",
+      "why": "New spy shots of Bajaj’s upcoming adventure bike show a Pulsar-style TFT, switchgear and proper off-road hardware.",
       "sources": [
         {
           "name": "Rushlane",
@@ -220,155 +302,46 @@
           "name": "BikeWale",
           "url": "https://www.bikewale.com/news/upcoming-bajaj-adventure-bike-new-details-revealed/"
         }
-      ],
-      "tag": null
+      ]
     },
     {
-      "id": "bajaj-q2-profit",
-      "type": "sales",
-      "headline": "Bajaj Auto Q2 net profit rises 35% to ₹3,354 crore",
-      "published_at": "2026-10-27T10:11:34.000Z",
+      "term": "electric motorcycles and scooters",
+      "traffic": "+350%",
+      "why": "A BCG survey found 43% of buyers considering an electric two-wheeler, and Ultraviolette’s CTO expects electric motorcycles to grow like scooters did.",
       "sources": [
         {
           "name": "Autocar Professional",
-          "url": "https://www.autocarpro.in/news/bajaj-auto-q2-net-profit-rises-35-percent-to-rs-3354-crore-as-revenue-crosses-rs-20000-crore-135494"
-        }
-      ],
-      "tag": null
-    },
-    {
-      "id": "ultraviolette-four-new-evs",
-      "type": "ev",
-      "headline": "Ultraviolette plans four new electric two-wheelers on its VX-100 platform by October 2027",
-      "published_at": "2026-10-27T03:30:24Z",
-      "sources": [
+          "url": "https://www.autocarpro.in/news/electric-two-wheeler-purchase-intent-rises-to-43-percent-market-penetration-at-99-percent-through-august-bcg-135473"
+        },
         {
-          "name": "BikeAdvice",
-          "url": "https://bikeadvice.in/ultraviolette-plans-four-new-electric-two-wheelers-by-october-2027/"
+          "name": "Autocar Professional",
+          "url": "https://www.autocarpro.in/news/electric-motorcycles-could-see-scooter-like-growth-in-next-three-years-ultraviolette-cto-135506"
         }
-      ],
-      "tag": null
-    }
-  ],
-  "trending": [
+      ]
+    },
     {
       "term": "honda cb350c black edition launch",
       "traffic": "5000+",
-      "why": "Honda quietly added an all-black CB350C ahead of Diwali; the name is not yet official.",
+      "why": "Honda launched a darker CB350C ahead of Diwali, at around ₹2.32 lakh on-road; the name is not official yet.",
       "sources": [
         {
           "name": "Rushlane",
           "url": "https://www.rushlane.com/new-honda-cb350c-black-edition-launched-first-look-12559632.html"
         }
       ]
+    },
+    {
+      "term": "हिमालयन",
+      "traffic": "200+",
+      "why": "Hindi searches for the Himalayan follow Royal Enfield’s first teaser of the Himalayan 750, due at EICMA in Milan.",
+      "sources": [
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/royal-enfield-himalayan-750-first-teaser-out-eicma-debut-confirmed-12559610.html"
+        }
+      ]
     }
   ],
-  "checks": {
-    "pool_items": 72,
-    "sources_failed": [],
-    "left_out": [
-      {
-        "id": "bikewale-290209a8",
-        "why": "Tiger 1200 preview, replaced by the India unveil"
-      },
-      {
-        "id": "rushlane-64bba079",
-        "why": "colour variant, unofficial name, on-road price only"
-      },
-      {
-        "id": "bikewale-731ac3b6",
-        "why": "spare-parts network, minor"
-      },
-      {
-        "id": "etauto-9b72c55e",
-        "why": "executive appointment, minor"
-      },
-      {
-        "id": "etauto-c3337998",
-        "why": "margin analysis, minor next to Ather's capacity and profit"
-      },
-      {
-        "id": "etauto-c6171e21",
-        "why": "survey"
-      },
-      {
-        "id": "bikewale-12ebbb19",
-        "why": "global reveal with no India plan stated"
-      },
-      {
-        "id": "bikewale-ddbc6980",
-        "why": "global test mule, no India plan"
-      },
-      {
-        "id": "bikewale-edf5dc70",
-        "why": "global test mule, racing"
-      },
-      {
-        "id": "bikewale-ebe85f41",
-        "why": "listicle"
-      },
-      {
-        "id": "bikewale-18cb3615",
-        "why": "listicle"
-      },
-      {
-        "id": "bikeadvice-a9bbc6aa",
-        "why": "explainer on loans"
-      },
-      {
-        "id": "ndtv-8631c86d",
-        "why": "celebrity purchase"
-      },
-      {
-        "id": "etauto-41885c71",
-        "why": "dealer delivery event"
-      },
-      {
-        "id": "ndtv-4f697998",
-        "why": "car, not a bike"
-      },
-      {
-        "id": "ndtv-387ba0bc",
-        "why": "car, not a bike"
-      },
-      {
-        "id": "ndtv-3590946b",
-        "why": "car, not a bike"
-      },
-      {
-        "id": "ndtv-ced74f46",
-        "why": "car, not a bike"
-      },
-      {
-        "id": "ndtv-e31faf2a",
-        "why": "car, not a bike"
-      },
-      {
-        "id": "ndtv-68f34316",
-        "why": "car tyres, not a bike"
-      },
-      {
-        "id": "etauto-e5b6cb92",
-        "why": "car, not a bike"
-      },
-      {
-        "id": "etauto-9cade2cd",
-        "why": "car dealerships"
-      },
-      {
-        "id": "etauto-964e5e5b",
-        "why": "electric trucks"
-      },
-      {
-        "id": "etauto-637dc704",
-        "why": "component maker results"
-      },
-      {
-        "id": "etauto-66a2ccb8",
-        "why": "student engineering event"
-      }
-    ]
-  },
   "events": [
     {
       "id": "motoverse-2026",
@@ -399,10 +372,6 @@
       "text": "The 13th edition moves to a venue 50 per cent larger, with four racetracks, FMSCI races, a Stunt Arena, ride-outs, camping and group rides from several cities.",
       "register": "https://indiabikeweek.in/",
       "sources": [
-        {
-          "name": "autoX",
-          "url": "https://www.autox.com/news/bike-news/india-bike-week-2026-dates-revealed-set-for-december-4-5-124622/"
-        },
         {
           "name": "BBC TopGear India",
           "url": "https://www.topgearmag.in/news/bikes/india-bike-week-2026-to-return-to-panchgani-with-a-bigger-venue-and-town-takeover"
@@ -551,5 +520,71 @@
       "published_at": "2026-10-26T09:33:39Z",
       "tag": null
     }
-  ]
+  ],
+  "checks": {
+    "pool_items": 70,
+    "sources_failed": [],
+    "left_out": [
+      {
+        "id": "bikewale-290209a8",
+        "why": "Tiger 1200 preview, replaced by the India unveil"
+      },
+      {
+        "id": "rushlane-64bba079",
+        "why": "colour variant with an unofficial name; covered in trending"
+      },
+      {
+        "id": "etauto-92e9c18b",
+        "why": "Ather results, smaller than its capacity story"
+      },
+      {
+        "id": "overdrive-8a26768f",
+        "why": "no details yet"
+      },
+      {
+        "id": "bikedekho-66e3895a",
+        "why": "comparison"
+      },
+      {
+        "id": "bikedekho-baa5cd1a",
+        "why": "listicle"
+      },
+      {
+        "id": "bikewale-ebe85f41",
+        "why": "listicle"
+      },
+      {
+        "id": "bikewale-18cb3615",
+        "why": "listicle"
+      },
+      {
+        "id": "ndtv-8631c86d",
+        "why": "celebrity purchase"
+      },
+      {
+        "id": "motorbeam-0833b4b2",
+        "why": "fuel rule mainly for cars"
+      },
+      {
+        "id": "autocarpro-3b45a293",
+        "why": "cars"
+      },
+      {
+        "id": "autocarpro-22c4171c",
+        "why": "cars"
+      },
+      {
+        "id": "bikewale-ddbc6980",
+        "why": "global test mule"
+      },
+      {
+        "id": "bikewale-edf5dc70",
+        "why": "global test mule"
+      },
+      {
+        "id": "etauto-964e5e5b",
+        "why": "trucks"
+      }
+    ]
+  }
 }

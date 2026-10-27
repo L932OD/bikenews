@@ -1,4 +1,4 @@
-// Bike Desk: a home screen of four sections (New launches, Events, Trending now, Aftermarket), each opening a
+// Bike News: a home screen of four sections (New launches, Events, Trending now, Aftermarket), each opening a
 // detail page. Reads content/latest.json, archive.json, events.json, trends.json and the kept editions.
 (() => {
   'use strict';
@@ -137,7 +137,7 @@
 
   function setReadout(latest, label) {
     const day = latest ? dayLabel(latest.edition) : '';
-    document.title = label ? `${label} · Bike Desk` : `Bike Desk · ${day}`;
+    document.title = label ? `${label} · Bike News` : `Bike News · ${day}`;
     document.getElementById('r-date').textContent = day.toUpperCase();
     const count = latest ? storiesOf(latest).length : 0;
     document.getElementById('r-count').replaceChildren(h('b', null, pad2(count)), ' Stories');
@@ -273,17 +273,19 @@
   function homeTrending(trends) {
     const day = trends?.days?.[0];
     const topic = liveSeries(trends?.timeline, day?.averages)[0];
-    const rising = day?.rising?.[0];
     const picks = day?.picks ?? [];
-    return sectionCard('trending', '#/trending', 'Trending now', day?.rising?.length ?? 0, 'rising searches',
+    return sectionCard('trending', '#/trending', 'Trending now', picks.length, picks.length === 1 ? 'trend explained' : 'trends explained',
       day
         ? h('div', { class: 'mini' },
-          topic ? h('div', { class: 'mini__spark' }, sparkline(topic.values, 220, 44), h('p', { class: 'mini__sub' }, `${topic.key}, last 24 hours`)) : null,
-          rising ? h('p', { class: 'mini__rising' }, h('span', { class: 'label' }, 'Rising fastest'), h('span', { class: 'mini__line' }, rising.q), h('b', { class: 'rise' }, rising.value)) : null,
-          picks[0] ? h('p', { class: 'mini__rising' }, h('span', { class: 'label' }, 'Trending bike search'), h('span', { class: 'mini__line' }, picks[0].term), h('b', { class: 'rise' }, picks[0].traffic || '')) : null,
-          h('ol', { class: 'ranks' }, (day.top ?? []).slice(0, 4).map((q) => h('li', null, h('span', null, q.q), h('span', { class: 'bar', style: `--w:${q.value}%` })))))
+          day.summary ? h('p', { class: 'mini__lede' }, day.summary.headline) : null,
+          picks.length
+            ? h('ol', { class: 'mini picks-mini' }, picks.slice(0, 3).map((p) => h('li', { class: 'mini__item' },
+              h('p', { class: 'mini__term' }, h('span', { class: 'mini__line' }, p.term), p.traffic ? h('b', { class: 'rise' }, p.traffic) : null),
+              h('p', { class: 'mini__sub' }, p.why))))
+            : null,
+          topic ? h('div', { class: 'mini__spark' }, sparkline(topic.values, 220, 36), h('p', { class: 'mini__sub' }, `${topic.key.replace(' (topic)', '')} searches, last 24 hours`)) : null)
         : empty('Trends will appear after the next morning run.'),
-      'What India is searching');
+      'What’s trending and why');
   }
 
   function homeGear(eds) {
@@ -309,12 +311,92 @@
     return parts.length > 1 ? `${parts.slice(0, -1).join(', ')} and ${parts.at(-1)}.` : `${parts[0]}.`;
   }
 
+  // ---------- Latest: a strip of today's stories that moves on every 10 seconds ----------
+
+  const SLIDE_MS = 10000;
+  let carouselStop = null;
+
+  function latestCarousel(latest) {
+    const stories = storiesOf(latest);
+    const n = stories.length;
+    if (!n) return null;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let i = 0, timer = null, paused = reduce, held = false;
+
+    const slides = stories.map((it, k) => h('article', { class: 'slide', 'aria-roledescription': 'slide', 'aria-label': `${k + 1} of ${n}` },
+      h('div', { class: 'meta' }, k === 0 && latest.lead ? h('span', { class: 'label label--lead' }, 'Lead') : null, tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null),
+      h('h2', { class: 'slide__headline' }, it.headline),
+      it.figure ? h('p', { class: 'slide__figure' }, it.figure.value, h('span', null, ` ${it.figure.label}`)) : null,
+      it.text ? h('p', { class: 'slide__text' }, it.text) : null,
+      h('p', { class: 'slide__src' }, h('span', { class: 'label' }, (it.sources || []).length > 1 ? `Reported by ${it.sources.length}` : 'Reported by'),
+        (it.sources || []).slice(0, 3).map((x) => link(x, 'src')),
+        (it.sources || []).length > 3 ? h('span', { class: 'more' }, `+${it.sources.length - 3} more`) : null,
+        it.published_at ? h('span', { class: 'road__time' }, itemTime(it.published_at, latest.edition)) : null)));
+    const track = h('div', { class: 'carousel__track', 'aria-live': 'off' }, slides);
+    const segs = stories.map((_, k) => h('button', { class: 'seg', type: 'button', 'aria-label': `Story ${k + 1}: ${stories[k].headline}`, onclick: () => go(k, true) }, h('span')));
+    const count = h('span', { class: 'carousel__count' });
+    const pauseBtn = h('button', { class: 'cbtn', type: 'button', onclick: () => { paused = !paused; update(); } });
+    const root = h('section', { class: 'carousel', 'aria-roledescription': 'carousel', 'aria-label': 'Latest stories' },
+      h('div', { class: 'carousel__top' },
+        h('span', { class: 'label' }, 'Latest'), count,
+        h('div', { class: 'carousel__ctl' },
+          h('button', { class: 'cbtn', type: 'button', 'aria-label': 'Previous story', onclick: () => go(i - 1, true) }, '‹'),
+          pauseBtn,
+          h('button', { class: 'cbtn', type: 'button', 'aria-label': 'Next story', onclick: () => go(i + 1, true) }, '›'))),
+      h('div', { class: 'carousel__progress', style: `--n:${n}` }, segs),
+      track);
+
+    function fit() { track.style.height = `${slides[i].offsetHeight}px`; }
+    function update() {
+      count.textContent = `${pad2(i + 1)} / ${pad2(n)}`;
+      segs.forEach((sg, k) => {
+        sg.classList.toggle('is-done', k < i);
+        sg.classList.remove('is-current');
+        sg.setAttribute('aria-current', k === i ? 'true' : 'false');
+      });
+      void segs[i].offsetWidth; // restart the fill animation
+      segs[i].classList.add('is-current');
+      root.classList.toggle('is-paused', paused || held);
+      pauseBtn.textContent = paused ? '▶' : 'Ⅱ';
+      pauseBtn.setAttribute('aria-label', paused ? 'Play: move on every 10 seconds' : 'Pause');
+      fit();
+      clearTimeout(timer);
+      if (!paused && !held && !document.hidden) timer = setTimeout(() => go(i + 1), SLIDE_MS);
+    }
+    function go(k, byHand) {
+      i = (k + n) % n;
+      track.scrollTo({ left: slides[i].offsetLeft - track.offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
+      if (byHand && reduce) paused = true;
+      update();
+    }
+    // A swipe moves the strip by hand: follow it.
+    let settle = null;
+    track.addEventListener('scroll', () => {
+      clearTimeout(settle);
+      settle = setTimeout(() => {
+        const k = Math.round(track.scrollLeft / track.clientWidth);
+        if (k !== i && k >= 0 && k < n) { i = k; update(); }
+      }, 120);
+    }, { passive: true });
+    const hold = (v) => () => { held = v; update(); };
+    root.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') hold(true)(); });
+    root.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') hold(false)(); });
+    root.addEventListener('focusin', hold(true));
+    root.addEventListener('focusout', (e) => { if (!root.contains(e.relatedTarget)) hold(false)(); });
+    window.addEventListener('resize', fit);
+    document.addEventListener('visibilitychange', update);
+    carouselStop = () => { clearTimeout(timer); window.removeEventListener('resize', fit); document.removeEventListener('visibilitychange', update); };
+    requestAnimationFrame(update);
+    return root;
+  }
+
   async function renderHome(app, d) {
     const today = d.latest?.edition;
     put(app, 
       h('section', { class: 'today' },
         h('p', { class: 'today__date' }, today ? dayLabel(today) : ''),
-        h('h1', { class: 'today__title' }, summaryLine(d))),
+        h('p', { class: 'today__title' }, summaryLine(d))),
+      d.latest ? latestCarousel(d.latest) : null,
       h('div', { class: 'sections' },
         homeLaunches(d.eds), homeEvents(d.events, today), homeTrending(d.trends), homeGear(d.eds)));
   }
@@ -378,7 +460,7 @@
     const end = ev.end_date || ev.start_date;
     const next = new Date(parseYmd(end).getTime() + 86400000).toISOString().slice(0, 10);
     const esc = (t) => String(t).replace(/[\\,;]/g, (c) => `\\${c}`).replace(/\n/g, ' ');
-    const body = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Bike Desk//EN', 'BEGIN:VEVENT', `UID:${ev.id}@bikedesk`,
+    const body = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Bike News//EN', 'BEGIN:VEVENT', `UID:${ev.id}@bikenews`,
       `DTSTART;VALUE=DATE:${d(ev.start_date)}`, `DTEND;VALUE=DATE:${d(next)}`, `SUMMARY:${esc(ev.name)}`, `LOCATION:${esc(ev.city)}`,
       `DESCRIPTION:${esc(ev.text)}`, 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
     return `data:text/calendar;charset=utf-8,${encodeURIComponent(body)}`;
@@ -450,16 +532,24 @@
     const history = (t.days ?? []).slice().reverse();
 
     put(app, 
-      pageHead('trending', 'Trending now', 'What India searched on Google about bikes, the last 24 hours. Interest is relative: 100 is the peak.'),
+      pageHead('trending', 'Trending now', 'What India searched about bikes in the last 24 hours, and why.'),
+      h('section', { class: 'card brief' }, stripes(),
+        h('h2', { class: 'label', style: 'margin-bottom:10px' }, 'What’s trending and why'),
+        day.summary ? h('p', { class: 'brief__headline' }, day.summary.headline) : null,
+        day.summary ? h('p', { class: 'text brief__text' }, day.summary.text) : null,
+        (day.picks ?? []).length
+          ? h('ol', { class: 'brief__list' }, day.picks.map((p) => h('li', { class: 'pick' },
+            h('p', { class: 'pick__term' }, p.term, p.traffic ? h('b', { class: 'rise' }, p.traffic) : null),
+            h('p', { class: 'text' }, p.why), sources(p.sources, 'Why'))))
+          : empty('Nothing bike-related stood out in today’s searches.')),
+      h('h2', { class: 'day-head' }, h('span', null, 'The data behind it'), h('span', { class: 'day-head__date' }, 'Google Trends, India')),
       h('section', { class: 'card chart-card' }, stripes(),
         h('div', { class: 'chart-card__head' }, h('h2', { class: 'label' }, 'Search interest, last 24 hours'), legend),
         interestChart(t.timeline, day.averages),
-        flat.length ? h('p', { class: 'note' }, `“${flat.join('”, “')}” had too little search interest to plot.`) : null),
-      day.picks?.length || day.autos?.length
-        ? h('section', { class: 'card autos' }, stripes(), h('h2', { class: 'label', style: 'margin-bottom:12px' }, 'Trending in Autos & Vehicles'),
-          (day.picks ?? []).map((p) => h('div', { class: 'pick' }, h('p', { class: 'pick__term' }, p.term, h('b', { class: 'rise' }, p.traffic || '')), h('p', { class: 'text' }, p.why), sources(p.sources, 'Why'))),
-          h('ul', { class: 'autos__list' }, (day.autos ?? []).filter((a) => !(day.picks ?? []).some((p) => p.term === a.term)).map((a) =>
-            h('li', null, h('span', null, a.term), h('b', null, a.traffic ? `${a.traffic} searches` : '')))))
+        flat.length ? h('p', { class: 'note' }, `“${flat.join('”, “')}” had too little search interest to plot. Interest is relative: 100 is the day’s peak.`) : h('p', { class: 'note' }, 'Interest is relative: 100 is the day’s peak.')),
+      (day.autos ?? []).length
+        ? h('section', { class: 'card autos' }, stripes(), h('h2', { class: 'label', style: 'margin-bottom:8px' }, 'Trending searches in Autos & Vehicles'),
+          h('ul', { class: 'autos__list' }, day.autos.map((a) => h('li', null, h('span', null, a.term), h('b', null, a.traffic ? `${a.traffic} searches` : '')))))
         : null,
       h('div', { class: 'two' }, rankList(day.top_from ? `Top searches with “${day.top_from}”` : 'Top searches', (day.top ?? []).slice(0, 10), 'top'), rankList('Rising searches', (day.rising ?? []).slice(0, 10), 'rising')),
       h('div', { class: 'two' },
@@ -517,11 +607,25 @@
   async function route() {
     const app = document.getElementById('paper');
     if (!data) data = await load();
+    carouselStop?.();
+    carouselStop = null;
     const [label, render] = ROUTES[location.hash] ?? [null, renderHome];
     setReadout(data.latest, label);
     document.body.dataset.page = label ? location.hash.slice(2) : 'home';
     await render(app, data);
   }
+
+  // Theme: light by default, dark when chosen; remembered on this device.
+  const themeBtn = document.getElementById('theme');
+  function applyTheme(dark) {
+    if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+    else document.documentElement.removeAttribute('data-theme');
+    themeBtn?.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+    document.getElementById('theme-color')?.setAttribute('content', dark ? '#141518' : '#E8E6E1');
+    try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch { /* private mode: not remembered */ }
+  }
+  themeBtn?.addEventListener('click', () => applyTheme(document.documentElement.getAttribute('data-theme') !== 'dark'));
+  themeBtn?.setAttribute('aria-label', document.documentElement.getAttribute('data-theme') === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
 
   window.addEventListener('hashchange', () => { route(); window.scrollTo(0, 0); });
   route();
