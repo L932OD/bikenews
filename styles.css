@@ -622,7 +622,7 @@ body[data-page="accessories"] .paper { --stripe: var(--acc-gear); }
   .nav {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; justify-content: space-around; gap: 0;
     padding: 6px max(6px, env(safe-area-inset-left)) calc(6px + env(safe-area-inset-bottom)) max(6px, env(safe-area-inset-right));
-    background: rgba(20, 21, 24, 0.9); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+    background: rgba(20, 21, 24, 0.98);
     border-top: 1px solid rgba(236, 234, 229, 0.08);
   }
   .nav a { flex-direction: column; gap: 3px; min-height: 48px; min-width: 56px; padding: 4px 6px; border-radius: 12px; font-size: 11px; letter-spacing: 0.08em; justify-content: center; }
