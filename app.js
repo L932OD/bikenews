@@ -151,76 +151,12 @@
 
   // ---------- Trend helpers ----------
 
-  // Series identity is fixed by keyword so a colour always means the same term.
-  const SERIES_SLOT = { 'Motorcycle (topic)': 1, bike: 2, bikes: 3, motorcycles: 4 };
-  // A term whose 24-hour average rounds to 0 has too little interest to plot.
-  function liveSeries(timeline, averages) {
-    if (!timeline) return [];
-    return timeline.keywords
-      .map((k, i) => ({ key: k, slot: SERIES_SLOT[k] ?? 4, avg: averages?.[i], values: timeline.points.map((p) => p.v[i] ?? 0) }))
-      .filter((sr) => (sr.avg ?? 1) > 0 && sr.values.some((v) => v > 0))
-      .sort((a, b) => a.slot - b.slot);
-  }
-
-  function sparkline(values, w = 120, h2 = 28) {
-    const max = Math.max(1, ...values);
-    const step = w / Math.max(1, values.length - 1);
-    const d = values.map((v, i) => `${i ? 'L' : 'M'}${(i * step).toFixed(1)},${(h2 - 2 - (v / max) * (h2 - 4)).toFixed(1)}`).join('');
-    return s('svg', { class: 'spark', viewBox: `0 0 ${w} ${h2}`, width: w, height: h2, preserveAspectRatio: 'none', 'aria-hidden': 'true' }, s('path', { d, class: 'spark__line' }));
-  }
-
-  // Line chart of search interest (0 to 100) over the last 24 hours, with a crosshair tooltip.
-  function interestChart(timeline, averages) {
-    const series = liveSeries(timeline, averages);
-    if (!series.length) return empty('Google Trends had no interest data today.');
-    // Drawn at the width it is shown at, so its text stays at true size on a phone.
-    const W = Math.max(320, Math.min(720, (document.getElementById('paper')?.clientWidth || 720) - 2 * 24));
-    const H = W < 500 ? 220 : 260, L = 30, R = W < 500 ? 78 : 92, T = 12, B = 28;
-    const pts = timeline.points;
-    const x = (i) => L + (i / (pts.length - 1)) * (W - L - R);
-    const y = (v) => T + (1 - v / 100) * (H - T - B);
-    const grid = [0, 25, 50, 75, 100].map((v) => s('g', null,
-      s('line', { x1: L, x2: W - R, y1: y(v), y2: y(v), class: 'chart__grid' }),
-      s('text', { x: L - 8, y: y(v) + 4, class: 'chart__axis', 'text-anchor': 'end' }, String(v))));
-    const ticks = [];
-    for (let i = 0; i < pts.length; i++) {
-      const t = ist(pts[i].t);
-      if (t && t.mm < 8 && t.hh % 6 === 0) ticks.push(s('text', { x: x(i), y: H - 8, class: 'chart__axis', 'text-anchor': 'middle' }, `${pad2(t.hh)}:00`));
-    }
-    const lines = series.map((sr) => s('path', {
-      class: `chart__line s${sr.slot}`,
-      d: sr.values.map((v, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(''),
-    }));
-    // Direct labels at the right end, nudged apart so they never collide.
-    const ends = series.map((sr) => ({ sr, y: y(sr.values.at(-1)) })).sort((a, b) => a.y - b.y);
-    for (let i = 1; i < ends.length; i++) if (ends[i].y - ends[i - 1].y < 16) ends[i].y = ends[i - 1].y + 16;
-    const labels = ends.map(({ sr, y: ly }) => s('text', { x: W - R + 8, y: ly + 4, class: 'chart__label' }, sr.key.replace(' (topic)', '')));
-    const dots = ends.map(({ sr }) => s('circle', { cx: x(pts.length - 1), cy: y(sr.values.at(-1)), r: 4, class: `chart__dot s${sr.slot}` }));
-
-    const cross = s('line', { y1: T, y2: H - B, class: 'chart__cross', visibility: 'hidden' });
-    const marks = series.map((sr) => s('circle', { r: 4, class: `chart__dot s${sr.slot}`, visibility: 'hidden' }));
-    const svg = s('svg', { class: 'chart', viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': `Search interest over the last 24 hours for ${series.map((x2) => x2.key).join(', ')}` },
-      grid, ticks, lines, dots, labels, cross, marks);
-    const tip = h('div', { class: 'tip', hidden: true });
-    const box = h('div', { class: 'chart-box' }, svg, tip);
-
-    function show(evt) {
-      const rect = svg.getBoundingClientRect();
-      const px = ((evt.clientX - rect.left) / rect.width) * W;
-      const i = Math.max(0, Math.min(pts.length - 1, Math.round(((px - L) / (W - L - R)) * (pts.length - 1))));
-      const cx = x(i);
-      cross.setAttribute('x1', cx); cross.setAttribute('x2', cx); cross.setAttribute('visibility', 'visible');
-      series.forEach((sr, k) => { marks[k].setAttribute('cx', cx); marks[k].setAttribute('cy', y(sr.values[i])); marks[k].setAttribute('visibility', 'visible'); });
-      const t = ist(pts[i].t);
-      tip.replaceChildren(h('div', { class: 'tip__time' }, t ? `${dayLabel(ymdOf(t))}, ${pad2(t.hh)}:${pad2(t.mm)} IST` : ''),
-        ...series.map((sr) => h('div', { class: 'tip__row' }, h('span', { class: `key s${sr.slot}` }), h('span', null, sr.key), h('b', null, String(sr.values[i])))));
-      tip.hidden = false;
-      const left = (cx / W) * rect.width;
-      tip.style.left = `${Math.min(rect.width - 170, Math.max(0, left + 12))}px`;
-    }
-    svg.addEventListener('pointermove', show);
-    svg.addEventListener('pointerleave', () => { tip.hidden = true; cross.setAttribute('visibility', 'hidden'); marks.forEach((m) => m.setAttribute('visibility', 'hidden')); });
-    return box;
+  // Google's signal for a search: a volume ("5000+") or a rise over the last 24 hours ("+160%", "Breakout").
+  function stat(value) {
+    if (!value) return null;
+    const rise = /^\+|^Breakout$/.test(value);
+    return h('span', { class: `stat${rise ? ' stat--rise' : ''}` },
+      h('b', null, value), h('span', null, rise ? (value === 'Breakout' ? 'new today' : 'rise today') : 'searches'));
   }
 
   // ---------- Home ----------
@@ -272,18 +208,15 @@
 
   function homeTrending(trends) {
     const day = trends?.days?.[0];
-    const topic = liveSeries(trends?.timeline, day?.averages)[0];
     const picks = day?.picks ?? [];
-    return sectionCard('trending', '#/trending', 'Trending now', picks.length, picks.length === 1 ? 'trend explained' : 'trends explained',
-      day
+    const searches = day?.searches ?? [];
+    return sectionCard('trending', '#/trending', 'Trending now', picks.length || searches.length, picks.length ? (picks.length === 1 ? 'search explained' : 'searches explained') : 'bike searches',
+      day && (picks.length || searches.length)
         ? h('div', { class: 'mini' },
           day.summary ? h('p', { class: 'mini__lede' }, day.summary.headline) : null,
-          picks.length
-            ? h('ol', { class: 'mini picks-mini' }, picks.slice(0, 3).map((p) => h('li', { class: 'mini__item' },
-              h('p', { class: 'mini__term' }, h('span', { class: 'mini__line' }, p.term), p.traffic ? h('b', { class: 'rise' }, p.traffic) : null),
-              h('p', { class: 'mini__sub' }, p.why))))
-            : null,
-          topic ? h('div', { class: 'mini__spark' }, sparkline(topic.values, 220, 36), h('p', { class: 'mini__sub' }, `${topic.key.replace(' (topic)', '')} searches, last 24 hours`)) : null)
+          h('ol', { class: 'mini' }, (picks.length ? picks : searches).slice(0, 4).map((p) => h('li', { class: 'mini__item mini__search' },
+            stat(p.traffic),
+            h('div', null, h('p', { class: 'mini__line' }, p.term), p.why ? h('p', { class: 'mini__sub' }, p.why) : null)))))
         : empty('Trends will appear after the next morning run.'),
       'What’s trending and why');
   }
@@ -508,61 +441,53 @@
 
   // ---------- Trending now ----------
 
-  function rankList(title, items, kind) {
-    return h('section', { class: 'card rank' }, stripes(), h('h2', { class: 'label', style: 'margin-bottom:12px' }, title),
-      items.length
-        ? h('ol', { class: 'rank__list' }, items.map((q, i) => h('li', { class: 'rank__item' },
-          h('span', { class: 'rank__n' }, pad2(i + 1)),
-          h('span', { class: 'rank__q' }, q.q),
-          kind === 'top'
-            ? h('span', { class: 'rank__bar', role: 'img', 'aria-label': `${q.value} out of 100` }, h('span', { style: `width:${q.value}%` }), h('b', null, String(q.value)))
-            : h('b', { class: 'rise' }, q.value))))
-        : empty('No data today.'));
-  }
-
   function renderTrending(app, d) {
-    const t = d.trends;
-    const day = t?.days?.[0];
+    const day = d.trends?.days?.[0];
     if (!day) return put(app, pageHead('trending', 'Trending now'), empty('Trends will appear after the next morning run.'));
-    const series = liveSeries(t.timeline, day.averages);
-    const flat = (t.timeline?.keywords ?? []).filter((k) => !series.some((sr) => sr.key === k));
-    const legend = h('ul', { class: 'legend' }, series.map((sr) =>
-      h('li', null, h('span', { class: `key s${sr.slot}` }), sr.key, h('b', null, ` avg ${day.averages[t.timeline.keywords.indexOf(sr.key)] ?? '–'}`))));
-    const statesMax = Math.max(1, ...(day.states ?? []).map((x) => x.value));
-    const history = (t.days ?? []).slice().reverse();
-
-    put(app, 
-      pageHead('trending', 'Trending now', 'What India searched about bikes in the last 24 hours, and why.'),
+    const picks = day.picks ?? [];
+    // The week's other bike searches: the ones already explained above are not repeated.
+    const explained = new Set(picks.map((p) => p.term.toLowerCase()));
+    const searches = (day.searches ?? []).filter((x) => !explained.has(x.term.toLowerCase()));
+    const sinceLabel = (iso) => { const t = ist(iso); return t ? `since ${DAYS[t.wd]} ${t.d} ${MONTHS[t.m]}` : ''; };
+    put(app,
+      pageHead('trending', 'Trending now', 'What India is searching for about bikes, how much, and why.'),
       h('section', { class: 'card brief' }, stripes(),
         h('h2', { class: 'label', style: 'margin-bottom:10px' }, 'What’s trending and why'),
         day.summary ? h('p', { class: 'brief__headline' }, day.summary.headline) : null,
         day.summary ? h('p', { class: 'text brief__text' }, day.summary.text) : null,
-        (day.picks ?? []).length
-          ? h('ol', { class: 'brief__list' }, day.picks.map((p) => h('li', { class: 'pick' },
-            h('p', { class: 'pick__term' }, p.term, p.traffic ? h('b', { class: 'rise' }, p.traffic) : null),
-            h('p', { class: 'text' }, p.why), sources(p.sources, 'Why'))))
+        picks.length
+          ? h('ol', { class: 'searches' }, picks.map((p) => h('li', { class: 'search' },
+            stat(p.traffic),
+            h('div', { class: 'search__body' },
+              h('p', { class: 'search__term' }, p.term),
+              h('p', { class: 'text' }, p.why),
+              sources(p.sources, 'Why')))))
           : empty('Nothing bike-related stood out in today’s searches.')),
-      h('h2', { class: 'day-head' }, h('span', null, 'The data behind it'), h('span', { class: 'day-head__date' }, 'Google Trends, India')),
-      h('section', { class: 'card chart-card' }, stripes(),
-        h('div', { class: 'chart-card__head' }, h('h2', { class: 'label' }, 'Search interest, last 24 hours'), legend),
-        interestChart(t.timeline, day.averages),
-        flat.length ? h('p', { class: 'note' }, `“${flat.join('”, “')}” had too little search interest to plot. Interest is relative: 100 is the day’s peak.`) : h('p', { class: 'note' }, 'Interest is relative: 100 is the day’s peak.')),
-      (day.autos ?? []).length
-        ? h('section', { class: 'card autos' }, stripes(), h('h2', { class: 'label', style: 'margin-bottom:8px' }, 'Trending searches in Autos & Vehicles'),
-          h('ul', { class: 'autos__list' }, day.autos.map((a) => h('li', null, h('span', null, a.term), h('b', null, a.traffic ? `${a.traffic} searches` : '')))))
+      searches.length
+        ? h('section', { class: 'card' }, stripes(),
+          h('h2', { class: 'label', style: 'margin-bottom:4px' }, picks.length ? 'More bike searches this week' : 'Most searched bikes this week'),
+          h('p', { class: 'note', style: 'margin:0 0 6px' }, 'Google Trends searches in India over the last 7 days that name a bike, brand or model.'),
+          h('ol', { class: 'searches' }, searches.map((x) => h('li', { class: 'search' },
+            stat(x.traffic),
+            h('div', { class: 'search__body' },
+              h('p', { class: 'search__term' }, x.term),
+              h('p', { class: 'search__meta' }, sinceLabel(x.started_at)),
+              x.why ? h('p', { class: 'text' }, x.why) : null,
+              x.story ? h('a', { class: 'search__story', href: '#/launches' }, h('span', { class: 'label' }, 'The story'), ' ', x.story.headline)
+                : x.sources?.length ? sources(x.sources, 'Why') : null)))))
         : null,
-      h('div', { class: 'two' }, rankList(day.top_from ? `Top searches with “${day.top_from}”` : 'Top searches', (day.top ?? []).slice(0, 10), 'top'), rankList('Rising searches', (day.rising ?? []).slice(0, 10), 'rising')),
-      h('div', { class: 'two' },
-        h('section', { class: 'card rank' }, stripes(), h('h2', { class: 'label', style: 'margin-bottom:12px' }, 'Where in India'),
-          h('ol', { class: 'rank__list' }, (day.states ?? []).slice(0, 8).map((st, i) => h('li', { class: 'rank__item' },
-            h('span', { class: 'rank__n' }, pad2(i + 1)), h('span', { class: 'rank__q' }, st.name),
-            h('span', { class: 'rank__bar', role: 'img', 'aria-label': `${st.value} out of 100` }, h('span', { style: `width:${(st.value / statesMax) * 100}%` }), h('b', null, String(st.value))))))),
-        h('section', { class: 'card rank' }, stripes(), h('h2', { class: 'label', style: 'margin-bottom:12px' }, 'Last 5 days, average interest'),
-          h('table', { class: 'table' },
-            h('thead', null, h('tr', null, h('th', null, 'Day'), (day.keywords ?? []).map((k) => h('th', null, k)))),
-            h('tbody', null, history.map((dd) => h('tr', null, h('td', null, dayLabel(dd.date)), (dd.keywords ?? []).map((k, i) => h('td', null, String(dd.averages?.[i] ?? '–'))))))),
-          history.length < 5 ? h('p', { class: 'note' }, `Collecting: ${history.length} of 5 days so far.`) : null)),
-      h('p', { class: 'note' }, 'Source: Google Trends, India, Autos & Vehicles category. Terms: motorcycles, bikes, bike and the Motorcycle topic.'));
+      (day.rising ?? []).length || (day.top ?? []).length
+        ? h('div', { class: 'two' },
+          (day.rising ?? []).length
+            ? h('section', { class: 'card' }, stripes(), h('h2', { class: 'label', style: 'margin-bottom:8px' }, 'Rising in the last 24 hours'),
+              h('ul', { class: 'pills' }, day.rising.slice(0, 10).map((q) => h('li', null, h('span', null, q.q), h('b', { class: 'rise' }, q.value)))))
+            : null,
+          (day.top ?? []).length
+            ? h('section', { class: 'card' }, stripes(), h('h2', { class: 'label', style: 'margin-bottom:8px' }, day.top_from ? `Most searched with “${day.top_from}”` : 'Most searched'),
+              h('ol', { class: 'pills pills--ranked' }, day.top.slice(0, 10).map((q) => h('li', null, h('span', null, q.q)))))
+            : null)
+        : null,
+      h('p', { class: 'note' }, 'Source: Google Trends, India. Volumes are Google’s own ranges; rises are Google’s growth figures for the last 24 hours.'));
   }
 
   // ---------- Aftermarket ----------

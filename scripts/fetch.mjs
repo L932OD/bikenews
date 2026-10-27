@@ -11,6 +11,14 @@ const today = istDate();
 const now = Date.now();
 const UA = config.user_agent;
 
+// Bike News is motorcycles and scooters only. A headline about cars, trucks or buses is dropped everywhere, unless it
+// also names bikes. Trending searches are kept only when they name a bike, a bike brand or a model.
+const carTitle = new RegExp(config.title_filters.cars, 'i');
+const bikeTitle = new RegExp(config.title_filters.bikes, 'i');
+const bikeName = new RegExp(config.title_filters.bike_names, 'i');
+const notRiders = new RegExp(config.title_filters.not_riders, 'i');
+const isCar = (t) => carTitle.test(t) && !bikeTitle.test(t);
+
 const xml = new XMLParser({
   ignoreAttributes: false,
   attributeNamePrefix: '@',
@@ -191,8 +199,13 @@ async function readCategoryTrends(t) {
   const line = res.body.split('\n').find((l) => l.includes('"wrb.fr"'));
   const list = line && JSON.parse(JSON.parse(line)[0][2])?.[1];
   if (!Array.isArray(list)) throw new Error('Trends returned no list');
+  // Keep bike searches only: a search must name a bike, brand or model (in English or Hindi). The Autos & Vehicles
+  // category alone is not enough: it is mostly cars, often written in Hindi. Share prices are about companies.
   return list
-    .filter((r) => Array.isArray(r[10]) && r[10].includes(t.category))
+    .filter((r) => {
+      const words = [r[0], ...(r[9] ?? [])].join(' · ');
+      return bikeName.test(words) && !isCar(String(r[0])) && !notRiders.test(words);
+    })
     .sort((a, b) => (b[6] ?? 0) - (a[6] ?? 0))
     .slice(0, t.max_items)
     .map((r) => ({
@@ -234,7 +247,7 @@ async function readSection(key, sec, known) {
     try {
       for (const it of await readFeed({ ...src, url: gnSearch(q, sec.window_days) })) {
         const t = it.title.toLowerCase();
-        if (titles.has(t) || (exclude && exclude.test(it.title))) continue;
+        if (titles.has(t) || (exclude && exclude.test(it.title)) || isCar(it.title)) continue;
         if (it.published_at && now - Date.parse(it.published_at) > sec.window_days * 86_400_000) continue;
         titles.add(t);
         raws.push(it);
@@ -309,8 +322,8 @@ async function readExplore(ex) {
       const [top, rising] = (await data('relatedsearches', w)).default.rankedList;
       result.related.push({
         keyword: k.label,
-        top: top.rankedKeyword.slice(0, ex.related_per_keyword).map((r) => ({ q: r.query, value: r.value })),
-        rising: rising.rankedKeyword.slice(0, ex.related_per_keyword).map((r) => ({ q: r.query, value: r.formattedValue })),
+        top: top.rankedKeyword.filter((r) => !isCar(r.query) && !notRiders.test(r.query)).slice(0, ex.related_per_keyword).map((r) => ({ q: r.query, value: r.value })),
+        rising: rising.rankedKeyword.filter((r) => !isCar(r.query) && !notRiders.test(r.query)).slice(0, ex.related_per_keyword).map((r) => ({ q: r.query, value: r.formattedValue })),
       });
     } catch {
       // A keyword with too little data has no related searches.
@@ -380,7 +393,11 @@ await Promise.all(
 let trends = [];
 let trendsStatus;
 try {
-  trends = await readTrends(config.trends);
+  // The all-topics daily feed: only the rare bike search in it is kept.
+  trends = (await readTrends(config.trends)).filter((t) => {
+    const words = [t.term, ...t.news.map((n) => n.title)].join(' · ');
+    return bikeName.test(t.term) && !isCar(t.term) && !notRiders.test(words);
+  });
   trendsStatus = { id: config.trends.id, name: config.trends.name, status: 'ok', in_feed: trends.length };
 } catch (err) {
   trendsStatus = { id: config.trends.id, name: config.trends.name, status: 'failed', error: String(err.message || err) };
@@ -405,13 +422,10 @@ if (chosen.length < config.min_items) {
   chosen = within(windowHours);
 }
 
-// Sources marked drop_car_titles (whole-auto sections such as NDTV Auto) lose headlines that are clearly about
-// cars before any work is spent on them. A headline that also names bikes or scooters is kept.
-const carTitle = new RegExp(config.title_filters.cars, 'i');
-const bikeTitle = new RegExp(config.title_filters.bikes, 'i');
+// Car, truck and bus headlines are dropped before any work is spent on them.
 const carDrops = new Map();
 chosen = chosen.filter(({ it, src }) => {
-  if (!src.drop_car_titles || !carTitle.test(it.title) || bikeTitle.test(it.title)) return true;
+  if (!isCar(it.title)) return true;
   carDrops.set(src.id, (carDrops.get(src.id) ?? 0) + 1);
   return false;
 });

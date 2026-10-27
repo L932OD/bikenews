@@ -67,7 +67,34 @@ await writeJson(path('content/events.json'), { updated: ed.published_at, events 
 
 const trends = await readJson(path('content/trends.json'), { days: [] });
 const ex = pool.explore;
-const autos = (pool.trends ?? []).filter((t) => t.category).map(({ term, traffic, related }) => ({ term, traffic, related }));
+// The week's bike searches with Google's volumes, each linked to the story that explains it when one ran in the last
+// keep_days days: most of its distinctive words appear in the story's headline.
+const stories = [];
+for (const e of archive.editions) {
+  const edn = e.edition === today ? ed : await readJson(path('content/editions', `${e.edition}.json`), null);
+  for (const it of [edn?.lead, ...(edn?.subs ?? []), ...(edn?.headlines ?? [])].filter(Boolean)) stories.push({ ...it, edition: e.edition });
+}
+const words = (t) => String(t).toLowerCase().replace(/[^\p{L}\p{N} ]+/gu, ' ').split(/\s+/).filter((w) => w.length > 2 && !['the', 'and', 'for', 'new', 'launch', 'price', 'with', 'india', 'bike', 'bikes'].includes(w));
+function storyFor(term) {
+  const want = words(term);
+  if (!want.length) return null;
+  // Model numbers ("n250ss", "440", "x47") must match too: "Pulsar N250SS" is not the "Pulsar-style" story.
+  const models = want.filter((w) => /\d/.test(w));
+  let best = null;
+  for (const st of stories) {
+    const have = new Set(words(st.headline));
+    if (models.some((m) => !have.has(m))) continue;
+    const hits = want.filter((w) => have.has(w)).length;
+    if (hits >= Math.min(2, want.length) && (!best || hits > best.hits)) best = { hits, st };
+  }
+  return best ? { headline: best.st.headline, edition: best.st.edition, id: best.st.id, type: best.st.type } : null;
+}
+const picked = new Map((ed.trending ?? []).map((t) => [t.term.toLowerCase(), t]));
+const searches = (pool.trends ?? []).filter((t) => t.traffic).map(({ term, traffic, published_at, related }) => {
+  const pick = picked.get(term.toLowerCase());
+  return { term, traffic, started_at: published_at, related, story: storyFor(term), why: pick?.why ?? null, sources: pick?.sources ?? [] };
+});
+const autos = searches;
 // Related-search scores are 0 to 100 within each keyword, so lists from different keywords cannot share a scale.
 // Top searches come from the most-searched plain term (not the topic); rising ones are merged, Breakout first.
 const kw = ex?.keywords ?? [];
@@ -80,8 +107,8 @@ const risingAll = new Map();
 for (const r of ex?.related ?? []) for (const q of r.rising) if (!trivial.has(q.q.toLowerCase()) && !risingAll.has(q.q)) risingAll.set(q.q, q);
 const risingList = [...risingAll.values()].sort((a, b) => pct(b.value) - pct(a.value));
 const day = ex
-  ? { date: today, keywords: ex.keywords, averages: ex.averages, top_from: lead ?? null, top: topList.slice(0, 10), rising: risingList.slice(0, 10), states: ex.states.slice(0, 8), autos, picks: ed.trending ?? [], summary: ed.trends_summary ?? null }
-  : { date: today, keywords: [], averages: [], top: [], rising: [], states: [], autos, picks: ed.trending ?? [], summary: ed.trends_summary ?? null };
+  ? { date: today, keywords: ex.keywords, averages: ex.averages, top_from: lead ?? null, top: topList.slice(0, 10), rising: risingList.slice(0, 10), states: ex.states.slice(0, 8), autos, searches, picks: ed.trending ?? [], summary: ed.trends_summary ?? null }
+  : { date: today, keywords: [], averages: [], top: [], rising: [], states: [], autos, searches, picks: ed.trending ?? [], summary: ed.trends_summary ?? null };
 trends.days = [day, ...trends.days.filter((d) => d.date !== today)].filter((d) => d.date >= cutoff).sort((a, b) => b.date.localeCompare(a.date));
 trends.updated = ed.published_at;
 trends.timeline = ex ? { keywords: ex.keywords, points: ex.timeline } : trends.timeline ?? null;

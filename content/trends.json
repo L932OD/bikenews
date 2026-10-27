@@ -11,8 +11,8 @@
       "averages": [
         0,
         12,
-        67,
-        78
+        66,
+        77
       ],
       "top_from": "bike",
       "top": [
@@ -22,178 +22,346 @@
         },
         {
           "q": "honda bike",
-          "value": 37
+          "value": 34
         },
         {
           "q": "new bike",
-          "value": 28
+          "value": 27
         },
         {
           "q": "electric bike",
-          "value": 25
-        },
-        {
-          "q": "best bike",
           "value": 24
         },
         {
+          "q": "best bike",
+          "value": 23
+        },
+        {
           "q": "royal enfield bike",
-          "value": 22
-        },
-        {
-          "q": "hero bike",
-          "value": 21
-        },
-        {
-          "q": "bajaj bike",
-          "value": 19
+          "value": 20
         },
         {
           "q": "splendor bike",
+          "value": 19
+        },
+        {
+          "q": "hero bike",
+          "value": 19
+        },
+        {
+          "q": "bajaj bike",
           "value": 18
         },
         {
           "q": "yamaha bike",
-          "value": 17
+          "value": 16
         }
       ],
       "rising": [
         {
-          "q": "electric motorcycles and scooters",
-          "value": "+350%"
+          "q": "zana motorcycles",
+          "value": "Breakout"
         },
         {
           "q": "verge motorcycles",
-          "value": "+160%"
+          "value": "Breakout"
+        },
+        {
+          "q": "electric motorcycles and scooters",
+          "value": "+400%"
         },
         {
           "q": "bajaj adventure bike",
-          "value": "+160%"
+          "value": "+250%"
         },
         {
           "q": "vutto bikes",
-          "value": "+130%"
-        },
-        {
-          "q": "zana motorcycles",
-          "value": "+90%"
-        },
-        {
-          "q": "best bikes under 3 lakhs",
-          "value": "+90%"
+          "value": "+200%"
         },
         {
           "q": "bikedekho",
-          "value": "+60%"
-        },
-        {
-          "q": "bsa motorcycles",
-          "value": "+50%"
-        },
-        {
-          "q": "royal enfield all bikes",
-          "value": "+50%"
+          "value": "+140%"
         },
         {
           "q": "rental bikes near me",
-          "value": "+40%"
+          "value": "+130%"
+        },
+        {
+          "q": "best bikes under 2 lakh on road price",
+          "value": "+110%"
+        },
+        {
+          "q": "tvs bikes price list",
+          "value": "+90%"
+        },
+        {
+          "q": "honda motorcycles india",
+          "value": "+80%"
         }
       ],
       "states": [
         {
-          "name": "Karnataka",
+          "name": "Dadra and Nagar Haveli",
           "value": 100
         },
         {
-          "name": "Daman and Diu",
-          "value": 95
-        },
-        {
-          "name": "Sikkim",
-          "value": 94
-        },
-        {
-          "name": "West Bengal",
-          "value": 86
+          "name": "Karnataka",
+          "value": 97
         },
         {
           "name": "Mizoram",
+          "value": 88
+        },
+        {
+          "name": "West Bengal",
+          "value": 87
+        },
+        {
+          "name": "Daman and Diu",
+          "value": 86
+        },
+        {
+          "name": "Puducherry",
+          "value": 85
+        },
+        {
+          "name": "Sikkim",
           "value": 85
         },
         {
           "name": "Goa",
-          "value": 83
-        },
-        {
-          "name": "Puducherry",
-          "value": 79
-        },
-        {
-          "name": "Tamil Nadu",
-          "value": 78
+          "value": 82
         }
       ],
       "autos": [
         {
+          "term": "ultraviolette x47 venom",
+          "traffic": "20000+",
+          "started_at": "2026-10-22T15:00:00.000Z",
+          "related": [
+            "ultraviolette x47 venom",
+            "ultraviolette"
+          ],
+          "story": null,
+          "why": null,
+          "sources": []
+        },
+        {
           "term": "honda cb350c black edition launch",
           "traffic": "5000+",
+          "started_at": "2026-10-27T11:40:00.000Z",
           "related": [
             "honda cb350c black edition launch"
-          ]
-        },
-        {
-          "term": "defender",
-          "traffic": "5000+",
-          "related": [
-            "defender",
-            "defender price",
-            "land rover defender 110",
-            "jlr india local production defender"
-          ]
-        },
-        {
-          "term": "हिमालयन",
-          "traffic": "200+",
-          "related": [
-            "हिमालयन"
-          ]
-        },
-        {
-          "term": "aims",
-          "traffic": "200+",
-          "related": [
-            "aims"
-          ]
-        }
-      ],
-      "picks": [
-        {
-          "term": "bajaj adventure bike",
-          "traffic": "+160%",
-          "why": "New spy shots of Bajaj’s upcoming adventure bike show a Pulsar-style TFT, switchgear and proper off-road hardware.",
+          ],
+          "story": null,
+          "why": "Honda launched a darker CB350C ahead of Diwali, at around ₹2.32 lakh on-road; the name is not official yet.",
           "sources": [
             {
               "name": "Rushlane",
-              "url": "https://www.rushlane.com/bajaj-adv-clearest-spy-shots-yet-new-pulsar-tft-display-switchgear-12559546.html"
-            },
-            {
-              "name": "BikeWale",
-              "url": "https://www.bikewale.com/news/upcoming-bajaj-adventure-bike-new-details-revealed/"
+              "url": "https://www.rushlane.com/new-honda-cb350c-black-edition-launched-first-look-12559632.html"
             }
           ]
         },
         {
-          "term": "electric motorcycles and scooters",
-          "traffic": "+350%",
-          "why": "A BCG survey found 43% of buyers considering an electric two-wheeler, and Ultraviolette’s CTO expects electric motorcycles to grow like scooters did.",
+          "term": "harley davidson sprint 440 cruiser",
+          "traffic": "5000+",
+          "started_at": "2026-10-26T18:30:00.000Z",
+          "related": [
+            "harley davidson sprint 440 cruiser"
+          ],
+          "story": {
+            "headline": "Harley-Davidson Sprint 440 cruiser seen undisguised as demo bikes reach dealers",
+            "edition": "2026-10-28",
+            "id": "hd-sprint-440-undisguised",
+            "type": "spy"
+          },
+          "why": "Demo bikes reached Harley-Davidson dealers without camouflage, showing the cruiser’s teardrop tank, scooped seat and pulled-back handlebar ahead of launch.",
           "sources": [
             {
-              "name": "Autocar Professional",
-              "url": "https://www.autocarpro.in/news/electric-two-wheeler-purchase-intent-rises-to-43-percent-market-penetration-at-99-percent-through-august-bcg-135473"
+              "name": "Rushlane",
+              "url": "https://www.rushlane.com/harley-davidson-sprint-440-cruiser-spied-undisguised-launch-soon-12559576.html"
+            }
+          ]
+        },
+        {
+          "term": "hero karizma xmr 250 new colors",
+          "traffic": "5000+",
+          "started_at": "2026-10-25T10:20:00.000Z",
+          "related": [
+            "hero karizma xmr 250 new colors"
+          ],
+          "story": {
+            "headline": "Hero Karizma XMR 250 spotted at a dealership in a new red scheme",
+            "edition": "2026-10-28",
+            "id": "hero-karizma-xmr-250-red",
+            "type": "spy"
+          },
+          "why": "The upcoming Karizma XMR 250 was spotted at a dealership in a new red colour scheme, after a black one in July and a white show bike at EICMA.",
+          "sources": [
+            {
+              "name": "Autocar India",
+              "url": "https://www.autocarindia.com/bike-news/upcoming-hero-karizma-xmr-250-spotted-441130"
             },
             {
-              "name": "Autocar Professional",
-              "url": "https://www.autocarpro.in/news/electric-motorcycles-could-see-scooter-like-growth-in-next-three-years-ultraviolette-cto-135506"
+              "name": "NDTV Auto",
+              "url": "https://www.ndtv.com/auto/hero-karizma-xmr-250-spotted-in-red-colour-ahead-of-launch-12242730"
+            }
+          ]
+        },
+        {
+          "term": "bajaj pulsar n250ss launch price",
+          "traffic": "2000+",
+          "started_at": "2026-10-21T07:50:00.000Z",
+          "related": [
+            "bajaj pulsar n250ss launch price",
+            "ns200"
+          ],
+          "story": null,
+          "why": null,
+          "sources": []
+        },
+        {
+          "term": "yamaha mt125 new design facelift",
+          "traffic": "500+",
+          "started_at": "2026-10-23T08:00:00.000Z",
+          "related": [
+            "yamaha mt125 new design facelift"
+          ],
+          "story": null,
+          "why": null,
+          "sources": []
+        },
+        {
+          "term": "हिमालयन",
+          "traffic": "200+",
+          "started_at": "2026-10-27T10:50:00.000Z",
+          "related": [
+            "हिमालयन"
+          ],
+          "story": null,
+          "why": null,
+          "sources": []
+        }
+      ],
+      "searches": [
+        {
+          "term": "ultraviolette x47 venom",
+          "traffic": "20000+",
+          "started_at": "2026-10-22T15:00:00.000Z",
+          "related": [
+            "ultraviolette x47 venom",
+            "ultraviolette"
+          ],
+          "story": null,
+          "why": null,
+          "sources": []
+        },
+        {
+          "term": "honda cb350c black edition launch",
+          "traffic": "5000+",
+          "started_at": "2026-10-27T11:40:00.000Z",
+          "related": [
+            "honda cb350c black edition launch"
+          ],
+          "story": null,
+          "why": "Honda launched a darker CB350C ahead of Diwali, at around ₹2.32 lakh on-road; the name is not official yet.",
+          "sources": [
+            {
+              "name": "Rushlane",
+              "url": "https://www.rushlane.com/new-honda-cb350c-black-edition-launched-first-look-12559632.html"
+            }
+          ]
+        },
+        {
+          "term": "harley davidson sprint 440 cruiser",
+          "traffic": "5000+",
+          "started_at": "2026-10-26T18:30:00.000Z",
+          "related": [
+            "harley davidson sprint 440 cruiser"
+          ],
+          "story": {
+            "headline": "Harley-Davidson Sprint 440 cruiser seen undisguised as demo bikes reach dealers",
+            "edition": "2026-10-28",
+            "id": "hd-sprint-440-undisguised",
+            "type": "spy"
+          },
+          "why": "Demo bikes reached Harley-Davidson dealers without camouflage, showing the cruiser’s teardrop tank, scooped seat and pulled-back handlebar ahead of launch.",
+          "sources": [
+            {
+              "name": "Rushlane",
+              "url": "https://www.rushlane.com/harley-davidson-sprint-440-cruiser-spied-undisguised-launch-soon-12559576.html"
+            }
+          ]
+        },
+        {
+          "term": "hero karizma xmr 250 new colors",
+          "traffic": "5000+",
+          "started_at": "2026-10-25T10:20:00.000Z",
+          "related": [
+            "hero karizma xmr 250 new colors"
+          ],
+          "story": {
+            "headline": "Hero Karizma XMR 250 spotted at a dealership in a new red scheme",
+            "edition": "2026-10-28",
+            "id": "hero-karizma-xmr-250-red",
+            "type": "spy"
+          },
+          "why": "The upcoming Karizma XMR 250 was spotted at a dealership in a new red colour scheme, after a black one in July and a white show bike at EICMA.",
+          "sources": [
+            {
+              "name": "Autocar India",
+              "url": "https://www.autocarindia.com/bike-news/upcoming-hero-karizma-xmr-250-spotted-441130"
+            },
+            {
+              "name": "NDTV Auto",
+              "url": "https://www.ndtv.com/auto/hero-karizma-xmr-250-spotted-in-red-colour-ahead-of-launch-12242730"
+            }
+          ]
+        },
+        {
+          "term": "bajaj pulsar n250ss launch price",
+          "traffic": "2000+",
+          "started_at": "2026-10-21T07:50:00.000Z",
+          "related": [
+            "bajaj pulsar n250ss launch price",
+            "ns200"
+          ],
+          "story": null,
+          "why": null,
+          "sources": []
+        },
+        {
+          "term": "yamaha mt125 new design facelift",
+          "traffic": "500+",
+          "started_at": "2026-10-23T08:00:00.000Z",
+          "related": [
+            "yamaha mt125 new design facelift"
+          ],
+          "story": null,
+          "why": null,
+          "sources": []
+        },
+        {
+          "term": "हिमालयन",
+          "traffic": "200+",
+          "started_at": "2026-10-27T10:50:00.000Z",
+          "related": [
+            "हिमालयन"
+          ],
+          "story": null,
+          "why": null,
+          "sources": []
+        }
+      ],
+      "picks": [
+        {
+          "term": "harley davidson sprint 440 cruiser",
+          "traffic": "5000+",
+          "why": "Demo bikes reached Harley-Davidson dealers without camouflage, showing the cruiser’s teardrop tank, scooped seat and pulled-back handlebar ahead of launch.",
+          "sources": [
+            {
+              "name": "Rushlane",
+              "url": "https://www.rushlane.com/harley-davidson-sprint-440-cruiser-spied-undisguised-launch-soon-12559576.html"
             }
           ]
         },
@@ -209,24 +377,58 @@
           ]
         },
         {
-          "term": "हिमालयन",
-          "traffic": "200+",
-          "why": "Hindi searches for the Himalayan follow Royal Enfield’s first teaser of the Himalayan 750, due at EICMA in Milan.",
+          "term": "hero karizma xmr 250 new colors",
+          "traffic": "5000+",
+          "why": "The upcoming Karizma XMR 250 was spotted at a dealership in a new red colour scheme, after a black one in July and a white show bike at EICMA.",
+          "sources": [
+            {
+              "name": "Autocar India",
+              "url": "https://www.autocarindia.com/bike-news/upcoming-hero-karizma-xmr-250-spotted-441130"
+            },
+            {
+              "name": "NDTV Auto",
+              "url": "https://www.ndtv.com/auto/hero-karizma-xmr-250-spotted-in-red-colour-ahead-of-launch-12242730"
+            }
+          ]
+        },
+        {
+          "term": "bajaj adventure bike",
+          "traffic": "+250%",
+          "why": "New spy shots of Bajaj’s upcoming adventure bike show a Pulsar-style TFT, new switchgear and proper off-road hardware.",
           "sources": [
             {
               "name": "Rushlane",
-              "url": "https://www.rushlane.com/royal-enfield-himalayan-750-first-teaser-out-eicma-debut-confirmed-12559610.html"
+              "url": "https://www.rushlane.com/bajaj-adv-clearest-spy-shots-yet-new-pulsar-tft-display-switchgear-12559546.html"
+            },
+            {
+              "name": "BikeWale",
+              "url": "https://www.bikewale.com/news/upcoming-bajaj-adventure-bike-new-details-revealed/"
+            }
+          ]
+        },
+        {
+          "term": "electric motorcycles and scooters",
+          "traffic": "+550%",
+          "why": "A BCG survey found 43% of buyers considering an electric two-wheeler, and Ultraviolette’s CTO expects electric motorcycles to grow like scooters did.",
+          "sources": [
+            {
+              "name": "Autocar Professional",
+              "url": "https://www.autocarpro.in/news/electric-two-wheeler-purchase-intent-rises-to-43-percent-market-penetration-at-99-percent-through-august-bcg-135473"
+            },
+            {
+              "name": "Autocar Professional",
+              "url": "https://www.autocarpro.in/news/electric-motorcycles-could-see-scooter-like-growth-in-next-three-years-ultraviolette-cto-135506"
             }
           ]
         }
       ],
       "summary": {
-        "headline": "Bajaj’s adventure bike and electric two-wheelers lead today’s rising bike searches",
-        "text": "Searches for Bajaj’s adventure bike rose 160% after fresh spy shots, and “electric motorcycles and scooters” rose 350% as a BCG survey put electric purchase intent at 43%. Honda’s darker CB350C drew 5000+ searches. Karnataka searched for bikes the most."
+        "headline": "Harley’s Sprint 440, Honda’s black CB350C and Hero’s red Karizma each drew 5000+ searches",
+        "text": "All three were seen at dealers or launched this week. Searches for Bajaj’s adventure bike rose 250% after new spy shots, and “electric motorcycles and scooters” rose 550% as a BCG survey put electric purchase intent at 43%."
       }
     }
   ],
-  "updated": "2026-10-28T03:48:49+05:30",
+  "updated": "2026-10-28T04:10:18+05:30",
   "timeline": {
     "keywords": [
       "motorcycles",
@@ -236,29 +438,11 @@
     ],
     "points": [
       {
-        "t": "2026-10-26T22:16:00.000Z",
-        "v": [
-          0,
-          0,
-          59,
-          61
-        ]
-      },
-      {
-        "t": "2026-10-26T22:24:00.000Z",
-        "v": [
-          0,
-          20,
-          50,
-          65
-        ]
-      },
-      {
         "t": "2026-10-26T22:32:00.000Z",
         "v": [
           0,
           0,
-          60,
+          65,
           75
         ]
       },
@@ -267,17 +451,17 @@
         "v": [
           0,
           0,
-          52,
-          62
+          39,
+          55
         ]
       },
       {
         "t": "2026-10-26T22:48:00.000Z",
         "v": [
           0,
-          0,
-          40,
-          56
+          21,
+          41,
+          52
         ]
       },
       {
@@ -285,8 +469,8 @@
         "v": [
           0,
           0,
-          44,
-          59
+          38,
+          64
         ]
       },
       {
@@ -294,17 +478,17 @@
         "v": [
           0,
           0,
-          48,
-          50
+          41,
+          45
         ]
       },
       {
         "t": "2026-10-26T23:12:00.000Z",
         "v": [
           0,
-          0,
-          39,
-          57
+          27,
+          43,
+          55
         ]
       },
       {
@@ -312,8 +496,8 @@
         "v": [
           0,
           0,
-          46,
-          64
+          38,
+          65
         ]
       },
       {
@@ -330,8 +514,8 @@
         "v": [
           0,
           0,
-          28,
-          48
+          25,
+          43
         ]
       },
       {
@@ -339,8 +523,8 @@
         "v": [
           0,
           0,
-          38,
-          47
+          36,
+          54
         ]
       },
       {
@@ -348,8 +532,8 @@
         "v": [
           0,
           0,
-          47,
-          58
+          44,
+          57
         ]
       },
       {
@@ -357,26 +541,26 @@
         "v": [
           15,
           0,
-          37,
-          43
+          40,
+          32
         ]
       },
       {
         "t": "2026-10-27T00:08:00.000Z",
         "v": [
           0,
-          19,
-          36,
-          37
+          18,
+          33,
+          39
         ]
       },
       {
         "t": "2026-10-27T00:16:00.000Z",
         "v": [
           0,
-          13,
-          26,
-          36
+          0,
+          20,
+          39
         ]
       },
       {
@@ -384,70 +568,70 @@
         "v": [
           10,
           9,
-          32,
-          43
+          28,
+          38
         ]
       },
       {
         "t": "2026-10-27T00:32:00.000Z",
         "v": [
           0,
-          8,
-          38,
-          53
+          9,
+          39,
+          49
         ]
       },
       {
         "t": "2026-10-27T00:40:00.000Z",
         "v": [
           0,
-          12,
-          53,
-          55
+          10,
+          51,
+          54
         ]
       },
       {
         "t": "2026-10-27T00:48:00.000Z",
         "v": [
           0,
-          7,
-          45,
-          62
+          8,
+          43,
+          59
         ]
       },
       {
         "t": "2026-10-27T00:56:00.000Z",
         "v": [
           0,
-          11,
-          41,
-          44
+          7,
+          37,
+          43
         ]
       },
       {
         "t": "2026-10-27T01:04:00.000Z",
         "v": [
           0,
-          11,
-          52,
-          59
+          16,
+          53,
+          57
         ]
       },
       {
         "t": "2026-10-27T01:12:00.000Z",
         "v": [
           0,
-          6,
-          45,
-          59
+          0,
+          46,
+          56
         ]
       },
       {
         "t": "2026-10-27T01:20:00.000Z",
         "v": [
           0,
-          6,
-          53,
+          0,
+          51,
           51
         ]
       },
@@ -455,17 +639,17 @@
         "t": "2026-10-27T01:28:00.000Z",
         "v": [
           0,
-          8,
-          52,
-          62
+          10,
+          55,
+          64
         ]
       },
       {
         "t": "2026-10-27T01:36:00.000Z",
         "v": [
           0,
-          8,
-          51,
+          10,
+          56,
           60
         ]
       },
@@ -473,9 +657,9 @@
         "t": "2026-10-27T01:44:00.000Z",
         "v": [
           0,
-          14,
+          12,
           60,
-          65
+          66
         ]
       },
       {
@@ -483,8 +667,8 @@
         "v": [
           0,
           11,
-          65,
-          76
+          63,
+          71
         ]
       },
       {
@@ -492,8 +676,8 @@
         "v": [
           0,
           18,
-          68,
-          81
+          66,
+          77
         ]
       },
       {
@@ -501,129 +685,12 @@
         "v": [
           0,
           11,
-          65,
-          74
+          64,
+          75
         ]
       },
       {
         "t": "2026-10-27T02:16:00.000Z",
-        "v": [
-          0,
-          12,
-          68,
-          83
-        ]
-      },
-      {
-        "t": "2026-10-27T02:24:00.000Z",
-        "v": [
-          0,
-          10,
-          63,
-          78
-        ]
-      },
-      {
-        "t": "2026-10-27T02:32:00.000Z",
-        "v": [
-          0,
-          12,
-          76,
-          84
-        ]
-      },
-      {
-        "t": "2026-10-27T02:40:00.000Z",
-        "v": [
-          0,
-          12,
-          79,
-          80
-        ]
-      },
-      {
-        "t": "2026-10-27T02:48:00.000Z",
-        "v": [
-          0,
-          14,
-          67,
-          86
-        ]
-      },
-      {
-        "t": "2026-10-27T02:56:00.000Z",
-        "v": [
-          0,
-          11,
-          77,
-          82
-        ]
-      },
-      {
-        "t": "2026-10-27T03:04:00.000Z",
-        "v": [
-          0,
-          10,
-          72,
-          84
-        ]
-      },
-      {
-        "t": "2026-10-27T03:12:00.000Z",
-        "v": [
-          0,
-          15,
-          79,
-          91
-        ]
-      },
-      {
-        "t": "2026-10-27T03:20:00.000Z",
-        "v": [
-          0,
-          13,
-          83,
-          94
-        ]
-      },
-      {
-        "t": "2026-10-27T03:28:00.000Z",
-        "v": [
-          0,
-          10,
-          69,
-          80
-        ]
-      },
-      {
-        "t": "2026-10-27T03:36:00.000Z",
-        "v": [
-          0,
-          11,
-          75,
-          85
-        ]
-      },
-      {
-        "t": "2026-10-27T03:44:00.000Z",
-        "v": [
-          0,
-          12,
-          72,
-          83
-        ]
-      },
-      {
-        "t": "2026-10-27T03:52:00.000Z",
-        "v": [
-          0,
-          12,
-          69,
-          83
-        ]
-      },
-      {
-        "t": "2026-10-27T04:00:00.000Z",
         "v": [
           0,
           16,
@@ -632,11 +699,128 @@
         ]
       },
       {
-        "t": "2026-10-27T04:08:00.000Z",
+        "t": "2026-10-27T02:24:00.000Z",
+        "v": [
+          0,
+          8,
+          62,
+          77
+        ]
+      },
+      {
+        "t": "2026-10-27T02:32:00.000Z",
+        "v": [
+          0,
+          12,
+          73,
+          83
+        ]
+      },
+      {
+        "t": "2026-10-27T02:40:00.000Z",
+        "v": [
+          0,
+          12,
+          78,
+          78
+        ]
+      },
+      {
+        "t": "2026-10-27T02:48:00.000Z",
+        "v": [
+          0,
+          14,
+          68,
+          84
+        ]
+      },
+      {
+        "t": "2026-10-27T02:56:00.000Z",
+        "v": [
+          0,
+          9,
+          73,
+          81
+        ]
+      },
+      {
+        "t": "2026-10-27T03:04:00.000Z",
+        "v": [
+          0,
+          11,
+          71,
+          84
+        ]
+      },
+      {
+        "t": "2026-10-27T03:12:00.000Z",
         "v": [
           0,
           13,
-          80,
+          77,
+          90
+        ]
+      },
+      {
+        "t": "2026-10-27T03:20:00.000Z",
+        "v": [
+          0,
+          10,
+          84,
+          91
+        ]
+      },
+      {
+        "t": "2026-10-27T03:28:00.000Z",
+        "v": [
+          0,
+          9,
+          70,
+          76
+        ]
+      },
+      {
+        "t": "2026-10-27T03:36:00.000Z",
+        "v": [
+          0,
+          11,
+          73,
+          83
+        ]
+      },
+      {
+        "t": "2026-10-27T03:44:00.000Z",
+        "v": [
+          0,
+          13,
+          72,
+          83
+        ]
+      },
+      {
+        "t": "2026-10-27T03:52:00.000Z",
+        "v": [
+          0,
+          13,
+          67,
+          81
+        ]
+      },
+      {
+        "t": "2026-10-27T04:00:00.000Z",
+        "v": [
+          0,
+          17,
+          65,
+          82
+        ]
+      },
+      {
+        "t": "2026-10-27T04:08:00.000Z",
+        "v": [
+          0,
+          12,
+          78,
           87
         ]
       },
@@ -644,9 +828,9 @@
         "t": "2026-10-27T04:16:00.000Z",
         "v": [
           0,
-          15,
-          77,
-          86
+          13,
+          74,
+          85
         ]
       },
       {
@@ -654,7 +838,7 @@
         "v": [
           0,
           13,
-          76,
+          74,
           85
         ]
       },
@@ -664,25 +848,25 @@
           0,
           13,
           69,
-          81
+          80
         ]
       },
       {
         "t": "2026-10-27T04:40:00.000Z",
         "v": [
           0,
-          12,
-          70,
-          77
+          11,
+          69,
+          74
         ]
       },
       {
         "t": "2026-10-27T04:48:00.000Z",
         "v": [
           0,
-          14,
-          72,
-          85
+          15,
+          69,
+          83
         ]
       },
       {
@@ -691,24 +875,24 @@
           0,
           13,
           61,
-          75
+          73
         ]
       },
       {
         "t": "2026-10-27T05:04:00.000Z",
         "v": [
           0,
-          13,
-          66,
-          80
+          12,
+          65,
+          81
         ]
       },
       {
         "t": "2026-10-27T05:12:00.000Z",
         "v": [
           0,
-          11,
-          72,
+          12,
+          71,
           80
         ]
       },
@@ -718,7 +902,7 @@
           0,
           13,
           67,
-          78
+          77
         ]
       },
       {
@@ -727,7 +911,7 @@
           0,
           14,
           68,
-          84
+          83
         ]
       },
       {
@@ -735,8 +919,8 @@
         "v": [
           0,
           13,
-          68,
-          81
+          67,
+          80
         ]
       },
       {
@@ -744,16 +928,16 @@
         "v": [
           0,
           14,
-          70,
-          87
+          68,
+          86
         ]
       },
       {
         "t": "2026-10-27T05:52:00.000Z",
         "v": [
           0,
-          13,
-          70,
+          15,
+          69,
           82
         ]
       },
@@ -761,9 +945,9 @@
         "t": "2026-10-27T06:00:00.000Z",
         "v": [
           2,
-          10,
+          13,
           73,
-          86
+          84
         ]
       },
       {
@@ -771,25 +955,25 @@
         "v": [
           0,
           10,
-          68,
-          79
+          67,
+          77
         ]
       },
       {
         "t": "2026-10-27T06:16:00.000Z",
         "v": [
           0,
-          13,
-          70,
-          78
+          14,
+          68,
+          79
         ]
       },
       {
         "t": "2026-10-27T06:24:00.000Z",
         "v": [
           0,
-          14,
-          76,
+          13,
+          74,
           79
         ]
       },
@@ -798,7 +982,7 @@
         "v": [
           0,
           13,
-          69,
+          65,
           73
         ]
       },
@@ -807,17 +991,17 @@
         "v": [
           2,
           12,
-          71,
+          70,
           75
         ]
       },
       {
         "t": "2026-10-27T06:48:00.000Z",
         "v": [
-          2,
+          0,
           13,
-          65,
-          76
+          64,
+          74
         ]
       },
       {
@@ -825,8 +1009,8 @@
         "v": [
           0,
           13,
-          65,
-          74
+          63,
+          72
         ]
       },
       {
@@ -834,34 +1018,34 @@
         "v": [
           2,
           15,
-          69,
-          76
+          68,
+          74
         ]
       },
       {
         "t": "2026-10-27T07:12:00.000Z",
         "v": [
           2,
-          14,
-          71,
-          80
+          15,
+          70,
+          78
         ]
       },
       {
         "t": "2026-10-27T07:20:00.000Z",
         "v": [
           0,
-          13,
-          65,
-          76
+          11,
+          64,
+          74
         ]
       },
       {
         "t": "2026-10-27T07:28:00.000Z",
         "v": [
           0,
-          14,
-          67,
+          13,
+          65,
           79
         ]
       },
@@ -870,7 +1054,7 @@
         "v": [
           0,
           12,
-          64,
+          63,
           75
         ]
       },
@@ -879,16 +1063,16 @@
         "v": [
           0,
           11,
-          67,
-          74
+          65,
+          73
         ]
       },
       {
         "t": "2026-10-27T07:52:00.000Z",
         "v": [
           0,
-          12,
-          64,
+          13,
+          62,
           72
         ]
       },
@@ -896,8 +1080,8 @@
         "t": "2026-10-27T08:00:00.000Z",
         "v": [
           0,
-          13,
-          70,
+          12,
+          68,
           76
         ]
       },
@@ -905,17 +1089,17 @@
         "t": "2026-10-27T08:08:00.000Z",
         "v": [
           0,
-          10,
-          64,
-          76
+          9,
+          63,
+          74
         ]
       },
       {
         "t": "2026-10-27T08:16:00.000Z",
         "v": [
           0,
-          12,
-          72,
+          11,
+          71,
           78
         ]
       },
@@ -925,51 +1109,51 @@
           0,
           13,
           68,
-          78
+          75
         ]
       },
       {
         "t": "2026-10-27T08:32:00.000Z",
         "v": [
           0,
-          12,
-          65,
-          78
+          13,
+          64,
+          76
         ]
       },
       {
         "t": "2026-10-27T08:40:00.000Z",
         "v": [
           0,
-          15,
-          71,
-          81
+          14,
+          70,
+          78
         ]
       },
       {
         "t": "2026-10-27T08:48:00.000Z",
         "v": [
           0,
-          13,
-          59,
-          73
+          11,
+          56,
+          70
         ]
       },
       {
         "t": "2026-10-27T08:56:00.000Z",
         "v": [
           0,
-          12,
-          60,
+          13,
+          59,
           70
         ]
       },
       {
         "t": "2026-10-27T09:04:00.000Z",
         "v": [
-          2,
-          13,
-          63,
+          0,
+          14,
+          62,
           74
         ]
       },
@@ -977,9 +1161,9 @@
         "t": "2026-10-27T09:12:00.000Z",
         "v": [
           0,
-          13,
-          60,
-          67
+          12,
+          59,
+          66
         ]
       },
       {
@@ -987,8 +1171,8 @@
         "v": [
           3,
           10,
-          60,
-          69
+          59,
+          68
         ]
       },
       {
@@ -996,7 +1180,7 @@
         "v": [
           0,
           12,
-          62,
+          61,
           70
         ]
       },
@@ -1004,8 +1188,8 @@
         "t": "2026-10-27T09:36:00.000Z",
         "v": [
           0,
-          11,
-          63,
+          10,
+          61,
           71
         ]
       },
@@ -1015,15 +1199,15 @@
           0,
           12,
           56,
-          66
+          65
         ]
       },
       {
         "t": "2026-10-27T09:52:00.000Z",
         "v": [
           0,
-          11,
-          56,
+          10,
+          55,
           65
         ]
       },
@@ -1031,9 +1215,9 @@
         "t": "2026-10-27T10:00:00.000Z",
         "v": [
           0,
-          12,
-          62,
-          67
+          13,
+          59,
+          68
         ]
       },
       {
@@ -1041,8 +1225,8 @@
         "v": [
           3,
           11,
-          65,
-          72
+          60,
+          70
         ]
       },
       {
@@ -1050,35 +1234,35 @@
         "v": [
           0,
           12,
-          60,
-          70
+          58,
+          69
         ]
       },
       {
         "t": "2026-10-27T10:24:00.000Z",
         "v": [
           0,
-          13,
-          63,
-          75
+          12,
+          62,
+          74
         ]
       },
       {
         "t": "2026-10-27T10:32:00.000Z",
         "v": [
           4,
-          12,
+          13,
           63,
-          74
+          71
         ]
       },
       {
         "t": "2026-10-27T10:40:00.000Z",
         "v": [
           0,
-          15,
-          80,
-          91
+          14,
+          78,
+          90
         ]
       },
       {
@@ -1086,8 +1270,8 @@
         "v": [
           0,
           14,
-          72,
-          80
+          71,
+          79
         ]
       },
       {
@@ -1095,8 +1279,8 @@
         "v": [
           0,
           13,
-          70,
-          77
+          68,
+          76
         ]
       },
       {
@@ -1105,7 +1289,7 @@
           0,
           12,
           67,
-          80
+          78
         ]
       },
       {
@@ -1113,7 +1297,7 @@
         "v": [
           0,
           14,
-          77,
+          76,
           87
         ]
       },
@@ -1121,9 +1305,9 @@
         "t": "2026-10-27T11:20:00.000Z",
         "v": [
           0,
-          14,
-          71,
-          87
+          16,
+          70,
+          84
         ]
       },
       {
@@ -1131,26 +1315,26 @@
         "v": [
           0,
           11,
-          72,
-          81
+          71,
+          80
         ]
       },
       {
         "t": "2026-10-27T11:36:00.000Z",
         "v": [
           2,
-          15,
-          79,
-          88
+          14,
+          77,
+          86
         ]
       },
       {
         "t": "2026-10-27T11:44:00.000Z",
         "v": [
           0,
-          13,
-          76,
-          86
+          11,
+          75,
+          85
         ]
       },
       {
@@ -1158,8 +1342,8 @@
         "v": [
           2,
           12,
-          79,
-          90
+          76,
+          87
         ]
       },
       {
@@ -1167,17 +1351,17 @@
         "v": [
           0,
           13,
-          72,
-          83
+          70,
+          82
         ]
       },
       {
         "t": "2026-10-27T12:08:00.000Z",
         "v": [
           0,
-          15,
-          79,
-          89
+          14,
+          75,
+          87
         ]
       },
       {
@@ -1185,8 +1369,8 @@
         "v": [
           0,
           14,
-          71,
-          85
+          72,
+          83
         ]
       },
       {
@@ -1195,16 +1379,16 @@
           0,
           11,
           79,
-          87
+          85
         ]
       },
       {
         "t": "2026-10-27T12:32:00.000Z",
         "v": [
           0,
-          16,
-          79,
-          88
+          17,
+          77,
+          86
         ]
       },
       {
@@ -1212,35 +1396,35 @@
         "v": [
           0,
           15,
-          76,
-          88
+          75,
+          85
         ]
       },
       {
         "t": "2026-10-27T12:48:00.000Z",
         "v": [
           0,
-          12,
-          80,
+          13,
+          79,
           85
         ]
       },
       {
         "t": "2026-10-27T12:56:00.000Z",
         "v": [
-          2,
+          0,
           14,
-          79,
-          90
+          77,
+          88
         ]
       },
       {
         "t": "2026-10-27T13:04:00.000Z",
         "v": [
           0,
-          15,
-          77,
-          91
+          16,
+          76,
+          89
         ]
       },
       {
@@ -1248,26 +1432,26 @@
         "v": [
           0,
           13,
-          82,
-          90
+          81,
+          88
         ]
       },
       {
         "t": "2026-10-27T13:20:00.000Z",
         "v": [
           0,
-          15,
-          83,
-          94
+          14,
+          82,
+          93
         ]
       },
       {
         "t": "2026-10-27T13:28:00.000Z",
         "v": [
           0,
-          14,
-          82,
-          95
+          13,
+          81,
+          93
         ]
       },
       {
@@ -1275,8 +1459,8 @@
         "v": [
           0,
           13,
-          80,
-          88
+          78,
+          86
         ]
       },
       {
@@ -1284,8 +1468,8 @@
         "v": [
           0,
           18,
-          86,
-          93
+          84,
+          96
         ]
       },
       {
@@ -1293,7 +1477,7 @@
         "v": [
           0,
           14,
-          90,
+          88,
           99
         ]
       },
@@ -1301,18 +1485,18 @@
         "t": "2026-10-27T14:00:00.000Z",
         "v": [
           0,
-          14,
-          85,
-          93
+          13,
+          83,
+          92
         ]
       },
       {
         "t": "2026-10-27T14:08:00.000Z",
         "v": [
           0,
-          15,
-          86,
-          100
+          16,
+          85,
+          98
         ]
       },
       {
@@ -1320,8 +1504,8 @@
         "v": [
           0,
           17,
-          93,
-          100
+          91,
+          98
         ]
       },
       {
@@ -1329,17 +1513,17 @@
         "v": [
           0,
           15,
-          79,
-          91
+          77,
+          88
         ]
       },
       {
         "t": "2026-10-27T14:32:00.000Z",
         "v": [
           3,
-          14,
-          79,
-          95
+          13,
+          81,
+          96
         ]
       },
       {
@@ -1347,26 +1531,26 @@
         "v": [
           0,
           14,
-          92,
-          99
+          89,
+          95
         ]
       },
       {
         "t": "2026-10-27T14:48:00.000Z",
         "v": [
           0,
-          14,
-          82,
-          87
+          13,
+          78,
+          85
         ]
       },
       {
         "t": "2026-10-27T14:56:00.000Z",
         "v": [
           0,
-          14,
+          15,
           89,
-          96
+          98
         ]
       },
       {
@@ -1374,8 +1558,8 @@
         "v": [
           0,
           16,
-          86,
-          99
+          84,
+          100
         ]
       },
       {
@@ -1383,8 +1567,8 @@
         "v": [
           0,
           17,
-          83,
-          96
+          82,
+          95
         ]
       },
       {
@@ -1392,8 +1576,8 @@
         "v": [
           0,
           14,
-          87,
-          97
+          85,
+          95
         ]
       },
       {
@@ -1401,8 +1585,8 @@
         "v": [
           2,
           15,
-          86,
-          95
+          85,
+          94
         ]
       },
       {
@@ -1410,8 +1594,8 @@
         "v": [
           0,
           15,
-          79,
-          88
+          78,
+          87
         ]
       },
       {
@@ -1419,17 +1603,17 @@
         "v": [
           0,
           17,
-          87,
-          93
+          85,
+          92
         ]
       },
       {
         "t": "2026-10-27T15:52:00.000Z",
         "v": [
-          2,
-          16,
-          82,
-          96
+          0,
+          15,
+          80,
+          93
         ]
       },
       {
@@ -1437,8 +1621,8 @@
         "v": [
           0,
           14,
-          78,
-          90
+          76,
+          88
         ]
       },
       {
@@ -1446,17 +1630,17 @@
         "v": [
           0,
           15,
-          87,
-          100
+          85,
+          98
         ]
       },
       {
         "t": "2026-10-27T16:16:00.000Z",
         "v": [
           0,
-          16,
-          79,
-          84
+          15,
+          77,
+          83
         ]
       },
       {
@@ -1464,8 +1648,8 @@
         "v": [
           0,
           17,
-          78,
-          89
+          76,
+          87
         ]
       },
       {
@@ -1473,17 +1657,17 @@
         "v": [
           0,
           17,
-          76,
-          94
+          75,
+          92
         ]
       },
       {
         "t": "2026-10-27T16:40:00.000Z",
         "v": [
           0,
-          16,
-          81,
-          89
+          15,
+          79,
+          87
         ]
       },
       {
@@ -1491,8 +1675,8 @@
         "v": [
           0,
           12,
-          74,
-          85
+          72,
+          83
         ]
       },
       {
@@ -1500,26 +1684,26 @@
         "v": [
           0,
           15,
-          70,
-          77
+          68,
+          75
         ]
       },
       {
         "t": "2026-10-27T17:04:00.000Z",
         "v": [
           0,
-          16,
-          69,
-          79
+          15,
+          67,
+          76
         ]
       },
       {
         "t": "2026-10-27T17:12:00.000Z",
         "v": [
           0,
-          18,
-          80,
-          94
+          17,
+          78,
+          92
         ]
       },
       {
@@ -1527,17 +1711,17 @@
         "v": [
           0,
           15,
-          73,
-          80
+          72,
+          78
         ]
       },
       {
         "t": "2026-10-27T17:28:00.000Z",
         "v": [
           0,
-          18,
-          77,
-          86
+          17,
+          74,
+          83
         ]
       },
       {
@@ -1545,8 +1729,8 @@
         "v": [
           0,
           13,
-          69,
-          82
+          67,
+          80
         ]
       },
       {
@@ -1554,8 +1738,8 @@
         "v": [
           0,
           18,
-          72,
-          89
+          70,
+          87
         ]
       },
       {
@@ -1563,17 +1747,17 @@
         "v": [
           0,
           17,
-          66,
-          83
+          65,
+          81
         ]
       },
       {
         "t": "2026-10-27T18:00:00.000Z",
         "v": [
           0,
-          14,
-          66,
-          72
+          13,
+          65,
+          70
         ]
       },
       {
@@ -1581,8 +1765,8 @@
         "v": [
           0,
           16,
-          66,
-          84
+          65,
+          82
         ]
       },
       {
@@ -1590,8 +1774,8 @@
         "v": [
           0,
           14,
-          67,
-          77
+          65,
+          76
         ]
       },
       {
@@ -1599,35 +1783,35 @@
         "v": [
           0,
           20,
-          69,
-          86
+          68,
+          85
         ]
       },
       {
         "t": "2026-10-27T18:32:00.000Z",
         "v": [
           0,
-          19,
-          69,
-          82
+          18,
+          67,
+          79
         ]
       },
       {
         "t": "2026-10-27T18:40:00.000Z",
         "v": [
           0,
-          14,
-          64,
-          73
+          13,
+          63,
+          72
         ]
       },
       {
         "t": "2026-10-27T18:48:00.000Z",
         "v": [
           0,
-          18,
-          68,
-          81
+          19,
+          62,
+          71
         ]
       },
       {
@@ -1635,7 +1819,7 @@
         "v": [
           0,
           13,
-          66,
+          64,
           77
         ]
       },
@@ -1643,18 +1827,18 @@
         "t": "2026-10-27T19:04:00.000Z",
         "v": [
           0,
-          20,
-          69,
-          85
+          17,
+          65,
+          82
         ]
       },
       {
         "t": "2026-10-27T19:12:00.000Z",
         "v": [
           0,
-          21,
-          78,
-          93
+          18,
+          76,
+          89
         ]
       },
       {
@@ -1662,62 +1846,62 @@
         "v": [
           0,
           18,
-          64,
-          81
+          62,
+          78
         ]
       },
       {
         "t": "2026-10-27T19:28:00.000Z",
         "v": [
           0,
-          16,
-          69,
-          80
+          15,
+          66,
+          78
         ]
       },
       {
         "t": "2026-10-27T19:36:00.000Z",
         "v": [
           0,
-          21,
-          73,
-          83
+          18,
+          76,
+          84
         ]
       },
       {
         "t": "2026-10-27T19:44:00.000Z",
         "v": [
           0,
-          20,
-          71,
-          93
+          27,
+          70,
+          84
         ]
       },
       {
         "t": "2026-10-27T19:52:00.000Z",
         "v": [
           0,
-          12,
-          59,
-          75
+          14,
+          58,
+          73
         ]
       },
       {
         "t": "2026-10-27T20:00:00.000Z",
         "v": [
           0,
-          12,
-          53,
-          67
+          13,
+          57,
+          65
         ]
       },
       {
         "t": "2026-10-27T20:08:00.000Z",
         "v": [
           0,
-          20,
-          66,
-          72
+          19,
+          63,
+          76
         ]
       },
       {
@@ -1725,35 +1909,35 @@
         "v": [
           0,
           17,
-          69,
-          83
+          66,
+          78
         ]
       },
       {
         "t": "2026-10-27T20:24:00.000Z",
         "v": [
           0,
-          20,
+          18,
           72,
-          87
+          90
         ]
       },
       {
         "t": "2026-10-27T20:32:00.000Z",
         "v": [
           0,
-          19,
-          63,
-          92
+          27,
+          71,
+          83
         ]
       },
       {
         "t": "2026-10-27T20:40:00.000Z",
         "v": [
           0,
-          15,
-          53,
-          68
+          14,
+          52,
+          65
         ]
       },
       {
@@ -1769,9 +1953,9 @@
         "t": "2026-10-27T20:56:00.000Z",
         "v": [
           0,
-          20,
-          53,
-          71
+          19,
+          51,
+          72
         ]
       },
       {
@@ -1779,8 +1963,8 @@
         "v": [
           0,
           0,
-          70,
-          67
+          67,
+          74
         ]
       },
       {
@@ -1788,44 +1972,44 @@
         "v": [
           0,
           0,
-          66,
-          75
+          64,
+          68
         ]
       },
       {
         "t": "2026-10-27T21:20:00.000Z",
         "v": [
           0,
-          0,
-          53,
-          59
+          15,
+          61,
+          66
         ]
       },
       {
         "t": "2026-10-27T21:28:00.000Z",
         "v": [
           0,
-          22,
-          63,
-          69
+          0,
+          68,
+          80
         ]
       },
       {
         "t": "2026-10-27T21:36:00.000Z",
         "v": [
           0,
-          20,
-          60,
-          80
+          17,
+          57,
+          78
         ]
       },
       {
         "t": "2026-10-27T21:44:00.000Z",
         "v": [
           0,
-          16,
+          0,
           64,
-          77
+          69
         ]
       },
       {
@@ -1833,8 +2017,8 @@
         "v": [
           0,
           0,
-          54,
-          65
+          56,
+          58
         ]
       },
       {
@@ -1842,8 +2026,8 @@
         "v": [
           0,
           0,
-          65,
-          71
+          54,
+          80
         ]
       },
       {
@@ -1851,8 +2035,35 @@
         "v": [
           0,
           0,
-          71,
-          90
+          74,
+          79
+        ]
+      },
+      {
+        "t": "2026-10-27T22:16:00.000Z",
+        "v": [
+          0,
+          0,
+          66,
+          66
+        ]
+      },
+      {
+        "t": "2026-10-27T22:24:00.000Z",
+        "v": [
+          0,
+          19,
+          47,
+          72
+        ]
+      },
+      {
+        "t": "2026-10-27T22:32:00.000Z",
+        "v": [
+          0,
+          0,
+          40,
+          61
         ]
       }
     ]

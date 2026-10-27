@@ -8,6 +8,9 @@ A rider in India who wants to know, in two minutes, what happened in Indian two-
 
 ## What counts
 
+- **Motorcycles and scooters only.** Never cars, SUVs, trucks, buses or tractors, not even a car story from a bike
+  maker's parent company, and not car-and-bike roundups unless the bike part is the news. The validator rejects
+  headlines about cars.
 - Motorcycles, scooters and electric two-wheelers sold or coming to India.
 - Indian prices, launches, bookings, recalls, sales figures, EV subsidies and rules, Indian brands abroad.
 - Not cars, trucks, tyres for cars or component makers' results. Not global launches with no India plan. Not race
@@ -37,20 +40,25 @@ A rider in India who wants to know, in two minutes, what happened in Indian two-
 
 ## What is trending and why (`trends_summary` and `trending`)
 
-The pool's `explore` holds Google Trends Explore for India, Autos & Vehicles, last 24 hours: interest over time for
-"motorcycles", "bikes", "bike" and the Motorcycle topic (`averages`, 0 to 100), what people searched alongside them
-(`related`: `top` and `rising`, with Google's values such as "+150%" or "Breakout"), and `states`. `trends` holds the
-day's trending searches (those with `"category": "Autos & Vehicles"` first). Do not just list this data: read it and
-say what riders are searching for and why.
+Readers want to know what India is searching for about bikes, how much, and why. Two kinds of data in the pool:
 
-- **`trending`: 0 to 5 items.** Pick the searches that tell a story: a rising or breakout search, a trending bike
-  search, a top search that moved. Skip generic ones ("bike", "bikes"), cars, and anything you cannot explain.
-  `term` exactly as in the data; `traffic` exactly Google's value for it ("+150%", "Breakout", "5000+") or null;
-  `why` at most 30 words, saying why people are searching for it, from a pool story that explains it, cited in
-  `sources` (at least one). A search with no story behind it is left out.
-- **`trends_summary`:** `headline` (at most 16 words) and `text` (at most 70 words) on what the searches say today,
-  for example which brand or kind of bike is drawing interest and what set it off. Numbers only from Google's data or
-  the trending items' sources. When nothing bike-related stands out, `trends_summary` is null and `trending` empty.
+- `trends`: bike searches from Google Trends over the last 7 days, each with Google's volume (`traffic`, such as
+  "5000+"), when it started trending (`published_at`) and the related searches. Cars and share prices are already
+  filtered out. **These are the best material**: a search with a volume and a story behind it ("harley davidson
+  sprint 440 cruiser", 5000+ searches, because demo bikes reached dealers undisguised).
+- `explore`: Google Trends Explore for the last 24 hours: what people searched alongside "bike", "bikes" and
+  "motorcycles" (`related`: `top`, and `rising` with values such as "+160%" or "Breakout").
+
+Do not just list this data: say what riders are searching for and why.
+
+- **`trending`: 0 to 5 items,** volume searches first (those that started in the last 48 hours above older ones),
+  then rising searches. Each must be explained by a story in the pool, cited in `sources`; a search with no story
+  behind it is left out. Skip generic searches ("bike price", "bikes"). `term` exactly as in the data; `traffic`
+  exactly Google's value for it ("5000+", "+160%", "Breakout"); `why` at most 30 words.
+- **`trends_summary`:** `headline` (at most 16 words) and `text` (at most 70 words) on what the searches say today:
+  which bikes or brands are drawing searches, how many, and what set it off. Numbers only from Google's data or the
+  trending items' sources. When nothing stands out, `trends_summary` is null and `trending` empty.
+- The page also lists every bike search of the week with its volume and links it to a story automatically.
 
 ## Events (the `events` list)
 

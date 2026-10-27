@@ -285,6 +285,22 @@ else {
   });
 }
 
+// ---------- Motorcycles and scooters only ----------
+
+const filters = (await readJson(path('config/sources.json'))).title_filters;
+const carRe = new RegExp(filters.cars, 'i');
+const bikeRe = new RegExp(filters.bikes, 'i');
+const titled = [
+  ...[lead, ...subs, ...heads].filter(Boolean).map((it, i) => [it.id ?? `story ${i + 1}`, it.headline]),
+  ...events.map((ev) => [`events: ${ev?.id}`, ev?.name]),
+  ...gear.map((a) => [`accessories: ${a?.id}`, `${a?.headline ?? ''} ${a?.product ?? ''}`]),
+  ...trending.map((t) => [`trending: ${t?.term}`, t?.term]),
+  ['trends_summary', ed.trends_summary?.headline],
+];
+for (const [where, text] of titled) {
+  if (text && carRe.test(text) && !bikeRe.test(text)) err(where, 'is about cars, trucks or buses; Bike News covers motorcycles and scooters only');
+}
+
 // ---------- Checks block ----------
 
 const c = ed.checks;

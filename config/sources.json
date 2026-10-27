@@ -14,8 +14,10 @@
   "retries": 3,
   "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
   "title_filters": {
-    "cars": "\\b(cars?|SUVs?|sedans?|hatchbacks?|MPVs?|ADAS|Maruti|Hyundai|Tata Motors|Toyota|Kia|MG Motor|Skoda|Volkswagen|VW|Jeep|Land Rover|Range Rover|Defender|Jaguar|Mercedes|Audi|Porsche|Lamborghini|Ferrari|Renault|Nissan|Citroen|BYD|Volvo|Lexus|Rolls-Royce|Bentley|Tesla|VinFast|Isuzu|Force Motors|JSW Motors|Innova|Fortuner|Creta|Nexon|Bayon|Scorpio|Thar|XUV\\w*)\\b",
-    "bikes": "\\b(bikes?|motorcycles?|motorbikes?|scooters?|two-wheelers?|2W|e-?scooters?)\\b"
+    "cars": "\\b(cars?|carmakers?|SUVs?|sedans?|hatchbacks?|MPVs?|crossovers?|passenger vehicles?|ADAS|trucks?|tractors?|buses|lorry|commercial vehicles?|Maruti|Hyundai|Tata Motors|Toyota|Kia|MG Motor|Skoda|Volkswagen|VW|Jeep|Land Rover|Range Rover|Defender|Jaguar|Mercedes|Audi|Porsche|Lamborghini|Ferrari|Renault|Nissan|Citroen|BYD|Volvo|Lexus|Rolls-Royce|Bentley|Tesla|VinFast|Isuzu|Force Motors|JSW Motors|Mahindra XUV|Ashok Leyland|Eicher Trucks|BharatBenz|Innova|Fortuner|Creta|Nexon|Bayon|Victoris|Scorpio|Mahindra Thar|Honda (City|Amaze|Elevate)|Tata (Punch|Nexon|Harrier|Safari|Tiago|Altroz)|Maruti (Swift|Dzire|Baleno|Brezza|Ertiga)|Brezza|Dzire|Baleno|Ertiga|Seltos|Sonet|Hyundai Venue|Verna|XUV\\w*)\\b",
+    "bikes": "\\b(bikes?|motorcycles?|motorbikes?|scooters?|two-wheelers?|2W|e-?scooters?)\\b",
+    "bike_names": "\\b(bikes?|motorcycles?|motorbikes?|scooters?|e-?scooters?|two-wheelers?|royal enfield|himalayan \\d+|classic \\d+|bullet \\d+|hunter \\d+|meteor \\d+|guerrilla \\d+|interceptor|continental gt|bajaj (pulsar|dominar|chetak|platina|avenger|freedom)|pulsar|dominar|chetak|tvs (apache|jupiter|ntorq|raider|ronin|iqube|xl100|sport|rr ?310)|apache rt?r|ntorq|iqube|hero (motocorp|splendor|xpulse|karizma|glamour|xtreme|passion|destini|xoom|vida|mavrick)|splendor|xpulse|karizma|honda (cb\\w*|shine|activa|unicorn|hornet|sp ?\\d+|hness|dio|adv\\w*|motorcycles?|bikes?)|cb350\\w*|activa|yamaha \\w+|r15|mt ?\\d+|rx ?100|suzuki (gixxer|access|burgman|hayabusa|v-?strom|avenis)|gixxer|hayabusa|ktm|\\d+ duke|duke \\d+|harley|x440|triumph (speed|scrambler|tiger|trident|street|rocket|bonneville|thruxton)|kawasaki|ninja \\d+|ola (s1|roadster|electric scooter)|ather|rizta|ultraviolette|revolt (rv|motors)|oben rorr|jawa|yezdi|bsa goldstar|aprilia|ducati|benelli|husqvarna|norton (v4|commando|manx|atlas|motorcycles)|vespa|ampere|simple one)\\b|बाइक|मोटरसाइकिल|स्कूटर|हिमालयन|बुलेट|पल्सर|स्प्लेंडर|एक्टिवा",
+    "not_riders": "\\b(share price|shares?|stocks?|finance|ipo|sensex|nifty|market cap|business live|housing|meteor shower)\\b"
   },
   "sources": [
     {
@@ -48,8 +50,7 @@
       "url": "https://news.google.com/rss/search?q=site:ndtv.com/auto+when:2d&hl=en-IN&gl=IN&ceid=IN:en",
       "url_must_contain": "ndtv.com/auto",
       "max_items": 15,
-      "fetch_pages": false,
-      "drop_car_titles": true
+      "fetch_pages": false
     },
     {
       "id": "motorbeam",
@@ -58,8 +59,7 @@
       "url": "https://news.google.com/rss/search?q=site:motorbeam.com+when:2d&hl=en-IN&gl=IN&ceid=IN:en",
       "max_items": 15,
       "url_must_contain": "motorbeam.com/",
-      "url_exclude": "/(page|author|category|tag)/",
-      "drop_car_titles": true
+      "url_exclude": "/(page|author|category|tag)/"
     },
     {
       "id": "bikeadvice",
@@ -102,8 +102,7 @@
       "url_must_contain": "overdrive.in/",
       "url_exclude": "/(page|author|category|tag)/",
       "max_items": 15,
-      "fetch_pages": false,
-      "drop_car_titles": true
+      "fetch_pages": false
     },
     {
       "id": "gaadiwaadi",
@@ -113,8 +112,7 @@
       "url_must_contain": "gaadiwaadi.com/",
       "url_exclude": "/(page|author|category|tag)/",
       "max_items": 15,
-      "fetch_pages": false,
-      "drop_car_titles": true
+      "fetch_pages": false
     }
   ],
   "trends": {
@@ -125,13 +123,13 @@
   },
   "category_trends": {
     "id": "trends-autos",
-    "name": "Google Trends (India, Autos & Vehicles)",
+    "name": "Google Trends (India, bike searches)",
     "url": "https://trends.google.com/_/TrendsUi/data/batchexecute",
     "geo": "IN",
-    "hours": 24,
+    "hours": 168,
     "category": 1,
     "category_name": "Autos & Vehicles",
-    "max_items": 20
+    "max_items": 30
   },
   "keep_days": 5,
   "sections": {
@@ -160,7 +158,7 @@
       ],
       "page_chars": 3000,
       "max_per_query": 5,
-      "exclude_title": "\\b(police|drugs?|anti-drug|cars?|SUVs?)\\b"
+      "exclude_title": "\\b(police|drugs?|anti-drug)\\b"
     },
     "accessories": {
       "name": "Aftermarket accessories",
@@ -183,7 +181,7 @@
         "Vega helmets launched",
         "Solace riding gear"
       ],
-      "exclude_title": "\\b(cars?|SUVs?|bathroom|faucet|kitchen|police|challan|violations?|fine[sd]?|rule)\\b",
+      "exclude_title": "\\b(bathroom|faucet|kitchen|police|challan|violations?|fine[sd]?|rule)\\b",
       "max_per_query": 5
     }
   },
