@@ -28,3 +28,5 @@ a branch, run `node scripts/fetch.mjs` and the validator to check their changes,
 - Dates are IST (`+05:30`); `scripts/lib.mjs` has `istDate()`.
 - Some sites refuse automated readers (403). Mark them `"fetch_pages": false` in `config/sources.json` and use their
   feed summary; do not try to get around a block.
+- Sources that cover cars too can set `"drop_car_titles": true`: headlines matching `title_filters.cars` (and not
+  `title_filters.bikes`) are dropped before fetching. `url_must_contain` / `url_exclude` keep only article pages.

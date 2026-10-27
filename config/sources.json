@@ -8,10 +8,15 @@
   "timeout_ms": 20000,
   "concurrency": 4,
   "host_gap_ms": {
-    "default": 400
+    "default": 400,
+    "news.google.com": 900
   },
   "retries": 3,
   "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+  "title_filters": {
+    "cars": "\\b(cars?|SUVs?|sedans?|hatchbacks?|MPVs?|ADAS|Maruti|Hyundai|Tata Motors|Toyota|Kia|MG Motor|Skoda|Volkswagen|VW|Jeep|Land Rover|Range Rover|Defender|Jaguar|Mercedes|Audi|Porsche|Lamborghini|Ferrari|Renault|Nissan|Citroen|BYD|Volvo|Lexus|Rolls-Royce|Bentley|Tesla|VinFast|Isuzu|Force Motors|JSW Motors|Innova|Fortuner|Creta|Nexon|Bayon|Scorpio|Thar|XUV\\w*)\\b",
+    "bikes": "\\b(bikes?|motorcycles?|motorbikes?|scooters?|two-wheelers?|2W|e-?scooters?)\\b"
+  },
   "sources": [
     {
       "id": "rushlane",
@@ -43,14 +48,18 @@
       "url": "https://news.google.com/rss/search?q=site:ndtv.com/auto+when:2d&hl=en-IN&gl=IN&ceid=IN:en",
       "url_must_contain": "ndtv.com/auto",
       "max_items": 15,
-      "fetch_pages": false
+      "fetch_pages": false,
+      "drop_car_titles": true
     },
     {
       "id": "motorbeam",
       "name": "MotorBeam",
-      "kind": "rss",
-      "url": "https://www.motorbeam.com/category/bikes/feed/",
-      "max_items": 20
+      "kind": "gnews",
+      "url": "https://news.google.com/rss/search?q=site:motorbeam.com+when:2d&hl=en-IN&gl=IN&ceid=IN:en",
+      "max_items": 15,
+      "url_must_contain": "motorbeam.com/",
+      "url_exclude": "/(page|author|category|tag)/",
+      "drop_car_titles": true
     },
     {
       "id": "bikeadvice",
@@ -68,6 +77,44 @@
       "url_must_contain": "auto.economictimes.indiatimes.com",
       "max_items": 15,
       "fetch_pages": false
+    },
+    {
+      "id": "autocarpro",
+      "name": "Autocar Professional",
+      "kind": "gnews",
+      "url": "https://news.google.com/rss/search?q=site:autocarpro.in+two-wheeler+when:2d&hl=en-IN&gl=IN&ceid=IN:en",
+      "url_must_contain": "autocarpro.in/",
+      "max_items": 15
+    },
+    {
+      "id": "bikedekho",
+      "name": "BikeDekho",
+      "kind": "gnews",
+      "url": "https://news.google.com/rss/search?q=site:bikedekho.com/news+when:2d&hl=en-IN&gl=IN&ceid=IN:en",
+      "url_must_contain": "bikedekho.com/news/",
+      "max_items": 15
+    },
+    {
+      "id": "overdrive",
+      "name": "Overdrive",
+      "kind": "gnews",
+      "url": "https://news.google.com/rss/search?q=site:overdrive.in+when:2d&hl=en-IN&gl=IN&ceid=IN:en",
+      "url_must_contain": "overdrive.in/",
+      "url_exclude": "/(page|author|category|tag)/",
+      "max_items": 15,
+      "fetch_pages": false,
+      "drop_car_titles": true
+    },
+    {
+      "id": "gaadiwaadi",
+      "name": "Gaadiwaadi",
+      "kind": "gnews",
+      "url": "https://news.google.com/rss/search?q=site:gaadiwaadi.com+when:2d&hl=en-IN&gl=IN&ceid=IN:en",
+      "url_must_contain": "gaadiwaadi.com/",
+      "url_exclude": "/(page|author|category|tag)/",
+      "max_items": 15,
+      "fetch_pages": false,
+      "drop_car_titles": true
     }
   ],
   "trends": {

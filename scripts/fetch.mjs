@@ -248,6 +248,17 @@ if (chosen.length < config.min_items) {
   chosen = within(windowHours);
 }
 
+// Sources marked drop_car_titles (whole-auto sections such as NDTV Auto) lose headlines that are clearly about
+// cars before any work is spent on them. A headline that also names bikes or scooters is kept.
+const carTitle = new RegExp(config.title_filters.cars, 'i');
+const bikeTitle = new RegExp(config.title_filters.bikes, 'i');
+const carDrops = new Map();
+chosen = chosen.filter(({ it, src }) => {
+  if (!src.drop_car_titles || !carTitle.test(it.title) || bikeTitle.test(it.title)) return true;
+  carDrops.set(src.id, (carDrops.get(src.id) ?? 0) + 1);
+  return false;
+});
+
 const order = new Map(config.sources.map((s, i) => [s.id, i]));
 chosen.sort((a, b) => order.get(a.src.id) - order.get(b.src.id) || (b.it.published_at || '').localeCompare(a.it.published_at || ''));
 
@@ -255,11 +266,12 @@ const completed = await mapLimit(chosen, config.concurrency, ({ it, src }) => co
 
 const seen = new Set();
 const items = [];
-const dropped = { unresolved: 0, off_section: 0, duplicate: 0 };
+const dropped = { cars: [...carDrops.values()].reduce((a, b) => a + b, 0), unresolved: 0, off_section: 0, duplicate: 0 };
 for (const [i, item] of completed.entries()) {
   const src = chosen[i].src;
   if (!item.url) { dropped.unresolved++; continue; }
   if (src.url_must_contain && !item.url.includes(src.url_must_contain)) { dropped.off_section++; continue; }
+  if (src.url_exclude && new RegExp(src.url_exclude).test(item.url)) { dropped.off_section++; continue; }
   const key = normUrl(item.url);
   if (seen.has(key)) { dropped.duplicate++; continue; }
   seen.add(key);
@@ -269,9 +281,10 @@ for (const [i, item] of completed.entries()) {
 for (const r of report) {
   if (r.status !== 'ok') continue;
   r.in_window = chosen.filter((c) => c.src.id === r.id).length;
+  if (carDrops.has(r.id)) r.cars_dropped = carDrops.get(r.id);
   r.in_pool = items.filter((it) => it.source_id === r.id).length;
   const unresolved = completed.filter((it, i) => chosen[i].src.id === r.id && !it.url);
-  if (unresolved.length) r.unresolved = unresolved.length;
+  if (unresolved.length) { r.unresolved = unresolved.length; r.unresolved_error = unresolved[0].error; }
   if (r.in_window > 0 && r.in_pool === 0 && unresolved.length === r.in_window) {
     r.status = 'failed';
     r.error = unresolved[0].error;
@@ -313,6 +326,6 @@ for (const f of await readdir(path('pool'))) {
 
 console.log(`pool/${today}.json: ${items.length} items (last ${windowHours} h), ${trends.length} trends`);
 for (const r of report) {
-  console.log(`  ${r.status === 'ok' ? 'ok    ' : 'FAILED'} ${r.name.padEnd(22)} ${r.status === 'ok' ? `${r.in_pool ?? r.in_feed} items${r.in_window === 0 ? ` (none in the last ${windowHours} h)` : ""}${r.unresolved ? `, ${r.unresolved} unresolved` : ''}` : r.error}`);
+  console.log(`  ${r.status === 'ok' ? 'ok    ' : 'FAILED'} ${r.name.padEnd(22)} ${r.status === 'ok' ? `${r.in_pool ?? r.in_feed} items${r.in_window === 0 ? ` (none in the last ${windowHours} h)` : ""}${r.unresolved ? `, ${r.unresolved} unresolved` : ''}${r.cars_dropped ? `, ${r.cars_dropped} car headlines dropped` : ''}` : r.error}`);
 }
-if (dropped.duplicate || dropped.off_section || dropped.unresolved) console.log(`  dropped: ${JSON.stringify(dropped)}`);
+if (dropped.cars || dropped.duplicate || dropped.off_section || dropped.unresolved) console.log(`  dropped: ${JSON.stringify(dropped)}`);

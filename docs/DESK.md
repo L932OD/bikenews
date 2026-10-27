@@ -47,8 +47,8 @@ A rider in India who wants to know, in two minutes, what happened in Indian two-
 - Plain, exact English, written for someone who knows bikes (cc, hp, Nm and ex-showroom need no explaining).
 - Prices as the source gives them (₹1.29 lakh ex-showroom, Delhi). Write ₹, not Rs.
 - **Every number** in a lead or sub write-up, in `why`, in `figure` and in `specs` must appear in the text of one of
-  that item's sources in the pool. If a source only has a title (ET Auto and NDTV Auto often do), only the numbers in
-  that title are available.
+  that item's sources in the pool. If a source only has a title (ET Auto, NDTV Auto, Overdrive and Gaadiwaadi always
+  do; BikeAdvice has a feed summary), only the numbers in that title or summary are available.
 - No em dashes. No hype ("game-changer", "stunning", "eagerly awaited", "much-awaited").
 - Never write about the absence of news, and never mention the process ("according to our sources today").
 
