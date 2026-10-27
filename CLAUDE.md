@@ -5,7 +5,8 @@ India's two-wheeler news, once a day. Code fetches the news; Claude chooses and 
 - `config/sources.json`: every source, URL, time window and limit. Never put these in code.
 - `scripts/fetch.mjs` → `pool/YYYY-MM-DD.json`. `scripts/validate.mjs` checks an edition. `scripts/publish.mjs` writes
   `content/latest.json` and `content/archive.json`. `scripts/serve.mjs` previews the site locally.
-- `index.html`, `styles.css`, `app.js`, `fonts/`: the site. No framework, no build step.
+- `index.html`, `styles.css`, `app.js`, `fonts/`: the site. No framework, no build step. `manifest.webmanifest`,
+  `sw.js` and `icons/` make it a home-screen web app (offline reading of the last edition).
 - `docs/RUNBOOK.md`: the daily steps. `docs/DESK.md`: the editorial brief.
 
 ## Two kinds of session

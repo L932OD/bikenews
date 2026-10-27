@@ -189,4 +189,15 @@
   }
 
   main();
+
+  // As a home-screen app there is no reload button: fetch again when the app comes back after a while.
+  let hiddenAt = 0;
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) hiddenAt = Date.now();
+    else if (hiddenAt && Date.now() - hiddenAt > 10 * 60000) main();
+  });
+
+  if ('serviceWorker' in navigator && window.isSecureContext) {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  }
 })();

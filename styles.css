@@ -18,7 +18,6 @@
   --redline: #FF5A36;
   --amber: #FFB347;
   --tint: #2A2427;
-  --glass: rgba(20, 21, 24, 0.78);
   --rule: rgba(236, 234, 229, 0.08);
 
   --t-launch: var(--redline);
@@ -52,7 +51,6 @@
     --redline: #C63A1C;
     --amber: #9A5B00;
     --tint: #FBF1EC;
-    --glass: rgba(232, 230, 225, 0.8);
     --rule: rgba(23, 24, 27, 0.1);
 
     --t-recall: #7A6400;
@@ -66,9 +64,10 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
 body {
   margin: 0;
+  min-height: 100dvh;
   background: var(--asphalt);
   color: var(--ink);
   font-family: var(--f-read);
@@ -113,11 +112,16 @@ ul { padding: 0; list-style: none; }
   justify-content: space-between;
   gap: 12px;
   min-height: 52px;
-  padding: 8px max(16px, calc((100vw - 1200px) / 2));
-  background: var(--glass);
+  padding: calc(8px + env(safe-area-inset-top)) max(16px, env(safe-area-inset-right), calc((100vw - 1200px) / 2)) 8px max(16px, env(safe-area-inset-left), calc((100vw - 1200px) / 2));
+  /* The dash stays dark glass in both themes; it also sits under the iPhone status bar. */
+  --ink: #ECEAE5;
+  --muted: #9A9890;
+  --redline: #FF5A36;
+  color: var(--ink);
+  background: rgba(20, 21, 24, 0.82);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   backdrop-filter: blur(14px) saturate(140%);
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid rgba(236, 234, 229, 0.08);
 }
 .brand {
   display: inline-flex;
@@ -158,7 +162,7 @@ ul { padding: 0; list-style: none; }
   gap: var(--gap);
   max-width: 1200px;
   margin: 0 auto;
-  padding: 24px 16px 8px;
+  padding: 24px max(16px, env(safe-area-inset-right)) 8px max(16px, env(safe-area-inset-left));
 }
 .label {
   font-family: var(--f-label);
@@ -354,7 +358,7 @@ ul { padding: 0; list-style: none; }
 
 /* ---------- Foot ---------- */
 
-.foot { max-width: 1200px; margin: 0 auto; padding: 24px 16px 48px; }
+.foot { max-width: 1200px; margin: 0 auto; padding: 24px max(16px, env(safe-area-inset-right)) calc(48px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left)); }
 .rides { margin-bottom: 20px; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
 .chips a {
@@ -391,9 +395,9 @@ ul { padding: 0; list-style: none; }
 @media (max-width: 600px) {
   :root { --pad: 18px; --gap: 12px; }
   body { font-size: 17px; }
-  .paper { padding: 14px 10px 4px; }
-  .foot { padding: 20px 14px 40px; }
-  .cluster { padding: 6px 12px; gap: 8px; }
+  .paper { padding: 14px max(10px, env(safe-area-inset-right)) 4px max(10px, env(safe-area-inset-left)); }
+  .foot { padding: 20px max(14px, env(safe-area-inset-right)) calc(32px + env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left)); }
+  .cluster { padding: calc(6px + env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) 6px max(12px, env(safe-area-inset-left)); gap: 8px; }
   .brand__name { font-size: 18px; letter-spacing: 0.1em; }
   .brand { gap: 8px; }
   .readout { gap: 10px; font-size: 13px; letter-spacing: 0.08em; }
