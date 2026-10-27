@@ -1,0 +1,79 @@
+{
+  "window_hours": 36,
+  "fallback_window_hours": 48,
+  "min_items": 15,
+  "text_chars": 1500,
+  "summary_chars": 400,
+  "pool_keep_days": 14,
+  "timeout_ms": 20000,
+  "concurrency": 4,
+  "host_gap_ms": {
+    "default": 400
+  },
+  "retries": 3,
+  "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+  "sources": [
+    {
+      "id": "rushlane",
+      "name": "Rushlane",
+      "kind": "rss",
+      "url": "https://www.rushlane.com/category/bikes-news/feed",
+      "max_items": 20
+    },
+    {
+      "id": "autocar",
+      "name": "Autocar India",
+      "kind": "gnews",
+      "url": "https://news.google.com/rss/search?q=site:autocarindia.com/bike-news+when:2d&hl=en-IN&gl=IN&ceid=IN:en",
+      "url_must_contain": "autocarindia.com/bike-news/",
+      "max_items": 15
+    },
+    {
+      "id": "bikewale",
+      "name": "BikeWale",
+      "kind": "gnews",
+      "url": "https://news.google.com/rss/search?q=site:bikewale.com/news+when:2d&hl=en-IN&gl=IN&ceid=IN:en",
+      "url_must_contain": "bikewale.com/news/",
+      "max_items": 15
+    },
+    {
+      "id": "ndtv",
+      "name": "NDTV Auto",
+      "kind": "gnews",
+      "url": "https://news.google.com/rss/search?q=site:ndtv.com/auto+when:2d&hl=en-IN&gl=IN&ceid=IN:en",
+      "url_must_contain": "ndtv.com/auto",
+      "max_items": 15,
+      "fetch_pages": false
+    },
+    {
+      "id": "motorbeam",
+      "name": "MotorBeam",
+      "kind": "rss",
+      "url": "https://www.motorbeam.com/category/bikes/feed/",
+      "max_items": 20
+    },
+    {
+      "id": "bikeadvice",
+      "name": "BikeAdvice",
+      "kind": "rss",
+      "url": "https://bikeadvice.in/feed/",
+      "max_items": 20,
+      "fetch_pages": false
+    },
+    {
+      "id": "etauto",
+      "name": "ET Auto",
+      "kind": "gnews",
+      "url": "https://news.google.com/rss/search?q=site:auto.economictimes.indiatimes.com+two-wheeler+when:2d&hl=en-IN&gl=IN&ceid=IN:en",
+      "url_must_contain": "auto.economictimes.indiatimes.com",
+      "max_items": 15,
+      "fetch_pages": false
+    }
+  ],
+  "trends": {
+    "id": "trends",
+    "name": "Google Trends (India)",
+    "url": "https://trends.google.com/trending/rss?geo=IN",
+    "max_items": 40
+  }
+}

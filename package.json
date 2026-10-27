@@ -1,0 +1,19 @@
+{
+  "name": "bike-desk",
+  "version": "1.0.0",
+  "private": true,
+  "description": "India's two-wheeler news, once a day.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "fetch": "node scripts/fetch.mjs",
+    "validate": "node scripts/validate.mjs",
+    "publish-edition": "node scripts/publish.mjs",
+    "serve": "node scripts/serve.mjs"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^4.5.7"
+  }
+}
