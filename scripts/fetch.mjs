@@ -11,13 +11,19 @@ const today = istDate();
 const now = Date.now();
 const UA = config.user_agent;
 
-// Bike News is motorcycles and scooters only. A headline about cars, trucks or buses is dropped everywhere, unless it
-// also names bikes. Trending searches are kept only when they name a bike, a bike brand or a model.
+// Bike News is motorcycles only: electric motorcycles count, scooters only when they are performance scooters.
+// A headline about cars, trucks or buses, or about commuter scooters, is dropped everywhere unless it also names
+// motorcycles. Trending searches are kept only when they name a motorcycle, a brand or a model.
 const carTitle = new RegExp(config.title_filters.cars, 'i');
 const bikeTitle = new RegExp(config.title_filters.bikes, 'i');
 const bikeName = new RegExp(config.title_filters.bike_names, 'i');
 const notRiders = new RegExp(config.title_filters.not_riders, 'i');
+const scooterTitle = new RegExp(config.title_filters.scooters, 'i');
+const performanceScooter = new RegExp(config.title_filters.performance_scooters, 'i');
+const motorcycleTitle = new RegExp(config.title_filters.motorcycles, 'i');
 const isCar = (t) => carTitle.test(t) && !bikeTitle.test(t);
+const isScooter = (t) => scooterTitle.test(t) && !performanceScooter.test(t) && !motorcycleTitle.test(t);
+const offTopic = (t) => isCar(t) || isScooter(t);
 
 const xml = new XMLParser({
   ignoreAttributes: false,
@@ -204,7 +210,7 @@ async function readCategoryTrends(t) {
   return list
     .filter((r) => {
       const words = [r[0], ...(r[9] ?? [])].join(' · ');
-      return bikeName.test(words) && !isCar(String(r[0])) && !notRiders.test(words);
+      return bikeName.test(words) && !offTopic(String(r[0])) && !notRiders.test(words);
     })
     .sort((a, b) => (b[6] ?? 0) - (a[6] ?? 0))
     .slice(0, t.max_items)
@@ -247,7 +253,7 @@ async function readSection(key, sec, known) {
     try {
       for (const it of await readFeed({ ...src, url: gnSearch(q, sec.window_days) })) {
         const t = it.title.toLowerCase();
-        if (titles.has(t) || (exclude && exclude.test(it.title)) || isCar(it.title)) continue;
+        if (titles.has(t) || (exclude && exclude.test(it.title)) || offTopic(it.title)) continue;
         if (it.published_at && now - Date.parse(it.published_at) > sec.window_days * 86_400_000) continue;
         titles.add(t);
         raws.push(it);
@@ -322,8 +328,8 @@ async function readExplore(ex) {
       const [top, rising] = (await data('relatedsearches', w)).default.rankedList;
       result.related.push({
         keyword: k.label,
-        top: top.rankedKeyword.filter((r) => !isCar(r.query) && !notRiders.test(r.query)).slice(0, ex.related_per_keyword).map((r) => ({ q: r.query, value: r.value })),
-        rising: rising.rankedKeyword.filter((r) => !isCar(r.query) && !notRiders.test(r.query)).slice(0, ex.related_per_keyword).map((r) => ({ q: r.query, value: r.formattedValue })),
+        top: top.rankedKeyword.filter((r) => !offTopic(r.query) && !notRiders.test(r.query)).slice(0, ex.related_per_keyword).map((r) => ({ q: r.query, value: r.value })),
+        rising: rising.rankedKeyword.filter((r) => !offTopic(r.query) && !notRiders.test(r.query)).slice(0, ex.related_per_keyword).map((r) => ({ q: r.query, value: r.formattedValue })),
       });
     } catch {
       // A keyword with too little data has no related searches.
@@ -396,7 +402,7 @@ try {
   // The all-topics daily feed: only the rare bike search in it is kept.
   trends = (await readTrends(config.trends)).filter((t) => {
     const words = [t.term, ...t.news.map((n) => n.title)].join(' · ');
-    return bikeName.test(t.term) && !isCar(t.term) && !notRiders.test(words);
+    return bikeName.test(t.term) && !offTopic(t.term) && !notRiders.test(words);
   });
   trendsStatus = { id: config.trends.id, name: config.trends.name, status: 'ok', in_feed: trends.length };
 } catch (err) {
@@ -422,10 +428,10 @@ if (chosen.length < config.min_items) {
   chosen = within(windowHours);
 }
 
-// Car, truck and bus headlines are dropped before any work is spent on them.
+// Car, truck, bus and commuter-scooter headlines are dropped before any work is spent on them.
 const carDrops = new Map();
 chosen = chosen.filter(({ it, src }) => {
-  if (!isCar(it.title)) return true;
+  if (!offTopic(it.title)) return true;
   carDrops.set(src.id, (carDrops.get(src.id) ?? 0) + 1);
   return false;
 });
@@ -437,7 +443,7 @@ const completed = await mapLimit(chosen, config.concurrency, ({ it, src }) => co
 
 const seen = new Set();
 const items = [];
-const dropped = { cars: [...carDrops.values()].reduce((a, b) => a + b, 0), unresolved: 0, off_section: 0, duplicate: 0 };
+const dropped = { off_topic: [...carDrops.values()].reduce((a, b) => a + b, 0), unresolved: 0, off_section: 0, duplicate: 0 };
 for (const [i, item] of completed.entries()) {
   const src = chosen[i].src;
   if (!item.url) { dropped.unresolved++; continue; }
@@ -452,7 +458,7 @@ for (const [i, item] of completed.entries()) {
 for (const r of report) {
   if (r.status !== 'ok') continue;
   r.in_window = chosen.filter((c) => c.src.id === r.id).length;
-  if (carDrops.has(r.id)) r.cars_dropped = carDrops.get(r.id);
+  if (carDrops.has(r.id)) r.off_topic_dropped = carDrops.get(r.id);
   r.in_pool = items.filter((it) => it.source_id === r.id).length;
   const unresolved = completed.filter((it, i) => chosen[i].src.id === r.id && !it.url);
   if (unresolved.length) { r.unresolved = unresolved.length; r.unresolved_error = unresolved[0].error; }
@@ -518,6 +524,6 @@ for (const f of await readdir(path('pool'))) {
 
 console.log(`pool/${today}.json: ${items.length} items (last ${windowHours} h), ${trends.length} trends, ${pool.events.length} event items, ${pool.accessories.length} accessory items`);
 for (const r of report) {
-  console.log(`  ${r.status === 'ok' ? 'ok    ' : 'FAILED'} ${r.name.padEnd(22)} ${r.status === 'ok' ? `${r.in_pool ?? r.in_feed} items${r.in_window === 0 ? ` (none in the last ${windowHours} h)` : ""}${r.unresolved ? `, ${r.unresolved} unresolved` : ''}${r.cars_dropped ? `, ${r.cars_dropped} car headlines dropped` : ''}` : r.error}`);
+  console.log(`  ${r.status === 'ok' ? 'ok    ' : 'FAILED'} ${r.name.padEnd(22)} ${r.status === 'ok' ? `${r.in_pool ?? r.in_feed} items${r.in_window === 0 ? ` (none in the last ${windowHours} h)` : ""}${r.unresolved ? `, ${r.unresolved} unresolved` : ''}${r.off_topic_dropped ? `, ${r.off_topic_dropped} car or scooter headlines dropped` : ''}` : r.error}`);
 }
-if (dropped.cars || dropped.duplicate || dropped.off_section || dropped.unresolved) console.log(`  dropped: ${JSON.stringify(dropped)}`);
+if (dropped.off_topic || dropped.duplicate || dropped.off_section || dropped.unresolved) console.log(`  dropped: ${JSON.stringify(dropped)}`);

@@ -1,6 +1,6 @@
 # Bike News
 
-India's two-wheeler news, once a day. Code fetches the news; Claude chooses and writes; Vercel serves a static page.
+India's motorcycle news, once a day. Code fetches the news; Claude chooses and writes; Vercel serves a static page.
 
 - `config/sources.json`: every source, URL, time window and limit. Never put these in code.
 - `scripts/fetch.mjs` → `pool/YYYY-MM-DD.json`. `scripts/validate.mjs` checks an edition. `scripts/publish.mjs` writes
@@ -31,8 +31,9 @@ a branch, run `node scripts/fetch.mjs` and the validator to check their changes,
 - Dates are IST (`+05:30`); `scripts/lib.mjs` has `istDate()`.
 - Some sites refuse automated readers (403). Mark them `"fetch_pages": false` in `config/sources.json` and use their
   feed summary; do not try to get around a block.
-- Bike News is motorcycles and scooters only, never cars, trucks or buses. Headlines matching `title_filters.cars`
-  (and not `title_filters.bikes`) are dropped from every source, section and trend before fetching, and the validator
-  rejects any that reach an edition. Trending searches are kept only when they match `title_filters.bike_names` (or
-  are Autos & Vehicles and not cars), never share prices (`not_riders`). `url_must_contain` / `url_exclude` keep only
+- Bike News is motorcycles only: petrol and electric motorcycles, and scooters only when they are performance
+  scooters. Never cars, trucks, buses or commuter scooters. Headlines matching `title_filters.cars` (and not `bikes`),
+  or `scooters` (and not `performance_scooters` or `motorcycles`), are dropped from every source, section and trend
+  before fetching, and the validator rejects any that reach an edition. Trending searches are kept only when they
+  match `title_filters.bike_names`, never share prices (`not_riders`). `url_must_contain` / `url_exclude` keep only
   article pages.

@@ -285,11 +285,14 @@ else {
   });
 }
 
-// ---------- Motorcycles and scooters only ----------
+// ---------- Motorcycles only (performance scooters allowed) ----------
 
 const filters = (await readJson(path('config/sources.json'))).title_filters;
 const carRe = new RegExp(filters.cars, 'i');
 const bikeRe = new RegExp(filters.bikes, 'i');
+const scooterRe = new RegExp(filters.scooters, 'i');
+const perfRe = new RegExp(filters.performance_scooters, 'i');
+const motoRe = new RegExp(filters.motorcycles, 'i');
 const titled = [
   ...[lead, ...subs, ...heads].filter(Boolean).map((it, i) => [it.id ?? `story ${i + 1}`, it.headline]),
   ...events.map((ev) => [`events: ${ev?.id}`, ev?.name]),
@@ -298,7 +301,8 @@ const titled = [
   ['trends_summary', ed.trends_summary?.headline],
 ];
 for (const [where, text] of titled) {
-  if (text && carRe.test(text) && !bikeRe.test(text)) err(where, 'is about cars, trucks or buses; Bike News covers motorcycles and scooters only');
+  if (text && carRe.test(text) && !bikeRe.test(text)) err(where, 'is about cars, trucks or buses; Bike News covers motorcycles only');
+  else if (text && scooterRe.test(text) && !perfRe.test(text) && !motoRe.test(text)) err(where, 'is about commuter scooters; Bike News covers motorcycles, and scooters only when they are performance scooters');
 }
 
 // ---------- Checks block ----------

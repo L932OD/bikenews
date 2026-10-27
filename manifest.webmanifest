@@ -1,7 +1,7 @@
 {
   "name": "Bike News",
   "short_name": "Bike News",
-  "description": "India's two-wheeler news, once a day.",
+  "description": "India's motorcycle news, once a day.",
   "id": "/",
   "start_url": "/",
   "scope": "/",

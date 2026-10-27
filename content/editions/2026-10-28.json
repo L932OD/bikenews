@@ -106,7 +106,7 @@
         "label": "Q2 net profit"
       },
       "headline": "Bajaj Auto’s Q2 net profit rises 35% to ₹3,354 crore as revenue crosses ₹20,000 crore",
-      "text": "Exports rose 40% and Chetak revenue reached ₹2,000 crore. Bajaj warns that drought, inflation and tighter rural lending could deepen the entry-level motorcycle slowdown in January to March, while premium bikes and EVs keep growing.",
+      "text": "Exports rose 40%. Bajaj warns that drought, inflation and tighter rural lending could deepen the entry-level motorcycle slowdown in January to March, while premium motorcycles keep growing.",
       "sources": [
         {
           "name": "Autocar Professional",
@@ -178,39 +178,31 @@
       "tag": null
     },
     {
-      "id": "ather-capacity-expansion",
+      "id": "ultraviolette-e-motorcycle-outlook",
       "type": "ev",
-      "headline": "Ather adds 2.25 lakh units of yearly capacity, missing up to 20,000 sales a month",
-      "published_at": "2026-10-26T13:04:49.000Z",
+      "headline": "Ultraviolette’s CTO expects electric motorcycles to grow like scooters did within three years",
+      "published_at": "2026-10-27T13:03:17.000Z",
       "sources": [
         {
           "name": "Autocar Professional",
-          "url": "https://www.autocarpro.in/news/ather-flags-unmet-monthly-sales-of-20000-units-plans-capacity-expansion-135476"
-        },
-        {
-          "name": "BikeAdvice",
-          "url": "https://bikeadvice.in/ather-energy-to-expand-production-capacity-by-2-25-lakh-units/"
-        },
-        {
-          "name": "ET Auto",
-          "url": "https://auto.economictimes.indiatimes.com/news/two-wheelers/ather-to-rev-up-monthly-capacity-by-18000-units-to-tap-rising-demand/135230408"
+          "url": "https://www.autocarpro.in/news/electric-motorcycles-could-see-scooter-like-growth-in-next-three-years-ultraviolette-cto-135506"
         }
       ],
       "tag": null
     },
     {
-      "id": "bcg-ev-intent-43",
-      "type": "ev",
-      "headline": "43% of Indian buyers now consider an electric two-wheeler, up from 30% in 2024",
-      "published_at": "2026-10-26T12:08:11.000Z",
+      "id": "jawa-yezdi-bsa-spares",
+      "type": "other",
+      "headline": "Jawa, Yezdi and BSA open genuine spare-parts sales beyond dealers to cut repair waits",
+      "published_at": "2026-10-27T03:33:56.000Z",
       "sources": [
         {
-          "name": "Autocar Professional",
-          "url": "https://www.autocarpro.in/news/electric-two-wheeler-purchase-intent-rises-to-43-percent-market-penetration-at-99-percent-through-august-bcg-135473"
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/jawa-yezdi-and-bsa-expand-spare-parts-network-to-ease-ownership/"
         },
         {
-          "name": "ET Auto",
-          "url": "https://auto.economictimes.indiatimes.com/news/two-wheelers/nearly-half-of-two-wheeler-buyers-open-to-going-electric-as-market-broadens-bcg/135210205"
+          "name": "Autocar Professional",
+          "url": "https://www.autocarpro.in/news/classic-legends-establishes-authorized-spare-parts-distribution-network-for-jawa-yezdi-and-bsa-135467"
         }
       ],
       "tag": null
@@ -286,7 +278,7 @@
   ],
   "trends_summary": {
     "headline": "Harley’s Sprint 440, Honda’s black CB350C and Hero’s red Karizma each drew 5000+ searches",
-    "text": "All three were seen at dealers or launched this week. Searches for Bajaj’s adventure bike rose 250% after new spy shots, and “electric motorcycles and scooters” rose 550% as a BCG survey put electric purchase intent at 43%."
+    "text": "All three were seen at dealers or launched this week. Searches for Bajaj’s adventure bike rose 250% after new spy shots, and “electric motorcycles and scooters” rose 550% as Ultraviolette predicted scooter-like growth for electric motorcycles."
   },
   "trending": [
     {
@@ -344,12 +336,8 @@
     {
       "term": "electric motorcycles and scooters",
       "traffic": "+550%",
-      "why": "A BCG survey found 43% of buyers considering an electric two-wheeler, and Ultraviolette’s CTO expects electric motorcycles to grow like scooters did.",
+      "why": "Ultraviolette’s CTO says electric motorcycles could grow the way electric scooters did over the next three years, as interest in performance models rises.",
       "sources": [
-        {
-          "name": "Autocar Professional",
-          "url": "https://www.autocarpro.in/news/electric-two-wheeler-purchase-intent-rises-to-43-percent-market-penetration-at-99-percent-through-august-bcg-135473"
-        },
         {
           "name": "Autocar Professional",
           "url": "https://www.autocarpro.in/news/electric-motorcycles-could-see-scooter-like-growth-in-next-three-years-ultraviolette-cto-135506"
@@ -537,7 +525,7 @@
     }
   ],
   "checks": {
-    "pool_items": 63,
+    "pool_items": 57,
     "sources_failed": [],
     "left_out": [
       {
@@ -599,6 +587,10 @@
       {
         "id": "etauto-964e5e5b",
         "why": "trucks"
+      },
+      {
+        "id": "etauto-c6171e21",
+        "why": "electric two-wheeler survey, mostly about scooters"
       }
     ]
   }

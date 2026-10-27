@@ -8,10 +8,13 @@ A rider in India who wants to know, in two minutes, what happened in Indian two-
 
 ## What counts
 
-- **Motorcycles and scooters only.** Never cars, SUVs, trucks, buses or tractors, not even a car story from a bike
-  maker's parent company, and not car-and-bike roundups unless the bike part is the news. The validator rejects
-  headlines about cars.
-- Motorcycles, scooters and electric two-wheelers sold or coming to India.
+- **Motorcycles only.** Petrol and electric motorcycles sold or coming to India. Scooters only when they are
+  performance scooters (Yamaha Aerox, Aprilia SR and SXR, TVS Ntorq 150, Honda ADV160 and X-ADV, BMW C 400 GT,
+  maxi-scooters). Never commuter scooters (Activa, Jupiter, Access, iQube, Chetak, Ather, Ola S1 and the like), never
+  cars, SUVs, trucks, buses or tractors. The validator rejects headlines about cars or commuter scooters.
+- Industry news (sales, results, policy, EV rules) only when motorcycles are the story: Bajaj's results yes, a
+  scooter maker's capacity or an electric two-wheeler survey that is about scooters, no.
+- Motorcycles, including electric motorcycles, sold or coming to India.
 - Indian prices, launches, bookings, recalls, sales figures, EV subsidies and rules, Indian brands abroad.
 - Not cars, trucks, tyres for cars or component makers' results. Not global launches with no India plan. Not race
   results unless an Indian rider or team is involved.
