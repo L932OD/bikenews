@@ -1,20 +1,48 @@
 {
   "edition": "2026-10-28",
-  "published_at": "2026-10-28T01:20:00+05:30",
+  "published_at": "2026-10-28T09:04:00+05:30",
   "lead": {
     "id": "re-himalayan-750-teaser",
     "kicker": "Royal Enfield",
     "type": "upcoming",
-    "figure": { "value": "750cc", "label": "twin-cylinder engine" },
-    "specs": [["Engine", "750cc twin"], ["Reveal", "EICMA, Milan"], ["Show dates", "November 3 to 8"]],
+    "figure": {
+      "value": "750cc",
+      "label": "twin-cylinder engine"
+    },
+    "specs": [
+      [
+        "Engine",
+        "750cc twin"
+      ],
+      [
+        "Reveal",
+        "EICMA, Milan"
+      ],
+      [
+        "Show dates",
+        "November 3 to 8"
+      ]
+    ],
     "headline": "Royal Enfield teases the Himalayan 750 ahead of an EICMA reveal in Milan",
     "text": "Royal Enfield has released the first official teaser for the Himalayan 750: an adventure motorcycle and rider silhouetted against a red sky. There is no name or spec sheet, only map coordinates for central Milan, which points to a reveal at EICMA, held from November 3 to 8. The bike is expected to use a new 750cc twin-cylinder engine with touring-focused equipment, making it Royal Enfield's largest-capacity motorcycle yet. It is expected to rival the Norton Atlas and the Triumph Tiger Sport 660.",
     "why": "Royal Enfield's bigger bikes have been losing sales even as the brand grows. A 750cc adventure tourer is its answer at the top.",
     "sources": [
-      { "name": "Rushlane", "url": "https://www.rushlane.com/royal-enfield-himalayan-750-first-teaser-out-eicma-debut-confirmed-12559610.html" },
-      { "name": "Autocar India", "url": "https://www.autocarindia.com/bike-news/royal-enfield-teases-himalayan-750-ahead-of-global-reveal-441139" },
-      { "name": "BikeAdvice", "url": "https://bikeadvice.in/royal-enfield-himalayan-750-teased-ahead-of-eicma-2026-debut/" },
-      { "name": "NDTV Auto", "url": "https://www.ndtv.com/auto/royal-enfield-himalayan-750-teased-ahead-of-eicma-debut-12241639" }
+      {
+        "name": "Rushlane",
+        "url": "https://www.rushlane.com/royal-enfield-himalayan-750-first-teaser-out-eicma-debut-confirmed-12559610.html"
+      },
+      {
+        "name": "Autocar India",
+        "url": "https://www.autocarindia.com/bike-news/royal-enfield-teases-himalayan-750-ahead-of-global-reveal-441139"
+      },
+      {
+        "name": "BikeAdvice",
+        "url": "https://bikeadvice.in/royal-enfield-himalayan-750-teased-ahead-of-eicma-2026-debut/"
+      },
+      {
+        "name": "NDTV Auto",
+        "url": "https://www.ndtv.com/auto/royal-enfield-himalayan-750-teased-ahead-of-eicma-debut-12241639"
+      }
     ],
     "tag": null
   },
@@ -26,10 +54,22 @@
       "headline": "Harley-Davidson Sprint 440 cruiser seen undisguised as demo bikes reach dealers",
       "text": "Built on the X440 platform, the Sprint 440 is a proper cruiser: teardrop tank, scooped single-piece seat, pulled-back handlebar, forward-set footpegs and a new exhaust. The round TFT console sits at the centre of the handlebar. A launch is expected later this year.",
       "sources": [
-        { "name": "Rushlane", "url": "https://www.rushlane.com/harley-davidson-sprint-440-cruiser-spied-undisguised-launch-soon-12559576.html" },
-        { "name": "BikeWale", "url": "https://www.bikewale.com/news/upcoming-harley-davidson-sprint-440-spotted-undisguised-before-launch/" },
-        { "name": "BikeAdvice", "url": "https://bikeadvice.in/harley-davidson-sprint-440-leaked-ahead-of-india-launch/" },
-        { "name": "NDTV Auto", "url": "https://www.ndtv.com/auto/harley-davidson-sprint-440-cruiser-spotted-undisguised-ahead-of-launch-12241097" }
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/harley-davidson-sprint-440-cruiser-spied-undisguised-launch-soon-12559576.html"
+        },
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/upcoming-harley-davidson-sprint-440-spotted-undisguised-before-launch/"
+        },
+        {
+          "name": "BikeAdvice",
+          "url": "https://bikeadvice.in/harley-davidson-sprint-440-leaked-ahead-of-india-launch/"
+        },
+        {
+          "name": "NDTV Auto",
+          "url": "https://www.ndtv.com/auto/harley-davidson-sprint-440-cruiser-spotted-undisguised-ahead-of-launch-12241097"
+        }
       ],
       "tag": null
     },
@@ -40,9 +80,18 @@
       "headline": "TVS returns to EICMA on November 3 with new models for Europe",
       "text": "TVS will show new motorcycles, scooters and EVs for Europe in Milan. Its sales in Italy grew 110 percent over the past year while the market grew around 10 percent, it has around 100 Italian dealers, and it is setting up its own sales companies in France and Germany.",
       "sources": [
-        { "name": "BikeWale", "url": "https://www.bikewale.com/news/tvs-returns-to-eicma-as-europe-push-starts-paying-off/" },
-        { "name": "BikeAdvice", "url": "https://bikeadvice.in/new-tvs-motorcycles-scooters-and-evs-debuting-at-eicma-2026-on-nov-3/" },
-        { "name": "ET Auto", "url": "https://auto.economictimes.indiatimes.com/news/two-wheelers/tvs-motor-to-return-to-eicma-show-as-italy-sales-rise-110/135229914" }
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/tvs-returns-to-eicma-as-europe-push-starts-paying-off/"
+        },
+        {
+          "name": "BikeAdvice",
+          "url": "https://bikeadvice.in/new-tvs-motorcycles-scooters-and-evs-debuting-at-eicma-2026-on-nov-3/"
+        },
+        {
+          "name": "ET Auto",
+          "url": "https://auto.economictimes.indiatimes.com/news/two-wheelers/tvs-motor-to-return-to-eicma-show-as-italy-sales-rise-110/135229914"
+        }
       ],
       "tag": null
     },
@@ -50,12 +99,31 @@
       "id": "triumph-tiger-1200-india",
       "kicker": "Triumph",
       "type": "upcoming",
-      "figure": { "value": "March 2027", "label": "on sale in India" },
-      "specs": [["Engine", "1,160cc triple"], ["Power", "155.84bhp"], ["Torque", "130Nm"]],
+      "figure": {
+        "value": "March 2027",
+        "label": "on sale in India"
+      },
+      "specs": [
+        [
+          "Engine",
+          "1,160cc triple"
+        ],
+        [
+          "Power",
+          "155.84bhp"
+        ],
+        [
+          "Torque",
+          "130Nm"
+        ]
+      ],
       "headline": "New-generation Triumph Tiger 1200 unveiled in India, on sale from March 2027",
       "text": "The triple gains 8bhp and gets revised internals, updated suspension and new rider aids. It comes in GT Pro and Rally Explorer variants. Prices will be announced closer to the start of bookings.",
       "sources": [
-        { "name": "BikeWale", "url": "https://www.bikewale.com/news/next-generation-triumph-tiger-1200-unveiled-in-india-launch-soon/" }
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/next-generation-triumph-tiger-1200-unveiled-in-india-launch-soon/"
+        }
       ],
       "tag": null
     }
@@ -67,7 +135,10 @@
       "headline": "Royal Enfield Classic 650 anniversary edition is priced at ₹4.26 lakh",
       "published_at": "2026-10-26T15:10:11Z",
       "sources": [
-        { "name": "ET Auto", "url": "https://auto.economictimes.indiatimes.com/amp/news/two-wheelers/royal-enfield-classic-650-anniversary-edition-priced-at-4-26-lakh/135214553" }
+        {
+          "name": "ET Auto",
+          "url": "https://auto.economictimes.indiatimes.com/amp/news/two-wheelers/royal-enfield-classic-650-anniversary-edition-priced-at-4-26-lakh/135214553"
+        }
       ],
       "tag": null
     },
@@ -77,8 +148,14 @@
       "headline": "Ather adds 2.25 lakh units of yearly capacity by December, 18,000 a month",
       "published_at": "2026-10-27T10:05:59Z",
       "sources": [
-        { "name": "BikeAdvice", "url": "https://bikeadvice.in/ather-energy-to-expand-production-capacity-by-2-25-lakh-units/" },
-        { "name": "ET Auto", "url": "https://auto.economictimes.indiatimes.com/news/two-wheelers/ather-to-rev-up-monthly-capacity-by-18000-units-to-tap-rising-demand/135230408" }
+        {
+          "name": "BikeAdvice",
+          "url": "https://bikeadvice.in/ather-energy-to-expand-production-capacity-by-2-25-lakh-units/"
+        },
+        {
+          "name": "ET Auto",
+          "url": "https://auto.economictimes.indiatimes.com/news/two-wheelers/ather-to-rev-up-monthly-capacity-by-18000-units-to-tap-rising-demand/135230408"
+        }
       ],
       "tag": null
     },
@@ -88,7 +165,10 @@
       "headline": "Ather Energy posts a ₹1.26 crore profit in Q2 FY27",
       "published_at": "2026-10-26T10:22:03Z",
       "sources": [
-        { "name": "ET Auto", "url": "https://auto.economictimes.indiatimes.com/amp/news/two-wheelers/ather-energy-swings-to-1-26-crore-profit-in-q2-fy27/135209039" }
+        {
+          "name": "ET Auto",
+          "url": "https://auto.economictimes.indiatimes.com/amp/news/two-wheelers/ather-energy-swings-to-1-26-crore-profit-in-q2-fy27/135209039"
+        }
       ],
       "tag": null
     },
@@ -98,8 +178,14 @@
       "headline": "Royal Enfield Classic 350 seen at a dealer with tubeless spoke wheels",
       "published_at": "2026-10-27T14:20:24Z",
       "sources": [
-        { "name": "Rushlane", "url": "https://www.rushlane.com/royal-enfield-classic-350-spied-with-tubeless-spoke-wheels-launch-soon-12559644.html" },
-        { "name": "BikeAdvice", "url": "https://bikeadvice.in/royal-enfield-classic-350-to-get-tubeless-spoke-wheels-soon-in-india/" }
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/royal-enfield-classic-350-spied-with-tubeless-spoke-wheels-launch-soon-12559644.html"
+        },
+        {
+          "name": "BikeAdvice",
+          "url": "https://bikeadvice.in/royal-enfield-classic-350-to-get-tubeless-spoke-wheels-soon-in-india/"
+        }
       ],
       "tag": null
     },
@@ -109,8 +195,14 @@
       "headline": "Hero Karizma XMR 250 spotted at a dealership in a new red scheme",
       "published_at": "2026-10-27T10:44:43Z",
       "sources": [
-        { "name": "Autocar India", "url": "https://www.autocarindia.com/bike-news/upcoming-hero-karizma-xmr-250-spotted-441130" },
-        { "name": "NDTV Auto", "url": "https://www.ndtv.com/auto/hero-karizma-xmr-250-spotted-in-red-colour-ahead-of-launch-12242730" }
+        {
+          "name": "Autocar India",
+          "url": "https://www.autocarindia.com/bike-news/upcoming-hero-karizma-xmr-250-spotted-441130"
+        },
+        {
+          "name": "NDTV Auto",
+          "url": "https://www.ndtv.com/auto/hero-karizma-xmr-250-spotted-in-red-colour-ahead-of-launch-12242730"
+        }
       ],
       "tag": null
     },
@@ -120,18 +212,27 @@
       "headline": "Bajaj's adventure bike tests again, showing a Pulsar-style TFT and new switchgear",
       "published_at": "2026-10-27T05:03:56Z",
       "sources": [
-        { "name": "Rushlane", "url": "https://www.rushlane.com/bajaj-adv-clearest-spy-shots-yet-new-pulsar-tft-display-switchgear-12559546.html" },
-        { "name": "BikeWale", "url": "https://www.bikewale.com/news/upcoming-bajaj-adventure-bike-new-details-revealed/" }
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/bajaj-adv-clearest-spy-shots-yet-new-pulsar-tft-display-switchgear-12559546.html"
+        },
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/upcoming-bajaj-adventure-bike-new-details-revealed/"
+        }
       ],
       "tag": null
     },
     {
-      "id": "honda-adv160-production",
-      "type": "other",
-      "headline": "Honda automates ADV160 assembly at Manesar as waits stretch into January 2027",
-      "published_at": "2026-10-26T08:22:38Z",
+      "id": "bajaj-q2-profit",
+      "type": "sales",
+      "headline": "Bajaj Auto Q2 net profit rises 35% to ₹3,354 crore",
+      "published_at": "2026-10-27T10:11:34.000Z",
       "sources": [
-        { "name": "BikeWale", "url": "https://www.bikewale.com/news/honda-adv160-gets-production-push-to-cut-wait-times/" }
+        {
+          "name": "Autocar Professional",
+          "url": "https://www.autocarpro.in/news/bajaj-auto-q2-net-profit-rises-35-percent-to-rs-3354-crore-as-revenue-crosses-rs-20000-crore-135494"
+        }
       ],
       "tag": null
     },
@@ -141,41 +242,314 @@
       "headline": "Ultraviolette plans four new electric two-wheelers on its VX-100 platform by October 2027",
       "published_at": "2026-10-27T03:30:24Z",
       "sources": [
-        { "name": "BikeAdvice", "url": "https://bikeadvice.in/ultraviolette-plans-four-new-electric-two-wheelers-by-october-2027/" }
+        {
+          "name": "BikeAdvice",
+          "url": "https://bikeadvice.in/ultraviolette-plans-four-new-electric-two-wheelers-by-october-2027/"
+        }
       ],
       "tag": null
     }
   ],
-  "trending": [],
+  "trending": [
+    {
+      "term": "honda cb350c black edition launch",
+      "traffic": "5000+",
+      "why": "Honda quietly added an all-black CB350C ahead of Diwali; the name is not yet official.",
+      "sources": [
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/new-honda-cb350c-black-edition-launched-first-look-12559632.html"
+        }
+      ]
+    }
+  ],
   "checks": {
-    "pool_items": 49,
+    "pool_items": 72,
     "sources_failed": [],
     "left_out": [
-      { "id": "bikewale-290209a8", "why": "Tiger 1200 preview, replaced by the India unveil" },
-      { "id": "rushlane-64bba079", "why": "colour variant, unofficial name, on-road price only" },
-      { "id": "bikewale-731ac3b6", "why": "spare-parts network, minor" },
-      { "id": "etauto-9b72c55e", "why": "executive appointment, minor" },
-      { "id": "etauto-c3337998", "why": "margin analysis, minor next to Ather's capacity and profit" },
-      { "id": "etauto-c6171e21", "why": "survey" },
-      { "id": "bikewale-12ebbb19", "why": "global reveal with no India plan stated" },
-      { "id": "bikewale-ddbc6980", "why": "global test mule, no India plan" },
-      { "id": "bikewale-edf5dc70", "why": "global test mule, racing" },
-      { "id": "bikewale-ebe85f41", "why": "listicle" },
-      { "id": "bikewale-18cb3615", "why": "listicle" },
-      { "id": "bikeadvice-a9bbc6aa", "why": "explainer on loans" },
-      { "id": "ndtv-8631c86d", "why": "celebrity purchase" },
-      { "id": "etauto-41885c71", "why": "dealer delivery event" },
-      { "id": "ndtv-4f697998", "why": "car, not a bike" },
-      { "id": "ndtv-387ba0bc", "why": "car, not a bike" },
-      { "id": "ndtv-3590946b", "why": "car, not a bike" },
-      { "id": "ndtv-ced74f46", "why": "car, not a bike" },
-      { "id": "ndtv-e31faf2a", "why": "car, not a bike" },
-      { "id": "ndtv-68f34316", "why": "car tyres, not a bike" },
-      { "id": "etauto-e5b6cb92", "why": "car, not a bike" },
-      { "id": "etauto-9cade2cd", "why": "car dealerships" },
-      { "id": "etauto-964e5e5b", "why": "electric trucks" },
-      { "id": "etauto-637dc704", "why": "component maker results" },
-      { "id": "etauto-66a2ccb8", "why": "student engineering event" }
+      {
+        "id": "bikewale-290209a8",
+        "why": "Tiger 1200 preview, replaced by the India unveil"
+      },
+      {
+        "id": "rushlane-64bba079",
+        "why": "colour variant, unofficial name, on-road price only"
+      },
+      {
+        "id": "bikewale-731ac3b6",
+        "why": "spare-parts network, minor"
+      },
+      {
+        "id": "etauto-9b72c55e",
+        "why": "executive appointment, minor"
+      },
+      {
+        "id": "etauto-c3337998",
+        "why": "margin analysis, minor next to Ather's capacity and profit"
+      },
+      {
+        "id": "etauto-c6171e21",
+        "why": "survey"
+      },
+      {
+        "id": "bikewale-12ebbb19",
+        "why": "global reveal with no India plan stated"
+      },
+      {
+        "id": "bikewale-ddbc6980",
+        "why": "global test mule, no India plan"
+      },
+      {
+        "id": "bikewale-edf5dc70",
+        "why": "global test mule, racing"
+      },
+      {
+        "id": "bikewale-ebe85f41",
+        "why": "listicle"
+      },
+      {
+        "id": "bikewale-18cb3615",
+        "why": "listicle"
+      },
+      {
+        "id": "bikeadvice-a9bbc6aa",
+        "why": "explainer on loans"
+      },
+      {
+        "id": "ndtv-8631c86d",
+        "why": "celebrity purchase"
+      },
+      {
+        "id": "etauto-41885c71",
+        "why": "dealer delivery event"
+      },
+      {
+        "id": "ndtv-4f697998",
+        "why": "car, not a bike"
+      },
+      {
+        "id": "ndtv-387ba0bc",
+        "why": "car, not a bike"
+      },
+      {
+        "id": "ndtv-3590946b",
+        "why": "car, not a bike"
+      },
+      {
+        "id": "ndtv-ced74f46",
+        "why": "car, not a bike"
+      },
+      {
+        "id": "ndtv-e31faf2a",
+        "why": "car, not a bike"
+      },
+      {
+        "id": "ndtv-68f34316",
+        "why": "car tyres, not a bike"
+      },
+      {
+        "id": "etauto-e5b6cb92",
+        "why": "car, not a bike"
+      },
+      {
+        "id": "etauto-9cade2cd",
+        "why": "car dealerships"
+      },
+      {
+        "id": "etauto-964e5e5b",
+        "why": "electric trucks"
+      },
+      {
+        "id": "etauto-637dc704",
+        "why": "component maker results"
+      },
+      {
+        "id": "etauto-66a2ccb8",
+        "why": "student engineering event"
+      }
     ]
-  }
+  },
+  "events": [
+    {
+      "id": "motoverse-2026",
+      "name": "Royal Enfield Motoverse 2026",
+      "kind": "festival",
+      "start_date": "2026-11-27",
+      "end_date": "2026-11-29",
+      "city": "Vagator, Goa",
+      "organiser": "Royal Enfield",
+      "text": "Royal Enfield marks its 125th year with three days of music, motorcycles, art and sport: unveils, curated rides and workshops. Farhan Akhtar and Reble headline the main stage.",
+      "register": null,
+      "sources": [
+        {
+          "name": "SMEStreet",
+          "url": "https://smestreet.in/sectors/royal-enfield-reveals-first-artist-lineup-for-motoverse-2026-12544596"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "india-bike-week-2026",
+      "name": "India Bike Week 2026",
+      "kind": "festival",
+      "start_date": "2026-12-04",
+      "end_date": "2026-12-05",
+      "city": "Panchgani, Maharashtra",
+      "organiser": "India Bike Week",
+      "text": "The 13th edition moves to a venue 50 per cent larger, with four racetracks, FMSCI races, a Stunt Arena, ride-outs, camping and group rides from several cities.",
+      "register": "https://indiabikeweek.in/",
+      "sources": [
+        {
+          "name": "autoX",
+          "url": "https://www.autox.com/news/bike-news/india-bike-week-2026-dates-revealed-set-for-december-4-5-124622/"
+        },
+        {
+          "name": "BBC TopGear India",
+          "url": "https://www.topgearmag.in/news/bikes/india-bike-week-2026-to-return-to-panchgani-with-a-bigger-venue-and-town-takeover"
+        },
+        {
+          "name": "India Bike Week",
+          "url": "https://indiabikeweek.in/"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "tvs-motosoul-6",
+      "name": "TVS MotoSoul 6.0",
+      "kind": "festival",
+      "start_date": "2026-12-11",
+      "end_date": "2026-12-12",
+      "city": "Vagator, Goa",
+      "organiser": "TVS Motor",
+      "text": "The sixth MotoSoul brings stunt shows, circuit races for off-road riders, concerts and a custom bike exhibition built with international custom shops.",
+      "register": null,
+      "sources": [
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/tvs-motosoul-2026-schedule-released/"
+        },
+        {
+          "name": "Autocar India",
+          "url": "https://www.autocarindia.com/bike-news/tvs-motosoul-60-to-be-held-on-december-11-12-440892"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "isrl-season-3",
+      "name": "Indian Supercross Racing League, Season 3",
+      "kind": "race",
+      "start_date": "2026-12-19",
+      "end_date": "2027-02-07",
+      "city": "Venues to be announced",
+      "organiser": "ISRL",
+      "text": "Three rounds: 19 and 20 December, 23 and 24 January, 6 and 7 February. 146 riders from 21 countries have registered across four classes.",
+      "register": null,
+      "sources": [
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/indian-supercross-racing-league-season-3-dates-announced/"
+        },
+        {
+          "name": "BBC TopGear India",
+          "url": "https://www.topgearmag.in/news/motorsport/indian-supercross-racing-league-season-3-attracts-146-riders-from-21-countries"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "tvs-are-gp-season-3",
+      "name": "TVS Apache Racing Experience GP, Season 3",
+      "kind": "race",
+      "start_date": "2026-11-15",
+      "end_date": null,
+      "city": "20 cities, final in Chennai",
+      "organiser": "TVS Racing",
+      "text": "A customer racing championship for Apache owners across seven countries and 20 cities, with a women-only 200cc class and MotoGP trips for top finishers.",
+      "register": null,
+      "sources": [
+        {
+          "name": "Motoroids",
+          "url": "https://www.motoroids.com/motorsport/tvs-apache-racing-experience-gp-season-3-expands-to-7-countries/"
+        },
+        {
+          "name": "Machine Maker",
+          "url": "https://themachinemaker.com/news/tvs-apache-racing-experience-gp-season-3-to-expand-to-seven-countries/"
+        }
+      ],
+      "tag": null
+    }
+  ],
+  "accessories": [
+    {
+      "id": "axor-mx-carbon",
+      "brand": "Axor",
+      "product": "MX Carbon",
+      "category": "helmet",
+      "for_bikes": [
+        "Off-road and dirt bikes"
+      ],
+      "price": {
+        "value": "₹20,000",
+        "label": "launch price"
+      },
+      "headline": "Axor launches the MX Carbon off-road helmet at ₹20,000",
+      "text": "Axor calls it the world’s lightest triple-certified off-road helmet.",
+      "sources": [
+        {
+          "name": "ACKO Drive",
+          "url": "https://ackodrive.com/news/axor-mx-carbon-launched-at-20-000-world-s-lightest-triple-certified-off-road-helmet/"
+        }
+      ],
+      "published_at": "2026-10-27T02:03:41Z",
+      "tag": null
+    },
+    {
+      "id": "smk-agnar-revv",
+      "brand": "SMK",
+      "product": "Agnar Revv",
+      "category": "helmet",
+      "for_bikes": [
+        "Universal"
+      ],
+      "price": {
+        "value": "₹6,700",
+        "label": "MRP, starting"
+      },
+      "headline": "SMK adds a Revv graphic to its Agnar full-face helmet",
+      "text": "Same dual-shell, 21-vent Agnar with ECE 22.06 certification and a double D-ring, in two outer shell sizes. The graphic is drawn from a rev counter needle.",
+      "sources": [
+        {
+          "name": "iamabiker.com",
+          "url": "https://iamabiker.com/avin/2026/smk-launches-agnar-revv-decal-for-agnar-full-face-helmet-range-in-india-price-starts-at-%E2%82%B96700/"
+        }
+      ],
+      "published_at": "2026-10-24T08:21:54Z",
+      "tag": null
+    },
+    {
+      "id": "alpinestars-tech-air-7x",
+      "brand": "Alpinestars",
+      "product": "Tech-Air 7X",
+      "category": "protection",
+      "for_bikes": [
+        "Universal"
+      ],
+      "price": {
+        "value": "₹1.11 lakh",
+        "label": "price"
+      },
+      "headline": "Alpinestars Tech-Air 7X airbag vest is on sale in India at ₹1.11 lakh",
+      "text": "An airbag vest for riders, now reviewed by Autocar India.",
+      "sources": [
+        {
+          "name": "Autocar India",
+          "url": "https://www.autocarindia.com/bike-reviews/alpinestars-tech-air-7x-review-440423"
+        }
+      ],
+      "published_at": "2026-10-26T09:33:39Z",
+      "tag": null
+    }
+  ]
 }

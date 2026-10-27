@@ -1,0 +1,125 @@
+{
+  "updated": "2026-10-28T09:04:00+05:30",
+  "events": [
+    {
+      "id": "tvs-are-gp-season-3",
+      "name": "TVS Apache Racing Experience GP, Season 3",
+      "kind": "race",
+      "start_date": "2026-11-15",
+      "end_date": null,
+      "city": "20 cities, final in Chennai",
+      "organiser": "TVS Racing",
+      "text": "A customer racing championship for Apache owners across seven countries and 20 cities, with a women-only 200cc class and MotoGP trips for top finishers.",
+      "register": null,
+      "sources": [
+        {
+          "name": "Motoroids",
+          "url": "https://www.motoroids.com/motorsport/tvs-apache-racing-experience-gp-season-3-expands-to-7-countries/"
+        },
+        {
+          "name": "Machine Maker",
+          "url": "https://themachinemaker.com/news/tvs-apache-racing-experience-gp-season-3-to-expand-to-seven-countries/"
+        }
+      ],
+      "tag": null,
+      "first_seen": "2026-10-28",
+      "updated": "2026-10-28"
+    },
+    {
+      "id": "motoverse-2026",
+      "name": "Royal Enfield Motoverse 2026",
+      "kind": "festival",
+      "start_date": "2026-11-27",
+      "end_date": "2026-11-29",
+      "city": "Vagator, Goa",
+      "organiser": "Royal Enfield",
+      "text": "Royal Enfield marks its 125th year with three days of music, motorcycles, art and sport: unveils, curated rides and workshops. Farhan Akhtar and Reble headline the main stage.",
+      "register": null,
+      "sources": [
+        {
+          "name": "SMEStreet",
+          "url": "https://smestreet.in/sectors/royal-enfield-reveals-first-artist-lineup-for-motoverse-2026-12544596"
+        }
+      ],
+      "tag": null,
+      "first_seen": "2026-10-28",
+      "updated": "2026-10-28"
+    },
+    {
+      "id": "india-bike-week-2026",
+      "name": "India Bike Week 2026",
+      "kind": "festival",
+      "start_date": "2026-12-04",
+      "end_date": "2026-12-05",
+      "city": "Panchgani, Maharashtra",
+      "organiser": "India Bike Week",
+      "text": "The 13th edition moves to a venue 50 per cent larger, with four racetracks, FMSCI races, a Stunt Arena, ride-outs, camping and group rides from several cities.",
+      "register": "https://indiabikeweek.in/",
+      "sources": [
+        {
+          "name": "autoX",
+          "url": "https://www.autox.com/news/bike-news/india-bike-week-2026-dates-revealed-set-for-december-4-5-124622/"
+        },
+        {
+          "name": "BBC TopGear India",
+          "url": "https://www.topgearmag.in/news/bikes/india-bike-week-2026-to-return-to-panchgani-with-a-bigger-venue-and-town-takeover"
+        },
+        {
+          "name": "India Bike Week",
+          "url": "https://indiabikeweek.in/"
+        }
+      ],
+      "tag": null,
+      "first_seen": "2026-10-28",
+      "updated": "2026-10-28"
+    },
+    {
+      "id": "tvs-motosoul-6",
+      "name": "TVS MotoSoul 6.0",
+      "kind": "festival",
+      "start_date": "2026-12-11",
+      "end_date": "2026-12-12",
+      "city": "Vagator, Goa",
+      "organiser": "TVS Motor",
+      "text": "The sixth MotoSoul brings stunt shows, circuit races for off-road riders, concerts and a custom bike exhibition built with international custom shops.",
+      "register": null,
+      "sources": [
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/tvs-motosoul-2026-schedule-released/"
+        },
+        {
+          "name": "Autocar India",
+          "url": "https://www.autocarindia.com/bike-news/tvs-motosoul-60-to-be-held-on-december-11-12-440892"
+        }
+      ],
+      "tag": null,
+      "first_seen": "2026-10-28",
+      "updated": "2026-10-28"
+    },
+    {
+      "id": "isrl-season-3",
+      "name": "Indian Supercross Racing League, Season 3",
+      "kind": "race",
+      "start_date": "2026-12-19",
+      "end_date": "2027-02-07",
+      "city": "Venues to be announced",
+      "organiser": "ISRL",
+      "text": "Three rounds: 19 and 20 December, 23 and 24 January, 6 and 7 February. 146 riders from 21 countries have registered across four classes.",
+      "register": null,
+      "sources": [
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/indian-supercross-racing-league-season-3-dates-announced/"
+        },
+        {
+          "name": "BBC TopGear India",
+          "url": "https://www.topgearmag.in/news/motorsport/indian-supercross-racing-league-season-3-attracts-146-riders-from-21-countries"
+        }
+      ],
+      "tag": null,
+      "first_seen": "2026-10-28",
+      "updated": "2026-10-28"
+    }
+  ]
+}

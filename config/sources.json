@@ -4,7 +4,7 @@
   "min_items": 15,
   "text_chars": 1500,
   "summary_chars": 400,
-  "pool_keep_days": 14,
+  "pool_keep_days": 5,
   "timeout_ms": 20000,
   "concurrency": 4,
   "host_gap_ms": {
@@ -132,5 +132,84 @@
     "category": 1,
     "category_name": "Autos & Vehicles",
     "max_items": 20
+  },
+  "keep_days": 5,
+  "sections": {
+    "events": {
+      "name": "Events",
+      "window_days": 45,
+      "queries": [
+        "India Bike Week",
+        "Motoverse Royal Enfield",
+        "TVS MotoSoul",
+        "Indian Supercross Racing League",
+        "INMRC motorcycle racing",
+        "Raid de Himalaya",
+        "HOG Rally India",
+        "KTM Orange Day",
+        "Apache Racing Experience",
+        "motorcycle festival India",
+        "track day motorcycle India",
+        "riders meet India motorcycle"
+      ],
+      "pages": [
+        {
+          "name": "India Bike Week",
+          "url": "https://www.indiabikeweek.com/"
+        }
+      ],
+      "page_chars": 3000,
+      "max_per_query": 5,
+      "exclude_title": "\\b(police|drugs?|anti-drug|cars?|SUVs?)\\b"
+    },
+    "accessories": {
+      "name": "Aftermarket accessories",
+      "window_days": 5,
+      "queries": [
+        "helmet launched India",
+        "riding gear launched India",
+        "riding jacket launched India",
+        "saddle bags motorcycle India",
+        "crash guard motorcycle India",
+        "Rynox",
+        "ViaTerra riding",
+        "Axor helmet",
+        "Studds helmet",
+        "Steelbird helmet",
+        "SMK helmet",
+        "motorcycle luggage India launched",
+        "riding boots India launched"
+      ],
+      "exclude_title": "\\b(cars?|SUVs?|bathroom|faucet|kitchen|police|challan|violations?|fine[sd]?|rule)\\b",
+      "max_per_query": 5
+    }
+  },
+  "explore": {
+    "id": "explore",
+    "name": "Google Trends Explore",
+    "keywords": [
+      {
+        "label": "motorcycles",
+        "q": "motorcycles"
+      },
+      {
+        "label": "bikes",
+        "q": "bikes"
+      },
+      {
+        "label": "bike",
+        "q": "bike"
+      },
+      {
+        "label": "Motorcycle (topic)",
+        "q": "/m/04_sv"
+      }
+    ],
+    "geo": "IN",
+    "time": "now 1-d",
+    "category": 47,
+    "hl": "en-IN",
+    "tz": -330,
+    "related_per_keyword": 10
   }
 }

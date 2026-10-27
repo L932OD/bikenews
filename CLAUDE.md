@@ -8,12 +8,15 @@ India's two-wheeler news, once a day. Code fetches the news; Claude chooses and 
 - `index.html`, `styles.css`, `app.js`, `fonts/`: the site. No framework, no build step. `manifest.webmanifest`,
   `sw.js` and `icons/` make it a home-screen web app (offline reading of the last edition).
 - `docs/RUNBOOK.md`: the daily steps. `docs/DESK.md`: the editorial brief.
+- The site has four sections: New launches (the editions), Events (`content/events.json`, kept until each event is
+  over), Trending now (`content/trends.json`, from Google Trends Explore) and Aftermarket (the editions'
+  `accessories`). News, pools and trends history are kept for `keep_days` (5) days, then deleted.
 
 ## Two kinds of session
 
 **A daily run** is any session started by the routine, or asked to "follow docs/RUNBOOK.md".
 
-- It only writes `content/editions/`, `content/latest.json`, `content/archive.json` and `pool/`.
+- It only writes `content/` (editions, `latest.json`, `archive.json`, `events.json`, `trends.json`) and `pool/`.
 - It never touches code, styles, config, docs, `package.json` or `vercel.json`, even to fix a bug. If something is
   broken, stop and say what.
 - It commits once (`Edition YYYY-MM-DD`) and pushes to `main`.

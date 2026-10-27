@@ -1,6 +1,6 @@
 // Bike Desk offline support. The page shell and fonts come from the cache; editions are fetched fresh
 // and fall back to the last copy when there is no signal.
-const SHELL = 'bike-desk-shell-v1';
+const SHELL = 'bike-desk-shell-v2';
 const DATA = 'bike-desk-data';
 const FILES = [
   './', 'styles.css', 'app.js', 'manifest.webmanifest', 'icons/apple-touch-icon.png',

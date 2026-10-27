@@ -3,6 +3,7 @@
 // Usage: node scripts/validate.mjs content/editions/YYYY-MM-DD.json [--not-today]
 // --not-today skips the "edition is today's IST date" check, for dry runs on an older pool only.
 import { basename } from 'node:path';
+import { readdir } from 'node:fs/promises';
 import { path, istDate, readJson, normUrl, numbersIn, wordCount } from './lib.mjs';
 
 const args = process.argv.slice(2);
@@ -12,6 +13,8 @@ if (!file) {
   process.exit(2);
 }
 
+const EVENT_KINDS = ['race', 'festival', 'ride', 'track-day', 'training', 'expo', 'meetup', 'other'];
+const GEAR = ['helmet', 'riding-gear', 'luggage', 'protection', 'electronics', 'performance', 'styling', 'care', 'other'];
 const TYPES = ['launch', 'price', 'recall', 'sales', 'ev', 'policy', 'upcoming', 'spy', 'rumour', 'racing', 'other'];
 const HYPE = ['game-changer', 'game changer', 'stunning', 'eagerly awaited', 'eagerly-awaited', 'much-awaited', 'much awaited', 'highly anticipated', 'breathtaking', 'jaw-dropping', 'mind-blowing', 'revolutionary', 'groundbreaking', 'ground-breaking', 'unveils the future', 'all-new avatar'];
 
@@ -179,6 +182,70 @@ if (Array.isArray(trending)) {
   });
 }
 
+// ---------- Events and aftermarket accessories ----------
+
+const sectionPool = (key) => new Map([...(pool[key] ?? []), ...pool.items].map((it) => [normUrl(it.url), it]));
+const isDate = (d) => /^\d{4}-\d{2}-\d{2}$/.test(d || '') && !Number.isNaN(Date.parse(d));
+
+const events = ed.events ?? [];
+if (!Array.isArray(events)) err('events', 'must be a list');
+else {
+  if (events.length > 8) err('events', `has ${events.length}; at most 8 a day`);
+  const eventPool = sectionPool('events');
+  events.forEach((ev, i) => {
+    const where = `events[${i}]`;
+    if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(ev?.id || '')) err(`${where}.id`, 'must be a short kebab-case id');
+    if (typeof ev?.name !== 'string' || !ev.name || wordCount(ev.name) > 10) err(`${where}.name`, 'needs a name of at most 10 words');
+    if (!EVENT_KINDS.includes(ev?.kind)) err(`${where}.kind`, `must be one of ${EVENT_KINDS.join(', ')}`);
+    if (!isDate(ev?.start_date)) err(`${where}.start_date`, 'must be a YYYY-MM-DD date');
+    if (ev?.end_date != null && (!isDate(ev.end_date) || ev.end_date < ev.start_date)) err(`${where}.end_date`, 'must be a date on or after start_date, or null');
+    if (isDate(ev?.start_date) && (ev.end_date || ev.start_date) < date) err(where, 'is already over; the events page lists only events still to come');
+    if (typeof ev?.city !== 'string' || !ev.city) err(`${where}.city`, 'is missing');
+    checkText(`${where}.text`, ev?.text, { max: 40 });
+    if (ev?.register != null && !String(ev.register).startsWith('https://')) err(`${where}.register`, 'must be an https URL or null');
+    if (!(ev?.tag == null || ev.tag === 'update')) err(`${where}.tag`, 'must be null or "update"');
+    const found = checkSources(where, ev?.sources, eventPool);
+    if (found.length) {
+      checkNumbers(`${where}.text`, ev.text, found);
+      // The day of the month must be in a source, so dates are never guessed.
+      const days = numbersIn(found.map((it) => `${it.title} ${it.summary} ${it.text}`).join(' '));
+      if (isDate(ev.start_date) && !days.has(String(Number(ev.start_date.slice(8))))) err(`${where}.start_date`, `day ${Number(ev.start_date.slice(8))} is not in its sources`);
+    }
+  });
+}
+
+// Accessories already shown in the last few editions do not come back unless tagged "update".
+const recentFiles = (await readdir(path('content/editions')).catch(() => [])).filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f) && f.slice(0, 10) < date).sort().slice(-5);
+const recentGear = new Set();
+for (const f of recentFiles) for (const a of (await readJson(path('content/editions', f), {})).accessories ?? []) for (const src of a.sources ?? []) recentGear.add(normUrl(src.url));
+
+const gear = ed.accessories ?? [];
+if (!Array.isArray(gear)) err('accessories', 'must be a list');
+else {
+  if (gear.length > 6) err('accessories', `has ${gear.length}; at most 6 a day`);
+  const gearPool = sectionPool('accessories');
+  gear.forEach((a, i) => {
+    const where = `accessories[${i}]`;
+    if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(a?.id || '')) err(`${where}.id`, 'must be a short kebab-case id');
+    else if (ids.has(a.id)) err(`${where}.id`, `"${a.id}" is used twice`);
+    else ids.add(a.id);
+    if (typeof a?.brand !== 'string' || !a.brand) err(`${where}.brand`, 'is missing');
+    if (typeof a?.product !== 'string' || !a.product) err(`${where}.product`, 'is missing');
+    if (!GEAR.includes(a?.category)) err(`${where}.category`, `must be one of ${GEAR.join(', ')}`);
+    if (!Array.isArray(a?.for_bikes) || !a.for_bikes.length) err(`${where}.for_bikes`, 'must list the bikes it is for, or ["Universal"]');
+    checkText(`${where}.headline`, a?.headline, { max: 16 });
+    checkText(`${where}.text`, a?.text, { max: 40 });
+    if (a?.price != null && (typeof a.price?.value !== 'string' || !a.price.value)) err(`${where}.price`, 'needs a value and a label, or null');
+    if (!(a?.tag == null || a.tag === 'update')) err(`${where}.tag`, 'must be null or "update"');
+    const found = checkSources(where, a?.sources, gearPool);
+    if (found.length) {
+      checkNumbers(`${where}.text`, a.text, found);
+      if (a.price?.value) checkNumbers(`${where}.price`, a.price.value, found);
+    }
+    if ((a?.sources ?? []).some((src) => recentGear.has(normUrl(src?.url))) && a.tag !== 'update') err(where, 'was in one of the last 5 editions; leave it out, or tag it "update"');
+  });
+}
+
 // ---------- Checks block ----------
 
 const c = ed.checks;
@@ -197,4 +264,4 @@ if (errors.length) {
   for (const e of errors) console.log(`  - ${e}`);
   process.exit(1);
 }
-console.log(`OK ${file}: ${total} items (${lead ? 'lead, ' : 'no lead, '}${subs.length} subs, ${heads.length} headlines, ${trending.length} trending)`);
+console.log(`OK ${file}: ${total} items (${lead ? 'lead, ' : 'no lead, '}${subs.length} subs, ${heads.length} headlines, ${trending.length} trending), ${events.length} events, ${gear.length} accessories`);

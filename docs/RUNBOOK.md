@@ -11,13 +11,14 @@ IST date: `TZ=Asia/Kolkata date +%F`.
 
 3. **Read** `docs/DESK.md` and `pool/YYYY-MM-DD.json`. Nothing else.
 
-4. **Choose and write** `content/editions/YYYY-MM-DD.json`, following `docs/DESK.md`. Set `published_at` to the time
-   now in IST.
+4. **Choose and write** `content/editions/YYYY-MM-DD.json`, following `docs/DESK.md`: the news, the trending picks,
+   new events and new aftermarket accessories. Set `published_at` to the time now in IST.
 
 5. **Validate.** `node scripts/validate.mjs content/editions/YYYY-MM-DD.json`. Fix only what it reports and run it
    again. If the same error survives three fixes, stop without pushing and say what failed; the retry runs at 09:29.
 
-6. **Publish.** `node scripts/publish.mjs content/editions/YYYY-MM-DD.json`. Then one commit and push:
+6. **Publish.** `node scripts/publish.mjs content/editions/YYYY-MM-DD.json`. It also updates `content/events.json` and
+   `content/trends.json`, and deletes editions older than 5 days. Then one commit and push:
    ```
    git add content pool
    git commit -m "Edition YYYY-MM-DD"

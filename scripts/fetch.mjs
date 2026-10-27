@@ -46,7 +46,7 @@ async function get(url, opts = {}) {
         headers: { 'User-Agent': UA, 'Accept-Language': 'en-IN,en;q=0.9', ...(opts.headers || {}) },
       }),
     );
-    if (res.ok) return { url: res.url, body: await res.text() };
+    if (res.ok) return { url: res.url, headers: res.headers, body: await res.text() };
     if ((res.status === 429 || res.status === 503) && attempt < config.retries) {
       const after = Number(res.headers.get('retry-after'));
       await sleep(Math.min(after > 0 ? after * 1000 : 2000 * 2 ** attempt, 15_000));
@@ -151,7 +151,8 @@ async function readFeed(src) {
     if (src.kind === 'gnews') title = title.replace(/\s+-\s+[^-]+$/, '');
     const published = it.pubDate ? new Date(textOf(it.pubDate)) : null;
     return {
-      source: src.name,
+      // Section searches cover many publishers: name each item after the publisher Google News gives.
+      source: src.publisher_from_feed ? clean(textOf(it.source)) || src.name : src.name,
       source_id: src.id,
       title,
       published_at: published && !isNaN(published) ? published.toISOString() : null,
@@ -202,6 +203,125 @@ async function readCategoryTrends(t) {
       related: (r[9] ?? []).slice(0, 6),
       news: [],
     }));
+}
+
+// ---------- Sections: events and aftermarket accessories ----------
+
+const gnSearch = (q, days) =>
+  `https://news.google.com/rss/search?q=${encodeURIComponent(`${q} when:${days}d`)}&hl=en-IN&gl=IN&ceid=IN:en`;
+
+// Readable text of a whole page (an organiser's site), not just its paragraphs.
+function pageText(html) {
+  return clean(String(html || '').replace(/<(script|style|noscript|svg|iframe|head)\b[\s\S]*?<\/\1>/gi, ' ').replace(/<br\s*\/?>|<\/(p|div|li|h\d)>/gi, ' · '))
+    .replace(/(\s·\s*)+/g, ' · ');
+}
+
+// Section stories stay relevant for weeks (an event announced in September is still on in December), so the same
+// Google News links come back every day. Links resolved in the last few pools are reused instead of fetched again.
+const resolvedCache = new Map();
+for (const f of (await readdir(path('pool')).catch(() => [])).filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f) && f.slice(0, 10) < today)) {
+  const old = await readJson(path('pool', f), null);
+  for (const it of [...(old?.events ?? []), ...(old?.accessories ?? [])]) if (it.gn_link && it.url) resolvedCache.set(it.gn_link, it);
+}
+
+async function readSection(key, sec, known) {
+  const src = { id: key, name: sec.name, kind: 'gnews', publisher_from_feed: true, max_items: sec.max_per_query };
+  const status = { id: key, name: sec.name, status: 'ok' };
+  const exclude = sec.exclude_title ? new RegExp(sec.exclude_title, 'i') : null;
+  const raws = [];
+  const titles = new Set();
+  for (const q of sec.queries) {
+    try {
+      for (const it of await readFeed({ ...src, url: gnSearch(q, sec.window_days) })) {
+        const t = it.title.toLowerCase();
+        if (titles.has(t) || (exclude && exclude.test(it.title))) continue;
+        if (it.published_at && now - Date.parse(it.published_at) > sec.window_days * 86_400_000) continue;
+        titles.add(t);
+        raws.push(it);
+      }
+    } catch (err) {
+      status.error = String(err.message || err);
+    }
+  }
+  const done = await mapLimit(raws, config.concurrency, async (it) => {
+    const hit = resolvedCache.get(it.link);
+    if (hit) return { ...hit, published_at: it.published_at };
+    return { ...(await complete(it, src)), gn_link: it.link };
+  });
+  const out = [];
+  for (const item of done) {
+    if (!item.url) continue;
+    const k = normUrl(item.url);
+    if (known.has(k)) continue;
+    known.add(k);
+    const { id: _old, ...rest } = item;
+    out.push({ id: `${key}-${itemId(item.url)}`, ...rest });
+  }
+  const pages = [];
+  for (const pg of sec.pages ?? []) {
+    try {
+      const res = await get(pg.url);
+      pages.push({ id: `${key}-page-${itemId(pg.url)}`, source: pg.name, url: res.url, title: pg.name, summary: '', text: clip(pageText(res.body), sec.page_chars) });
+    } catch (err) {
+      pages.push({ id: `${key}-page-${itemId(pg.url)}`, source: pg.name, url: pg.url, title: pg.name, summary: '', text: '', text_error: String(err.message || err) });
+    }
+  }
+  status.in_pool = out.length + pages.filter((p) => p.text).length;
+  if (!out.length && status.error) status.status = 'failed';
+  return { items: [...out, ...pages], status };
+}
+
+// ---------- Google Trends Explore ----------
+
+// The same data the Explore page draws: interest over time for each keyword, what people searched alongside
+// them (top and rising), and where in India. Google's own page API; one session cookie, then widget calls.
+async function readExplore(ex) {
+  const home = await get(`https://trends.google.com/trends/?geo=${ex.geo}`);
+  const cookie = (home.headers.getSetCookie?.() ?? []).map((c) => c.split(';')[0]).join('; ');
+  const headers = cookie ? { Cookie: cookie } : {};
+  const api = async (pathAndQuery) => {
+    const res = await get(`https://trends.google.com/trends/api/${pathAndQuery}`, { headers });
+    return JSON.parse(res.body.slice(res.body.indexOf('{')));
+  };
+  const req = {
+    comparisonItem: ex.keywords.map((k) => ({ keyword: k.q, geo: ex.geo, time: ex.time })),
+    category: ex.category,
+    property: '',
+  };
+  const { widgets } = await api(`explore?hl=${ex.hl}&tz=${ex.tz}&req=${encodeURIComponent(JSON.stringify(req))}`);
+  const widget = (id) => widgets.find((w) => w.id === id);
+  const data = (endpoint, w) => api(`widgetdata/${endpoint}?hl=${ex.hl}&tz=${ex.tz}&req=${encodeURIComponent(JSON.stringify(w.request))}&token=${w.token}`);
+
+  const ts = (await data('multiline', widget('TIMESERIES'))).default;
+  const result = {
+    keywords: ex.keywords.map((k) => k.label),
+    time: ex.time,
+    category: ex.category,
+    averages: ts.averages ?? [],
+    timeline: ts.timelineData.map((p) => ({ t: new Date(Number(p.time) * 1000).toISOString(), v: p.value })),
+    related: [],
+    states: [],
+  };
+  for (const [i, k] of ex.keywords.entries()) {
+    const w = widget(`RELATED_QUERIES_${i}`);
+    if (!w) continue;
+    try {
+      const [top, rising] = (await data('relatedsearches', w)).default.rankedList;
+      result.related.push({
+        keyword: k.label,
+        top: top.rankedKeyword.slice(0, ex.related_per_keyword).map((r) => ({ q: r.query, value: r.value })),
+        rising: rising.rankedKeyword.slice(0, ex.related_per_keyword).map((r) => ({ q: r.query, value: r.formattedValue })),
+      });
+    } catch {
+      // A keyword with too little data has no related searches.
+    }
+  }
+  const map = widget(`GEO_MAP_${ex.keywords.length - 1}`);
+  if (map) {
+    const geo = (await data('comparedgeo', map)).default.geoMapData;
+    result.states = geo.filter((g) => g.hasData?.[0]).map((g) => ({ name: g.geoName, value: g.value[0] })).sort((a, b) => b.value - a.value);
+  }
+  return result;
 }
 
 // Turn a raw feed item into a pool item: publisher URL, summary and up to text_chars of article text.
@@ -330,6 +450,23 @@ for (const r of report) {
 report.sort((a, b) => (order.get(a.id) ?? 99) - (order.get(b.id) ?? 99));
 report.push(trendsStatus, categoryStatus);
 
+// Section searches, after the news so their stories are not counted twice.
+const knownUrls = new Set(items.map((it) => normUrl(it.url)));
+const sections = {};
+for (const [key, sec] of Object.entries(config.sections)) {
+  const { items: found, status } = await readSection(key, sec, knownUrls);
+  sections[key] = found;
+  report.push(status);
+}
+
+let explore = null;
+try {
+  explore = await readExplore(config.explore);
+  report.push({ id: config.explore.id, name: config.explore.name, status: 'ok', in_feed: explore.timeline.length });
+} catch (err) {
+  report.push({ id: config.explore.id, name: config.explore.name, status: 'failed', error: String(err.message || err) });
+}
+
 // Yesterday's edition (the most recent one before today), so nothing repeats without new information.
 let previous = null;
 const latest = await readJson(path('content/latest.json'), null);
@@ -348,6 +485,10 @@ const pool = {
   dropped,
   items,
   trends,
+  explore,
+  events: sections.events ?? [],
+  accessories: sections.accessories ?? [],
+  events_calendar: (await readJson(path('content/events.json'), { events: [] })).events,
   previous_edition: previous,
 };
 
@@ -361,7 +502,7 @@ for (const f of await readdir(path('pool'))) {
   if (m && m[1] < cutoff) await unlink(path('pool', f));
 }
 
-console.log(`pool/${today}.json: ${items.length} items (last ${windowHours} h), ${trends.length} trends`);
+console.log(`pool/${today}.json: ${items.length} items (last ${windowHours} h), ${trends.length} trends, ${pool.events.length} event items, ${pool.accessories.length} accessory items`);
 for (const r of report) {
   console.log(`  ${r.status === 'ok' ? 'ok    ' : 'FAILED'} ${r.name.padEnd(22)} ${r.status === 'ok' ? `${r.in_pool ?? r.in_feed} items${r.in_window === 0 ? ` (none in the last ${windowHours} h)` : ""}${r.unresolved ? `, ${r.unresolved} unresolved` : ''}${r.cars_dropped ? `, ${r.cars_dropped} car headlines dropped` : ''}` : r.error}`);
 }

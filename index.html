@@ -24,10 +24,17 @@
 </head>
 <body>
   <header class="cluster">
-    <a class="brand" href="./" aria-label="Bike Desk, today's edition">
+    <a class="brand" href="#/" aria-label="Bike Desk, home">
       <span class="stripes stripes--brand" aria-hidden="true"></span>
       <span class="brand__name">Bike Desk</span>
     </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#/"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 16a8 8 0 1 1 16 0M12 16l4-5"/></svg><span>Home</span></a>
+      <a href="#/launches"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 18l4-12h6l4 12M8 13h8"/></svg><span>Launches</span></a>
+      <a href="#/events"><svg aria-hidden="true" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg><span>Events</span></a>
+      <a href="#/trending"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8M15 8h5v5"/></svg><span>Trending</span></a>
+      <a href="#/accessories"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 14a6 6 0 0 1 12 0v3H6zM9 17v2M15 17v2M4 14h16"/></svg><span>Aftermarket</span></a>
+    </nav>
     <dl class="readout" id="readout" aria-label="Edition">
       <div><dt class="sr">Date</dt><dd id="r-date">&nbsp;</dd></div>
       <div><dt class="sr">Stories</dt><dd id="r-count">&nbsp;</dd></div>
@@ -40,11 +47,7 @@
   </main>
 
   <footer class="foot">
-    <section class="rides" aria-labelledby="rides-h" hidden id="rides">
-      <h2 class="label" id="rides-h">Earlier rides</h2>
-      <ul class="chips" id="chips"></ul>
-    </section>
-    <p class="foot__note">Gathered every morning at 09:00 IST from Rushlane, Autocar India, Autocar Professional, BikeWale, BikeDekho, NDTV Auto, MotorBeam, Overdrive, Gaadiwaadi, BikeAdvice, ET Auto and Google Trends. Every story links to the publishers who reported it.</p>
+    <p class="foot__note">Gathered every morning at 09:00 IST from Rushlane, Autocar India, Autocar Professional, BikeWale, BikeDekho, NDTV Auto, MotorBeam, Overdrive, Gaadiwaadi, BikeAdvice, ET Auto, event organisers and Google Trends. News is kept for 5 days; events stay until they happen. Every item links to the publishers who reported it.</p>
   </footer>
 </body>
 </html>

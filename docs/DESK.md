@@ -38,6 +38,39 @@ A rider in India who wants to know, in two minutes, what happened in Indian two-
   Explain a trend from its own `news` links, or, when it has none, from the pool stories about it, and cite those.
   A trend may cite a story the edition also runs. Many days there are none: leave `trending` empty.
 
+## Events (the `events` list)
+
+The events page is a calendar of what riders can plan for. Read `events` in the pool (news about events, plus the
+organisers' own pages) and `events_calendar` (the events already listed).
+
+- **What counts:** motorcycle races and championships, festivals, track days, riding academies and training, group
+  rides and expeditions open to the public, rider meets and expos, held in India (or by an Indian brand for Indian
+  riders). Not police or government awareness rallies, not car events, not events abroad.
+- **Add an event only when its sources give the start date** (at least the day and month). No source date, no entry:
+  "this November" is not enough. An event that is already over is left out.
+- **0 to 8 a day.** Add events not yet in `events_calendar`. Repeat a listed event (same `id`) only when something
+  changed (new dates, venue, tickets) and tag it `"update"`; it then replaces the old entry.
+- `id`: kebab-case, stable across days (`india-bike-week-2026`). `kind`: `race`, `festival`, `ride`, `track-day`,
+  `training`, `expo`, `meetup` or `other`. `start_date` / `end_date` as `YYYY-MM-DD` (`end_date` null for one day or an
+  open-ended season). `city`: "Panchgani, Maharashtra", or "Venues to be announced". `organiser`: who runs it.
+  `register`: the organiser's tickets or registration page if a source gives it, else null.
+- `text`: at most 40 words on what it is and what happens there. Numbers must be in the sources, as for news.
+
+## Aftermarket accessories (the `accessories` list)
+
+What aftermarket and gear makers launched, and for which bikes. Read `accessories` in the pool (and `items`: a bike
+site sometimes reports a new accessory).
+
+- **What counts:** helmets, riding gear (jackets, gloves, boots, pants), luggage, crash protection, electronics
+  (intercoms, mounts, dashcams), performance and styling parts, and a bike maker's own accessory packs, launched or
+  newly on sale in India. Not bikes themselves, not reviews of bikes, not car accessories.
+- **0 to 6 a day.** Nothing that was in the last 5 editions unless there is genuinely new information (tag `"update"`).
+- `brand`, `product` (its name only), `category`: `helmet`, `riding-gear`, `luggage`, `protection`, `electronics`,
+  `performance`, `styling`, `care` or `other`. `for_bikes`: the bikes it is made for, as the source names them, or
+  `["Universal"]`. `price`: `{ "value": "₹6,700", "label": "MRP, starting" }` when the source gives it, else null.
+- `headline`: at most 16 words. `text`: at most 40 words, every number in the sources. `published_at`: copied from the
+  pool item.
+
 ## Writing
 
 - **Lead:** headline of at most 16 words; write-up of 60 to 100 words; `why` ("Why it matters") of at most 25 words;
@@ -75,6 +108,8 @@ A rider in India who wants to know, in two minutes, what happened in Indian two-
   "subs": [{ "id": "...", "kicker": "...", "type": "...", "headline": "...", "text": "...", "sources": [], "tag": null }],
   "headlines": [{ "id": "...", "type": "...", "headline": "...", "published_at": "...", "sources": [], "tag": null }],
   "trending": [{ "term": "exact term from the pool", "traffic": "2000+", "why": "...", "sources": [] }],
+  "events": [{ "id": "...", "name": "...", "kind": "festival", "start_date": "2026-12-04", "end_date": "2026-12-05", "city": "...", "organiser": "...", "text": "...", "register": null, "sources": [], "tag": null }],
+  "accessories": [{ "id": "...", "brand": "...", "product": "...", "category": "helmet", "for_bikes": ["Universal"], "price": null, "headline": "...", "text": "...", "published_at": "...", "sources": [], "tag": null }],
   "checks": { "pool_items": 46, "sources_failed": [], "left_out": [{ "id": "pool-item-id", "why": "car, not a bike" }] }
 }
 ```
