@@ -77,7 +77,7 @@ function checkText(where, value, { max, min, required = true } = {}) {
 const allUrls = new Map(); // normalised URL -> where it is used
 const ids = new Set();
 
-function checkSources(where, sources, lookup) {
+function checkSources(where, sources, lookup, used = allUrls) {
   const found = [];
   if (!Array.isArray(sources) || sources.length === 0) {
     err(where, 'needs at least one source');
@@ -91,8 +91,8 @@ function checkSources(where, sources, lookup) {
     const hit = lookup.get(key);
     if (!hit) return err(at, `URL is not in pool/${date}.json: ${s.url}`);
     found.push(hit);
-    if (allUrls.has(key)) err(at, `URL is already used by ${allUrls.get(key)}`);
-    else allUrls.set(key, where);
+    if (used.has(key)) err(at, `URL is already used by ${used.get(key)}`);
+    else used.set(key, where);
   });
   return found;
 }
@@ -166,13 +166,16 @@ if (total < 5 || total > 12) err('edition', `has ${total} items; it needs 5 to 1
 if (subs.length > 3) err('subs', `has ${subs.length}; at most 3`);
 if (trending.length > 2) err('trending', `has ${trending.length}; at most 2`);
 
+const trendUsed = new Map();
 if (Array.isArray(trending)) {
   trending.forEach((t, i) => {
     const where = `trending[${i}]`;
     if (typeof t?.term !== 'string' || !t.term) err(`${where}.term`, 'is missing');
     else if (!(pool.trends || []).some((p) => p.term.toLowerCase() === t.term.toLowerCase())) err(`${where}.term`, `"${t.term}" is not a trend in the pool`);
     checkText(`${where}.why`, t?.why, { max: 25 });
-    checkSources(where, t?.sources, trendUrls);
+    // A trend is explained by its own news links (RSS trends) or by the day's pool stories about it
+    // (category trends carry no links). It may cite a story the edition also runs.
+    checkSources(where, t?.sources, new Map([...poolByUrl, ...trendUrls]), trendUsed);
   });
 }
 

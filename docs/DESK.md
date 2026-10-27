@@ -33,8 +33,10 @@ A rider in India who wants to know, in two minutes, what happened in Indian two-
 - **Lead: 0 or 1.** Only when one story clearly stands out. A quiet day has no lead (`"lead": null`).
 - **Sub-stories: 0 to 3.** The next strongest.
 - **Headlines:** the rest.
-- **Trending: 0 to 2.** Only Google Trends terms that are about bikes, with one line on why, taken from the trend's own
-  news links. Most days there are none: leave `trending` empty.
+- **Trending: 0 to 2.** Only Google Trends terms that are about bikes, with one line on why. Look first at trends with
+  `"category": "Autos & Vehicles"` (these carry `related` searches but no news links; most are cars, so skip those).
+  Explain a trend from its own `news` links, or, when it has none, from the pool stories about it, and cite those.
+  A trend may cite a story the edition also runs. Many days there are none: leave `trending` empty.
 
 ## Writing
 
@@ -83,6 +85,6 @@ A rider in India who wants to know, in two minutes, what happened in Indian two-
 - `figure` and `specs` are for the lead and sub-stories only, and only when the source gives them.
 - `tag` is `null` or `"update"`.
 - `sources` use the pool item's `url` exactly (the publisher URL, never a Google News link). No URL may be used twice.
-  Trending sources come from that trend's `news` links.
+  Trending sources come from that trend's `news` links or from pool items about it.
 - `checks.pool_items` is the number of items in the pool; `sources_failed` copies the pool's `sources_failed`;
   `left_out` lists pool items you considered and dropped, with a short reason.

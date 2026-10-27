@@ -177,6 +177,33 @@ async function readTrends(t) {
   }));
 }
 
+// The Trends page's own data call: every trend in the country for the last `hours`, each tagged with category
+// ids. The RSS feed above ignores categories, so this is how we get Autos & Vehicles (category 1).
+async function readCategoryTrends(t) {
+  const inner = JSON.stringify([null, null, t.geo, 0, 'en-US', t.hours, 1]);
+  const body = new URLSearchParams({ 'f.req': JSON.stringify([[['i0OFE', inner, null, 'generic']]]) });
+  const res = await get(t.url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+    body,
+  });
+  const line = res.body.split('\n').find((l) => l.includes('"wrb.fr"'));
+  const list = line && JSON.parse(JSON.parse(line)[0][2])?.[1];
+  if (!Array.isArray(list)) throw new Error('Trends returned no list');
+  return list
+    .filter((r) => Array.isArray(r[10]) && r[10].includes(t.category))
+    .sort((a, b) => (b[6] ?? 0) - (a[6] ?? 0))
+    .slice(0, t.max_items)
+    .map((r) => ({
+      term: String(r[0]),
+      traffic: r[6] ? `${r[6]}+` : null,
+      published_at: r[3]?.[0] ? new Date(r[3][0] * 1000).toISOString() : null,
+      category: t.category_name,
+      related: (r[9] ?? []).slice(0, 6),
+      news: [],
+    }));
+}
+
 // Turn a raw feed item into a pool item: publisher URL, summary and up to text_chars of article text.
 async function complete(raw, src) {
   const item = { ...raw };
@@ -238,6 +265,16 @@ try {
 } catch (err) {
   trendsStatus = { id: config.trends.id, name: config.trends.name, status: 'failed', error: String(err.message || err) };
 }
+const ct = config.category_trends;
+let categoryStatus;
+try {
+  const found = await readCategoryTrends(ct);
+  const known = new Set(trends.map((t) => t.term.toLowerCase()));
+  trends = [...found.filter((t) => !known.has(t.term.toLowerCase())), ...trends];
+  categoryStatus = { id: ct.id, name: ct.name, status: 'ok', in_feed: found.length };
+} catch (err) {
+  categoryStatus = { id: ct.id, name: ct.name, status: 'failed', error: String(err.message || err) };
+}
 
 // Time window: 36 hours, widened to 48 if too little came back. Undated items are kept.
 const within = (h) => raw.filter(({ it }) => !it.published_at || now - Date.parse(it.published_at) <= h * 3_600_000);
@@ -291,7 +328,7 @@ for (const r of report) {
   }
 }
 report.sort((a, b) => (order.get(a.id) ?? 99) - (order.get(b.id) ?? 99));
-report.push(trendsStatus);
+report.push(trendsStatus, categoryStatus);
 
 // Yesterday's edition (the most recent one before today), so nothing repeats without new information.
 let previous = null;

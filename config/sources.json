@@ -122,5 +122,15 @@
     "name": "Google Trends (India)",
     "url": "https://trends.google.com/trending/rss?geo=IN",
     "max_items": 40
+  },
+  "category_trends": {
+    "id": "trends-autos",
+    "name": "Google Trends (India, Autos & Vehicles)",
+    "url": "https://trends.google.com/_/TrendsUi/data/batchexecute",
+    "geo": "IN",
+    "hours": 24,
+    "category": 1,
+    "category_name": "Autos & Vehicles",
+    "max_items": 20
   }
 }
