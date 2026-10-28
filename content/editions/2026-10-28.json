@@ -1,74 +1,142 @@
 {
   "edition": "2026-10-28",
-  "published_at": "2026-10-28T04:27:59+05:30",
+  "published_at": "2026-10-28T20:58:46+05:30",
   "lead": {
-    "id": "re-himalayan-750-teaser",
-    "kicker": "Royal Enfield",
-    "type": "upcoming",
+    "id": "ktm-200-duke-update",
+    "kicker": "KTM",
+    "type": "launch",
     "figure": {
-      "value": "750cc",
-      "label": "twin-cylinder engine"
+      "value": "₹2.07 lakh",
+      "label": "ex-showroom, Delhi"
     },
     "specs": [
       [
         "Engine",
-        "750cc twin"
+        "199.5cc single"
       ],
       [
-        "Reveal",
-        "EICMA, Milan"
+        "Power",
+        "25hp"
       ],
       [
-        "Show dates",
-        "November 3 to 8"
+        "Price rise",
+        "₹1,552"
       ]
     ],
-    "headline": "Royal Enfield teases the Himalayan 750 ahead of an EICMA reveal in Milan",
-    "text": "Royal Enfield has released the first official teaser for the Himalayan 750: an adventure motorcycle and rider silhouetted against a red sky. There is no name or spec sheet, only map coordinates for central Milan, which points to a reveal at EICMA, held from November 3 to 8. The bike is expected to use a new 750cc twin-cylinder engine with touring-focused equipment, making it Royal Enfield's largest-capacity motorcycle yet. It is expected to rival the Norton Atlas and the Triumph Tiger Sport 660.",
-    "why": "Royal Enfield's bigger bikes have been losing sales even as the brand grows. A 750cc adventure tourer is its answer at the top.",
+    "headline": "KTM 200 Duke gets a quickshifter, traction control and ride modes at ₹2.07 lakh",
+    "text": "KTM has launched the updated 200 Duke at ₹2,07,140 ex-showroom, Delhi, ₹1,552 more than before. Ride-by-wire, a bi-directional quickshifter, traction control and two ride modes, Street and Rain, are now standard, set through the TFT display. KTM also adds Crawl Assist for stop-and-go traffic and two colours, Liquid Carbon and Slate Grey. The 199.5cc single still makes 25hp and 19.3Nm, and the WP Apex 43mm USD fork and trellis frame carry over.",
+    "why": "Rider aids from the 390 Duke reach KTM’s first Indian motorcycle, which now takes on 250s with equipment as well as price.",
     "sources": [
       {
         "name": "Rushlane",
-        "url": "https://www.rushlane.com/royal-enfield-himalayan-750-first-teaser-out-eicma-debut-confirmed-12559610.html"
+        "url": "https://www.rushlane.com/new-ktm-duke-200-launch-price-rs-2-07-l-quickshifter-traction-control-12559692.html"
       },
       {
         "name": "Autocar India",
-        "url": "https://www.autocarindia.com/bike-news/royal-enfield-teases-himalayan-750-ahead-of-global-reveal-441139"
-      },
-      {
-        "name": "BikeDekho",
-        "url": "https://www.bikedekho.com/news/breaking-royal-enfield-himalayan-750-teased-officially-to-be-showcased-at-eicma-20544"
-      },
-      {
-        "name": "Overdrive",
-        "url": "https://www.overdrive.in/news-cars-auto/royal-enfield-himalayan-750-teased-ahead-of-its-global-debut-in-eicma-heres-what-we-know-so-far/"
+        "url": "https://www.autocarindia.com/bike-news/updated-ktm-200-duke-launched-at-rs-207-lakh-441151"
       },
       {
         "name": "NDTV Auto",
-        "url": "https://www.ndtv.com/auto/royal-enfield-himalayan-750-teased-ahead-of-eicma-debut-12241639"
+        "url": "https://www.ndtv.com/auto/new-ktm-200-duke-launched-with-bi-directional-quickshifter-ride-modes-check-prices-12248233"
       },
       {
         "name": "Gaadiwaadi",
-        "url": "https://gaadiwaadi.com/royal-enfield-himalayan-750-teased-global-debut-next-week/"
+        "url": "https://gaadiwaadi.com/new-ktm-200-duke-launched-at-rs-2-07-lakh-gets-quickshifter-ride-modes/"
       }
     ],
     "tag": null
   },
   "subs": [
     {
-      "id": "hd-sprint-440-undisguised",
-      "kicker": "Harley-Davidson",
-      "type": "spy",
-      "headline": "Harley-Davidson Sprint 440 cruiser seen undisguised as demo bikes reach dealers",
-      "text": "Built on the X440 platform, the Sprint 440 is a proper cruiser: teardrop tank, scooped single-piece seat, pulled-back handlebar, forward-set footpegs and a new exhaust. The round TFT console sits at the centre of the handlebar. A launch is expected later this year.",
+      "id": "re-himalayan-750-teaser",
+      "kicker": "Royal Enfield",
+      "type": "upcoming",
+      "headline": "Royal Enfield’s first Himalayan 750 teaser points to an EICMA reveal in Milan",
+      "text": "Royal Enfield’s first official teaser shows an adventure bike and rider against a red sky, with the coordinates of central Milan. EICMA runs from November 3 to 8. The Himalayan 750 is expected to use a bigger version of the 650cc twin.",
       "sources": [
         {
           "name": "Rushlane",
-          "url": "https://www.rushlane.com/harley-davidson-sprint-440-cruiser-spied-undisguised-launch-soon-12559576.html"
+          "url": "https://www.rushlane.com/royal-enfield-himalayan-750-first-teaser-out-eicma-debut-confirmed-12559610.html"
         },
         {
-          "name": "BikeWale",
-          "url": "https://www.bikewale.com/news/upcoming-harley-davidson-sprint-440-spotted-undisguised-before-launch/"
+          "name": "Autocar India",
+          "url": "https://www.autocarindia.com/bike-news/royal-enfield-teases-himalayan-750-ahead-of-global-reveal-441139"
+        },
+        {
+          "name": "NDTV Auto",
+          "url": "https://www.ndtv.com/auto/royal-enfield-himalayan-750-teased-ahead-of-eicma-debut-12241639"
+        },
+        {
+          "name": "Overdrive",
+          "url": "https://www.overdrive.in/news-cars-auto/royal-enfield-himalayan-750-teased-ahead-of-its-global-debut-in-eicma-heres-what-we-know-so-far/"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "hero-xpulse-421-teaser",
+      "kicker": "Hero MotoCorp",
+      "type": "upcoming",
+      "headline": "Hero teases the Xpulse 421 adventure bike ahead of an expected EICMA unveil",
+      "text": "Hero MotoCorp’s social media clip shows its 450cc rally bikes under an Xpulse caption, pointing to the Xpulse 421. Already spied in Ladakh, it is expected to get a new 421cc liquid-cooled single, 21-inch front and 17-inch rear spoke wheels, and a TFT with navigation.",
+      "sources": [
+        {
+          "name": "BikeDekho",
+          "url": "https://www.bikedekho.com/news/hero-xpulse-421-teased-could-be-unveiled-at-eicma-20546"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "kawasaki-z900-2027",
+      "kicker": "Kawasaki",
+      "type": "launch",
+      "figure": {
+        "value": "₹9.99 lakh",
+        "label": "ex-showroom, Delhi"
+      },
+      "headline": "2027 Kawasaki Z900 arrives at an unchanged ₹9.99 lakh with two new colours",
+      "text": "Only the paint changes: white with a green frame, and grey with a black frame. The 948cc inline-four still makes 124hp and 98.6Nm, with cruise control, a quickshifter, traction control and a 5-inch TFT. Deliveries are expected to start today.",
+      "sources": [
+        {
+          "name": "Autocar India",
+          "url": "https://www.autocarindia.com/bike-news/2027-kawasaki-z900-launched-at-rs-999-lakh-441153"
+        },
+        {
+          "name": "BikeDekho",
+          "url": "https://www.bikedekho.com/news/breaking-2027-kawasaki-z900-launched-in-india-at-999-lakh-20561"
+        }
+      ],
+      "tag": null
+    }
+  ],
+  "headlines": [
+    {
+      "id": "honda-cb350c-black-edition",
+      "type": "launch",
+      "headline": "Honda launches an all-black CB350C Black Edition ahead of Diwali",
+      "published_at": "2026-10-28T05:46:53.000Z",
+      "sources": [
+        {
+          "name": "Overdrive",
+          "url": "https://www.overdrive.in/news-cars-auto/honda-cb350c-special-black-edition-launched-at-rs-2-lakh/"
+        },
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/new-honda-cb350c-black-edition-launched-first-look-12559632.html"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "hd-sprint-440-showroom",
+      "type": "spy",
+      "headline": "Harley-Davidson Sprint 440 cruiser seen undisguised at a showroom ahead of launch",
+      "published_at": "2026-10-28T01:30:00.000Z",
+      "sources": [
+        {
+          "name": "Autocar India",
+          "url": "https://www.autocarindia.com/bike-news/harley-davidson-sprint-440-spotted-ahead-of-launch-441144"
         },
         {
           "name": "NDTV Auto",
@@ -90,33 +158,91 @@
       "tag": null
     },
     {
-      "id": "bajaj-q2-fy27",
-      "kicker": "Bajaj Auto",
-      "type": "sales",
-      "figure": {
-        "value": "₹3,354 crore",
-        "label": "Q2 net profit"
-      },
-      "headline": "Bajaj Auto’s Q2 net profit rises 35% to ₹3,354 crore as revenue crosses ₹20,000 crore",
-      "text": "Exports rose 40%. Bajaj warns that drought, inflation and tighter rural lending could deepen the entry-level motorcycle slowdown in January to March, while premium motorcycles keep growing.",
+      "id": "re-continental-gt-750-eicma",
+      "type": "upcoming",
+      "headline": "Royal Enfield Continental GT 750 will make its official debut at EICMA 2026",
+      "published_at": "2026-10-28T09:20:49.000Z",
       "sources": [
         {
-          "name": "Autocar Professional",
-          "url": "https://www.autocarpro.in/news/bajaj-auto-q2-net-profit-rises-35-percent-to-rs-3354-crore-as-revenue-crosses-rs-20000-crore-135494"
-        },
-        {
-          "name": "Autocar Professional",
-          "url": "https://www.autocarpro.in/news/bajaj-auto-warns-rural-stress-could-deepen-entry-level-motorcycle-slowdown-in-q4-135514"
+          "name": "Overdrive",
+          "url": "https://www.overdrive.in/news-cars-auto/royal-enfield-continental-gt-750-to-officially-debut-at-eicma-2026/"
         }
       ],
       "tag": null
     },
     {
-      "id": "tvs-eicma-europe",
-      "kicker": "TVS Motor",
+      "id": "triumph-tiger-1200-2027",
+      "type": "upcoming",
+      "headline": "Triumph unveils the 2027 Tiger 1200 in India, on sale from March 2027",
+      "published_at": "2026-10-27T15:27:29.000Z",
+      "sources": [
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/next-generation-triumph-tiger-1200-unveiled-in-india-launch-soon/"
+        },
+        {
+          "name": "Autocar India",
+          "url": "https://www.autocarindia.com/bike-news/2027-triumph-tiger-1200-revealed-441145"
+        },
+        {
+          "name": "Gaadiwaadi",
+          "url": "https://gaadiwaadi.com/new-2027-triumph-tiger-1200-revealed-india-launch-in-march-2027/"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "re-classic-350-tubeless-spokes",
+      "type": "spy",
+      "headline": "Royal Enfield Classic 350 seen with tubeless spoke wheels",
+      "published_at": "2026-10-28T06:52:39.000Z",
+      "sources": [
+        {
+          "name": "Autocar India",
+          "url": "https://www.autocarindia.com/bike-news/royal-enfield-classic-350-spotted-with-tubeless-spoke-wheels-441148"
+        },
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/classic-350-with-tubeless-spoked-wheels-spotted/"
+        },
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/royal-enfield-classic-350-spied-with-tubeless-spoke-wheels-launch-soon-12559644.html"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "hero-karizma-xmr-250-red",
+      "type": "spy",
+      "headline": "Hero Karizma XMR 250 spotted in red ahead of launch",
+      "published_at": "2026-10-27T10:44:43.000Z",
+      "sources": [
+        {
+          "name": "NDTV Auto",
+          "url": "https://www.ndtv.com/auto/hero-karizma-xmr-250-spotted-in-red-colour-ahead-of-launch-12242730"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "tvs-q2-results",
+      "type": "sales",
+      "headline": "TVS Motor’s Q2 net profit rises 50% to ₹1,194.5 crore as revenue grows 39%",
+      "published_at": "2026-10-28T12:15:35.000Z",
+      "sources": [
+        {
+          "name": "ET Auto",
+          "url": "https://auto.economictimes.indiatimes.com/amp/news/two-wheelers/tvs-motor-q2-result-net-profit-rises-50-to-1194-5-crore-revenue-jumps-39/135265071"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "tvs-eicma-return",
       "type": "other",
       "headline": "TVS returns to EICMA on November 3 with new models for Europe",
-      "text": "TVS will show new motorcycles, scooters and EVs for Europe in Milan. Its sales in Italy grew 110 percent over the past year while the market grew around 10 percent, it has around 100 Italian dealers, and it is setting up its own sales companies in France and Germany.",
+      "published_at": "2026-10-27T06:38:56.000Z",
       "sources": [
         {
           "name": "BikeWale",
@@ -138,160 +264,57 @@
       "tag": null
     }
   ],
-  "headlines": [
-    {
-      "id": "triumph-tiger-1200-india",
-      "type": "upcoming",
-      "headline": "New-generation Triumph Tiger 1200 unveiled in India, on sale from March 2027",
-      "published_at": "2026-10-27T15:27:29.000Z",
-      "sources": [
-        {
-          "name": "BikeWale",
-          "url": "https://www.bikewale.com/news/next-generation-triumph-tiger-1200-unveiled-in-india-launch-soon/"
-        }
-      ],
-      "tag": null
-    },
-    {
-      "id": "re-classic-650-anniversary-price",
-      "type": "price",
-      "headline": "Royal Enfield Classic 650 anniversary edition is priced at ₹4.26 lakh",
-      "published_at": "2026-10-26T15:10:11.000Z",
-      "sources": [
-        {
-          "name": "ET Auto",
-          "url": "https://auto.economictimes.indiatimes.com/amp/news/two-wheelers/royal-enfield-classic-650-anniversary-edition-priced-at-4-26-lakh/135214553"
-        }
-      ],
-      "tag": null
-    },
-    {
-      "id": "ultraviolette-e-motorcycle-outlook",
-      "type": "ev",
-      "headline": "Ultraviolette’s CTO expects electric motorcycles to grow like scooters did within three years",
-      "published_at": "2026-10-27T13:03:17.000Z",
-      "sources": [
-        {
-          "name": "Autocar Professional",
-          "url": "https://www.autocarpro.in/news/electric-motorcycles-could-see-scooter-like-growth-in-next-three-years-ultraviolette-cto-135506"
-        }
-      ],
-      "tag": null
-    },
-    {
-      "id": "jawa-yezdi-bsa-spares",
-      "type": "other",
-      "headline": "Jawa, Yezdi and BSA open genuine spare-parts sales beyond dealers to cut repair waits",
-      "published_at": "2026-10-27T03:33:56.000Z",
-      "sources": [
-        {
-          "name": "BikeWale",
-          "url": "https://www.bikewale.com/news/jawa-yezdi-and-bsa-expand-spare-parts-network-to-ease-ownership/"
-        }
-      ],
-      "tag": null
-    },
-    {
-      "id": "hero-xpulse-421-teaser",
-      "type": "rumour",
-      "headline": "Hero teases what looks like the Xpulse 421 ahead of EICMA",
-      "published_at": "2026-10-27T06:33:07.000Z",
-      "sources": [
-        {
-          "name": "BikeDekho",
-          "url": "https://www.bikedekho.com/news/hero-xpulse-421-teased-could-be-unveiled-at-eicma-20546"
-        }
-      ],
-      "tag": null
-    },
-    {
-      "id": "re-classic-350-tubeless-spokes",
-      "type": "spy",
-      "headline": "Royal Enfield Classic 350 seen at a dealer with tubeless spoke wheels",
-      "published_at": "2026-10-27T14:20:24.000Z",
-      "sources": [
-        {
-          "name": "Rushlane",
-          "url": "https://www.rushlane.com/royal-enfield-classic-350-spied-with-tubeless-spoke-wheels-launch-soon-12559644.html"
-        }
-      ],
-      "tag": null
-    },
-    {
-      "id": "bajaj-adv-spy-tft",
-      "type": "spy",
-      "headline": "Bajaj’s adventure bike tests again with a Pulsar-style TFT and new switchgear",
-      "published_at": "2026-10-26T15:24:53.000Z",
-      "sources": [
-        {
-          "name": "Rushlane",
-          "url": "https://www.rushlane.com/bajaj-adv-clearest-spy-shots-yet-new-pulsar-tft-display-switchgear-12559546.html"
-        },
-        {
-          "name": "BikeWale",
-          "url": "https://www.bikewale.com/news/upcoming-bajaj-adventure-bike-new-details-revealed/"
-        },
-        {
-          "name": "Overdrive",
-          "url": "https://www.overdrive.in/news-cars-auto/bajaj-adventure-bike-spotted-testing/"
-        }
-      ],
-      "tag": null
-    },
-    {
-      "id": "hero-karizma-xmr-250-red",
-      "type": "spy",
-      "headline": "Hero Karizma XMR 250 spotted at a dealership in a new red scheme",
-      "published_at": "2026-10-26T11:41:17.000Z",
-      "sources": [
-        {
-          "name": "Autocar India",
-          "url": "https://www.autocarindia.com/bike-news/upcoming-hero-karizma-xmr-250-spotted-441130"
-        },
-        {
-          "name": "NDTV Auto",
-          "url": "https://www.ndtv.com/auto/hero-karizma-xmr-250-spotted-in-red-colour-ahead-of-launch-12242730"
-        }
-      ],
-      "tag": null
-    }
-  ],
   "trends_summary": {
-    "headline": "Harley’s Sprint 440, Honda’s black CB350C and Hero’s red Karizma each drew 5000+ searches",
-    "text": "All three were seen at dealers or launched this week. Searches for Bajaj’s adventure bike rose 170% after new spy shots, and “electric motorcycles and scooters” rose 350% as Ultraviolette predicted scooter-like growth for electric motorcycles."
+    "headline": "Honda’s black CB350C drew 10000+ searches as Harley’s Sprint 440 and Hero’s Karizma hit 5000+",
+    "text": "All three were launched or seen at dealers this week. Searches in Hindi for the Himalayan (हिमालयन) passed 200+ after Royal Enfield’s first Himalayan 750 teaser, and searches for Bajaj’s adventure bike rose 100% after new spy shots."
   },
   "trending": [
     {
-      "term": "harley davidson sprint 440 cruiser",
-      "traffic": "5000+",
-      "why": "Demo bikes reached Harley-Davidson dealers without camouflage, showing the cruiser’s teardrop tank, scooped seat and pulled-back handlebar ahead of launch.",
-      "sources": [
-        {
-          "name": "Rushlane",
-          "url": "https://www.rushlane.com/harley-davidson-sprint-440-cruiser-spied-undisguised-launch-soon-12559576.html"
-        }
-      ]
-    },
-    {
       "term": "honda cb350c black edition launch",
-      "traffic": "5000+",
-      "why": "Honda launched a darker CB350C ahead of Diwali, at around ₹2.32 lakh on-road; the name is not official yet.",
+      "traffic": "10000+",
+      "why": "Honda launched a darker CB350C ahead of Diwali at around ₹2.32 lakh on-road; the name is not official yet.",
       "sources": [
         {
           "name": "Rushlane",
           "url": "https://www.rushlane.com/new-honda-cb350c-black-edition-launched-first-look-12559632.html"
+        },
+        {
+          "name": "Overdrive",
+          "url": "https://www.overdrive.in/news-cars-auto/honda-cb350c-special-black-edition-launched-at-rs-2-lakh/"
+        }
+      ]
+    },
+    {
+      "term": "हिमालयन",
+      "traffic": "200+",
+      "why": "Searches in Hindi for the Himalayan followed Royal Enfield’s first teaser for the Himalayan 750, which points to Milan.",
+      "sources": [
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/royal-enfield-himalayan-750-first-teaser-out-eicma-debut-confirmed-12559610.html"
+        }
+      ]
+    },
+    {
+      "term": "harley davidson sprint 440 cruiser",
+      "traffic": "5000+",
+      "why": "A production-ready Sprint 440, the cruiser from the Harley-Davidson and Hero MotoCorp venture, was seen at a showroom without camouflage.",
+      "sources": [
+        {
+          "name": "Autocar India",
+          "url": "https://www.autocarindia.com/bike-news/harley-davidson-sprint-440-spotted-ahead-of-launch-441144"
+        },
+        {
+          "name": "NDTV Auto",
+          "url": "https://www.ndtv.com/auto/harley-davidson-sprint-440-cruiser-spotted-undisguised-ahead-of-launch-12241097"
         }
       ]
     },
     {
       "term": "hero karizma xmr 250 new colors",
       "traffic": "5000+",
-      "why": "The upcoming Karizma XMR 250 was spotted at a dealership in a new red colour scheme, after a black one in July and a white show bike at EICMA.",
+      "why": "The upcoming Karizma XMR 250 was spotted in a new red colour ahead of its launch.",
       "sources": [
-        {
-          "name": "Autocar India",
-          "url": "https://www.autocarindia.com/bike-news/upcoming-hero-karizma-xmr-250-spotted-441130"
-        },
         {
           "name": "NDTV Auto",
           "url": "https://www.ndtv.com/auto/hero-karizma-xmr-250-spotted-in-red-colour-ahead-of-launch-12242730"
@@ -300,27 +323,12 @@
     },
     {
       "term": "bajaj adventure bike",
-      "traffic": "+170%",
-      "why": "New spy shots of Bajaj’s upcoming adventure bike show a Pulsar-style TFT, new switchgear and proper off-road hardware.",
+      "traffic": "+100%",
+      "why": "New spy shots of Bajaj’s upcoming adventure bike give a clearer look at its console, likely the Pulsar N250’s.",
       "sources": [
-        {
-          "name": "Rushlane",
-          "url": "https://www.rushlane.com/bajaj-adv-clearest-spy-shots-yet-new-pulsar-tft-display-switchgear-12559546.html"
-        },
         {
           "name": "BikeWale",
           "url": "https://www.bikewale.com/news/upcoming-bajaj-adventure-bike-new-details-revealed/"
-        }
-      ]
-    },
-    {
-      "term": "electric motorcycles and scooters",
-      "traffic": "+350%",
-      "why": "Ultraviolette’s CTO says electric motorcycles could grow the way electric scooters did over the next three years, as interest in performance models rises.",
-      "sources": [
-        {
-          "name": "Autocar Professional",
-          "url": "https://www.autocarpro.in/news/electric-motorcycles-could-see-scooter-like-growth-in-next-three-years-ultraviolette-cto-135506"
         }
       ]
     }
@@ -458,6 +466,54 @@
       "tag": null
     },
     {
+      "id": "vega-jet-slay",
+      "brand": "Vega",
+      "product": "Jet Slay",
+      "category": "helmet",
+      "teased": false,
+      "for_bikes": [
+        "Universal"
+      ],
+      "price": {
+        "value": "₹1,538",
+        "label": "Brand store price"
+      },
+      "headline": "Vega adds the Jet Slay, a retro open-face helmet with a long visor",
+      "text": "An ISI and DOT certified open-face helmet weighing 900g, with a clear visor that reaches down to the chin and flips up in one move.",
+      "published_at": "2026-10-23T04:45:44.000Z",
+      "sources": [
+        {
+          "name": "Vega",
+          "url": "https://vegaauto.com/products/vega-jet-slay-with-long-visor-helmet"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "vega-spike-stylus",
+      "brand": "Vega",
+      "product": "Spike Stylus",
+      "category": "helmet",
+      "teased": false,
+      "for_bikes": [
+        "Universal"
+      ],
+      "price": {
+        "value": "₹2,150",
+        "label": "Brand store price"
+      },
+      "headline": "Vega’s Spike Stylus is a flip-up helmet with a drop-down sun visor",
+      "text": "An ISI-certified flip-up helmet: the chin bar lifts at stops, a clear outer visor sits over an inbuilt smoke sun visor, and it goes on easily over spectacles.",
+      "published_at": "2026-10-21T06:51:12.000Z",
+      "sources": [
+        {
+          "name": "Vega",
+          "url": "https://vegaauto.com/products/vega-spike-stylus-dual-visor-helmet"
+        }
+      ],
+      "tag": null
+    },
+    {
       "id": "smk-agnar-revv",
       "brand": "SMK",
       "product": "Agnar Revv",
@@ -479,67 +535,36 @@
       ],
       "published_at": "2026-10-24T08:21:54Z",
       "tag": null
-    },
-    {
-      "id": "alpinestars-tech-air-7x",
-      "brand": "Alpinestars",
-      "product": "Tech-Air 7X",
-      "category": "protection",
-      "for_bikes": [
-        "Universal"
-      ],
-      "price": {
-        "value": "₹1.11 lakh",
-        "label": "price"
-      },
-      "headline": "Alpinestars Tech-Air 7X airbag vest is on sale in India at ₹1.11 lakh",
-      "text": "An airbag vest for riders, now reviewed by Autocar India.",
-      "sources": [
-        {
-          "name": "Autocar India",
-          "url": "https://www.autocarindia.com/bike-reviews/alpinestars-tech-air-7x-review-440423"
-        }
-      ],
-      "published_at": "2026-10-26T09:33:39Z",
-      "tag": null
     }
   ],
   "checks": {
-    "pool_items": 50,
+    "pool_items": 69,
     "sources_failed": [
       "BikeAdvice"
     ],
     "left_out": [
       {
-        "id": "bikewale-290209a8",
-        "why": "Tiger 1200 preview, replaced by the India unveil"
+        "id": "motorbeam-a60bf9d8",
+        "why": "Bajaj capacity plan; much of it is scooters and three-wheelers"
       },
       {
-        "id": "rushlane-64bba079",
-        "why": "colour variant with an unofficial name; covered in trending"
+        "id": "bikewale-80653552",
+        "why": "Pulsar N250 2V run-out, minor"
       },
       {
-        "id": "etauto-92e9c18b",
-        "why": "Ather results, smaller than its capacity story"
+        "id": "autocar-c3c43506",
+        "why": "KLE650 global reveal, no India plan yet"
       },
       {
-        "id": "overdrive-8a26768f",
-        "why": "no details yet"
+        "id": "bikewale-9228869d",
+        "why": "Vespa Vibe is a commuter scooter"
       },
       {
-        "id": "bikedekho-66e3895a",
-        "why": "comparison"
+        "id": "ndtv-a055d352",
+        "why": "FASTag passes are for cars"
       },
       {
-        "id": "bikedekho-baa5cd1a",
-        "why": "listicle"
-      },
-      {
-        "id": "bikewale-ebe85f41",
-        "why": "listicle"
-      },
-      {
-        "id": "bikewale-18cb3615",
+        "id": "bikedekho-27110acd",
         "why": "listicle"
       },
       {
@@ -547,32 +572,12 @@
         "why": "celebrity purchase"
       },
       {
-        "id": "motorbeam-0833b4b2",
-        "why": "fuel rule mainly for cars"
+        "id": "store-1e288e7f",
+        "why": "BluArmor C20 spare part, not a new product"
       },
       {
-        "id": "autocarpro-3b45a293",
-        "why": "cars"
-      },
-      {
-        "id": "autocarpro-22c4171c",
-        "why": "cars"
-      },
-      {
-        "id": "bikewale-ddbc6980",
-        "why": "global test mule"
-      },
-      {
-        "id": "bikewale-edf5dc70",
-        "why": "global test mule"
-      },
-      {
-        "id": "etauto-964e5e5b",
-        "why": "trucks"
-      },
-      {
-        "id": "etauto-c6171e21",
-        "why": "electric two-wheeler survey, mostly about scooters"
+        "id": "accessories-c748197b",
+        "why": "not motorcycles (a footballer named Vega)"
       }
     ]
   }

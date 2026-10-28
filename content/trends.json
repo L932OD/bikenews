@@ -11,8 +11,8 @@
       "averages": [
         0,
         12,
-        66,
-        76
+        64,
+        73
       ],
       "top_from": "bike",
       "top": [
@@ -30,107 +30,107 @@
         },
         {
           "q": "electric bike",
-          "value": 25
+          "value": 24
         },
         {
           "q": "best bike",
           "value": 24
         },
         {
-          "q": "hero bike",
-          "value": 21
+          "q": "royal enfield bike",
+          "value": 23
         },
         {
-          "q": "royal enfield bike",
-          "value": 21
+          "q": "hero bike",
+          "value": 22
+        },
+        {
+          "q": "bajaj bike",
+          "value": 20
         },
         {
           "q": "splendor bike",
           "value": 18
         },
         {
-          "q": "bajaj bike",
-          "value": 18
-        },
-        {
           "q": "yamaha bike",
-          "value": 17
+          "value": 16
         }
       ],
       "rising": [
         {
-          "q": "verge motorcycles",
-          "value": "Breakout"
+          "q": "indian motorcycles",
+          "value": "+300%"
         },
         {
-          "q": "norton motorcycles india",
-          "value": "Breakout"
+          "q": "canyon bikes",
+          "value": "+250%"
         },
         {
-          "q": "vardenchi motorcycles",
-          "value": "Breakout"
-        },
-        {
-          "q": "bikedekho",
-          "value": "Breakout"
-        },
-        {
-          "q": "electric motorcycles and scooters",
-          "value": "+350%"
-        },
-        {
-          "q": "zana motorcycles",
-          "value": "+180%"
-        },
-        {
-          "q": "bajaj adventure bike",
-          "value": "+170%"
-        },
-        {
-          "q": "rental bikes near me",
-          "value": "+70%"
-        },
-        {
-          "q": "tvs bikes price list",
-          "value": "+70%"
+          "q": "onn bikes",
+          "value": "+200%"
         },
         {
           "q": "best bikes under 3 lakhs",
-          "value": "+50%"
+          "value": "+140%"
+        },
+        {
+          "q": "hero motorcycles",
+          "value": "+130%"
+        },
+        {
+          "q": "rental bikes near me",
+          "value": "+110%"
+        },
+        {
+          "q": "bajaj adventure bike",
+          "value": "+100%"
+        },
+        {
+          "q": "norton bikes",
+          "value": "+90%"
+        },
+        {
+          "q": "cng bikes",
+          "value": "+70%"
+        },
+        {
+          "q": "freedom 125 cng bike",
+          "value": "+70%"
         }
       ],
       "states": [
         {
-          "name": "Daman and Diu",
+          "name": "Karnataka",
           "value": 100
         },
         {
-          "name": "Karnataka",
-          "value": 87
-        },
-        {
-          "name": "Dadra and Nagar Haveli",
-          "value": 79
-        },
-        {
-          "name": "Sikkim",
-          "value": 77
-        },
-        {
           "name": "Puducherry",
-          "value": 70
-        },
-        {
-          "name": "West Bengal",
-          "value": 68
+          "value": 92
         },
         {
           "name": "Mizoram",
-          "value": 68
+          "value": 91
         },
         {
-          "name": "Goa",
-          "value": 68
+          "name": "Arunachal Pradesh",
+          "value": 83
+        },
+        {
+          "name": "Tripura",
+          "value": 83
+        },
+        {
+          "name": "West Bengal",
+          "value": 81
+        },
+        {
+          "name": "Odisha",
+          "value": 81
+        },
+        {
+          "name": "Maharashtra",
+          "value": 81
         }
       ],
       "autos": [
@@ -148,17 +148,26 @@
         },
         {
           "term": "honda cb350c black edition launch",
-          "traffic": "5000+",
+          "traffic": "10000+",
           "started_at": "2026-10-27T11:40:00.000Z",
           "related": [
             "honda cb350c black edition launch"
           ],
-          "story": null,
-          "why": "Honda launched a darker CB350C ahead of Diwali, at around ₹2.32 lakh on-road; the name is not official yet.",
+          "story": {
+            "headline": "Honda launches an all-black CB350C Black Edition ahead of Diwali",
+            "edition": "2026-10-28",
+            "id": "honda-cb350c-black-edition",
+            "type": "launch"
+          },
+          "why": "Honda launched a darker CB350C ahead of Diwali at around ₹2.32 lakh on-road; the name is not official yet.",
           "sources": [
             {
               "name": "Rushlane",
               "url": "https://www.rushlane.com/new-honda-cb350c-black-edition-launched-first-look-12559632.html"
+            },
+            {
+              "name": "Overdrive",
+              "url": "https://www.overdrive.in/news-cars-auto/honda-cb350c-special-black-edition-launched-at-rs-2-lakh/"
             }
           ]
         },
@@ -170,16 +179,20 @@
             "harley davidson sprint 440 cruiser"
           ],
           "story": {
-            "headline": "Harley-Davidson Sprint 440 cruiser seen undisguised as demo bikes reach dealers",
+            "headline": "Harley-Davidson Sprint 440 cruiser seen undisguised at a showroom ahead of launch",
             "edition": "2026-10-28",
-            "id": "hd-sprint-440-undisguised",
+            "id": "hd-sprint-440-showroom",
             "type": "spy"
           },
-          "why": "Demo bikes reached Harley-Davidson dealers without camouflage, showing the cruiser’s teardrop tank, scooped seat and pulled-back handlebar ahead of launch.",
+          "why": "A production-ready Sprint 440, the cruiser from the Harley-Davidson and Hero MotoCorp venture, was seen at a showroom without camouflage.",
           "sources": [
             {
-              "name": "Rushlane",
-              "url": "https://www.rushlane.com/harley-davidson-sprint-440-cruiser-spied-undisguised-launch-soon-12559576.html"
+              "name": "Autocar India",
+              "url": "https://www.autocarindia.com/bike-news/harley-davidson-sprint-440-spotted-ahead-of-launch-441144"
+            },
+            {
+              "name": "NDTV Auto",
+              "url": "https://www.ndtv.com/auto/harley-davidson-sprint-440-cruiser-spotted-undisguised-ahead-of-launch-12241097"
             }
           ]
         },
@@ -191,34 +204,18 @@
             "hero karizma xmr 250 new colors"
           ],
           "story": {
-            "headline": "Hero Karizma XMR 250 spotted at a dealership in a new red scheme",
+            "headline": "Hero Karizma XMR 250 spotted in red ahead of launch",
             "edition": "2026-10-28",
             "id": "hero-karizma-xmr-250-red",
             "type": "spy"
           },
-          "why": "The upcoming Karizma XMR 250 was spotted at a dealership in a new red colour scheme, after a black one in July and a white show bike at EICMA.",
+          "why": "The upcoming Karizma XMR 250 was spotted in a new red colour ahead of its launch.",
           "sources": [
-            {
-              "name": "Autocar India",
-              "url": "https://www.autocarindia.com/bike-news/upcoming-hero-karizma-xmr-250-spotted-441130"
-            },
             {
               "name": "NDTV Auto",
               "url": "https://www.ndtv.com/auto/hero-karizma-xmr-250-spotted-in-red-colour-ahead-of-launch-12242730"
             }
           ]
-        },
-        {
-          "term": "bajaj pulsar n250ss launch price",
-          "traffic": "2000+",
-          "started_at": "2026-10-21T07:50:00.000Z",
-          "related": [
-            "bajaj pulsar n250ss launch price",
-            "ns200"
-          ],
-          "story": null,
-          "why": null,
-          "sources": []
         },
         {
           "term": "yamaha mt125 new design facelift",
@@ -239,8 +236,13 @@
             "हिमालयन"
           ],
           "story": null,
-          "why": null,
-          "sources": []
+          "why": "Searches in Hindi for the Himalayan followed Royal Enfield’s first teaser for the Himalayan 750, which points to Milan.",
+          "sources": [
+            {
+              "name": "Rushlane",
+              "url": "https://www.rushlane.com/royal-enfield-himalayan-750-first-teaser-out-eicma-debut-confirmed-12559610.html"
+            }
+          ]
         }
       ],
       "searches": [
@@ -258,17 +260,26 @@
         },
         {
           "term": "honda cb350c black edition launch",
-          "traffic": "5000+",
+          "traffic": "10000+",
           "started_at": "2026-10-27T11:40:00.000Z",
           "related": [
             "honda cb350c black edition launch"
           ],
-          "story": null,
-          "why": "Honda launched a darker CB350C ahead of Diwali, at around ₹2.32 lakh on-road; the name is not official yet.",
+          "story": {
+            "headline": "Honda launches an all-black CB350C Black Edition ahead of Diwali",
+            "edition": "2026-10-28",
+            "id": "honda-cb350c-black-edition",
+            "type": "launch"
+          },
+          "why": "Honda launched a darker CB350C ahead of Diwali at around ₹2.32 lakh on-road; the name is not official yet.",
           "sources": [
             {
               "name": "Rushlane",
               "url": "https://www.rushlane.com/new-honda-cb350c-black-edition-launched-first-look-12559632.html"
+            },
+            {
+              "name": "Overdrive",
+              "url": "https://www.overdrive.in/news-cars-auto/honda-cb350c-special-black-edition-launched-at-rs-2-lakh/"
             }
           ]
         },
@@ -280,16 +291,20 @@
             "harley davidson sprint 440 cruiser"
           ],
           "story": {
-            "headline": "Harley-Davidson Sprint 440 cruiser seen undisguised as demo bikes reach dealers",
+            "headline": "Harley-Davidson Sprint 440 cruiser seen undisguised at a showroom ahead of launch",
             "edition": "2026-10-28",
-            "id": "hd-sprint-440-undisguised",
+            "id": "hd-sprint-440-showroom",
             "type": "spy"
           },
-          "why": "Demo bikes reached Harley-Davidson dealers without camouflage, showing the cruiser’s teardrop tank, scooped seat and pulled-back handlebar ahead of launch.",
+          "why": "A production-ready Sprint 440, the cruiser from the Harley-Davidson and Hero MotoCorp venture, was seen at a showroom without camouflage.",
           "sources": [
             {
-              "name": "Rushlane",
-              "url": "https://www.rushlane.com/harley-davidson-sprint-440-cruiser-spied-undisguised-launch-soon-12559576.html"
+              "name": "Autocar India",
+              "url": "https://www.autocarindia.com/bike-news/harley-davidson-sprint-440-spotted-ahead-of-launch-441144"
+            },
+            {
+              "name": "NDTV Auto",
+              "url": "https://www.ndtv.com/auto/harley-davidson-sprint-440-cruiser-spotted-undisguised-ahead-of-launch-12241097"
             }
           ]
         },
@@ -301,34 +316,18 @@
             "hero karizma xmr 250 new colors"
           ],
           "story": {
-            "headline": "Hero Karizma XMR 250 spotted at a dealership in a new red scheme",
+            "headline": "Hero Karizma XMR 250 spotted in red ahead of launch",
             "edition": "2026-10-28",
             "id": "hero-karizma-xmr-250-red",
             "type": "spy"
           },
-          "why": "The upcoming Karizma XMR 250 was spotted at a dealership in a new red colour scheme, after a black one in July and a white show bike at EICMA.",
+          "why": "The upcoming Karizma XMR 250 was spotted in a new red colour ahead of its launch.",
           "sources": [
-            {
-              "name": "Autocar India",
-              "url": "https://www.autocarindia.com/bike-news/upcoming-hero-karizma-xmr-250-spotted-441130"
-            },
             {
               "name": "NDTV Auto",
               "url": "https://www.ndtv.com/auto/hero-karizma-xmr-250-spotted-in-red-colour-ahead-of-launch-12242730"
             }
           ]
-        },
-        {
-          "term": "bajaj pulsar n250ss launch price",
-          "traffic": "2000+",
-          "started_at": "2026-10-21T07:50:00.000Z",
-          "related": [
-            "bajaj pulsar n250ss launch price",
-            "ns200"
-          ],
-          "story": null,
-          "why": null,
-          "sources": []
         },
         {
           "term": "yamaha mt125 new design facelift",
@@ -349,42 +348,62 @@
             "हिमालयन"
           ],
           "story": null,
-          "why": null,
-          "sources": []
+          "why": "Searches in Hindi for the Himalayan followed Royal Enfield’s first teaser for the Himalayan 750, which points to Milan.",
+          "sources": [
+            {
+              "name": "Rushlane",
+              "url": "https://www.rushlane.com/royal-enfield-himalayan-750-first-teaser-out-eicma-debut-confirmed-12559610.html"
+            }
+          ]
         }
       ],
       "picks": [
         {
-          "term": "harley davidson sprint 440 cruiser",
-          "traffic": "5000+",
-          "why": "Demo bikes reached Harley-Davidson dealers without camouflage, showing the cruiser’s teardrop tank, scooped seat and pulled-back handlebar ahead of launch.",
-          "sources": [
-            {
-              "name": "Rushlane",
-              "url": "https://www.rushlane.com/harley-davidson-sprint-440-cruiser-spied-undisguised-launch-soon-12559576.html"
-            }
-          ]
-        },
-        {
           "term": "honda cb350c black edition launch",
-          "traffic": "5000+",
-          "why": "Honda launched a darker CB350C ahead of Diwali, at around ₹2.32 lakh on-road; the name is not official yet.",
+          "traffic": "10000+",
+          "why": "Honda launched a darker CB350C ahead of Diwali at around ₹2.32 lakh on-road; the name is not official yet.",
           "sources": [
             {
               "name": "Rushlane",
               "url": "https://www.rushlane.com/new-honda-cb350c-black-edition-launched-first-look-12559632.html"
+            },
+            {
+              "name": "Overdrive",
+              "url": "https://www.overdrive.in/news-cars-auto/honda-cb350c-special-black-edition-launched-at-rs-2-lakh/"
+            }
+          ]
+        },
+        {
+          "term": "हिमालयन",
+          "traffic": "200+",
+          "why": "Searches in Hindi for the Himalayan followed Royal Enfield’s first teaser for the Himalayan 750, which points to Milan.",
+          "sources": [
+            {
+              "name": "Rushlane",
+              "url": "https://www.rushlane.com/royal-enfield-himalayan-750-first-teaser-out-eicma-debut-confirmed-12559610.html"
+            }
+          ]
+        },
+        {
+          "term": "harley davidson sprint 440 cruiser",
+          "traffic": "5000+",
+          "why": "A production-ready Sprint 440, the cruiser from the Harley-Davidson and Hero MotoCorp venture, was seen at a showroom without camouflage.",
+          "sources": [
+            {
+              "name": "Autocar India",
+              "url": "https://www.autocarindia.com/bike-news/harley-davidson-sprint-440-spotted-ahead-of-launch-441144"
+            },
+            {
+              "name": "NDTV Auto",
+              "url": "https://www.ndtv.com/auto/harley-davidson-sprint-440-cruiser-spotted-undisguised-ahead-of-launch-12241097"
             }
           ]
         },
         {
           "term": "hero karizma xmr 250 new colors",
           "traffic": "5000+",
-          "why": "The upcoming Karizma XMR 250 was spotted at a dealership in a new red colour scheme, after a black one in July and a white show bike at EICMA.",
+          "why": "The upcoming Karizma XMR 250 was spotted in a new red colour ahead of its launch.",
           "sources": [
-            {
-              "name": "Autocar India",
-              "url": "https://www.autocarindia.com/bike-news/upcoming-hero-karizma-xmr-250-spotted-441130"
-            },
             {
               "name": "NDTV Auto",
               "url": "https://www.ndtv.com/auto/hero-karizma-xmr-250-spotted-in-red-colour-ahead-of-launch-12242730"
@@ -393,38 +412,23 @@
         },
         {
           "term": "bajaj adventure bike",
-          "traffic": "+170%",
-          "why": "New spy shots of Bajaj’s upcoming adventure bike show a Pulsar-style TFT, new switchgear and proper off-road hardware.",
+          "traffic": "+100%",
+          "why": "New spy shots of Bajaj’s upcoming adventure bike give a clearer look at its console, likely the Pulsar N250’s.",
           "sources": [
-            {
-              "name": "Rushlane",
-              "url": "https://www.rushlane.com/bajaj-adv-clearest-spy-shots-yet-new-pulsar-tft-display-switchgear-12559546.html"
-            },
             {
               "name": "BikeWale",
               "url": "https://www.bikewale.com/news/upcoming-bajaj-adventure-bike-new-details-revealed/"
             }
           ]
-        },
-        {
-          "term": "electric motorcycles and scooters",
-          "traffic": "+350%",
-          "why": "Ultraviolette’s CTO says electric motorcycles could grow the way electric scooters did over the next three years, as interest in performance models rises.",
-          "sources": [
-            {
-              "name": "Autocar Professional",
-              "url": "https://www.autocarpro.in/news/electric-motorcycles-could-see-scooter-like-growth-in-next-three-years-ultraviolette-cto-135506"
-            }
-          ]
         }
       ],
       "summary": {
-        "headline": "Harley’s Sprint 440, Honda’s black CB350C and Hero’s red Karizma each drew 5000+ searches",
-        "text": "All three were seen at dealers or launched this week. Searches for Bajaj’s adventure bike rose 170% after new spy shots, and “electric motorcycles and scooters” rose 350% as Ultraviolette predicted scooter-like growth for electric motorcycles."
+        "headline": "Honda’s black CB350C drew 10000+ searches as Harley’s Sprint 440 and Hero’s Karizma hit 5000+",
+        "text": "All three were launched or seen at dealers this week. Searches in Hindi for the Himalayan (हिमालयन) passed 200+ after Royal Enfield’s first Himalayan 750 teaser, and searches for Bajaj’s adventure bike rose 100% after new spy shots."
       }
     }
   ],
-  "updated": "2026-10-28T04:27:59+05:30",
+  "updated": "2026-10-28T20:58:46+05:30",
   "timeline": {
     "keywords": [
       "motorcycles",
@@ -434,43 +438,511 @@
     ],
     "points": [
       {
-        "t": "2026-10-26T22:56:00.000Z",
+        "t": "2026-10-27T15:20:00.000Z",
+        "v": [
+          0,
+          14,
+          90,
+          97
+        ]
+      },
+      {
+        "t": "2026-10-27T15:28:00.000Z",
+        "v": [
+          0,
+          17,
+          87,
+          95
+        ]
+      },
+      {
+        "t": "2026-10-27T15:36:00.000Z",
+        "v": [
+          0,
+          14,
+          76,
+          84
+        ]
+      },
+      {
+        "t": "2026-10-27T15:44:00.000Z",
+        "v": [
+          0,
+          16,
+          84,
+          93
+        ]
+      },
+      {
+        "t": "2026-10-27T15:52:00.000Z",
+        "v": [
+          0,
+          15,
+          83,
+          94
+        ]
+      },
+      {
+        "t": "2026-10-27T16:00:00.000Z",
+        "v": [
+          0,
+          14,
+          80,
+          89
+        ]
+      },
+      {
+        "t": "2026-10-27T16:08:00.000Z",
+        "v": [
+          0,
+          14,
+          82,
+          96
+        ]
+      },
+      {
+        "t": "2026-10-27T16:16:00.000Z",
+        "v": [
+          0,
+          15,
+          77,
+          85
+        ]
+      },
+      {
+        "t": "2026-10-27T16:24:00.000Z",
+        "v": [
+          0,
+          17,
+          78,
+          87
+        ]
+      },
+      {
+        "t": "2026-10-27T16:32:00.000Z",
+        "v": [
+          0,
+          18,
+          77,
+          92
+        ]
+      },
+      {
+        "t": "2026-10-27T16:40:00.000Z",
+        "v": [
+          0,
+          15,
+          77,
+          82
+        ]
+      },
+      {
+        "t": "2026-10-27T16:48:00.000Z",
+        "v": [
+          0,
+          12,
+          72,
+          84
+        ]
+      },
+      {
+        "t": "2026-10-27T16:56:00.000Z",
+        "v": [
+          0,
+          13,
+          68,
+          75
+        ]
+      },
+      {
+        "t": "2026-10-27T17:04:00.000Z",
+        "v": [
+          0,
+          15,
+          65,
+          73
+        ]
+      },
+      {
+        "t": "2026-10-27T17:12:00.000Z",
+        "v": [
+          0,
+          15,
+          75,
+          85
+        ]
+      },
+      {
+        "t": "2026-10-27T17:20:00.000Z",
+        "v": [
+          0,
+          14,
+          68,
+          75
+        ]
+      },
+      {
+        "t": "2026-10-27T17:28:00.000Z",
+        "v": [
+          0,
+          16,
+          72,
+          80
+        ]
+      },
+      {
+        "t": "2026-10-27T17:36:00.000Z",
+        "v": [
+          0,
+          13,
+          64,
+          77
+        ]
+      },
+      {
+        "t": "2026-10-27T17:44:00.000Z",
+        "v": [
+          3,
+          17,
+          67,
+          80
+        ]
+      },
+      {
+        "t": "2026-10-27T17:52:00.000Z",
+        "v": [
+          0,
+          18,
+          63,
+          76
+        ]
+      },
+      {
+        "t": "2026-10-27T18:00:00.000Z",
+        "v": [
+          0,
+          13,
+          63,
+          69
+        ]
+      },
+      {
+        "t": "2026-10-27T18:08:00.000Z",
+        "v": [
+          0,
+          14,
+          61,
+          77
+        ]
+      },
+      {
+        "t": "2026-10-27T18:16:00.000Z",
+        "v": [
+          3,
+          12,
+          62,
+          71
+        ]
+      },
+      {
+        "t": "2026-10-27T18:24:00.000Z",
+        "v": [
+          0,
+          20,
+          66,
+          81
+        ]
+      },
+      {
+        "t": "2026-10-27T18:32:00.000Z",
+        "v": [
+          0,
+          17,
+          62,
+          75
+        ]
+      },
+      {
+        "t": "2026-10-27T18:40:00.000Z",
+        "v": [
+          0,
+          13,
+          57,
+          68
+        ]
+      },
+      {
+        "t": "2026-10-27T18:48:00.000Z",
+        "v": [
+          0,
+          16,
+          63,
+          73
+        ]
+      },
+      {
+        "t": "2026-10-27T18:56:00.000Z",
+        "v": [
+          0,
+          13,
+          60,
+          71
+        ]
+      },
+      {
+        "t": "2026-10-27T19:04:00.000Z",
+        "v": [
+          0,
+          21,
+          61,
+          73
+        ]
+      },
+      {
+        "t": "2026-10-27T19:12:00.000Z",
+        "v": [
+          0,
+          16,
+          71,
+          84
+        ]
+      },
+      {
+        "t": "2026-10-27T19:20:00.000Z",
+        "v": [
+          0,
+          16,
+          60,
+          74
+        ]
+      },
+      {
+        "t": "2026-10-27T19:28:00.000Z",
+        "v": [
+          0,
+          11,
+          64,
+          75
+        ]
+      },
+      {
+        "t": "2026-10-27T19:36:00.000Z",
+        "v": [
+          0,
+          15,
+          70,
+          79
+        ]
+      },
+      {
+        "t": "2026-10-27T19:44:00.000Z",
+        "v": [
+          0,
+          21,
+          63,
+          76
+        ]
+      },
+      {
+        "t": "2026-10-27T19:52:00.000Z",
+        "v": [
+          0,
+          12,
+          52,
+          69
+        ]
+      },
+      {
+        "t": "2026-10-27T20:00:00.000Z",
+        "v": [
+          0,
+          12,
+          50,
+          59
+        ]
+      },
+      {
+        "t": "2026-10-27T20:08:00.000Z",
+        "v": [
+          0,
+          19,
+          62,
+          73
+        ]
+      },
+      {
+        "t": "2026-10-27T20:16:00.000Z",
+        "v": [
+          0,
+          18,
+          65,
+          73
+        ]
+      },
+      {
+        "t": "2026-10-27T20:24:00.000Z",
+        "v": [
+          0,
+          18,
+          67,
+          81
+        ]
+      },
+      {
+        "t": "2026-10-27T20:32:00.000Z",
+        "v": [
+          0,
+          21,
+          65,
+          79
+        ]
+      },
+      {
+        "t": "2026-10-27T20:40:00.000Z",
+        "v": [
+          11,
+          15,
+          52,
+          61
+        ]
+      },
+      {
+        "t": "2026-10-27T20:48:00.000Z",
+        "v": [
+          0,
+          25,
+          53,
+          74
+        ]
+      },
+      {
+        "t": "2026-10-27T20:56:00.000Z",
+        "v": [
+          0,
+          16,
+          51,
+          68
+        ]
+      },
+      {
+        "t": "2026-10-27T21:04:00.000Z",
         "v": [
           0,
           0,
-          38,
+          62,
+          66
+        ]
+      },
+      {
+        "t": "2026-10-27T21:12:00.000Z",
+        "v": [
+          0,
+          18,
+          63,
+          68
+        ]
+      },
+      {
+        "t": "2026-10-27T21:20:00.000Z",
+        "v": [
+          0,
+          0,
+          46,
+          49
+        ]
+      },
+      {
+        "t": "2026-10-27T21:28:00.000Z",
+        "v": [
+          0,
+          18,
+          64,
+          73
+        ]
+      },
+      {
+        "t": "2026-10-27T21:36:00.000Z",
+        "v": [
+          0,
+          15,
+          60,
+          71
+        ]
+      },
+      {
+        "t": "2026-10-27T21:44:00.000Z",
+        "v": [
+          0,
+          17,
+          68,
+          74
+        ]
+      },
+      {
+        "t": "2026-10-27T21:52:00.000Z",
+        "v": [
+          0,
+          0,
+          52,
           64
         ]
       },
       {
-        "t": "2026-10-26T23:04:00.000Z",
+        "t": "2026-10-27T22:00:00.000Z",
         "v": [
           0,
-          0,
-          41,
-          45
+          19,
+          61,
+          70
         ]
       },
       {
-        "t": "2026-10-26T23:12:00.000Z",
-        "v": [
-          0,
-          27,
-          43,
-          55
-        ]
-      },
-      {
-        "t": "2026-10-26T23:20:00.000Z",
+        "t": "2026-10-27T22:08:00.000Z",
         "v": [
           0,
           0,
-          38,
-          65
+          64,
+          75
         ]
       },
       {
-        "t": "2026-10-26T23:28:00.000Z",
+        "t": "2026-10-27T22:16:00.000Z",
+        "v": [
+          0,
+          0,
+          58,
+          61
+        ]
+      },
+      {
+        "t": "2026-10-27T22:24:00.000Z",
+        "v": [
+          0,
+          18,
+          46,
+          62
+        ]
+      },
+      {
+        "t": "2026-10-27T22:32:00.000Z",
+        "v": [
+          0,
+          26,
+          51,
+          66
+        ]
+      },
+      {
+        "t": "2026-10-27T22:40:00.000Z",
+        "v": [
+          0,
+          0,
+          44,
+          47
+        ]
+      },
+      {
+        "t": "2026-10-27T22:48:00.000Z",
         "v": [
           0,
           0,
@@ -479,736 +951,736 @@
         ]
       },
       {
-        "t": "2026-10-26T23:36:00.000Z",
+        "t": "2026-10-27T22:56:00.000Z",
         "v": [
           0,
           0,
-          25,
-          43
-        ]
-      },
-      {
-        "t": "2026-10-26T23:44:00.000Z",
-        "v": [
-          0,
-          0,
-          36,
-          54
-        ]
-      },
-      {
-        "t": "2026-10-26T23:52:00.000Z",
-        "v": [
-          0,
-          0,
-          44,
-          57
-        ]
-      },
-      {
-        "t": "2026-10-27T00:00:00.000Z",
-        "v": [
-          0,
-          0,
-          40,
-          32
-        ]
-      },
-      {
-        "t": "2026-10-27T00:08:00.000Z",
-        "v": [
-          0,
-          0,
-          33,
-          39
-        ]
-      },
-      {
-        "t": "2026-10-27T00:16:00.000Z",
-        "v": [
-          0,
-          12,
-          20,
-          39
-        ]
-      },
-      {
-        "t": "2026-10-27T00:24:00.000Z",
-        "v": [
-          0,
-          0,
-          28,
-          38
-        ]
-      },
-      {
-        "t": "2026-10-27T00:32:00.000Z",
-        "v": [
-          0,
-          9,
-          39,
-          49
-        ]
-      },
-      {
-        "t": "2026-10-27T00:40:00.000Z",
-        "v": [
-          0,
-          10,
-          51,
-          54
-        ]
-      },
-      {
-        "t": "2026-10-27T00:48:00.000Z",
-        "v": [
-          0,
-          8,
-          43,
-          59
-        ]
-      },
-      {
-        "t": "2026-10-27T00:56:00.000Z",
-        "v": [
-          0,
-          7,
-          37,
-          43
-        ]
-      },
-      {
-        "t": "2026-10-27T01:04:00.000Z",
-        "v": [
-          0,
-          16,
-          53,
-          57
-        ]
-      },
-      {
-        "t": "2026-10-27T01:12:00.000Z",
-        "v": [
-          0,
-          10,
-          46,
-          56
-        ]
-      },
-      {
-        "t": "2026-10-27T01:20:00.000Z",
-        "v": [
-          0,
-          6,
-          51,
-          51
-        ]
-      },
-      {
-        "t": "2026-10-27T01:28:00.000Z",
-        "v": [
-          0,
-          10,
-          55,
-          65
-        ]
-      },
-      {
-        "t": "2026-10-27T01:36:00.000Z",
-        "v": [
-          0,
-          10,
-          56,
+          38,
           60
         ]
       },
       {
-        "t": "2026-10-27T01:44:00.000Z",
+        "t": "2026-10-27T23:04:00.000Z",
         "v": [
           0,
-          12,
-          59,
-          66
+          0,
+          30,
+          35
         ]
       },
       {
-        "t": "2026-10-27T01:52:00.000Z",
+        "t": "2026-10-27T23:12:00.000Z",
         "v": [
           0,
-          11,
-          63,
-          71
+          0,
+          33,
+          42
         ]
       },
       {
-        "t": "2026-10-27T02:00:00.000Z",
+        "t": "2026-10-27T23:20:00.000Z",
         "v": [
           0,
-          18,
-          66,
-          77
+          0,
+          27,
+          33
         ]
       },
       {
-        "t": "2026-10-27T02:08:00.000Z",
+        "t": "2026-10-27T23:28:00.000Z",
         "v": [
           0,
-          11,
-          64,
-          75
+          0,
+          25,
+          36
         ]
       },
       {
-        "t": "2026-10-27T02:16:00.000Z",
+        "t": "2026-10-27T23:36:00.000Z",
         "v": [
           0,
-          16,
-          69,
-          82
+          0,
+          30,
+          38
         ]
       },
       {
-        "t": "2026-10-27T02:24:00.000Z",
+        "t": "2026-10-27T23:44:00.000Z",
+        "v": [
+          0,
+          0,
+          31,
+          35
+        ]
+      },
+      {
+        "t": "2026-10-27T23:52:00.000Z",
+        "v": [
+          0,
+          0,
+          38,
+          35
+        ]
+      },
+      {
+        "t": "2026-10-28T00:00:00.000Z",
+        "v": [
+          0,
+          0,
+          21,
+          38
+        ]
+      },
+      {
+        "t": "2026-10-28T00:08:00.000Z",
+        "v": [
+          0,
+          10,
+          30,
+          37
+        ]
+      },
+      {
+        "t": "2026-10-28T00:16:00.000Z",
         "v": [
           0,
           8,
-          62,
-          77
+          34,
+          39
         ]
       },
       {
-        "t": "2026-10-27T02:32:00.000Z",
+        "t": "2026-10-28T00:24:00.000Z",
         "v": [
           0,
-          12,
-          73,
-          83
+          0,
+          23,
+          32
         ]
       },
       {
-        "t": "2026-10-27T02:40:00.000Z",
+        "t": "2026-10-28T00:32:00.000Z",
         "v": [
           0,
-          12,
-          78,
-          78
+          7,
+          34,
+          47
         ]
       },
       {
-        "t": "2026-10-27T02:48:00.000Z",
+        "t": "2026-10-28T00:40:00.000Z",
         "v": [
           0,
-          14,
-          68,
-          84
+          7,
+          35,
+          40
         ]
       },
       {
-        "t": "2026-10-27T02:56:00.000Z",
+        "t": "2026-10-28T00:48:00.000Z",
         "v": [
           0,
-          9,
-          73,
-          81
+          8,
+          34,
+          40
         ]
       },
       {
-        "t": "2026-10-27T03:04:00.000Z",
-        "v": [
-          0,
-          11,
-          71,
-          84
-        ]
-      },
-      {
-        "t": "2026-10-27T03:12:00.000Z",
-        "v": [
-          0,
-          13,
-          77,
-          90
-        ]
-      },
-      {
-        "t": "2026-10-27T03:20:00.000Z",
-        "v": [
-          0,
-          10,
-          84,
-          91
-        ]
-      },
-      {
-        "t": "2026-10-27T03:28:00.000Z",
+        "t": "2026-10-28T00:56:00.000Z",
         "v": [
           0,
           9,
-          70,
-          76
+          36,
+          43
         ]
       },
       {
-        "t": "2026-10-27T03:36:00.000Z",
-        "v": [
-          0,
-          11,
-          73,
-          84
-        ]
-      },
-      {
-        "t": "2026-10-27T03:44:00.000Z",
-        "v": [
-          0,
-          13,
-          72,
-          83
-        ]
-      },
-      {
-        "t": "2026-10-27T03:52:00.000Z",
-        "v": [
-          0,
-          13,
-          67,
-          80
-        ]
-      },
-      {
-        "t": "2026-10-27T04:00:00.000Z",
-        "v": [
-          0,
-          16,
-          65,
-          81
-        ]
-      },
-      {
-        "t": "2026-10-27T04:08:00.000Z",
-        "v": [
-          0,
-          12,
-          78,
-          86
-        ]
-      },
-      {
-        "t": "2026-10-27T04:16:00.000Z",
-        "v": [
-          0,
-          13,
-          73,
-          84
-        ]
-      },
-      {
-        "t": "2026-10-27T04:24:00.000Z",
-        "v": [
-          0,
-          13,
-          74,
-          85
-        ]
-      },
-      {
-        "t": "2026-10-27T04:32:00.000Z",
-        "v": [
-          0,
-          13,
-          69,
-          80
-        ]
-      },
-      {
-        "t": "2026-10-27T04:40:00.000Z",
-        "v": [
-          0,
-          11,
-          69,
-          74
-        ]
-      },
-      {
-        "t": "2026-10-27T04:48:00.000Z",
-        "v": [
-          0,
-          15,
-          69,
-          83
-        ]
-      },
-      {
-        "t": "2026-10-27T04:56:00.000Z",
-        "v": [
-          0,
-          13,
-          61,
-          74
-        ]
-      },
-      {
-        "t": "2026-10-27T05:04:00.000Z",
-        "v": [
-          0,
-          12,
-          65,
-          81
-        ]
-      },
-      {
-        "t": "2026-10-27T05:12:00.000Z",
-        "v": [
-          2,
-          12,
-          71,
-          80
-        ]
-      },
-      {
-        "t": "2026-10-27T05:20:00.000Z",
-        "v": [
-          0,
-          13,
-          67,
-          77
-        ]
-      },
-      {
-        "t": "2026-10-27T05:28:00.000Z",
-        "v": [
-          0,
-          14,
-          68,
-          83
-        ]
-      },
-      {
-        "t": "2026-10-27T05:36:00.000Z",
-        "v": [
-          0,
-          13,
-          67,
-          80
-        ]
-      },
-      {
-        "t": "2026-10-27T05:44:00.000Z",
-        "v": [
-          0,
-          14,
-          68,
-          86
-        ]
-      },
-      {
-        "t": "2026-10-27T05:52:00.000Z",
-        "v": [
-          0,
-          15,
-          68,
-          82
-        ]
-      },
-      {
-        "t": "2026-10-27T06:00:00.000Z",
-        "v": [
-          0,
-          12,
-          72,
-          83
-        ]
-      },
-      {
-        "t": "2026-10-27T06:08:00.000Z",
+        "t": "2026-10-28T01:04:00.000Z",
         "v": [
           0,
           10,
-          67,
-          77
+          49,
+          57
         ]
       },
       {
-        "t": "2026-10-27T06:16:00.000Z",
+        "t": "2026-10-28T01:12:00.000Z",
         "v": [
           0,
-          14,
-          68,
-          79
+          7,
+          40,
+          48
         ]
       },
       {
-        "t": "2026-10-27T06:24:00.000Z",
+        "t": "2026-10-28T01:20:00.000Z",
         "v": [
           0,
-          13,
-          74,
-          79
+          9,
+          42,
+          48
         ]
       },
       {
-        "t": "2026-10-27T06:32:00.000Z",
+        "t": "2026-10-28T01:28:00.000Z",
         "v": [
           0,
-          13,
-          65,
-          73
+          8,
+          48,
+          52
         ]
       },
       {
-        "t": "2026-10-27T06:40:00.000Z",
-        "v": [
-          3,
-          12,
-          69,
-          73
-        ]
-      },
-      {
-        "t": "2026-10-27T06:48:00.000Z",
+        "t": "2026-10-28T01:36:00.000Z",
         "v": [
           0,
-          13,
-          63,
-          74
+          10,
+          45,
+          55
         ]
       },
       {
-        "t": "2026-10-27T06:56:00.000Z",
+        "t": "2026-10-28T01:44:00.000Z",
         "v": [
           0,
-          13,
-          63,
-          72
+          10,
+          40,
+          53
         ]
       },
       {
-        "t": "2026-10-27T07:04:00.000Z",
+        "t": "2026-10-28T01:52:00.000Z",
         "v": [
           0,
-          15,
-          68,
-          74
+          10,
+          54,
+          55
         ]
       },
       {
-        "t": "2026-10-27T07:12:00.000Z",
+        "t": "2026-10-28T02:00:00.000Z",
         "v": [
           0,
-          15,
-          70,
-          78
+          8,
+          50,
+          61
         ]
       },
       {
-        "t": "2026-10-27T07:20:00.000Z",
+        "t": "2026-10-28T02:08:00.000Z",
         "v": [
           0,
-          11,
+          10,
           64,
+          67
+        ]
+      },
+      {
+        "t": "2026-10-28T02:16:00.000Z",
+        "v": [
+          0,
+          12,
+          65,
           74
         ]
       },
       {
-        "t": "2026-10-27T07:28:00.000Z",
-        "v": [
-          0,
-          13,
-          65,
-          79
-        ]
-      },
-      {
-        "t": "2026-10-27T07:36:00.000Z",
-        "v": [
-          0,
-          12,
-          63,
-          75
-        ]
-      },
-      {
-        "t": "2026-10-27T07:44:00.000Z",
-        "v": [
-          0,
-          10,
-          65,
-          72
-        ]
-      },
-      {
-        "t": "2026-10-27T07:52:00.000Z",
-        "v": [
-          0,
-          13,
-          62,
-          72
-        ]
-      },
-      {
-        "t": "2026-10-27T08:00:00.000Z",
-        "v": [
-          0,
-          12,
-          67,
-          75
-        ]
-      },
-      {
-        "t": "2026-10-27T08:08:00.000Z",
-        "v": [
-          0,
-          9,
-          63,
-          74
-        ]
-      },
-      {
-        "t": "2026-10-27T08:16:00.000Z",
+        "t": "2026-10-28T02:24:00.000Z",
         "v": [
           0,
           11,
-          71,
-          78
-        ]
-      },
-      {
-        "t": "2026-10-27T08:24:00.000Z",
-        "v": [
-          0,
-          13,
-          68,
-          75
-        ]
-      },
-      {
-        "t": "2026-10-27T08:32:00.000Z",
-        "v": [
-          0,
-          13,
-          64,
-          76
-        ]
-      },
-      {
-        "t": "2026-10-27T08:40:00.000Z",
-        "v": [
-          0,
-          14,
-          70,
-          78
-        ]
-      },
-      {
-        "t": "2026-10-27T08:48:00.000Z",
-        "v": [
-          0,
-          11,
-          56,
-          70
-        ]
-      },
-      {
-        "t": "2026-10-27T08:56:00.000Z",
-        "v": [
-          0,
-          13,
-          59,
-          70
-        ]
-      },
-      {
-        "t": "2026-10-27T09:04:00.000Z",
-        "v": [
-          0,
-          14,
-          62,
-          74
-        ]
-      },
-      {
-        "t": "2026-10-27T09:12:00.000Z",
-        "v": [
-          2,
-          12,
-          59,
-          66
-        ]
-      },
-      {
-        "t": "2026-10-27T09:20:00.000Z",
-        "v": [
-          3,
-          10,
-          59,
-          68
-        ]
-      },
-      {
-        "t": "2026-10-27T09:28:00.000Z",
-        "v": [
-          0,
-          12,
-          61,
-          70
-        ]
-      },
-      {
-        "t": "2026-10-27T09:36:00.000Z",
-        "v": [
-          0,
-          10,
-          61,
-          71
-        ]
-      },
-      {
-        "t": "2026-10-27T09:44:00.000Z",
-        "v": [
-          0,
-          12,
-          56,
-          65
-        ]
-      },
-      {
-        "t": "2026-10-27T09:52:00.000Z",
-        "v": [
-          0,
-          10,
           55,
-          65
+          63
         ]
       },
       {
-        "t": "2026-10-27T10:00:00.000Z",
+        "t": "2026-10-28T02:32:00.000Z",
         "v": [
           0,
-          13,
-          59,
-          68
-        ]
-      },
-      {
-        "t": "2026-10-27T10:08:00.000Z",
-        "v": [
-          3,
           11,
-          60,
-          70
-        ]
-      },
-      {
-        "t": "2026-10-27T10:16:00.000Z",
-        "v": [
-          0,
-          12,
-          58,
+          65,
           69
         ]
       },
       {
-        "t": "2026-10-27T10:24:00.000Z",
+        "t": "2026-10-28T02:40:00.000Z",
+        "v": [
+          0,
+          12,
+          64,
+          71
+        ]
+      },
+      {
+        "t": "2026-10-28T02:48:00.000Z",
+        "v": [
+          4,
+          15,
+          72,
+          79
+        ]
+      },
+      {
+        "t": "2026-10-28T02:56:00.000Z",
+        "v": [
+          0,
+          13,
+          68,
+          72
+        ]
+      },
+      {
+        "t": "2026-10-28T03:04:00.000Z",
+        "v": [
+          0,
+          11,
+          79,
+          90
+        ]
+      },
+      {
+        "t": "2026-10-28T03:12:00.000Z",
+        "v": [
+          0,
+          12,
+          72,
+          85
+        ]
+      },
+      {
+        "t": "2026-10-28T03:20:00.000Z",
+        "v": [
+          0,
+          10,
+          66,
+          72
+        ]
+      },
+      {
+        "t": "2026-10-28T03:28:00.000Z",
+        "v": [
+          0,
+          14,
+          63,
+          75
+        ]
+      },
+      {
+        "t": "2026-10-28T03:36:00.000Z",
+        "v": [
+          0,
+          10,
+          59,
+          73
+        ]
+      },
+      {
+        "t": "2026-10-28T03:44:00.000Z",
+        "v": [
+          0,
+          12,
+          66,
+          76
+        ]
+      },
+      {
+        "t": "2026-10-28T03:52:00.000Z",
+        "v": [
+          0,
+          11,
+          69,
+          78
+        ]
+      },
+      {
+        "t": "2026-10-28T04:00:00.000Z",
+        "v": [
+          0,
+          11,
+          71,
+          78
+        ]
+      },
+      {
+        "t": "2026-10-28T04:08:00.000Z",
+        "v": [
+          0,
+          12,
+          64,
+          72
+        ]
+      },
+      {
+        "t": "2026-10-28T04:16:00.000Z",
+        "v": [
+          0,
+          12,
+          66,
+          72
+        ]
+      },
+      {
+        "t": "2026-10-28T04:24:00.000Z",
+        "v": [
+          0,
+          14,
+          56,
+          66
+        ]
+      },
+      {
+        "t": "2026-10-28T04:32:00.000Z",
+        "v": [
+          2,
+          15,
+          66,
+          73
+        ]
+      },
+      {
+        "t": "2026-10-28T04:40:00.000Z",
+        "v": [
+          0,
+          12,
+          62,
+          68
+        ]
+      },
+      {
+        "t": "2026-10-28T04:48:00.000Z",
+        "v": [
+          0,
+          12,
+          69,
+          74
+        ]
+      },
+      {
+        "t": "2026-10-28T04:56:00.000Z",
+        "v": [
+          0,
+          11,
+          60,
+          66
+        ]
+      },
+      {
+        "t": "2026-10-28T05:04:00.000Z",
+        "v": [
+          2,
+          11,
+          64,
+          72
+        ]
+      },
+      {
+        "t": "2026-10-28T05:12:00.000Z",
+        "v": [
+          0,
+          9,
+          62,
+          67
+        ]
+      },
+      {
+        "t": "2026-10-28T05:20:00.000Z",
+        "v": [
+          0,
+          13,
+          65,
+          73
+        ]
+      },
+      {
+        "t": "2026-10-28T05:28:00.000Z",
+        "v": [
+          0,
+          12,
+          63,
+          76
+        ]
+      },
+      {
+        "t": "2026-10-28T05:36:00.000Z",
+        "v": [
+          0,
+          11,
+          71,
+          74
+        ]
+      },
+      {
+        "t": "2026-10-28T05:44:00.000Z",
+        "v": [
+          0,
+          10,
+          66,
+          71
+        ]
+      },
+      {
+        "t": "2026-10-28T05:52:00.000Z",
+        "v": [
+          0,
+          12,
+          65,
+          75
+        ]
+      },
+      {
+        "t": "2026-10-28T06:00:00.000Z",
+        "v": [
+          0,
+          14,
+          64,
+          77
+        ]
+      },
+      {
+        "t": "2026-10-28T06:08:00.000Z",
+        "v": [
+          0,
+          14,
+          64,
+          78
+        ]
+      },
+      {
+        "t": "2026-10-28T06:16:00.000Z",
+        "v": [
+          0,
+          14,
+          67,
+          80
+        ]
+      },
+      {
+        "t": "2026-10-28T06:24:00.000Z",
+        "v": [
+          0,
+          11,
+          61,
+          70
+        ]
+      },
+      {
+        "t": "2026-10-28T06:32:00.000Z",
+        "v": [
+          0,
+          12,
+          65,
+          72
+        ]
+      },
+      {
+        "t": "2026-10-28T06:40:00.000Z",
+        "v": [
+          0,
+          12,
+          64,
+          71
+        ]
+      },
+      {
+        "t": "2026-10-28T06:48:00.000Z",
+        "v": [
+          2,
+          11,
+          61,
+          72
+        ]
+      },
+      {
+        "t": "2026-10-28T06:56:00.000Z",
+        "v": [
+          0,
+          13,
+          68,
+          80
+        ]
+      },
+      {
+        "t": "2026-10-28T07:04:00.000Z",
+        "v": [
+          0,
+          13,
+          68,
+          77
+        ]
+      },
+      {
+        "t": "2026-10-28T07:12:00.000Z",
+        "v": [
+          0,
+          12,
+          70,
+          82
+        ]
+      },
+      {
+        "t": "2026-10-28T07:20:00.000Z",
+        "v": [
+          0,
+          12,
+          69,
+          78
+        ]
+      },
+      {
+        "t": "2026-10-28T07:28:00.000Z",
+        "v": [
+          0,
+          13,
+          71,
+          78
+        ]
+      },
+      {
+        "t": "2026-10-28T07:36:00.000Z",
+        "v": [
+          0,
+          11,
+          67,
+          72
+        ]
+      },
+      {
+        "t": "2026-10-28T07:44:00.000Z",
+        "v": [
+          0,
+          11,
+          62,
+          71
+        ]
+      },
+      {
+        "t": "2026-10-28T07:52:00.000Z",
+        "v": [
+          0,
+          10,
+          74,
+          79
+        ]
+      },
+      {
+        "t": "2026-10-28T08:00:00.000Z",
+        "v": [
+          0,
+          14,
+          69,
+          81
+        ]
+      },
+      {
+        "t": "2026-10-28T08:08:00.000Z",
+        "v": [
+          0,
+          13,
+          62,
+          77
+        ]
+      },
+      {
+        "t": "2026-10-28T08:16:00.000Z",
+        "v": [
+          0,
+          9,
+          73,
+          77
+        ]
+      },
+      {
+        "t": "2026-10-28T08:24:00.000Z",
+        "v": [
+          0,
+          12,
+          65,
+          74
+        ]
+      },
+      {
+        "t": "2026-10-28T08:32:00.000Z",
+        "v": [
+          0,
+          12,
+          71,
+          78
+        ]
+      },
+      {
+        "t": "2026-10-28T08:40:00.000Z",
+        "v": [
+          0,
+          13,
+          64,
+          75
+        ]
+      },
+      {
+        "t": "2026-10-28T08:48:00.000Z",
+        "v": [
+          0,
+          15,
+          67,
+          79
+        ]
+      },
+      {
+        "t": "2026-10-28T08:56:00.000Z",
+        "v": [
+          0,
+          14,
+          62,
+          70
+        ]
+      },
+      {
+        "t": "2026-10-28T09:04:00.000Z",
+        "v": [
+          0,
+          11,
+          70,
+          79
+        ]
+      },
+      {
+        "t": "2026-10-28T09:12:00.000Z",
+        "v": [
+          0,
+          11,
+          70,
+          75
+        ]
+      },
+      {
+        "t": "2026-10-28T09:20:00.000Z",
+        "v": [
+          0,
+          11,
+          71,
+          73
+        ]
+      },
+      {
+        "t": "2026-10-28T09:28:00.000Z",
+        "v": [
+          0,
+          11,
+          64,
+          76
+        ]
+      },
+      {
+        "t": "2026-10-28T09:36:00.000Z",
+        "v": [
+          0,
+          12,
+          59,
+          68
+        ]
+      },
+      {
+        "t": "2026-10-28T09:44:00.000Z",
         "v": [
           0,
           12,
@@ -1217,840 +1689,381 @@
         ]
       },
       {
-        "t": "2026-10-27T10:32:00.000Z",
+        "t": "2026-10-28T09:52:00.000Z",
         "v": [
-          4,
-          13,
+          2,
+          12,
           63,
+          74
+        ]
+      },
+      {
+        "t": "2026-10-28T10:00:00.000Z",
+        "v": [
+          0,
+          13,
+          64,
+          74
+        ]
+      },
+      {
+        "t": "2026-10-28T10:08:00.000Z",
+        "v": [
+          0,
+          13,
+          64,
+          73
+        ]
+      },
+      {
+        "t": "2026-10-28T10:16:00.000Z",
+        "v": [
+          0,
+          14,
+          66,
+          75
+        ]
+      },
+      {
+        "t": "2026-10-28T10:24:00.000Z",
+        "v": [
+          2,
+          11,
+          68,
+          74
+        ]
+      },
+      {
+        "t": "2026-10-28T10:32:00.000Z",
+        "v": [
+          0,
+          11,
+          66,
           71
         ]
       },
       {
-        "t": "2026-10-27T10:40:00.000Z",
+        "t": "2026-10-28T10:40:00.000Z",
         "v": [
           0,
-          14,
-          78,
-          90
-        ]
-      },
-      {
-        "t": "2026-10-27T10:48:00.000Z",
-        "v": [
-          0,
-          14,
-          71,
-          79
-        ]
-      },
-      {
-        "t": "2026-10-27T10:56:00.000Z",
-        "v": [
-          0,
-          13,
-          68,
+          12,
+          69,
           76
         ]
       },
       {
-        "t": "2026-10-27T11:04:00.000Z",
-        "v": [
-          0,
-          12,
-          67,
-          78
-        ]
-      },
-      {
-        "t": "2026-10-27T11:12:00.000Z",
-        "v": [
-          0,
-          14,
-          77,
-          88
-        ]
-      },
-      {
-        "t": "2026-10-27T11:20:00.000Z",
-        "v": [
-          0,
-          16,
-          71,
-          85
-        ]
-      },
-      {
-        "t": "2026-10-27T11:28:00.000Z",
-        "v": [
-          0,
-          11,
-          71,
-          80
-        ]
-      },
-      {
-        "t": "2026-10-27T11:36:00.000Z",
-        "v": [
-          0,
-          14,
-          77,
-          86
-        ]
-      },
-      {
-        "t": "2026-10-27T11:44:00.000Z",
-        "v": [
-          0,
-          11,
-          75,
-          85
-        ]
-      },
-      {
-        "t": "2026-10-27T11:52:00.000Z",
-        "v": [
-          0,
-          12,
-          76,
-          87
-        ]
-      },
-      {
-        "t": "2026-10-27T12:00:00.000Z",
-        "v": [
-          0,
-          13,
-          70,
-          82
-        ]
-      },
-      {
-        "t": "2026-10-27T12:08:00.000Z",
-        "v": [
-          0,
-          14,
-          75,
-          87
-        ]
-      },
-      {
-        "t": "2026-10-27T12:16:00.000Z",
+        "t": "2026-10-28T10:48:00.000Z",
         "v": [
           0,
           14,
           72,
+          81
+        ]
+      },
+      {
+        "t": "2026-10-28T10:56:00.000Z",
+        "v": [
+          0,
+          14,
+          73,
+          79
+        ]
+      },
+      {
+        "t": "2026-10-28T11:04:00.000Z",
+        "v": [
+          0,
+          14,
+          70,
+          79
+        ]
+      },
+      {
+        "t": "2026-10-28T11:12:00.000Z",
+        "v": [
+          0,
+          13,
+          66,
+          75
+        ]
+      },
+      {
+        "t": "2026-10-28T11:20:00.000Z",
+        "v": [
+          0,
+          15,
+          69,
+          80
+        ]
+      },
+      {
+        "t": "2026-10-28T11:28:00.000Z",
+        "v": [
+          0,
+          10,
+          68,
+          75
+        ]
+      },
+      {
+        "t": "2026-10-28T11:36:00.000Z",
+        "v": [
+          0,
+          9,
+          69,
+          76
+        ]
+      },
+      {
+        "t": "2026-10-28T11:44:00.000Z",
+        "v": [
+          0,
+          13,
+          72,
+          79
+        ]
+      },
+      {
+        "t": "2026-10-28T11:52:00.000Z",
+        "v": [
+          0,
+          17,
+          79,
+          87
+        ]
+      },
+      {
+        "t": "2026-10-28T12:00:00.000Z",
+        "v": [
+          0,
+          13,
+          80,
+          82
+        ]
+      },
+      {
+        "t": "2026-10-28T12:08:00.000Z",
+        "v": [
+          0,
+          13,
+          79,
+          86
+        ]
+      },
+      {
+        "t": "2026-10-28T12:16:00.000Z",
+        "v": [
+          0,
+          17,
+          73,
+          85
+        ]
+      },
+      {
+        "t": "2026-10-28T12:24:00.000Z",
+        "v": [
+          0,
+          13,
+          73,
           83
         ]
       },
       {
-        "t": "2026-10-27T12:24:00.000Z",
+        "t": "2026-10-28T12:32:00.000Z",
+        "v": [
+          0,
+          12,
+          73,
+          82
+        ]
+      },
+      {
+        "t": "2026-10-28T12:40:00.000Z",
         "v": [
           0,
           11,
+          73,
+          78
+        ]
+      },
+      {
+        "t": "2026-10-28T12:48:00.000Z",
+        "v": [
+          0,
+          13,
+          76,
+          82
+        ]
+      },
+      {
+        "t": "2026-10-28T12:56:00.000Z",
+        "v": [
+          0,
+          13,
+          73,
+          81
+        ]
+      },
+      {
+        "t": "2026-10-28T13:04:00.000Z",
+        "v": [
+          2,
+          12,
           79,
-          85
+          83
         ]
       },
       {
-        "t": "2026-10-27T12:32:00.000Z",
+        "t": "2026-10-28T13:12:00.000Z",
         "v": [
           0,
-          17,
-          77,
-          86
-        ]
-      },
-      {
-        "t": "2026-10-27T12:40:00.000Z",
-        "v": [
-          0,
-          15,
+          12,
           75,
-          85
+          77
         ]
       },
       {
-        "t": "2026-10-27T12:48:00.000Z",
+        "t": "2026-10-28T13:20:00.000Z",
+        "v": [
+          0,
+          11,
+          85,
+          90
+        ]
+      },
+      {
+        "t": "2026-10-28T13:28:00.000Z",
+        "v": [
+          0,
+          13,
+          78,
+          84
+        ]
+      },
+      {
+        "t": "2026-10-28T13:36:00.000Z",
         "v": [
           0,
           13,
           79,
-          85
+          87
         ]
       },
       {
-        "t": "2026-10-27T12:56:00.000Z",
+        "t": "2026-10-28T13:44:00.000Z",
         "v": [
           0,
-          14,
-          77,
-          88
-        ]
-      },
-      {
-        "t": "2026-10-27T13:04:00.000Z",
-        "v": [
-          0,
-          16,
-          76,
+          15,
+          78,
           89
         ]
       },
       {
-        "t": "2026-10-27T13:12:00.000Z",
+        "t": "2026-10-28T13:52:00.000Z",
         "v": [
           0,
-          13,
-          81,
-          88
-        ]
-      },
-      {
-        "t": "2026-10-27T13:20:00.000Z",
-        "v": [
-          0,
-          14,
-          82,
-          93
-        ]
-      },
-      {
-        "t": "2026-10-27T13:28:00.000Z",
-        "v": [
-          0,
-          13,
-          81,
-          93
-        ]
-      },
-      {
-        "t": "2026-10-27T13:36:00.000Z",
-        "v": [
-          0,
-          13,
-          78,
-          86
-        ]
-      },
-      {
-        "t": "2026-10-27T13:44:00.000Z",
-        "v": [
-          0,
-          18,
-          84,
-          96
-        ]
-      },
-      {
-        "t": "2026-10-27T13:52:00.000Z",
-        "v": [
-          0,
-          14,
-          88,
-          99
-        ]
-      },
-      {
-        "t": "2026-10-27T14:00:00.000Z",
-        "v": [
-          0,
-          13,
-          83,
+          15,
+          86,
           91
         ]
       },
       {
-        "t": "2026-10-27T14:08:00.000Z",
-        "v": [
-          0,
-          16,
-          84,
-          97
-        ]
-      },
-      {
-        "t": "2026-10-27T14:16:00.000Z",
-        "v": [
-          0,
-          17,
-          91,
-          98
-        ]
-      },
-      {
-        "t": "2026-10-27T14:24:00.000Z",
+        "t": "2026-10-28T14:00:00.000Z",
         "v": [
           0,
           15,
-          77,
-          88
-        ]
-      },
-      {
-        "t": "2026-10-27T14:32:00.000Z",
-        "v": [
-          3,
-          13,
-          81,
-          96
-        ]
-      },
-      {
-        "t": "2026-10-27T14:40:00.000Z",
-        "v": [
-          0,
-          14,
-          89,
-          95
-        ]
-      },
-      {
-        "t": "2026-10-27T14:48:00.000Z",
-        "v": [
-          0,
-          13,
           78,
-          85
+          89
         ]
       },
       {
-        "t": "2026-10-27T14:56:00.000Z",
+        "t": "2026-10-28T14:08:00.000Z",
         "v": [
           0,
           15,
-          89,
-          98
-        ]
-      },
-      {
-        "t": "2026-10-27T15:04:00.000Z",
-        "v": [
-          0,
-          16,
           84,
           100
         ]
       },
       {
-        "t": "2026-10-27T15:12:00.000Z",
+        "t": "2026-10-28T14:16:00.000Z",
         "v": [
           0,
           17,
           82,
-          95
+          90
         ]
       },
       {
-        "t": "2026-10-27T15:20:00.000Z",
+        "t": "2026-10-28T14:24:00.000Z",
         "v": [
           0,
           14,
-          85,
-          95
+          79,
+          88
         ]
       },
       {
-        "t": "2026-10-27T15:28:00.000Z",
+        "t": "2026-10-28T14:32:00.000Z",
         "v": [
-          2,
-          15,
-          85,
+          0,
+          14,
+          90,
           94
         ]
       },
       {
-        "t": "2026-10-27T15:36:00.000Z",
+        "t": "2026-10-28T14:40:00.000Z",
         "v": [
           0,
           15,
-          78,
-          87
+          81,
+          89
         ]
       },
       {
-        "t": "2026-10-27T15:44:00.000Z",
-        "v": [
-          0,
-          17,
-          85,
-          92
-        ]
-      },
-      {
-        "t": "2026-10-27T15:52:00.000Z",
+        "t": "2026-10-28T14:48:00.000Z",
         "v": [
           0,
           15,
-          80,
-          93
-        ]
-      },
-      {
-        "t": "2026-10-27T16:00:00.000Z",
-        "v": [
-          0,
-          14,
           76,
+          86
+        ]
+      },
+      {
+        "t": "2026-10-28T14:56:00.000Z",
+        "v": [
+          0,
+          12,
+          81,
+          86
+        ]
+      },
+      {
+        "t": "2026-10-28T15:04:00.000Z",
+        "v": [
+          3,
+          11,
+          83,
           88
         ]
       },
       {
-        "t": "2026-10-27T16:08:00.000Z",
+        "t": "2026-10-28T15:12:00.000Z",
         "v": [
           0,
-          14,
-          85,
-          99
+          15,
+          82,
+          93
         ]
       },
       {
-        "t": "2026-10-27T16:16:00.000Z",
+        "t": "2026-10-28T15:20:00.000Z",
         "v": [
           0,
           16,
           79,
-          83
-        ]
-      },
-      {
-        "t": "2026-10-27T16:24:00.000Z",
-        "v": [
-          0,
-          16,
-          76,
-          87
-        ]
-      },
-      {
-        "t": "2026-10-27T16:32:00.000Z",
-        "v": [
-          0,
-          17,
-          73,
-          93
-        ]
-      },
-      {
-        "t": "2026-10-27T16:40:00.000Z",
-        "v": [
-          0,
-          16,
-          77,
-          88
-        ]
-      },
-      {
-        "t": "2026-10-27T16:48:00.000Z",
-        "v": [
-          0,
-          12,
-          71,
-          83
-        ]
-      },
-      {
-        "t": "2026-10-27T16:56:00.000Z",
-        "v": [
-          0,
-          15,
-          69,
-          75
-        ]
-      },
-      {
-        "t": "2026-10-27T17:04:00.000Z",
-        "v": [
-          0,
-          16,
-          67,
-          77
-        ]
-      },
-      {
-        "t": "2026-10-27T17:12:00.000Z",
-        "v": [
-          0,
-          17,
-          78,
-          92
-        ]
-      },
-      {
-        "t": "2026-10-27T17:20:00.000Z",
-        "v": [
-          0,
-          15,
-          73,
-          78
-        ]
-      },
-      {
-        "t": "2026-10-27T17:28:00.000Z",
-        "v": [
-          0,
-          17,
-          74,
-          85
-        ]
-      },
-      {
-        "t": "2026-10-27T17:36:00.000Z",
-        "v": [
-          0,
-          14,
-          69,
-          80
-        ]
-      },
-      {
-        "t": "2026-10-27T17:44:00.000Z",
-        "v": [
-          0,
-          19,
-          68,
-          85
-        ]
-      },
-      {
-        "t": "2026-10-27T17:52:00.000Z",
-        "v": [
-          0,
-          17,
-          65,
-          79
-        ]
-      },
-      {
-        "t": "2026-10-27T18:00:00.000Z",
-        "v": [
-          0,
-          13,
-          64,
-          68
-        ]
-      },
-      {
-        "t": "2026-10-27T18:08:00.000Z",
-        "v": [
-          0,
-          17,
-          64,
-          78
-        ]
-      },
-      {
-        "t": "2026-10-27T18:16:00.000Z",
-        "v": [
-          0,
-          14,
-          65,
-          77
-        ]
-      },
-      {
-        "t": "2026-10-27T18:24:00.000Z",
-        "v": [
-          0,
-          21,
-          68,
-          89
-        ]
-      },
-      {
-        "t": "2026-10-27T18:32:00.000Z",
-        "v": [
-          0,
-          16,
-          67,
-          79
-        ]
-      },
-      {
-        "t": "2026-10-27T18:40:00.000Z",
-        "v": [
-          0,
-          14,
-          60,
-          73
-        ]
-      },
-      {
-        "t": "2026-10-27T18:48:00.000Z",
-        "v": [
-          0,
-          19,
-          62,
-          71
-        ]
-      },
-      {
-        "t": "2026-10-27T18:56:00.000Z",
-        "v": [
-          0,
-          13,
-          64,
-          76
-        ]
-      },
-      {
-        "t": "2026-10-27T19:04:00.000Z",
-        "v": [
-          0,
-          17,
-          65,
-          82
-        ]
-      },
-      {
-        "t": "2026-10-27T19:12:00.000Z",
-        "v": [
-          0,
-          18,
-          75,
-          89
-        ]
-      },
-      {
-        "t": "2026-10-27T19:20:00.000Z",
-        "v": [
-          0,
-          18,
-          62,
-          78
-        ]
-      },
-      {
-        "t": "2026-10-27T19:28:00.000Z",
-        "v": [
-          0,
-          15,
-          65,
-          77
-        ]
-      },
-      {
-        "t": "2026-10-27T19:36:00.000Z",
-        "v": [
-          0,
-          18,
-          76,
-          84
-        ]
-      },
-      {
-        "t": "2026-10-27T19:44:00.000Z",
-        "v": [
-          0,
-          26,
-          69,
-          83
-        ]
-      },
-      {
-        "t": "2026-10-27T19:52:00.000Z",
-        "v": [
-          0,
-          15,
-          52,
-          73
-        ]
-      },
-      {
-        "t": "2026-10-27T20:00:00.000Z",
-        "v": [
-          0,
-          14,
-          53,
-          66
-        ]
-      },
-      {
-        "t": "2026-10-27T20:08:00.000Z",
-        "v": [
-          0,
-          15,
-          64,
-          75
-        ]
-      },
-      {
-        "t": "2026-10-27T20:16:00.000Z",
-        "v": [
-          0,
-          13,
-          67,
-          74
-        ]
-      },
-      {
-        "t": "2026-10-27T20:24:00.000Z",
-        "v": [
-          0,
-          17,
-          65,
-          85
-        ]
-      },
-      {
-        "t": "2026-10-27T20:32:00.000Z",
-        "v": [
-          0,
-          17,
-          71,
-          82
-        ]
-      },
-      {
-        "t": "2026-10-27T20:40:00.000Z",
-        "v": [
-          0,
-          11,
-          48,
-          69
-        ]
-      },
-      {
-        "t": "2026-10-27T20:48:00.000Z",
-        "v": [
-          0,
-          26,
-          57,
-          73
-        ]
-      },
-      {
-        "t": "2026-10-27T20:56:00.000Z",
-        "v": [
-          0,
-          0,
-          52,
-          65
-        ]
-      },
-      {
-        "t": "2026-10-27T21:04:00.000Z",
-        "v": [
-          0,
-          0,
-          64,
-          61
-        ]
-      },
-      {
-        "t": "2026-10-27T21:12:00.000Z",
-        "v": [
-          0,
-          0,
-          66,
-          72
-        ]
-      },
-      {
-        "t": "2026-10-27T21:20:00.000Z",
-        "v": [
-          0,
-          0,
-          53,
-          57
-        ]
-      },
-      {
-        "t": "2026-10-27T21:28:00.000Z",
-        "v": [
-          0,
-          0,
-          62,
-          79
-        ]
-      },
-      {
-        "t": "2026-10-27T21:36:00.000Z",
-        "v": [
-          0,
-          17,
-          59,
-          65
-        ]
-      },
-      {
-        "t": "2026-10-27T21:44:00.000Z",
-        "v": [
-          0,
-          0,
-          54,
-          73
-        ]
-      },
-      {
-        "t": "2026-10-27T21:52:00.000Z",
-        "v": [
-          0,
-          0,
-          56,
-          64
-        ]
-      },
-      {
-        "t": "2026-10-27T22:00:00.000Z",
-        "v": [
-          0,
-          0,
-          58,
-          74
-        ]
-      },
-      {
-        "t": "2026-10-27T22:08:00.000Z",
-        "v": [
-          0,
-          0,
-          80,
-          79
-        ]
-      },
-      {
-        "t": "2026-10-27T22:16:00.000Z",
-        "v": [
-          0,
-          0,
-          59,
-          59
-        ]
-      },
-      {
-        "t": "2026-10-27T22:24:00.000Z",
-        "v": [
-          0,
-          0,
-          45,
-          64
-        ]
-      },
-      {
-        "t": "2026-10-27T22:32:00.000Z",
-        "v": [
-          0,
-          17,
-          54,
-          69
-        ]
-      },
-      {
-        "t": "2026-10-27T22:40:00.000Z",
-        "v": [
-          0,
-          0,
-          45,
-          65
-        ]
-      },
-      {
-        "t": "2026-10-27T22:48:00.000Z",
-        "v": [
-          0,
-          0,
-          51,
-          49
+          91
         ]
       }
     ]
