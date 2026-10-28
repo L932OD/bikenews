@@ -334,6 +334,48 @@ async function readStores(sec, known) {
   return { items: out, status };
 }
 
+// ---------- Brand channels on YouTube ----------
+
+// Every YouTube channel has a public feed of its latest videos. Brands often post teasers and launch films there
+// before the press writes about them. Videos from the last window_hours become pool items like any story.
+async function readYouTube(yt) {
+  const status = { id: yt.id, name: yt.name, status: 'ok', in_pool: 0 };
+  const failed = [];
+  const out = [];
+  const list = (x) => (Array.isArray(x) ? x : x ? [x] : []);
+  for (const ch of yt.channels) {
+    try {
+      const res = await get(`${yt.url}${ch.channel_id}`);
+      for (const e of list(xml.parse(res.body).feed?.entry)) {
+        const published = e.published;
+        if (!published || now - Date.parse(published) > yt.window_hours * 3_600_000) continue;
+        const title = clean(e.title?.['#text'] ?? e.title);
+        if (offTopic(title)) continue;
+        const url = `https://www.youtube.com/watch?v=${e['yt:videoId']}`;
+        const desc = clean(e['media:group']?.['media:description']?.['#text'] ?? e['media:group']?.['media:description'] ?? '');
+        out.push({
+          id: `${yt.id}-${itemId(url)}`,
+          source: `${ch.name} on YouTube`,
+          source_id: yt.id,
+          from_youtube: true,
+          channel_kind: ch.kind,
+          title,
+          published_at: new Date(published).toISOString(),
+          summary: clip(desc, config.summary_chars),
+          url,
+          text: clip(desc, yt.text_chars),
+        });
+      }
+    } catch (err) {
+      failed.push(`${ch.name} (${String(err.message || err)})`);
+    }
+  }
+  status.in_pool = out.length;
+  if (failed.length) status.error = `no feed from ${failed.join(', ')}`;
+  if (failed.length === yt.channels.length) status.status = 'failed';
+  return { items: out, status };
+}
+
 // ---------- Google Trends Explore ----------
 
 // The same data the Explore page draws: interest over time for each keyword, what people searched alongside
@@ -514,6 +556,18 @@ for (const r of report) {
 report.sort((a, b) => (order.get(a.id) ?? 99) - (order.get(b.id) ?? 99));
 report.push(trendsStatus, categoryStatus);
 
+// Brand videos join the news: a teaser on a brand's own channel is a source like any article.
+if (config.youtube) {
+  const yt = await readYouTube(config.youtube);
+  for (const v of yt.items) {
+    const key = normUrl(v.url);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    items.push(v);
+  }
+  report.push(yt.status);
+}
+
 // Section searches, after the news so their stories are not counted twice.
 const knownUrls = new Set(items.map((it) => normUrl(it.url)));
 const sections = {};
@@ -559,6 +613,7 @@ const pool = {
   accessories: sections.accessories ?? [],
   brands: (config.sections.accessories?.brands ?? []).map(({ name, aka, made_in }) => ({ name, aka, made_in })),
   events_calendar: (await readJson(path('content/events.json'), { events: [] })).events,
+  upcoming_calendar: (await readJson(path('content/upcoming.json'), { items: [] })).items,
   previous_edition: previous,
 };
 

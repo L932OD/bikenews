@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 // Make a validated edition the live one:
 //   content/latest.json    the edition itself
-//   content/archive.json   the editions kept (the last keep_days days)
+//   content/archive.json   the editions kept (the last archive_days days; the Feed shows the last keep_days)
 //   content/events.json    every event still to come, built up day by day
 //   content/trends.json    today's Google Trends data, plus a short history
 //   content/brands.json    the aftermarket brands we follow, with their sites and Instagram
-// Editions older than keep_days are deleted. Events stay until they are over.
+//   content/upcoming.json  bikes and gear teased or announced, until they launch or their date passes
+// Editions older than archive_days are deleted. Events stay until they are over.
 // Usage: node scripts/publish.mjs content/editions/YYYY-MM-DD.json
 import { readdir, unlink } from 'node:fs/promises';
 import { path, readJson, writeJson, addDays } from './lib.mjs';
@@ -21,12 +22,13 @@ const keep = config.keep_days;
 const ed = await readJson(file);
 const today = ed.edition;
 const cutoff = addDays(today, -(keep - 1));
+const archiveCutoff = addDays(today, -(config.archive_days - 1));
 const count = (ed.lead ? 1 : 0) + (ed.subs?.length || 0) + (ed.headlines?.length || 0);
 const pool = await readJson(path('pool', `${today}.json`), {});
 
 await writeJson(path('content/latest.json'), ed);
 
-// ---------- Archive: the last keep_days editions ----------
+// ---------- Archive: the last archive_days editions ----------
 
 const archive = await readJson(path('content/archive.json'), { editions: [] });
 const entry = {
@@ -38,16 +40,21 @@ const entry = {
   lead: ed.lead?.headline ?? ed.subs?.[0]?.headline ?? ed.headlines?.[0]?.headline ?? null,
 };
 archive.editions = [entry, ...archive.editions.filter((e) => e.edition !== ed.edition)]
-  .filter((e) => e.edition >= cutoff)
+  .filter((e) => e.edition >= archiveCutoff)
   .sort((a, b) => b.edition.localeCompare(a.edition));
 // What the page shows: how many accessories, and how far ahead the events calendar looks.
-archive.page = { accessories_shown: config.limits.accessories_shown, events_ahead_months: config.limits.events_ahead_months };
+archive.page = {
+  feed_days: keep,
+  accessories_shown: config.limits.accessories_shown,
+  events_ahead_months: config.limits.events_ahead_months,
+  new_session_minutes: config.limits.new_session_minutes,
+};
 await writeJson(path('content/archive.json'), archive);
 
 let removed = 0;
 for (const f of await readdir(path('content/editions'))) {
   const m = f.match(/^(\d{4}-\d{2}-\d{2})\.json$/);
-  if (m && m[1] < cutoff) {
+  if (m && m[1] < archiveCutoff) {
     await unlink(path('content/editions', f));
     removed++;
   }
@@ -73,7 +80,7 @@ const ex = pool.explore;
 // The week's bike searches with Google's volumes, each linked to the story that explains it when one ran in the last
 // keep_days days: most of its distinctive words appear in the story's headline.
 const stories = [];
-for (const e of archive.editions) {
+for (const e of archive.editions.filter((x) => x.edition >= cutoff)) {
   const edn = e.edition === today ? ed : await readJson(path('content/editions', `${e.edition}.json`), null);
   for (const it of [edn?.lead, ...(edn?.subs ?? []), ...(edn?.headlines ?? [])].filter(Boolean)) stories.push({ ...it, edition: e.edition });
 }
@@ -117,6 +124,26 @@ trends.updated = ed.published_at;
 trends.timeline = ex ? { keywords: ex.keywords, points: ex.timeline } : trends.timeline ?? null;
 await writeJson(path('content/trends.json'), trends);
 
+// ---------- Upcoming: what brands have teased or announced, by expected date ----------
+
+// An item stays until the editor marks it launched, or until its date (or the end of its month) has passed.
+const upcoming = await readJson(path('content/upcoming.json'), { items: [] });
+const upById = new Map(upcoming.items.map((u) => [u.id, u]));
+for (const u of ed.upcoming ?? []) {
+  if (u.launched) { upById.delete(u.id); continue; }
+  const old = upById.get(u.id);
+  upById.set(u.id, { ...u, first_seen: old?.first_seen ?? today, updated: today });
+}
+const lastDay = (u) => u.when.date ?? addDays(`${addMonth(u.when.month)}-01`, -1);
+function addMonth(ym) {
+  const [y, m] = ym.split('-').map(Number);
+  return m === 12 ? `${y + 1}-01` : `${y}-${String(m + 1).padStart(2, '0')}`;
+}
+const whenKey = (u) => u.when.date ?? `${u.when.month}-99`;
+upcoming.items = [...upById.values()].filter((u) => lastDay(u) >= today).sort((a, b) => whenKey(a).localeCompare(whenKey(b)));
+upcoming.updated = ed.published_at;
+await writeJson(path('content/upcoming.json'), upcoming);
+
 // ---------- Brands: the aftermarket makers we follow ----------
 
 await writeJson(path('content/brands.json'), { brands: config.sections.accessories?.brands ?? [] });
@@ -124,5 +151,5 @@ await writeJson(path('content/brands.json'), { brands: config.sections.accessori
 console.log(
   `Published ${ed.edition}: ${count} stories, ${ed.events?.length ?? 0} events, ${ed.accessories?.length ?? 0} accessories. ` +
     `Archive keeps ${archive.editions.length} editions${removed ? ` (${removed} older removed)` : ''}; ${events.length} upcoming events; ` +
-    `trends history ${trends.days.length} days.`,
+    `trends history ${trends.days.length} days; ${upcoming.items.length} upcoming launches.`,
 );

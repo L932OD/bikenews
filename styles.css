@@ -825,3 +825,46 @@ body[data-page="accessories"] .paper { --stripe: var(--acc-gear); }
 /* When each story was published: on cards, at the end of the meta line. */
 .stamp { margin-left: auto; font-family: var(--f-label); font-weight: 600; font-size: 13px; letter-spacing: 0.08em; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .road__time, .gear__time { white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* ---------- v2: since your last visit, the archive, upcoming launches ---------- */
+
+/* "New": published after the reader's last visit. */
+.tag.tag--new { --c: var(--blue-text, var(--acc-launches)); background: var(--blue-tint, transparent); }
+.since { display: inline-flex; flex-wrap: wrap; gap: 0 6px; margin-top: 10px; color: var(--muted); font-size: 16px; text-decoration: none; }
+.since b { color: var(--blue-text, var(--ink)); font-weight: 600; }
+.since:hover { text-decoration: underline; }
+.since-line { display: flex; align-items: center; gap: 12px; margin: 4px 4px; color: var(--muted); font-family: var(--f-label); font-weight: 600; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; }
+.since-line::before, .since-line::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+
+/* Tabs that are links (Events / Upcoming launches). */
+a.chip { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+.chip[aria-current="page"] { background: var(--ink); color: var(--asphalt); }
+:root:not([data-theme="dark"]) .chip[aria-current="page"] { background: var(--blue-text); color: #fff; }
+.chip__n { font-variant-numeric: tabular-nums; opacity: 0.75; }
+.tabs { margin-bottom: 4px; }
+
+/* Upcoming launches. */
+.upcoming .tag--teased { --c: var(--blue-text, var(--acc-events)); background: var(--blue-tint, transparent); }
+.upcoming .tag--confirmed { --c: var(--blue-text, var(--acc-events)); }
+.upcoming .tag--expected { --c: var(--muted); }
+.mini__upcoming { display: block; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 15px; text-decoration: none; }
+.mini__upcoming b { color: var(--ink); }
+.mini__upcoming:hover { text-decoration: underline; }
+
+/* Older days in the archive. */
+.older { background: var(--panel); border-radius: var(--radius); padding: var(--pad); margin-top: var(--gap); }
+.older__title { margin: 0; font-family: var(--f-label); font-weight: 600; font-size: 22px; }
+.older__note { margin: 4px 0 10px; color: var(--muted); font-size: 15px; }
+.older__list { list-style: none; margin: 0; padding: 0; }
+.older__day { display: grid; grid-template-columns: 96px minmax(0, 1fr) auto; gap: 12px; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--rule); color: var(--ink); text-decoration: none; }
+.older__day:hover .older__lead { text-decoration: underline; }
+.older__date { font-family: var(--f-label); font-weight: 600; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.older__lead { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.older__count { color: var(--muted); font-size: 14px; white-space: nowrap; }
+@media (max-width: 560px) {
+  .older__day { grid-template-columns: minmax(0, 1fr) auto; }
+  .older__lead { grid-column: 1 / -1; grid-row: 2; white-space: normal; }
+}
+.datebox--month .datebox__d { font-size: 26px; text-transform: uppercase; letter-spacing: 0.04em; }
+@media (max-width: 560px) { .datebox--month .datebox__d { font-size: 21px; } }
+.slide .road__time { font-family: var(--f-label); font-weight: 600; font-size: 13px; letter-spacing: 0.08em; color: var(--muted); align-self: center; }

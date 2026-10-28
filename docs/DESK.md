@@ -88,6 +88,32 @@ organisers' own pages) and `events_calendar` (the events already listed).
   `register`: the organiser's tickets or registration page if a source gives it, else null.
 - `text`: at most 40 words on what it is and what happens there. Numbers must be in the sources, as for news.
 
+## Brand videos (YouTube)
+
+Items with `"from_youtube": true` are videos from the brands' own YouTube channels, posted in the last 72 hours
+(`channel_kind` is `bike` for bike makers, `gear` for the aftermarket brands). A brand's teaser often appears here
+before the press writes about it. Use a video like any source: a teaser video is the brand's own teaser, so it gets
+the precedence of a teaser. Leave out adverts, festival greetings, race highlights and rider stories unless they
+announce something. Commuter-scooter videos are already filtered out by title.
+
+## Upcoming launches (the `upcoming` list)
+
+A calendar of bikes and gear that makers have teased or announced, by when they are expected. Read the news, the
+videos and `upcoming_calendar` in the pool (what is already listed).
+
+- **Add an item** when a maker teases or confirms a bike or product for India, or a global reveal of a bike coming to
+  India, and a source gives **when**: a date ("November 3"), or at least a month ("March 2027"). A reveal at a show
+  counts when a source gives the show's date. No date or month in the sources, no entry. Up to 12 months ahead.
+- **0 to 8 a day.** Add what is not yet in `upcoming_calendar`; repeat a listed one (same `id`) only when its date,
+  status or details changed. When a listed item launches, add `{ "id": "...", "launched": true, "sources": [...] }`
+  with the launch story, and it leaves the calendar. Items also leave once their date or month has passed.
+- `id`: kebab-case, stable (`re-himalayan-750`). `name`: the bike or product, at most 8 words. `brand`. `kind`:
+  `bike` or `gear`. `status`: `teased` (the brand's own teaser), `confirmed` (the brand has announced it or its
+  date), or `expected` (reported by the press, not yet by the brand). `when`: `{ "date": "2026-11-03", "month": null,
+  "label": "EICMA, 3 to 8 Nov" }` or `{ "date": null, "month": "2027-03", "label": "March 2027" }`; the month (and the
+  day, for a date) must be in the sources; cite the source that gives the date. `text`: at most 30 words on what it
+  is. `sources`: may be the same as a story's in the edition.
+
 ## Aftermarket accessories (the `accessories` list)
 
 What aftermarket and gear makers launched, and for which bikes. Read `accessories` in the pool (and `items`: a bike
@@ -156,6 +182,7 @@ site sometimes reports a new accessory).
   "trends_summary": { "headline": "...", "text": "..." },
   "trending": [{ "term": "exact term from the pool", "traffic": "+150%", "why": "...", "sources": [] }],
   "events": [{ "id": "...", "name": "...", "kind": "festival", "start_date": "2026-12-04", "end_date": "2026-12-05", "city": "...", "organiser": "...", "text": "...", "register": null, "sources": [], "tag": null }],
+  "upcoming": [{ "id": "...", "name": "...", "brand": "...", "kind": "bike", "status": "teased", "when": { "date": null, "month": "2027-03", "label": "March 2027" }, "text": "...", "sources": [] }],
   "accessories": [{ "id": "...", "brand": "...", "product": "...", "category": "helmet", "teased": false, "for_bikes": ["Universal"], "price": null, "headline": "...", "text": "...", "published_at": "...", "sources": [], "tag": null }],
   "checks": { "pool_items": 46, "sources_failed": [], "left_out": [{ "id": "pool-item-id", "why": "car, not a bike" }] }
 }

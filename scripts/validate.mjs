@@ -301,6 +301,57 @@ else {
   });
 }
 
+// ---------- Upcoming launches ----------
+
+// A bike or product the brand has teased or announced, with when it is expected. The date (or the month) must be in
+// its sources, as for events. Its sources may also back a story in the same edition.
+const MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const UP_STATUS = ['teased', 'confirmed', 'expected'];
+const upcomingHorizon = (() => {
+  const d = new Date(`${date}T00:00:00Z`);
+  d.setUTCMonth(d.getUTCMonth() + LIMITS.upcoming_ahead_months);
+  return d.toISOString().slice(0, 10);
+})();
+const upcoming = ed.upcoming ?? [];
+if (!Array.isArray(upcoming)) err('upcoming', 'must be a list');
+else {
+  if (upcoming.length > LIMITS.upcoming_max) err('upcoming', `has ${upcoming.length}; at most ${LIMITS.upcoming_max} a day`);
+  const upPool = sectionPool('accessories');
+  const upIds = new Set();
+  upcoming.forEach((u, i) => {
+    const where = `upcoming[${i}]`;
+    if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(u?.id || '')) err(`${where}.id`, 'must be a short kebab-case id, stable across days');
+    else if (upIds.has(u.id)) err(`${where}.id`, `"${u.id}" is used twice`);
+    else upIds.add(u.id);
+    if (u?.launched === true) {
+      if (!Array.isArray(u.sources) || !u.sources.length) err(where, 'a launched item needs the source that reports the launch');
+      else checkSources(where, u.sources, upPool, new Map());
+      return;
+    }
+    if (typeof u?.name !== 'string' || !u.name || wordCount(u.name) > 8) err(`${where}.name`, 'needs a name of at most 8 words');
+    if (typeof u?.brand !== 'string' || !u.brand) err(`${where}.brand`, 'is missing');
+    if (!['bike', 'gear'].includes(u?.kind)) err(`${where}.kind`, 'must be "bike" or "gear"');
+    if (!UP_STATUS.includes(u?.status)) err(`${where}.status`, `must be one of ${UP_STATUS.join(', ')}`);
+    const w = u?.when ?? {};
+    const hasDate = w.date != null;
+    if (hasDate && !isDate(w.date)) err(`${where}.when.date`, 'must be a YYYY-MM-DD date or null');
+    if (!hasDate && !/^\d{4}-(0[1-9]|1[0-2])$/.test(w.month || '')) err(`${where}.when`, 'needs a date (YYYY-MM-DD) or a month (YYYY-MM)');
+    if (typeof w.label !== 'string' || !w.label || wordCount(w.label) > 6) err(`${where}.when.label`, 'needs a short label of at most 6 words ("EICMA, 3 to 8 Nov", "March 2027")');
+    const first = hasDate ? w.date : `${w.month}-01`;
+    if (isDate(first) && first > upcomingHorizon) err(`${where}.when`, `is after ${upcomingHorizon}; list launches expected in the next ${LIMITS.upcoming_ahead_months} months`);
+    if (hasDate && isDate(w.date) && w.date < date) err(`${where}.when.date`, 'has passed');
+    checkText(`${where}.text`, u?.text, { max: 30 });
+    const found = checkSources(where, u?.sources, upPool, new Map());
+    if (found.length) {
+      checkNumbers(`${where}.text`, u.text, found);
+      const said = found.map((it) => `${it.title} ${it.summary} ${it.text}`).join(' ');
+      const month = MONTH_NAMES[Number((hasDate ? w.date : w.month || '').slice(5, 7)) - 1];
+      if (month && !new RegExp(`\\b${month.slice(0, 3)}`, 'i').test(said)) err(`${where}.when`, `${month} is not in its sources; cite the source that gives the date`);
+      if (hasDate && isDate(w.date) && !numbersIn(said).has(String(Number(w.date.slice(8))))) err(`${where}.when.date`, `day ${Number(w.date.slice(8))} is not in its sources`);
+    }
+  });
+}
+
 // ---------- Motorcycles only (performance scooters allowed) ----------
 
 const filters = config.title_filters;
@@ -313,6 +364,7 @@ const titled = [
   ...[lead, ...subs, ...heads].filter(Boolean).map((it, i) => [it.id ?? `story ${i + 1}`, it.headline]),
   ...events.map((ev) => [`events: ${ev?.id}`, ev?.name]),
   ...gear.map((a) => [`accessories: ${a?.id}`, `${a?.headline ?? ''} ${a?.product ?? ''}`]),
+  ...(Array.isArray(upcoming) ? upcoming : []).map((u) => [`upcoming: ${u?.id}`, u?.name ?? '']),
   ...trending.map((t) => [`trending: ${t?.term}`, t?.term]),
   ['trends_summary', ed.trends_summary?.headline],
 ];
@@ -339,4 +391,4 @@ if (errors.length) {
   for (const e of errors) console.log(`  - ${e}`);
   process.exit(1);
 }
-console.log(`OK ${file}: ${total} items (${lead ? 'lead, ' : 'no lead, '}${subs.length} subs, ${heads.length} headlines, ${trending.length} trending), ${events.length} events, ${gear.length} accessories`);
+console.log(`OK ${file}: ${total} items (${lead ? 'lead, ' : 'no lead, '}${subs.length} subs, ${heads.length} headlines, ${trending.length} trending), ${events.length} events, ${gear.length} accessories, ${Array.isArray(upcoming) ? upcoming.length : 0} upcoming`);

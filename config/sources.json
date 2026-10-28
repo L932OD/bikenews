@@ -134,14 +134,57 @@
     "category_name": "Autos & Vehicles",
     "max_items": 30
   },
+  "youtube": {
+    "id": "youtube",
+    "name": "Brand channels on YouTube",
+    "url": "https://www.youtube.com/feeds/videos.xml?channel_id=",
+    "window_hours": 72,
+    "text_chars": 600,
+    "channels": [
+      { "name": "Royal Enfield", "channel_id": "UCyxUUHqmz9IiAnrROJc0mag", "kind": "bike" },
+      { "name": "Hero MotoCorp", "channel_id": "UCHZv18DM7aX5Wir7GrqVlnA", "kind": "bike" },
+      { "name": "Bajaj Auto", "channel_id": "UCpxfz3pf9thQIw2GiU041Iw", "kind": "bike" },
+      { "name": "Bajaj Pulsar", "channel_id": "UCyjsBkQ3rWlARQb9_UWqM5Q", "kind": "bike" },
+      { "name": "Bajaj Dominar", "channel_id": "UC8_sWwYKtkG7PZwi3mKJnXg", "kind": "bike" },
+      { "name": "TVS Motor", "channel_id": "UCmXFdsJtTAbbYrH7zz-lkkw", "kind": "bike" },
+      { "name": "KTM India", "channel_id": "UCevzFamjWTOInfGYyTTR0sQ", "kind": "bike" },
+      { "name": "Honda 2 Wheelers India", "channel_id": "UCDMHVijtWzuUr9F7d74Hicw", "kind": "bike" },
+      { "name": "Honda BigWing India", "channel_id": "UC1x_DVJQT3DMbmnavnFvStg", "kind": "bike" },
+      { "name": "India Yamaha Motor", "channel_id": "UC0WN3qNaNGy5_JhvLyEtXrg", "kind": "bike" },
+      { "name": "Suzuki Motorcycle India", "channel_id": "UCjVm-ARl4jm9k2eFn2kAb5g", "kind": "bike" },
+      { "name": "India Kawasaki Motors", "channel_id": "UCo2aLI_DHChJbtNlXQ_akKQ", "kind": "bike" },
+      { "name": "Triumph Motorcycles India", "channel_id": "UC9FzrKL9sMbopG3CaMHcTKQ", "kind": "bike" },
+      { "name": "Harley-Davidson India", "channel_id": "UCV-ny1plRHlO8heaeRF45vw", "kind": "bike" },
+      { "name": "Ultraviolette", "channel_id": "UCWWTQuQdiYZNW2HncFFbHrg", "kind": "bike" },
+      { "name": "Jawa Yezdi Motorcycles", "channel_id": "UC1BCIquU4oyLOmXNjY2Pswg", "kind": "bike" },
+      { "name": "Aprilia India", "channel_id": "UC5zvHXSbuLwWHPDuuUb-kgA", "kind": "bike" },
+      { "name": "Ducati India", "channel_id": "UChcYw8H4mu2FAdG86W5b7GQ", "kind": "bike" },
+      { "name": "Zana", "channel_id": "UCDJ8YL2y9lipIe9n-YIMEXg", "kind": "gear" },
+      { "name": "Rimoto", "channel_id": "UCqShPjxVjfhUPM03Kvh3LNw", "kind": "gear" },
+      { "name": "Lone Ranger", "channel_id": "UCj82uz9X4lwmgCxUzA-J6Tw", "kind": "gear" },
+      { "name": "Barrel", "channel_id": "UCxAcVMMq7jNapmz57DfQveg", "kind": "gear" },
+      { "name": "BluArmor", "channel_id": "UCeQIwke7pVSPUxFenk4kqZQ", "kind": "gear" },
+      { "name": "GIVI", "channel_id": "UCw1d2HWHvuM13ZT0l_EmsDg", "kind": "gear" },
+      { "name": "Vega", "channel_id": "UCpxLU1yk2-y1zrfYl3nGoqg", "kind": "gear" },
+      { "name": "Axor", "channel_id": "UCKs80jqeRpYKu46zgK2CiYw", "kind": "gear" },
+      { "name": "Motul", "channel_id": "UCF4J2AcBRC4HU1FUHZ9sRmw", "kind": "gear" },
+      { "name": "Pakelo", "channel_id": "UCmWqX2z6-KiJAbBV-UPI_-w", "kind": "gear" },
+      { "name": "Pakelo", "channel_id": "UCyIBWxaCKKMeCPOeji3r-SQ", "kind": "gear" },
+      { "name": "Maddog", "channel_id": "UClbACAav3fRfyV8t2r0JK-Q", "kind": "gear" }
+    ]
+  },
   "keep_days": 5,
+  "archive_days": 30,
   "limits": {
     "stories_min": 5,
     "stories_max": 15,
     "subs_max": 3,
     "accessories_max": 15,
     "accessories_shown": 15,
-    "events_ahead_months": 3
+    "events_ahead_months": 3,
+    "upcoming_max": 8,
+    "upcoming_ahead_months": 12,
+    "new_session_minutes": 30
   },
   "sections": {
     "events": {

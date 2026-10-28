@@ -139,8 +139,9 @@
     });
   }
   const optional = (p) => p.catch(() => null);
+  // The editions the Feed shows (the last feed_days); older ones in the archive are loaded when a day is opened.
   async function editions(archive, latest) {
-    const dates = (archive?.editions ?? []).map((e) => e.edition);
+    const dates = (archive?.editions ?? []).slice(0, archive?.page?.feed_days ?? 5).map((e) => e.edition);
     const list = await Promise.all(dates.map((d) => (latest && d === latest.edition ? latest : optional(getJson(`content/editions/${d}.json`)))));
     return list.filter(Boolean);
   }
@@ -161,6 +162,31 @@
   let HOT = new Map();
   const hotFor = (it) => (HOT.has(it.id) ? hotTag(hotLabel(HOT.get(it.id))) : null);
 
+  // Pages that live under another tab: Upcoming launches under Events, the archive under Feed.
+  const NAV_OF = { '#/upcoming': '#/events', '#/archive': '#/launches' };
+
+  // ---------- Since your last visit ----------
+
+  // The time this reader last used the app before this visit. A visit ends after new_session_minutes without use,
+  // so moving between pages or reloading keeps the same markers. Kept only in this browser.
+  let SINCE = null;
+  function lastVisit(gapMinutes) {
+    try {
+      const now = Date.now();
+      const saved = JSON.parse(localStorage.getItem('visit') || 'null');
+      const prev = saved ? (now - saved.last > gapMinutes * 60000 ? saved.last : saved.prev) : null;
+      const save = () => { try { localStorage.setItem('visit', JSON.stringify({ last: Date.now(), prev })); } catch {} };
+      save();
+      document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') save(); });
+      return prev;
+    } catch {
+      return null;
+    }
+  }
+  const isNew = (iso) => Boolean(SINCE && iso && Date.parse(iso) > SINCE);
+  const newTag = (iso) => (isNew(iso) ? h('span', { class: 'tag tag--new' }, 'New') : null);
+  const sinceText = () => (SINCE ? stamp(new Date(SINCE).toISOString()) : '');
+
   // ---------- Cluster bar ----------
 
   function setReadout(latest, label) {
@@ -172,7 +198,7 @@
     const t = latest && ist(latest.published_at);
     document.getElementById('r-time').replaceChildren(h('span', { class: 'long' }, 'Updated '), h('b', null, t ? `${pad2(t.hh)}:${pad2(t.mm)}` : '--:--'));
     for (const a of document.querySelectorAll('.nav a')) {
-      if (a.getAttribute('href') === sectionOf()) a.setAttribute('aria-current', 'page');
+      if (a.getAttribute('href') === (NAV_OF[sectionOf()] ?? sectionOf())) a.setAttribute('aria-current', 'page');
       else a.removeAttribute('aria-current');
     }
   }
@@ -203,13 +229,13 @@
 
   // ---------- Home ----------
 
-  function sectionCard(section, href, title, count, countLabel, body, cta) {
+  function sectionCard(section, href, title, count, countLabel, body, cta, extra = null) {
     return h('article', { class: 'card section', 'data-section': section },
       stripes(),
       h('a', { class: 'section__head', href },
         h('h2', { class: 'section__title' }, title),
         h('span', { class: 'section__count' }, h('b', null, String(count)), ` ${countLabel}`)),
-      h('div', { class: 'section__body' }, body),
+      h('div', { class: 'section__body' }, body, extra),
       h('a', { class: 'section__more', href }, cta, h('span', { 'aria-hidden': 'true' }, ' →')));
   }
 
@@ -232,7 +258,7 @@
       'The full feed');
   }
 
-  function homeEvents(calendar, today, horizon) {
+  function homeEvents(calendar, today, horizon, more) {
     const ahead = (calendar?.events ?? []).filter((ev) => ev.start_date <= horizon);
     const list = ahead.slice(0, 4);
     return sectionCard('events', '#/events', 'Events', ahead.length, 'in the next 3 months',
@@ -248,7 +274,11 @@
                 h('p', { class: 'mini__when' }, relDay(ev.start_date, today)))));
         }))
         : empty('No upcoming events on the calendar yet.'),
-      'Full calendar');
+      'Full calendar', more);
+  }
+  function upcomingLink(d) {
+    const n = d.upcoming.length;
+    return n ? h('a', { class: 'mini__upcoming', href: '#/upcoming' }, h('b', null, String(n)), ` upcoming ${n === 1 ? 'launch' : 'launches'} teased or announced`, h('span', { 'aria-hidden': 'true' }, ' →')) : null;
   }
 
   function homeTrending(trends) {
@@ -281,6 +311,14 @@
   }
 
   // One line on what the day holds, counted from the data itself.
+  // "6 new since your last visit": stories and accessories published after it, linking to the Feed.
+  function sinceLink(d) {
+    if (!SINCE) return null;
+    const n = d.eds.flatMap(storiesOf).filter((it) => isNew(it.published_at)).length + d.eds.flatMap((e) => e.accessories ?? []).filter((a) => isNew(a.published_at)).length;
+    return h('a', { class: 'since', href: '#/launches' },
+      h('b', null, n ? `${n} new` : 'Nothing new'), ` since your last visit, ${sinceText()}`, n ? h('span', { 'aria-hidden': 'true' }, ' →') : null);
+  }
+
   function summaryLine(d) {
     const n = d.latest ? storiesOf(d.latest).length : 0;
     const ev = d.events?.events?.length ?? 0;
@@ -304,7 +342,7 @@
     let i = 0, timer = null, paused = reduce, held = false;
 
     const slides = stories.map((it, k) => h('article', { class: 'slide', 'aria-roledescription': 'slide', 'aria-label': `${k + 1} of ${n}` },
-      h('div', { class: 'meta' }, k === 0 && latest.lead ? h('span', { class: 'label label--lead' }, 'Lead') : null, hotFor(it), tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null),
+      h('div', { class: 'meta' }, newTag(it.published_at), k === 0 && latest.lead ? h('span', { class: 'label label--lead' }, 'Lead') : null, hotFor(it), tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null),
       // The headline's link covers the whole card; the source links sit above it.
       h('h2', { class: 'slide__headline' }, h('a', { class: 'slide__link', href: itemHref('launches', it.id) }, it.headline)),
       it.figure ? h('p', { class: 'slide__figure' }, it.figure.value, h('span', null, ` ${it.figure.label}`)) : null,
@@ -376,10 +414,10 @@
     put(app, 
       h('section', { class: 'today' },
         h('p', { class: 'today__date' }, today ? dayLabel(today) : ''),
-        h('p', { class: 'today__title' }, summaryLine(d))),
+        h('p', { class: 'today__title' }, summaryLine(d)), sinceLink(d)),
       d.latest ? latestCarousel(d.latest) : null,
       h('div', { class: 'sections' },
-        homeLaunches(d.eds), homeEvents(d.events, today, horizonOf(d, today)), homeTrending(d.trends), homeGear(d.eds)));
+        homeLaunches(d.eds), homeEvents(d.events, today, horizonOf(d, today), upcomingLink(d)), homeTrending(d.trends), homeGear(d.eds)));
   }
 
   // ---------- Feed ----------
@@ -388,7 +426,7 @@
     return h('article', { class: 'card card--lead', 'data-anchor': it.id }, stripes(),
       h('div', { class: 'lead' },
         h('header', { class: 'lead__head' },
-          h('div', { class: 'meta' }, h('span', { class: 'label label--lead' }, 'Lead'), hotFor(it), tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null, stampTag(it.published_at)),
+          h('div', { class: 'meta' }, newTag(it.published_at), h('span', { class: 'label label--lead' }, 'Lead'), hotFor(it), tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null, stampTag(it.published_at)),
           h('h2', { class: 'headline' }, it.headline)),
         it.figure ? h('div', { class: 'lead__plate' }, plate(it.figure)) : null,
         h('div', { class: 'lead__body' }, h('p', { class: 'text' }, it.text)),
@@ -397,7 +435,7 @@
   }
   function subCard(it) {
     return h('article', { class: 'card card--sub', 'data-anchor': it.id }, stripes(),
-      h('div', { class: 'meta' }, hotFor(it), tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null, stampTag(it.published_at)),
+      h('div', { class: 'meta' }, newTag(it.published_at), hotFor(it), tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null, stampTag(it.published_at)),
       h('div', { class: 'sub__top' }, h('h3', { class: 'headline' }, it.headline), plate(it.figure)),
       it.text ? h('p', { class: 'text' }, it.text) : null,
       specs(it.specs), sources(it.sources));
@@ -405,7 +443,7 @@
   function roadList(items) {
     return h('ul', { class: 'road__list' }, items.map((it) => h('li', { class: 'road__item', 'data-anchor': it.id },
       h('span', { class: 'dot', 'data-type': it.type, title: TYPE_LABEL[it.type] || '' }),
-      h('p', { class: 'road__line' }, h('span', { class: 'sr' }, `${TYPE_LABEL[it.type] || 'News'}: `), it.headline,
+      h('p', { class: 'road__line' }, newTag(it.published_at), h('span', { class: 'sr' }, `${TYPE_LABEL[it.type] || 'News'}: `), it.headline,
         ['spy', 'rumour'].includes(it.type) ? tag(it.type) : null, updateTag(it), hotFor(it)),
       h('p', { class: 'road__src' }, (it.sources || []).map((x) => link(x)),
         it.published_at ? h('time', { class: 'road__time', datetime: it.published_at }, stamp(it.published_at)) : null))));
@@ -436,11 +474,18 @@
       if (!days.has(k)) days.set(k, []);
       days.get(k).push(x);
     }
+    // A line marks where the stories from before the reader's last visit begin.
+    let marked = !SINCE || !shown.some((x) => isNew(x.at));
     const sections = [...days].map(([ymd, list]) => {
       const blocks = [];
       let lines = [];
       const flush = () => { if (lines.length) blocks.push(h('div', { class: 'card road' }, roadList(lines))); lines = []; };
       for (const x of list) {
+        if (!marked && !isNew(x.at)) {
+          flush();
+          blocks.push(h('p', { class: 'since-line' }, h('span', null, `Before your last visit, ${sinceText()}`)));
+          marked = true;
+        }
         if (x.kind === 'line') { lines.push(x.it); continue; }
         flush();
         blocks.push(x.kind === 'lead' ? leadCard(x.it) : subCard(x.it));
@@ -451,7 +496,34 @@
         blocks);
     });
     put(app, pageHead('launches', 'Feed', 'Every bike story from the last 5 days, newest first, with the date and time it was published.'), chips,
-      sections.length ? sections : empty('Nothing of this kind in the last 5 days.'));
+      sections.length ? sections : empty('Nothing of this kind in the last 5 days.'), olderDays(d));
+  }
+
+  // ---------- Archive: the days before the Feed's ----------
+
+  function olderDays(d) {
+    const older = (d.archive?.editions ?? []).slice(d.archive?.page?.feed_days ?? 5);
+    if (!older.length) return null;
+    return h('section', { class: 'older', 'aria-labelledby': 'older-title' },
+      h('h2', { class: 'older__title', id: 'older-title' }, 'Older'),
+      h('p', { class: 'older__note' }, `${older.length} more ${older.length === 1 ? 'day' : 'days'}, back to ${dayLabel(older.at(-1).edition)}. Open a day to read its stories.`),
+      h('ul', { class: 'older__list' }, older.map((e) => h('li', null,
+        h('a', { class: 'older__day', href: `#/archive/${e.edition}` },
+          h('span', { class: 'older__date' }, dayLabel(e.edition)),
+          h('span', { class: 'older__lead' }, e.lead ?? ''),
+          h('span', { class: 'older__count' }, `${e.stories} ${e.stories === 1 ? 'story' : 'stories'}`))))));
+  }
+
+  async function renderArchive(app, d) {
+    const day = itemOf();
+    const ed = day && /^\d{4}-\d{2}-\d{2}$/.test(day) ? await optional(getJson(`content/editions/${day}.json`)) : null;
+    if (!ed) return put(app, pageHead('launches', 'Archive', 'Every day of the last month.'), olderDays(d) ?? empty('Older days appear here once the Feed has more than 5.'));
+    const stories = storiesOf(ed).slice().sort((a, b) => byNewest(a.published_at, b.published_at));
+    put(app,
+      pageHead('launches', dayLabel(ed.edition), `${stories.length} ${stories.length === 1 ? 'story' : 'stories'} from that day's edition.`),
+      ed.lead ? leadCard(ed.lead) : null,
+      ed.subs?.length ? h('div', { class: 'subs' }, ed.subs.map(subCard)) : null,
+      h('div', { class: 'card road' }, roadList(stories.filter((x) => x !== ed.lead && !(ed.subs ?? []).includes(x)))));
   }
 
   // ---------- Events ----------
@@ -501,12 +573,61 @@
       if (!months.has(k)) months.set(k, []);
       months.get(k).push(ev);
     }
-    put(app, pageHead('events', 'Events', 'Races, festivals, rides and meets in India in the next 3 months, so you can plan.'), chips,
+    put(app, pageHead('events', 'Events', 'Races, festivals, rides and meets in India in the next 3 months, so you can plan.'), calendarTabs('#/events', d), chips,
       shown.length
         ? [...months].map(([k, list]) => h('section', { class: 'month' },
           h('h2', { class: 'day-head' }, h('span', null, `${MONTHS_LONG[Number(k.slice(5)) - 1]} ${k.slice(0, 4)}`), h('span', { class: 'day-head__date' }, `${list.length} ${list.length === 1 ? 'event' : 'events'}`)),
           h('div', { class: 'events' }, list.map((ev) => eventCard(ev, today)))))
         : empty('No upcoming events on the calendar yet.'));
+  }
+
+  // Events and Upcoming launches are two calendars under one tab.
+  function calendarTabs(current, d) {
+    const tab = (href, label, n) => h('a', { class: 'chip', href, 'aria-current': href === current ? 'page' : null }, label, n ? h('span', { class: 'chip__n' }, String(n)) : null);
+    const today = d.latest?.edition ?? new Date().toISOString().slice(0, 10);
+    const horizon = horizonOf(d, today);
+    return h('nav', { class: 'filters tabs', 'aria-label': 'Calendars' },
+      tab('#/events', 'Events', (d.events?.events ?? []).filter((e) => e.start_date <= horizon).length),
+      tab('#/upcoming', 'Upcoming launches', d.upcoming.length));
+  }
+
+  // ---------- Upcoming launches ----------
+
+  const UP_STATUS = { teased: 'Teased', confirmed: 'Confirmed', expected: 'Expected' };
+  const upKey = (u) => u.when.date ?? `${u.when.month}-99`;
+  function upcomingCard(u) {
+    const ymd = u.when.date ?? `${u.when.month}-01`;
+    const d = parseYmd(ymd);
+    return h('article', { class: 'card event upcoming', 'data-anchor': u.id },
+      // A date shows the month, the day and the weekday; a month alone shows the month large, with its year.
+      u.when.date
+        ? h('div', { class: 'datebox datebox--big', 'aria-hidden': 'true' },
+          h('span', { class: 'datebox__m' }, MONTHS[d.getUTCMonth()]), h('span', { class: 'datebox__d' }, String(d.getUTCDate())), h('span', { class: 'datebox__w' }, DAYS[d.getUTCDay()]))
+        : h('div', { class: 'datebox datebox--big datebox--month', 'aria-hidden': 'true' },
+          h('span', { class: 'datebox__m' }, String(d.getUTCFullYear())), h('span', { class: 'datebox__d' }, MONTHS[d.getUTCMonth()]), h('span', { class: 'datebox__w' }, 'Month')),
+      h('div', { class: 'event__body' },
+        h('div', { class: 'meta' }, h('span', { class: `tag tag--${u.status}` }, UP_STATUS[u.status] || 'Upcoming'),
+          h('span', { class: 'tag', 'data-kind': u.kind }, u.kind === 'gear' ? 'Gear' : 'Bike'), h('span', { class: 'kicker' }, u.brand)),
+        h('h3', { class: 'headline event__name' }, u.name),
+        h('p', { class: 'event__facts' }, h('b', null, u.when.label)),
+        h('p', { class: 'text' }, u.text),
+        sources(u.sources)));
+  }
+
+  function renderUpcoming(app, d) {
+    const items = d.upcoming.slice().sort((a, b) => upKey(a).localeCompare(upKey(b)));
+    const months = new Map();
+    for (const u of items) {
+      const k = (u.when.date ?? u.when.month).slice(0, 7);
+      if (!months.has(k)) months.set(k, []);
+      months.get(k).push(u);
+    }
+    put(app, pageHead('events', 'Upcoming launches', 'Bikes and gear the makers have teased or announced, by when they are expected.'), calendarTabs('#/upcoming', d),
+      items.length
+        ? [...months].map(([k, list]) => h('section', { class: 'month' },
+          h('h2', { class: 'day-head' }, h('span', null, `${MONTHS_LONG[Number(k.slice(5)) - 1]} ${k.slice(0, 4)}`), h('span', { class: 'day-head__date' }, `${list.length} ${list.length === 1 ? 'launch' : 'launches'}`)),
+          h('div', { class: 'events' }, list.map(upcomingCard))))
+        : empty('Nothing teased or announced yet.'));
   }
 
   // ---------- Trending now ----------
@@ -564,7 +685,7 @@
 
   function gearCard(a, edition, brands) {
     return h('article', { class: 'card gear', 'data-anchor': a.id }, stripes(),
-      h('div', { class: 'meta' }, h('span', { class: 'tag', 'data-gear': a.category }, GEAR_LABEL[a.category] || 'Accessory'), soonTag(a), updateTag(a),
+      h('div', { class: 'meta' }, h('span', { class: 'tag', 'data-gear': a.category }, GEAR_LABEL[a.category] || 'Accessory'), newTag(a.published_at), soonTag(a), updateTag(a),
         h('span', { class: 'kicker' }, a.brand), a.published_at ? h('time', { class: 'gear__time', datetime: a.published_at }, stamp(a.published_at)) : null),
       h('div', { class: 'sub__top' }, h('h3', { class: 'headline' }, a.headline), plate(a.price)),
       h('p', { class: 'text' }, a.text),
@@ -624,18 +745,20 @@
   // ---------- Router ----------
 
   const state = {};
-  const ROUTES = { '#/launches': ['Feed', renderLaunches], '#/events': ['Events', renderEvents], '#/trending': ['Trending now', renderTrending], '#/accessories': ['Aftermarket', renderGear] };
+  const ROUTES = { '#/upcoming': ['Upcoming launches', renderUpcoming], '#/archive': ['Archive', renderArchive], '#/launches': ['Feed', renderLaunches], '#/events': ['Events', renderEvents], '#/trending': ['Trending now', renderTrending], '#/accessories': ['Aftermarket', renderGear] };
   let data = null;
 
   async function load() {
-    const [latest, archive, events, trends, brandFile] = await Promise.all([
+    const [latest, archive, events, trends, brandFile, upcoming] = await Promise.all([
       optional(getJson('content/latest.json')), optional(getJson('content/archive.json')),
       optional(getJson('content/events.json')), optional(getJson('content/trends.json')), optional(getJson('content/brands.json')),
+      optional(getJson('content/upcoming.json')),
     ]);
+    SINCE = lastVisit(archive?.page?.new_session_minutes ?? 30);
     const brands = brandFile?.brands ?? [];
     const eds = await editions(archive, latest);
     if (latest && !eds.some((e) => e.edition === latest.edition)) eds.unshift(latest);
-    return { latest, archive, events, trends, eds, brands };
+    return { latest, archive, events, trends, eds, brands, upcoming: upcoming?.items ?? [] };
   }
 
   // "#/launches/some-id" -> the section "#/launches" and the item "some-id".
