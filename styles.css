@@ -758,3 +758,49 @@ body[data-page="accessories"] .paper { --stripe: var(--acc-gear); }
   100% { box-shadow: 0 0 0 3px transparent; }
 }
 @media (prefers-reduced-motion: reduce) { .is-target { animation: none; box-shadow: 0 0 0 3px var(--acc, var(--redline)); } }
+
+/* ======================================================================
+   Light theme: Cobalt. White cards on light grey, one blue for highlights,
+   ink and grey for the rest. (Dark theme keeps its own colours above.)
+   ====================================================================== */
+
+:root:not([data-theme="dark"]) {
+  --asphalt: #F1F3F6; --panel: #FFFFFF; --panel-2: #F1F3F6; --ink: #14181F; --muted: #5A6472;
+  --rule: rgba(20, 24, 31, 0.09); --hover: rgba(30, 91, 216, 0.07);
+  --bar: rgba(255, 255, 255, 0.92); --bar-solid: #FFFFFF; --bar-line: rgba(20, 24, 31, 0.08);
+  --blue-text: #1E5BD8; --blue-fill: #1E5BD8; --blue-tint: #EEF3FC;
+}
+:root:not([data-theme="dark"]) .card { box-shadow: 0 1px 2px rgba(20, 24, 31, 0.05); }
+/* Every section and story type in blue or grey. */
+:root:not([data-theme="dark"]) {
+  --t-launch: var(--blue-text); --t-price: var(--blue-text); --t-upcoming: var(--blue-text); --t-ev: var(--blue-text);
+  --t-sales: var(--muted); --t-policy: var(--muted); --t-recall: var(--muted); --t-racing: var(--muted); --t-other: var(--muted); --t-spy: var(--muted);
+  --acc-launches: var(--blue-text); --acc-events: var(--blue-text); --acc-trending: var(--blue-text); --acc-gear: var(--blue-text);
+  --redline: var(--blue-text); --amber: var(--blue-text);
+  --on-acc: #FFFFFF;
+}
+:root:not([data-theme="dark"]) .rise { background: var(--blue-fill); color: #fff; }
+:root:not([data-theme="dark"]) .btn--solid { background: var(--blue-fill); color: #fff; }
+:root:not([data-theme="dark"]) .chip[aria-pressed="true"] { background: var(--blue-text); color: #fff; }
+:root:not([data-theme="dark"]) .seg span::after { background: var(--blue-fill); }
+:root:not([data-theme="dark"]) .stat b { color: var(--blue-text); }
+:root:not([data-theme="dark"]) .why { background: var(--blue-tint); }
+:root:not([data-theme="dark"]) :is(.plate, .spec, .datebox, .stat) { background: var(--blue-tint); }
+:root:not([data-theme="dark"]) .src { background: var(--blue-tint); color: var(--blue-text); }
+:root:not([data-theme="dark"]) .nav a[aria-current="page"] { color: var(--blue-text); }
+
+/* Hot: a search with 5000+ searches, a Breakout, or a rise of 300% or more, and the stories behind it. */
+:root { --hot: #FF6B5E; --hot-tint: rgba(255, 107, 94, 0.14); }
+:root:not([data-theme="dark"]) { --hot: #B42318; --hot-tint: #FDECEA; }
+.stat.stat--hot, :root:not([data-theme="dark"]) .stat.stat--hot { background: var(--hot-tint); }
+.stat.stat--hot b, :root:not([data-theme="dark"]) .stat.stat--hot b { color: var(--hot); }
+.rise.rise--hot, :root:not([data-theme="dark"]) .rise.rise--hot { background: var(--hot); color: #FFFFFF; }
+.hot {
+  display: inline-flex; align-items: center; gap: 5px; height: 22px; padding: 0 8px; border-radius: 5px;
+  background: var(--hot); color: #FFFFFF; white-space: nowrap;
+  font-family: var(--f-label); font-weight: 600; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1;
+}
+.hot svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.mini__meta .hot, .road__line .hot { height: 19px; font-size: 11px; padding: 0 6px; }
+.road__line .hot { margin-left: 8px; vertical-align: 2px; }
+.search__term .hot { margin-left: 8px; vertical-align: 3px; }

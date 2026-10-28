@@ -6,14 +6,14 @@
   <title>Bike News</title>
   <meta name="description" content="India's motorcycle news, once a day.">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#E8E6E1" id="theme-color">
+  <meta name="theme-color" content="#F1F3F6" id="theme-color">
   <script>
     // Light by default; dark when the reader has chosen it. Set before the page paints, so it never flashes.
     (function () {
       var t = null;
       try { t = localStorage.getItem('theme'); } catch (e) {}
       if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
-      document.getElementById('theme-color').setAttribute('content', t === 'dark' ? '#141518' : '#E8E6E1');
+      document.getElementById('theme-color').setAttribute('content', t === 'dark' ? '#141518' : '#F1F3F6');
     })();
   </script>
   <link rel="manifest" href="manifest.webmanifest">

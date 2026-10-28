@@ -136,6 +136,21 @@
   }
   const storiesOf = (ed) => [ed.lead, ...(ed.subs || []), ...(ed.headlines || [])].filter(Boolean);
 
+  // Story id -> the hot search behind it ("5000+", "Breakout", "+350%"), from today's trends.
+  function hotStories(d) {
+    const day = d.trends?.days?.[0];
+    const out = new Map();
+    if (!day) return out;
+    const byUrl = new Map();
+    for (const ed of d.eds) for (const st of storiesOf(ed)) for (const src of st.sources || []) if (!byUrl.has(src.url)) byUrl.set(src.url, st.id);
+    const mark = (id, value) => { if (id && isHot(value) && !out.has(id)) out.set(id, value); };
+    for (const x of day.searches ?? []) mark(x.story?.id, x.traffic);
+    for (const p of day.picks ?? []) for (const src of p.sources || []) mark(byUrl.get(src.url), p.traffic);
+    return out;
+  }
+  let HOT = new Map();
+  const hotFor = (it) => (HOT.has(it.id) ? hotTag(hotLabel(HOT.get(it.id))) : null);
+
   // ---------- Cluster bar ----------
 
   function setReadout(latest, label) {
@@ -154,11 +169,25 @@
 
   // ---------- Trend helpers ----------
 
+  // Hot: 5000+ searches, a Breakout, or a rise of 300% or more in Google's own figures.
+  const HOT_VOLUME = 5000;
+  const HOT_RISE = 300;
+  function isHot(value) {
+    if (!value) return false;
+    if (value === 'Breakout') return true;
+    const n = Number(String(value).replace(/[^\d]/g, ''));
+    return String(value).startsWith('+') ? n >= HOT_RISE : n >= HOT_VOLUME;
+  }
+  const flame = () => s('svg', { viewBox: '0 0 24 24', 'aria-hidden': 'true' }, s('path', { d: 'M4 17l5-5 4 4 7-8M15 8h5v5' }));
+  const hotTag = (label) => h('span', { class: 'hot' }, flame(), label);
+  // "Trending · 5000+ searches" for a story, "Hot" for a search.
+  const hotLabel = (value) => (value === 'Breakout' ? 'Trending · breakout' : String(value).startsWith('+') ? `Trending · ${value}` : `Trending · ${value} searches`);
+
   // Google's signal for a search: a volume ("5000+") or a rise over the last 24 hours ("+160%", "Breakout").
   function stat(value) {
     if (!value) return null;
     const rise = /^\+|^Breakout$/.test(value);
-    return h('span', { class: `stat${rise ? ' stat--rise' : ''}` },
+    return h('span', { class: `stat${rise ? ' stat--rise' : ''}${isHot(value) ? ' stat--hot' : ''}` },
       h('b', null, value), h('span', null, rise ? (value === 'Breakout' ? 'new today' : 'rise today') : 'searches'));
   }
 
@@ -186,7 +215,7 @@
       list.length
         ? h('ol', { class: 'mini' }, list.map((it, i) => h('li', { class: i === 0 ? 'mini__item mini__item--lead' : 'mini__item' },
           h('a', { class: 'mini__link', href: itemHref('launches', it.id) },
-            h('div', { class: 'mini__meta' }, tag(it.type), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null),
+            h('div', { class: 'mini__meta' }, hotFor(it), tag(it.type), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null),
             h('p', { class: 'mini__line' }, it.headline),
             i === 0 && it.figure ? h('p', { class: 'mini__figure' }, it.figure.value, h('span', null, ` ${it.figure.label}`)) : null))))
         : empty('No stories yet today.'),
@@ -264,7 +293,7 @@
     let i = 0, timer = null, paused = reduce, held = false;
 
     const slides = stories.map((it, k) => h('article', { class: 'slide', 'aria-roledescription': 'slide', 'aria-label': `${k + 1} of ${n}` },
-      h('div', { class: 'meta' }, k === 0 && latest.lead ? h('span', { class: 'label label--lead' }, 'Lead') : null, tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null),
+      h('div', { class: 'meta' }, k === 0 && latest.lead ? h('span', { class: 'label label--lead' }, 'Lead') : null, hotFor(it), tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null),
       // The headline's link covers the whole card; the source links sit above it.
       h('h2', { class: 'slide__headline' }, h('a', { class: 'slide__link', href: itemHref('launches', it.id) }, it.headline)),
       it.figure ? h('p', { class: 'slide__figure' }, it.figure.value, h('span', null, ` ${it.figure.label}`)) : null,
@@ -348,7 +377,7 @@
     return h('article', { class: 'card card--lead', 'data-anchor': it.id }, stripes(),
       h('div', { class: 'lead' },
         h('header', { class: 'lead__head' },
-          h('div', { class: 'meta' }, h('span', { class: 'label label--lead' }, 'Lead'), tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null),
+          h('div', { class: 'meta' }, h('span', { class: 'label label--lead' }, 'Lead'), hotFor(it), tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null),
           h('h2', { class: 'headline' }, it.headline)),
         it.figure ? h('div', { class: 'lead__plate' }, plate(it.figure)) : null,
         h('div', { class: 'lead__body' }, h('p', { class: 'text' }, it.text)),
@@ -357,7 +386,7 @@
   }
   function subCard(it) {
     return h('article', { class: 'card card--sub', 'data-anchor': it.id }, stripes(),
-      h('div', { class: 'meta' }, tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null),
+      h('div', { class: 'meta' }, hotFor(it), tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null),
       h('div', { class: 'sub__top' }, h('h3', { class: 'headline' }, it.headline), plate(it.figure)),
       it.text ? h('p', { class: 'text' }, it.text) : null,
       specs(it.specs), sources(it.sources));
@@ -366,7 +395,7 @@
     return h('ul', { class: 'road__list' }, items.map((it) => h('li', { class: 'road__item', 'data-anchor': it.id },
       h('span', { class: 'dot', 'data-type': it.type, title: TYPE_LABEL[it.type] || '' }),
       h('p', { class: 'road__line' }, h('span', { class: 'sr' }, `${TYPE_LABEL[it.type] || 'News'}: `), it.headline,
-        ['spy', 'rumour'].includes(it.type) ? tag(it.type) : null, updateTag(it)),
+        ['spy', 'rumour'].includes(it.type) ? tag(it.type) : null, updateTag(it), hotFor(it)),
       h('p', { class: 'road__src' }, (it.sources || []).map((x) => link(x)),
         it.published_at ? h('span', { class: 'road__time' }, itemTime(it.published_at, edition)) : null))));
   }
@@ -467,7 +496,7 @@
           ? h('ol', { class: 'searches' }, picks.map((p) => h('li', { class: 'search', 'data-anchor': trendKey(p.term) },
             stat(p.traffic),
             h('div', { class: 'search__body' },
-              h('p', { class: 'search__term' }, p.term),
+              h('p', { class: 'search__term' }, p.term, isHot(p.traffic) ? hotTag('Hot') : null),
               h('p', { class: 'text' }, p.why),
               sources(p.sources, 'Why')))))
           : empty('Nothing bike-related stood out in today’s searches.')),
@@ -478,7 +507,7 @@
           h('ol', { class: 'searches' }, searches.map((x) => h('li', { class: 'search', 'data-anchor': trendKey(x.term) },
             stat(x.traffic),
             h('div', { class: 'search__body' },
-              h('p', { class: 'search__term' }, x.term),
+              h('p', { class: 'search__term' }, x.term, isHot(x.traffic) ? hotTag('Hot') : null),
               h('p', { class: 'search__meta' }, sinceLabel(x.started_at)),
               x.why ? h('p', { class: 'text' }, x.why) : null,
               x.story ? h('a', { class: 'search__story', href: x.story.id ? itemHref('launches', x.story.id) : '#/launches' }, h('span', { class: 'label' }, 'The story'), ' ', x.story.headline)
@@ -488,7 +517,7 @@
         ? h('div', { class: 'two' },
           (day.rising ?? []).length
             ? h('section', { class: 'card' }, stripes(), h('h2', { class: 'label', style: 'margin-bottom:8px' }, 'Rising in the last 24 hours'),
-              h('ul', { class: 'pills' }, day.rising.slice(0, 10).map((q) => h('li', null, h('span', null, q.q), h('b', { class: 'rise' }, q.value)))))
+              h('ul', { class: 'pills' }, day.rising.slice(0, 10).map((q) => h('li', null, h('span', null, q.q), h('b', { class: `rise${isHot(q.value) ? ' rise--hot' : ''}` }, q.value)))))
             : null,
           (day.top ?? []).length
             ? h('section', { class: 'card' }, stripes(), h('h2', { class: 'label', style: 'margin-bottom:8px' }, day.top_from ? `Most searched with “${day.top_from}”` : 'Most searched'),
@@ -549,6 +578,7 @@
     if (!data) data = await load();
     carouselStop?.();
     carouselStop = null;
+    HOT = hotStories(data);
     const section = sectionOf();
     const item = itemOf();
     const [label, render] = ROUTES[section] ?? [null, renderHome];
@@ -577,7 +607,7 @@
     if (dark) document.documentElement.setAttribute('data-theme', 'dark');
     else document.documentElement.removeAttribute('data-theme');
     themeBtn?.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
-    document.getElementById('theme-color')?.setAttribute('content', dark ? '#141518' : '#E8E6E1');
+    document.getElementById('theme-color')?.setAttribute('content', dark ? '#141518' : '#F1F3F6');
     try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch { /* private mode: not remembered */ }
   }
   themeBtn?.addEventListener('click', () => applyTheme(document.documentElement.getAttribute('data-theme') !== 'dark'));
