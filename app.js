@@ -109,6 +109,9 @@
       h('h1', { class: 'page-title' }, title),
       sub ? h('p', { class: 'page-sub' }, sub) : null);
   const empty = (text) => h('p', { class: 'empty' }, text);
+  // The address of one item on its section page, e.g. #/launches/re-himalayan-750-teaser.
+  const itemHref = (section, key) => `#/${section}/${encodeURIComponent(key)}`;
+  const trendKey = (term) => String(term).toLowerCase();
 
   // ---------- Data ----------
 
@@ -144,7 +147,7 @@
     const t = latest && ist(latest.published_at);
     document.getElementById('r-time').replaceChildren(h('span', { class: 'long' }, 'Updated '), h('b', null, t ? `${pad2(t.hh)}:${pad2(t.mm)}` : '--:--'));
     for (const a of document.querySelectorAll('.nav a')) {
-      if (a.getAttribute('href') === (location.hash || '#/')) a.setAttribute('aria-current', 'page');
+      if (a.getAttribute('href') === sectionOf()) a.setAttribute('aria-current', 'page');
       else a.removeAttribute('aria-current');
     }
   }
@@ -182,9 +185,10 @@
     return sectionCard('launches', '#/launches', 'New launches', total, total === 1 ? 'story' : 'stories',
       list.length
         ? h('ol', { class: 'mini' }, list.map((it, i) => h('li', { class: i === 0 ? 'mini__item mini__item--lead' : 'mini__item' },
-          h('div', { class: 'mini__meta' }, tag(it.type), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null),
-          h('p', { class: 'mini__line' }, it.headline),
-          i === 0 && it.figure ? h('p', { class: 'mini__figure' }, it.figure.value, h('span', null, ` ${it.figure.label}`)) : null)))
+          h('a', { class: 'mini__link', href: itemHref('launches', it.id) },
+            h('div', { class: 'mini__meta' }, tag(it.type), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null),
+            h('p', { class: 'mini__line' }, it.headline),
+            i === 0 && it.figure ? h('p', { class: 'mini__figure' }, it.figure.value, h('span', null, ` ${it.figure.label}`)) : null))))
         : empty('No stories yet today.'),
       'All launches and news');
   }
@@ -195,12 +199,13 @@
       list.length
         ? h('ol', { class: 'mini' }, list.map((ev) => {
           const d = parseYmd(ev.start_date);
-          return h('li', { class: 'mini__item mini__event' },
-            h('div', { class: 'datebox', 'aria-hidden': 'true' }, h('span', { class: 'datebox__m' }, MONTHS[d.getUTCMonth()]), h('span', { class: 'datebox__d' }, String(d.getUTCDate()))),
-            h('div', null,
-              h('p', { class: 'mini__line' }, ev.name),
-              h('p', { class: 'mini__sub' }, `${eventDates(ev)} · ${ev.city}`),
-              h('p', { class: 'mini__when' }, relDay(ev.start_date, today))));
+          return h('li', { class: 'mini__item' },
+            h('a', { class: 'mini__link mini__event', href: itemHref('events', ev.id) },
+              h('div', { class: 'datebox', 'aria-hidden': 'true' }, h('span', { class: 'datebox__m' }, MONTHS[d.getUTCMonth()]), h('span', { class: 'datebox__d' }, String(d.getUTCDate()))),
+              h('div', null,
+                h('p', { class: 'mini__line' }, ev.name),
+                h('p', { class: 'mini__sub' }, `${eventDates(ev)} · ${ev.city}`),
+                h('p', { class: 'mini__when' }, relDay(ev.start_date, today)))));
         }))
         : empty('No upcoming events on the calendar yet.'),
       'Full calendar');
@@ -214,9 +219,10 @@
       day && (picks.length || searches.length)
         ? h('div', { class: 'mini' },
           day.summary ? h('p', { class: 'mini__lede' }, day.summary.headline) : null,
-          h('ol', { class: 'mini' }, (picks.length ? picks : searches).slice(0, 4).map((p) => h('li', { class: 'mini__item mini__search' },
-            stat(p.traffic),
-            h('div', null, h('p', { class: 'mini__line' }, p.term), p.why ? h('p', { class: 'mini__sub' }, p.why) : null)))))
+          h('ol', { class: 'mini' }, (picks.length ? picks : searches).slice(0, 4).map((p) => h('li', { class: 'mini__item' },
+            h('a', { class: 'mini__link mini__search', href: itemHref('trending', trendKey(p.term)) },
+              stat(p.traffic),
+              h('div', null, h('p', { class: 'mini__line' }, p.term), p.why ? h('p', { class: 'mini__sub' }, p.why) : null))))))
         : empty('Trends will appear after the next morning run.'),
       'What’s trending and why');
   }
@@ -226,9 +232,10 @@
     return sectionCard('gear', '#/accessories', 'Aftermarket', items.length, items.length === 1 ? 'new product' : 'new products',
       items.length
         ? h('ol', { class: 'mini' }, items.slice(0, 4).map((a) => h('li', { class: 'mini__item' },
-          h('div', { class: 'mini__meta' }, h('span', { class: 'kicker' }, a.brand), h('span', { class: 'mini__cat' }, GEAR_LABEL[a.category] || 'Accessory')),
-          h('p', { class: 'mini__line' }, a.product),
-          a.price ? h('p', { class: 'mini__price' }, a.price.value) : null)))
+          h('a', { class: 'mini__link', href: itemHref('accessories', a.id) },
+            h('div', { class: 'mini__meta' }, h('span', { class: 'kicker' }, a.brand), h('span', { class: 'mini__cat' }, GEAR_LABEL[a.category] || 'Accessory')),
+            h('p', { class: 'mini__line' }, a.product),
+            a.price ? h('p', { class: 'mini__price' }, a.price.value) : null))))
         : empty('No new accessories in the last few days.'),
       'All accessories');
   }
@@ -244,7 +251,7 @@
     return parts.length > 1 ? `${parts.slice(0, -1).join(', ')} and ${parts.at(-1)}.` : `${parts[0]}.`;
   }
 
-  // ---------- Latest: a strip of today's stories that moves on every 10 seconds ----------
+  // ---------- Top news: a strip of today's stories that moves on every 10 seconds ----------
 
   const SLIDE_MS = 10000;
   let carouselStop = null;
@@ -258,7 +265,8 @@
 
     const slides = stories.map((it, k) => h('article', { class: 'slide', 'aria-roledescription': 'slide', 'aria-label': `${k + 1} of ${n}` },
       h('div', { class: 'meta' }, k === 0 && latest.lead ? h('span', { class: 'label label--lead' }, 'Lead') : null, tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null),
-      h('h2', { class: 'slide__headline' }, it.headline),
+      // The headline's link covers the whole card; the source links sit above it.
+      h('h2', { class: 'slide__headline' }, h('a', { class: 'slide__link', href: itemHref('launches', it.id) }, it.headline)),
       it.figure ? h('p', { class: 'slide__figure' }, it.figure.value, h('span', null, ` ${it.figure.label}`)) : null,
       it.text ? h('p', { class: 'slide__text' }, it.text) : null,
       h('p', { class: 'slide__src' }, h('span', { class: 'label' }, (it.sources || []).length > 1 ? `Reported by ${it.sources.length}` : 'Reported by'),
@@ -269,9 +277,9 @@
     const segs = stories.map((_, k) => h('button', { class: 'seg', type: 'button', 'aria-label': `Story ${k + 1}: ${stories[k].headline}`, onclick: () => go(k, true) }, h('span')));
     const count = h('span', { class: 'carousel__count' });
     const pauseBtn = h('button', { class: 'cbtn', type: 'button', onclick: () => { paused = !paused; update(); } });
-    const root = h('section', { class: 'carousel', 'aria-roledescription': 'carousel', 'aria-label': 'Latest stories' },
+    const root = h('section', { class: 'carousel', 'aria-roledescription': 'carousel', 'aria-label': 'Top news' },
       h('div', { class: 'carousel__top' },
-        h('span', { class: 'label' }, 'Latest'), count,
+        h('h2', { class: 'label carousel__title' }, 'Top news'), count,
         h('div', { class: 'carousel__ctl' },
           h('button', { class: 'cbtn', type: 'button', 'aria-label': 'Previous story', onclick: () => go(i - 1, true) }, '‹'),
           pauseBtn,
@@ -337,7 +345,7 @@
   // ---------- New launches ----------
 
   function leadCard(it) {
-    return h('article', { class: 'card card--lead' }, stripes(),
+    return h('article', { class: 'card card--lead', 'data-anchor': it.id }, stripes(),
       h('div', { class: 'lead' },
         h('header', { class: 'lead__head' },
           h('div', { class: 'meta' }, h('span', { class: 'label label--lead' }, 'Lead'), tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null),
@@ -348,14 +356,14 @@
         h('footer', { class: 'lead__foot' }, specs(it.specs), sources(it.sources))));
   }
   function subCard(it) {
-    return h('article', { class: 'card card--sub' }, stripes(),
+    return h('article', { class: 'card card--sub', 'data-anchor': it.id }, stripes(),
       h('div', { class: 'meta' }, tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null),
       h('div', { class: 'sub__top' }, h('h3', { class: 'headline' }, it.headline), plate(it.figure)),
       it.text ? h('p', { class: 'text' }, it.text) : null,
       specs(it.specs), sources(it.sources));
   }
   function roadList(items, edition) {
-    return h('ul', { class: 'road__list' }, items.map((it) => h('li', { class: 'road__item' },
+    return h('ul', { class: 'road__list' }, items.map((it) => h('li', { class: 'road__item', 'data-anchor': it.id },
       h('span', { class: 'dot', 'data-type': it.type, title: TYPE_LABEL[it.type] || '' }),
       h('p', { class: 'road__line' }, h('span', { class: 'sr' }, `${TYPE_LABEL[it.type] || 'News'}: `), it.headline,
         ['spy', 'rumour'].includes(it.type) ? tag(it.type) : null, updateTag(it)),
@@ -402,7 +410,7 @@
   function eventCard(ev, today) {
     const d = parseYmd(ev.start_date);
     const n = daysBetween(today, ev.start_date);
-    return h('article', { class: 'card event' },
+    return h('article', { class: 'card event', 'data-anchor': ev.id },
       h('div', { class: 'datebox datebox--big', 'aria-hidden': 'true' },
         h('span', { class: 'datebox__m' }, MONTHS[d.getUTCMonth()]), h('span', { class: 'datebox__d' }, String(d.getUTCDate())), h('span', { class: 'datebox__w' }, DAYS[d.getUTCDay()])),
       h('div', { class: 'event__body' },
@@ -456,7 +464,7 @@
         day.summary ? h('p', { class: 'brief__headline' }, day.summary.headline) : null,
         day.summary ? h('p', { class: 'text brief__text' }, day.summary.text) : null,
         picks.length
-          ? h('ol', { class: 'searches' }, picks.map((p) => h('li', { class: 'search' },
+          ? h('ol', { class: 'searches' }, picks.map((p) => h('li', { class: 'search', 'data-anchor': trendKey(p.term) },
             stat(p.traffic),
             h('div', { class: 'search__body' },
               h('p', { class: 'search__term' }, p.term),
@@ -467,13 +475,13 @@
         ? h('section', { class: 'card' }, stripes(),
           h('h2', { class: 'label', style: 'margin-bottom:4px' }, picks.length ? 'More bike searches this week' : 'Most searched bikes this week'),
           h('p', { class: 'note', style: 'margin:0 0 6px' }, 'Google Trends searches in India over the last 7 days that name a bike, brand or model.'),
-          h('ol', { class: 'searches' }, searches.map((x) => h('li', { class: 'search' },
+          h('ol', { class: 'searches' }, searches.map((x) => h('li', { class: 'search', 'data-anchor': trendKey(x.term) },
             stat(x.traffic),
             h('div', { class: 'search__body' },
               h('p', { class: 'search__term' }, x.term),
               h('p', { class: 'search__meta' }, sinceLabel(x.started_at)),
               x.why ? h('p', { class: 'text' }, x.why) : null,
-              x.story ? h('a', { class: 'search__story', href: '#/launches' }, h('span', { class: 'label' }, 'The story'), ' ', x.story.headline)
+              x.story ? h('a', { class: 'search__story', href: x.story.id ? itemHref('launches', x.story.id) : '#/launches' }, h('span', { class: 'label' }, 'The story'), ' ', x.story.headline)
                 : x.sources?.length ? sources(x.sources, 'Why') : null)))))
         : null,
       (day.rising ?? []).length || (day.top ?? []).length
@@ -493,7 +501,7 @@
   // ---------- Aftermarket ----------
 
   function gearCard(a, edition) {
-    return h('article', { class: 'card gear' }, stripes(),
+    return h('article', { class: 'card gear', 'data-anchor': a.id }, stripes(),
       h('div', { class: 'meta' }, h('span', { class: 'tag', 'data-gear': a.category }, GEAR_LABEL[a.category] || 'Accessory'), updateTag(a),
         h('span', { class: 'kicker' }, a.brand), a.published_at ? h('span', { class: 'gear__time' }, itemTime(a.published_at, edition)) : null),
       h('div', { class: 'sub__top' }, h('h3', { class: 'headline' }, a.headline), plate(a.price)),
@@ -529,15 +537,38 @@
     return { latest, archive, events, trends, eds };
   }
 
+  // "#/launches/some-id" -> the section "#/launches" and the item "some-id".
+  function sectionOf() { return `#/${(location.hash.split('/')[1] ?? '')}`; }
+  function itemOf() {
+    const rest = location.hash.split('/').slice(2).join('/');
+    try { return rest ? decodeURIComponent(rest) : null; } catch { return rest || null; }
+  }
+
   async function route() {
     const app = document.getElementById('paper');
     if (!data) data = await load();
     carouselStop?.();
     carouselStop = null;
-    const [label, render] = ROUTES[location.hash] ?? [null, renderHome];
+    const section = sectionOf();
+    const item = itemOf();
+    const [label, render] = ROUTES[section] ?? [null, renderHome];
+    // Opening one item clears any filter that could hide it.
+    if (item) { state.launchFilter = 'All'; state.eventKind = 'All'; state.gearCat = 'All'; }
     setReadout(data.latest, label);
-    document.body.dataset.page = label ? location.hash.slice(2) : 'home';
+    document.body.dataset.page = label ? section.slice(2) : 'home';
     await render(app, data);
+    const target = item ? [...app.querySelectorAll('[data-anchor]')].find((el) => el.dataset.anchor === item) : null;
+    if (!target) return window.scrollTo(0, 0);
+    // Place the item just below the bar, and mark it for a moment so the eye finds it.
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    target.setAttribute('tabindex', '-1');
+    requestAnimationFrame(() => {
+      target.scrollIntoView({ block: 'start', behavior: reduce ? 'auto' : 'smooth' });
+      target.focus({ preventScroll: true });
+      target.classList.remove('is-target');
+      void target.offsetWidth;
+      target.classList.add('is-target');
+    });
   }
 
   // Theme: light by default, dark when chosen; remembered on this device.
@@ -552,7 +583,7 @@
   themeBtn?.addEventListener('click', () => applyTheme(document.documentElement.getAttribute('data-theme') !== 'dark'));
   themeBtn?.setAttribute('aria-label', document.documentElement.getAttribute('data-theme') === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
 
-  window.addEventListener('hashchange', () => { route(); window.scrollTo(0, 0); });
+  window.addEventListener('hashchange', () => { route(); });
   route();
 
   // As a home-screen app there is no reload button: fetch again when the app comes back after a while.
