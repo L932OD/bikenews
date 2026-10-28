@@ -868,3 +868,62 @@ a.chip { display: inline-flex; align-items: center; gap: 8px; text-decoration: n
 .datebox--month .datebox__d { font-size: 26px; text-transform: uppercase; letter-spacing: 0.04em; }
 @media (max-width: 560px) { .datebox--month .datebox__d { font-size: 21px; } }
 .slide .road__time { font-family: var(--f-label); font-weight: 600; font-size: 13px; letter-spacing: 0.08em; color: var(--muted); align-self: center; }
+
+/* ---------- Brand pages ---------- */
+
+/* The brand on a card links to its page. */
+a.kicker--link { text-decoration: none; border-bottom: 1.5px solid var(--rule); }
+a.kicker--link:hover { color: var(--blue-text, var(--ink)); border-bottom-color: currentColor; }
+.slide a.kicker--link { position: relative; z-index: 1; }
+
+/* "Brands in the news" on the Feed: one row that scrolls sideways on a phone. */
+.brandstrip { display: grid; gap: 8px; padding: 0 4px; min-width: 0; }
+.brandstrip__list { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
+.bchip { flex: none; display: inline-flex; align-items: center; gap: 8px; min-height: 38px; padding: 0 14px; border-radius: 999px; background: var(--panel); color: var(--ink); text-decoration: none; font-family: var(--f-label); font-weight: 600; font-size: 15px; letter-spacing: 0.04em; white-space: nowrap; }
+.bchip b { font-variant-numeric: tabular-nums; color: var(--blue-text, var(--acc-launches)); }
+.bchip:hover { outline: 1px solid var(--muted); }
+.bchip--all { background: transparent; color: var(--muted); }
+
+/* A brand's page. */
+.brandhead__kind { margin: 6px 0 -4px; font-family: var(--f-label); font-weight: 600; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+.brandhead__glance { margin: 12px 0 0; font-size: 18px; color: var(--ink); }
+.brandhead__new { color: var(--blue-text, var(--ink)); }
+.brandhead__links { margin-top: 12px; }
+.bblock { padding-top: var(--pad); }
+.bblock__title { display: flex; align-items: baseline; gap: 10px; margin: 0 0 4px; font-family: var(--f-label); font-weight: 600; font-size: 22px; letter-spacing: 0.01em; }
+.bblock__n { font-size: 15px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.blist { list-style: none; margin: 0; padding: 0; }
+.blist__item { display: grid; gap: 6px; padding: 14px 0; border-top: 1px solid var(--rule); min-width: 0; }
+.blist__item:first-child { border-top: 0; }
+.blist__item--date { grid-template-columns: 48px minmax(0, 1fr); gap: 14px; align-items: start; }
+.blist__item--row { grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px; }
+.blist__head { font-family: var(--f-label); font-weight: 600; font-size: 20px; line-height: 1.25; color: var(--ink); text-decoration: none; text-wrap: balance; }
+.blist__head:hover { text-decoration: underline; }
+.blist__text { margin: 0; font-size: 16px; color: var(--ink); max-width: 65ch; }
+.blist__sub { margin: 2px 0 0; color: var(--muted); font-size: 15px; }
+.blist .meta { margin: 0; }
+.blist .road__src { justify-content: flex-start; }
+.blist .stat { display: inline-flex; align-items: baseline; gap: 6px; padding: 4px 10px; border-radius: 8px; white-space: nowrap; font-family: var(--f-label); font-weight: 600; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.blist .stat b { font-size: 18px; }
+.ext { color: var(--muted); }
+
+/* All brands. */
+.bgrid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 10px; }
+.bcard { display: grid; gap: 2px; padding: 14px 16px; border-radius: var(--radius); background: var(--panel); color: var(--ink); text-decoration: none; min-height: 84px; align-content: start; }
+.bcard:hover { outline: 1px solid var(--muted); }
+.bcard__name { font-family: var(--f-label); font-weight: 600; font-size: 19px; }
+.bcard__meta { color: var(--muted); font-size: 14px; }
+.bcard__count { margin-top: 4px; font-family: var(--f-label); font-weight: 600; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue-text, var(--acc-launches)); }
+/* Stories on a brand's page stack in one column (the Feed's line layout places the sources in a second column). */
+.blist__item:not(.blist__item--date):not(.blist__item--row) > * { grid-column: 1; }
+.datebox:not(.datebox--big).datebox--month .datebox__d { font-size: 16px; text-transform: uppercase; }
+.road__line .tag--new { margin-right: 8px; vertical-align: 2px; }
+.bgrid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 170px), 1fr)); }
+.bcard { min-height: 0; padding: 12px 14px; }
+.bcard__name { font-size: 18px; line-height: 1.2; }
+/* A brand's page on a wide screen: its stories on the left, what is coming on the right. */
+.bpage { display: grid; gap: var(--gap); align-items: start; }
+@media (min-width: 1000px) {
+  .bpage { grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); }
+  .bpage > .bblock:first-child { grid-row: span 6; }
+}

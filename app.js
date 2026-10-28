@@ -163,7 +163,7 @@
   const hotFor = (it) => (HOT.has(it.id) ? hotTag(hotLabel(HOT.get(it.id))) : null);
 
   // Pages that live under another tab: Upcoming launches under Events, the archive under Feed.
-  const NAV_OF = { '#/upcoming': '#/events', '#/archive': '#/launches' };
+  const NAV_OF = { '#/upcoming': '#/events', '#/archive': '#/launches', '#/brand': '#/launches', '#/brands': '#/launches' };
 
   // ---------- Since your last visit ----------
 
@@ -186,6 +186,29 @@
   const isNew = (iso) => Boolean(SINCE && iso && Date.parse(iso) > SINCE);
   const newTag = (iso) => (isNew(iso) ? h('span', { class: 'tag tag--new' }, 'New') : null);
   const sinceText = () => (SINCE ? stamp(new Date(SINCE).toISOString()) : '');
+
+  // ---------- Brands ----------
+
+  // Every bike maker and aftermarket brand, with the names that identify its stories ("Himalayan" is Royal Enfield).
+  let BRANDS = [];
+  const slugOf = (name) => String(name).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const escapeRe = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  function indexBrands(file) {
+    const make = (b, kind) => {
+      const terms = [...new Set([b.name, ...(b.match ?? []), ...(b.aka ?? [])])];
+      return { ...b, kind, slug: b.slug ?? slugOf(b.name), re: new RegExp(`(^|[^\\p{L}\\p{N}])(${terms.map(escapeRe).join('|')})(?![\\p{L}\\p{N}])`, 'iu') };
+    };
+    return [...(file?.makers ?? []).map((b) => make(b, 'maker')), ...(file?.brands ?? []).map((b) => make(b, 'gear'))];
+  }
+  const brandsIn = (text) => BRANDS.filter((b) => b.re.test(String(text || '')));
+  const brandByName = (name) => BRANDS.find((b) => b.name.toLowerCase() === String(name).toLowerCase()) ?? brandsIn(name)[0] ?? null;
+  const brandHref = (b) => `#/brand/${b.slug}`;
+  // The brand on a card, as a link to its page when we follow it.
+  function kicker(name) {
+    if (!name) return null;
+    const b = brandByName(name);
+    return b ? h('a', { class: 'kicker kicker--link', href: brandHref(b) }, name) : h('span', { class: 'kicker' }, name);
+  }
 
   // ---------- Cluster bar ----------
 
@@ -342,7 +365,7 @@
     let i = 0, timer = null, paused = reduce, held = false;
 
     const slides = stories.map((it, k) => h('article', { class: 'slide', 'aria-roledescription': 'slide', 'aria-label': `${k + 1} of ${n}` },
-      h('div', { class: 'meta' }, newTag(it.published_at), k === 0 && latest.lead ? h('span', { class: 'label label--lead' }, 'Lead') : null, hotFor(it), tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null),
+      h('div', { class: 'meta' }, newTag(it.published_at), k === 0 && latest.lead ? h('span', { class: 'label label--lead' }, 'Lead') : null, hotFor(it), tag(it.type), updateTag(it), kicker(it.kicker)),
       // The headline's link covers the whole card; the source links sit above it.
       h('h2', { class: 'slide__headline' }, h('a', { class: 'slide__link', href: itemHref('launches', it.id) }, it.headline)),
       it.figure ? h('p', { class: 'slide__figure' }, it.figure.value, h('span', null, ` ${it.figure.label}`)) : null,
@@ -415,6 +438,7 @@
       h('section', { class: 'today' },
         h('p', { class: 'today__date' }, today ? dayLabel(today) : ''),
         h('p', { class: 'today__title' }, summaryLine(d)), sinceLink(d)),
+      brandStrip(d),
       d.latest ? latestCarousel(d.latest) : null,
       h('div', { class: 'sections' },
         homeLaunches(d.eds), homeEvents(d.events, today, horizonOf(d, today), upcomingLink(d)), homeTrending(d.trends), homeGear(d.eds)));
@@ -426,7 +450,7 @@
     return h('article', { class: 'card card--lead', 'data-anchor': it.id }, stripes(),
       h('div', { class: 'lead' },
         h('header', { class: 'lead__head' },
-          h('div', { class: 'meta' }, newTag(it.published_at), h('span', { class: 'label label--lead' }, 'Lead'), hotFor(it), tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null, stampTag(it.published_at)),
+          h('div', { class: 'meta' }, newTag(it.published_at), h('span', { class: 'label label--lead' }, 'Lead'), hotFor(it), tag(it.type), updateTag(it), kicker(it.kicker), stampTag(it.published_at)),
           h('h2', { class: 'headline' }, it.headline)),
         it.figure ? h('div', { class: 'lead__plate' }, plate(it.figure)) : null,
         h('div', { class: 'lead__body' }, h('p', { class: 'text' }, it.text)),
@@ -435,7 +459,7 @@
   }
   function subCard(it) {
     return h('article', { class: 'card card--sub', 'data-anchor': it.id }, stripes(),
-      h('div', { class: 'meta' }, newTag(it.published_at), hotFor(it), tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null, stampTag(it.published_at)),
+      h('div', { class: 'meta' }, newTag(it.published_at), hotFor(it), tag(it.type), updateTag(it), kicker(it.kicker), stampTag(it.published_at)),
       h('div', { class: 'sub__top' }, h('h3', { class: 'headline' }, it.headline), plate(it.figure)),
       it.text ? h('p', { class: 'text' }, it.text) : null,
       specs(it.specs), sources(it.sources));
@@ -495,7 +519,7 @@
         h('h2', { class: 'day-head' }, h('span', null, today ? relDay(ymd, today) : dayLabel(ymd)), h('span', { class: 'day-head__date' }, `${dayLabel(ymd)} · ${list.length} ${list.length === 1 ? 'story' : 'stories'}`)),
         blocks);
     });
-    put(app, pageHead('launches', 'Feed', 'Every bike story from the last 5 days, newest first, with the date and time it was published.'), chips,
+    put(app, pageHead('launches', 'Feed', 'Every bike story from the last 5 days, newest first, with the date and time it was published.'), brandStrip(d), chips,
       sections.length ? sections : empty('Nothing of this kind in the last 5 days.'), olderDays(d));
   }
 
@@ -524,6 +548,110 @@
       ed.lead ? leadCard(ed.lead) : null,
       ed.subs?.length ? h('div', { class: 'subs' }, ed.subs.map(subCard)) : null,
       h('div', { class: 'card road' }, roadList(stories.filter((x) => x !== ed.lead && !(ed.subs ?? []).includes(x)))));
+  }
+
+  // ---------- Brand pages ----------
+
+  // Everything the last 5 days hold about one brand: stories, launches coming, searches, its own videos, events
+  // and gear. Matched by the brand's name and its model names.
+  function brandData(d, b) {
+    const seen = new Set();
+    const stories = d.eds.flatMap((ed) => storiesOf(ed).map((it) => ({ ...it, published_at: it.published_at ?? `${ed.edition}T09:00:00+05:30` })))
+      .filter((it) => !seen.has(it.id) && seen.add(it.id) && b.re.test(`${it.kicker ?? ''} ${it.headline}`))
+      .sort((x, y) => byNewest(x.published_at, y.published_at));
+    const upcoming = d.upcoming.filter((u) => b.re.test(`${u.brand} ${u.name}`));
+    const searches = (d.trends?.days?.[0]?.searches ?? []).filter((x) => b.re.test(x.term));
+    const vseen = new Set();
+    const videos = d.eds.flatMap((ed) => ed.videos ?? []).filter((v) => !vseen.has(v.url) && vseen.add(v.url) && b.re.test(v.brand))
+      .sort((x, y) => byNewest(x.published_at, y.published_at));
+    const today = d.latest?.edition ?? new Date().toISOString().slice(0, 10);
+    const horizon = horizonOf(d, today);
+    const events = (d.events?.events ?? []).filter((e) => e.start_date <= horizon && b.re.test(`${e.name} ${e.organiser ?? ''}`));
+    const gear = gearItems(d.eds).map(({ a }) => a).filter((a) => (b.kind === 'gear' ? brandByName(a.brand) === b : b.re.test(`${a.for_bikes.join(' ')} ${a.headline}`)));
+    return { stories, upcoming, searches, videos, events, gear };
+  }
+
+  // "Brands in the news": the makers with stories in the last 5 days, most first.
+  function brandStrip(d) {
+    const counts = BRANDS.filter((b) => b.kind === 'maker').map((b) => ({ b, n: brandData(d, b).stories.length })).filter((x) => x.n).sort((x, y) => y.n - x.n);
+    if (!counts.length) return null;
+    return h('nav', { class: 'brandstrip', 'aria-label': 'Brands in the news' },
+      h('span', { class: 'label' }, 'Brands in the news'),
+      h('div', { class: 'brandstrip__list' },
+        counts.map(({ b, n }) => h('a', { class: 'bchip', href: brandHref(b) }, b.name, h('b', null, String(n)))),
+        h('a', { class: 'bchip bchip--all', href: '#/brands' }, 'All brands', h('span', { 'aria-hidden': 'true' }, ' →'))));
+  }
+
+  const block = (title, count, ...body) => h('section', { class: 'card bblock' }, h('h2', { class: 'bblock__title' }, title, count != null ? h('span', { class: 'bblock__n' }, String(count)) : null), ...body);
+
+  function renderBrand(app, d) {
+    const b = BRANDS.find((x) => x.slug === itemOf());
+    if (!b) return renderBrands(app, d);
+    const x = brandData(d, b);
+    const madeIn = b.made_in === 'India' ? 'Indian' : b.made_in;
+    const links = [
+      b.site ? h('a', { class: 'src', href: b.site, target: '_blank', rel: 'noopener' }, 'Website') : null,
+      b.youtube ? h('a', { class: 'src', href: `https://www.youtube.com/channel/${b.youtube}`, target: '_blank', rel: 'noopener' }, 'YouTube') : null,
+      b.instagram ? igLink(b.instagram) : null,
+    ];
+    const parts = [
+      `${x.stories.length} ${x.stories.length === 1 ? 'story' : 'stories'} in 5 days`,
+      x.upcoming.length ? `${x.upcoming.length} upcoming ${x.upcoming.length === 1 ? 'launch' : 'launches'}` : null,
+      x.events.length ? `${x.events.length} ${x.events.length === 1 ? 'event' : 'events'}` : null,
+      x.searches.length ? `searched ${x.searches[0].traffic}` : null,
+    ].filter(Boolean);
+    const newCount = x.stories.filter((it) => isNew(it.published_at)).length;
+    put(app,
+      h('header', { class: 'page-head brandhead', 'data-section': 'launches' },
+        h('a', { class: 'back', href: '#/brands' }, h('span', { 'aria-hidden': 'true' }, '←'), ' All brands'),
+        h('p', { class: 'brandhead__kind' }, `${b.kind === 'maker' ? 'Bike maker' : 'Aftermarket'} · ${madeIn}`),
+        h('h1', { class: 'page-title' }, b.name),
+        h('p', { class: 'brandhead__glance' }, parts.join(' · '), newCount ? h('span', { class: 'brandhead__new' }, ` · ${newCount} new since your last visit`) : null),
+        h('div', { class: 'sources brandhead__links' }, links)),
+      h('div', { class: 'bpage' },
+      x.stories.length
+        ? block('Latest', x.stories.length, h('ul', { class: 'blist' }, x.stories.map((it) => h('li', { class: 'blist__item' },
+          h('div', { class: 'meta' }, newTag(it.published_at), hotFor(it), tag(it.type), stampTag(it.published_at)),
+          h('a', { class: 'blist__head', href: itemHref('launches', it.id) }, it.headline),
+          it.text ? h('p', { class: 'blist__text' }, it.text) : null,
+          h('p', { class: 'road__src' }, (it.sources || []).slice(0, 3).map((s) => link(s)), it.sources?.length > 3 ? h('span', null, `+${it.sources.length - 3}`) : null)))))
+        : block('Latest', null, empty(`No ${b.name} stories in the last 5 days.`)),
+      x.upcoming.length ? block('Coming up', x.upcoming.length, h('ul', { class: 'blist' }, x.upcoming.map((u) => {
+        const dd = parseYmd(u.when.date ?? `${u.when.month}-01`);
+        return h('li', { class: 'blist__item blist__item--date' },
+          u.when.date
+            ? h('div', { class: 'datebox', 'aria-hidden': 'true' }, h('span', { class: 'datebox__m' }, MONTHS[dd.getUTCMonth()]), h('span', { class: 'datebox__d' }, String(dd.getUTCDate())))
+            : h('div', { class: 'datebox datebox--month', 'aria-hidden': 'true' }, h('span', { class: 'datebox__m' }, String(dd.getUTCFullYear())), h('span', { class: 'datebox__d' }, MONTHS[dd.getUTCMonth()])),
+          h('div', null, h('div', { class: 'meta' }, h('span', { class: `tag tag--${u.status}` }, UP_STATUS[u.status] || 'Upcoming')),
+            h('a', { class: 'blist__head', href: itemHref('upcoming', u.id) }, u.name), h('p', { class: 'blist__sub' }, u.when.label)));
+      }))) : null,
+      x.searches.length ? block('What riders are searching', x.searches.length, h('ul', { class: 'blist' }, x.searches.map((q) => h('li', { class: 'blist__item blist__item--row' },
+        h('a', { class: 'blist__head', href: itemHref('trending', trendKey(q.term)) }, q.term),
+        h('span', { class: isHot(q.traffic) ? 'stat stat--hot' : 'stat' }, h('b', null, q.traffic), ' searches'))))) : null,
+      x.videos.length ? block(`From ${b.name} on YouTube`, x.videos.length, h('ul', { class: 'blist' }, x.videos.map((v) => h('li', { class: 'blist__item' },
+        h('div', { class: 'meta' }, newTag(v.published_at), h('span', { class: 'tag' }, VIDEO_KIND[v.kind] || 'Video'), stampTag(v.published_at)),
+        h('a', { class: 'blist__head', href: v.url, target: '_blank', rel: 'noopener' }, v.title, h('span', { class: 'ext', 'aria-hidden': 'true' }, ' ↗')),
+        h('p', { class: 'blist__text' }, v.why))))) : null,
+      x.events.length ? block('Events', x.events.length, h('ul', { class: 'blist' }, x.events.map((e) => h('li', { class: 'blist__item' },
+        h('a', { class: 'blist__head', href: itemHref('events', e.id) }, e.name), h('p', { class: 'blist__sub' }, `${eventDates(e)} · ${e.city}`))))) : null,
+      x.gear.length ? block(b.kind === 'gear' ? 'New products' : `Gear for ${b.name} bikes`, x.gear.length, h('ul', { class: 'blist' }, x.gear.map((a) => h('li', { class: 'blist__item' },
+        h('a', { class: 'blist__head', href: itemHref('accessories', a.id) }, a.headline), h('p', { class: 'blist__sub' }, [a.brand, a.price?.value].filter(Boolean).join(' · ')))))) : null));
+  }
+
+  function renderBrands(app, d) {
+    const row = (b) => {
+      const x = brandData(d, b);
+      return { b, n: x.stories.length, up: x.upcoming.length };
+    };
+    const list = (kind) => BRANDS.filter((b) => b.kind === kind).map(row).sort((p, q) => q.n - p.n || q.up - p.up || p.b.name.localeCompare(q.b.name));
+    const grid = (rows) => h('ul', { class: 'bgrid' }, rows.map(({ b, n, up }) => h('li', null,
+      h('a', { class: 'bcard', href: brandHref(b) },
+        h('span', { class: 'bcard__name' }, b.name),
+        h('span', { class: 'bcard__meta' }, b.made_in === 'India' ? 'Indian' : b.made_in),
+        h('span', { class: 'bcard__count' }, n ? `${n} ${n === 1 ? 'story' : 'stories'}` : 'Quiet this week', up ? ` · ${up} coming` : '')))));
+    put(app, pageHead('launches', 'Brands', 'Every maker and aftermarket brand we follow, busiest first. Open one for everything about it.'),
+      h('h2', { class: 'day-head' }, h('span', null, 'Bike makers')), grid(list('maker')),
+      h('h2', { class: 'day-head' }, h('span', null, 'Aftermarket')), grid(list('gear')));
   }
 
   // ---------- Events ----------
@@ -594,6 +722,7 @@
   // ---------- Upcoming launches ----------
 
   const UP_STATUS = { teased: 'Teased', confirmed: 'Confirmed', expected: 'Expected' };
+  const VIDEO_KIND = { teaser: 'Teaser', launch: 'Launch', product: 'New product', feature: 'Feature', event: 'Event' };
   const upKey = (u) => u.when.date ?? `${u.when.month}-99`;
   function upcomingCard(u) {
     const ymd = u.when.date ?? `${u.when.month}-01`;
@@ -607,7 +736,7 @@
           h('span', { class: 'datebox__m' }, String(d.getUTCFullYear())), h('span', { class: 'datebox__d' }, MONTHS[d.getUTCMonth()]), h('span', { class: 'datebox__w' }, 'Month')),
       h('div', { class: 'event__body' },
         h('div', { class: 'meta' }, h('span', { class: `tag tag--${u.status}` }, UP_STATUS[u.status] || 'Upcoming'),
-          h('span', { class: 'tag', 'data-kind': u.kind }, u.kind === 'gear' ? 'Gear' : 'Bike'), h('span', { class: 'kicker' }, u.brand)),
+          h('span', { class: 'tag', 'data-kind': u.kind }, u.kind === 'gear' ? 'Gear' : 'Bike'), kicker(u.brand)),
         h('h3', { class: 'headline event__name' }, u.name),
         h('p', { class: 'event__facts' }, h('b', null, u.when.label)),
         h('p', { class: 'text' }, u.text),
@@ -686,7 +815,7 @@
   function gearCard(a, edition, brands) {
     return h('article', { class: 'card gear', 'data-anchor': a.id }, stripes(),
       h('div', { class: 'meta' }, h('span', { class: 'tag', 'data-gear': a.category }, GEAR_LABEL[a.category] || 'Accessory'), newTag(a.published_at), soonTag(a), updateTag(a),
-        h('span', { class: 'kicker' }, a.brand), a.published_at ? h('time', { class: 'gear__time', datetime: a.published_at }, stamp(a.published_at)) : null),
+        kicker(a.brand), a.published_at ? h('time', { class: 'gear__time', datetime: a.published_at }, stamp(a.published_at)) : null),
       h('div', { class: 'sub__top' }, h('h3', { class: 'headline' }, a.headline), plate(a.price)),
       h('p', { class: 'text' }, a.text),
       h('p', { class: 'gear__fits' }, h('span', { class: 'label' }, 'Fits'), ' ', a.for_bikes.join(', ')),
@@ -745,7 +874,7 @@
   // ---------- Router ----------
 
   const state = {};
-  const ROUTES = { '#/upcoming': ['Upcoming launches', renderUpcoming], '#/archive': ['Archive', renderArchive], '#/launches': ['Feed', renderLaunches], '#/events': ['Events', renderEvents], '#/trending': ['Trending now', renderTrending], '#/accessories': ['Aftermarket', renderGear] };
+  const ROUTES = { '#/brand': ['Brand', renderBrand], '#/brands': ['Brands', renderBrands], '#/upcoming': ['Upcoming launches', renderUpcoming], '#/archive': ['Archive', renderArchive], '#/launches': ['Feed', renderLaunches], '#/events': ['Events', renderEvents], '#/trending': ['Trending now', renderTrending], '#/accessories': ['Aftermarket', renderGear] };
   let data = null;
 
   async function load() {
@@ -756,6 +885,7 @@
     ]);
     SINCE = lastVisit(archive?.page?.new_session_minutes ?? 30);
     const brands = brandFile?.brands ?? [];
+    BRANDS = indexBrands(brandFile);
     const eds = await editions(archive, latest);
     if (latest && !eds.some((e) => e.edition === latest.edition)) eds.unshift(latest);
     return { latest, archive, events, trends, eds, brands, upcoming: upcoming?.items ?? [] };

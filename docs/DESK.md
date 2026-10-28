@@ -91,10 +91,18 @@ organisers' own pages) and `events_calendar` (the events already listed).
 ## Brand videos (YouTube)
 
 Items with `"from_youtube": true` are videos from the brands' own YouTube channels, posted in the last 72 hours
-(`channel_kind` is `bike` for bike makers, `gear` for the aftermarket brands). A brand's teaser often appears here
+(`channel_kind` is `bike` for bike makers, `gear` for the aftermarket brands). Their `text` is the full description
+the brand wrote; read it, not just the title, to understand what the video shows. A brand's teaser often appears here
 before the press writes about it. Use a video like any source: a teaser video is the brand's own teaser, so it gets
-the precedence of a teaser. Leave out adverts, festival greetings, race highlights and rider stories unless they
-announce something. Commuter-scooter videos are already filtered out by title.
+the precedence of a teaser. Commuter-scooter videos are already filtered out by title.
+
+**`videos`: 0 to 6 a day, the ones worth a rider's time.** Pick a video only when it tells a rider something new about
+the market: a teaser (`teaser`), a launch film or price (`launch`), a new product or accessory (`product`), a real
+explanation of a new feature (`feature`), or an event announcement (`event`). Leave out adverts with nothing new,
+festival greetings, memes, rider stories, race highlights and repeats. Each: `url` (the pool item's), `brand` (as in
+the brands lists: `makers` or `brands`), `title` (at most 12 words, what it shows, not the brand's slogan), `why`
+(at most 25 words, why it matters, numbers only from its description), `kind`, `published_at` copied from the pool.
+The page shows them on the brand's page.
 
 ## Upcoming launches (the `upcoming` list)
 
@@ -149,7 +157,9 @@ site sometimes reports a new accessory).
 - **Headline item:** one line, at most 16 words, saying what happened (not the site's clickbait title).
 - **`published_at` on every story** (lead, subs and headlines): copied from one of its sources in the pool, usually
   the first report. The feed is sorted by it, newest first, and shows the date and time.
-- **Kicker:** the brand or maker, at most 4 words (lead and subs only).
+- **Kicker:** the brand or maker, at most 4 words (lead and subs only). Use the brand's name as the pool's `makers`
+  and `brands` lists write it (`Royal Enfield`, `Hero MotoCorp`, `KTM`), so the page links it to the brand's page.
+  Headlines name the brand in the text ("Royal Enfield Classic 350 seen with tubeless spoke wheels").
 - Plain, exact English, written for someone who knows bikes (cc, hp, Nm and ex-showroom need no explaining).
 - Prices as the source gives them (₹1.29 lakh ex-showroom, Delhi). Write ₹, not Rs.
 - **Every number** in a lead or sub write-up, in `why`, in `figure` and in `specs` must appear in the text of one of
@@ -183,6 +193,7 @@ site sometimes reports a new accessory).
   "trending": [{ "term": "exact term from the pool", "traffic": "+150%", "why": "...", "sources": [] }],
   "events": [{ "id": "...", "name": "...", "kind": "festival", "start_date": "2026-12-04", "end_date": "2026-12-05", "city": "...", "organiser": "...", "text": "...", "register": null, "sources": [], "tag": null }],
   "upcoming": [{ "id": "...", "name": "...", "brand": "...", "kind": "bike", "status": "teased", "when": { "date": null, "month": "2027-03", "label": "March 2027" }, "text": "...", "sources": [] }],
+  "videos": [{ "url": "https://www.youtube.com/watch?v=...", "brand": "Hero MotoCorp", "kind": "teaser", "title": "...", "why": "...", "published_at": "..." }],
   "accessories": [{ "id": "...", "brand": "...", "product": "...", "category": "helmet", "teased": false, "for_bikes": ["Universal"], "price": null, "headline": "...", "text": "...", "published_at": "...", "sources": [], "tag": null }],
   "checks": { "pool_items": 46, "sources_failed": [], "left_out": [{ "id": "pool-item-id", "why": "car, not a bike" }] }
 }

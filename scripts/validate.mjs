@@ -352,6 +352,28 @@ else {
   });
 }
 
+// ---------- Brand videos worth watching ----------
+
+// Videos the editor picked from the brands' YouTube channels, each with a reason. They must be videos in the pool.
+const VIDEO_KINDS = ['teaser', 'launch', 'product', 'feature', 'event'];
+const videos = ed.videos ?? [];
+if (!Array.isArray(videos)) err('videos', 'must be a list');
+else {
+  if (videos.length > LIMITS.videos_max) err('videos', `has ${videos.length}; at most ${LIMITS.videos_max} a day`);
+  const vids = new Map(pool.items.filter((it) => it.from_youtube).map((it) => [normUrl(it.url), it]));
+  videos.forEach((v, i) => {
+    const where = `videos[${i}]`;
+    const it = vids.get(normUrl(v?.url || ''));
+    if (!it) return err(`${where}.url`, 'must be a video from the pool (an item with "from_youtube": true)');
+    if (typeof v.brand !== 'string' || !v.brand) err(`${where}.brand`, 'is missing');
+    if (!VIDEO_KINDS.includes(v.kind)) err(`${where}.kind`, `must be one of ${VIDEO_KINDS.join(', ')}`);
+    checkText(`${where}.title`, v.title, { max: 12 });
+    checkText(`${where}.why`, v.why, { max: 25 });
+    checkNumbers(`${where}.why`, v.why, [it]);
+    if (v.published_at !== it.published_at) err(`${where}.published_at`, 'must be copied from the pool item');
+  });
+}
+
 // ---------- Motorcycles only (performance scooters allowed) ----------
 
 const filters = config.title_filters;
@@ -365,6 +387,7 @@ const titled = [
   ...events.map((ev) => [`events: ${ev?.id}`, ev?.name]),
   ...gear.map((a) => [`accessories: ${a?.id}`, `${a?.headline ?? ''} ${a?.product ?? ''}`]),
   ...(Array.isArray(upcoming) ? upcoming : []).map((u) => [`upcoming: ${u?.id}`, u?.name ?? '']),
+  ...(Array.isArray(videos) ? videos : []).map((v) => [`videos: ${v?.url}`, v?.title ?? '']),
   ...trending.map((t) => [`trending: ${t?.term}`, t?.term]),
   ['trends_summary', ed.trends_summary?.headline],
 ];
@@ -391,4 +414,4 @@ if (errors.length) {
   for (const e of errors) console.log(`  - ${e}`);
   process.exit(1);
 }
-console.log(`OK ${file}: ${total} items (${lead ? 'lead, ' : 'no lead, '}${subs.length} subs, ${heads.length} headlines, ${trending.length} trending), ${events.length} events, ${gear.length} accessories, ${Array.isArray(upcoming) ? upcoming.length : 0} upcoming`);
+console.log(`OK ${file}: ${total} items (${lead ? 'lead, ' : 'no lead, '}${subs.length} subs, ${heads.length} headlines, ${trending.length} trending), ${events.length} events, ${gear.length} accessories, ${Array.isArray(upcoming) ? upcoming.length : 0} upcoming, ${Array.isArray(videos) ? videos.length : 0} videos`);

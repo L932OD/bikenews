@@ -139,11 +139,10 @@
     "name": "Brand channels on YouTube",
     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=",
     "window_hours": 72,
-    "text_chars": 600,
+    "text_chars": 1500,
     "channels": [
       { "name": "Royal Enfield", "channel_id": "UCyxUUHqmz9IiAnrROJc0mag", "kind": "bike" },
       { "name": "Hero MotoCorp", "channel_id": "UCHZv18DM7aX5Wir7GrqVlnA", "kind": "bike" },
-      { "name": "Bajaj Auto", "channel_id": "UCpxfz3pf9thQIw2GiU041Iw", "kind": "bike" },
       { "name": "Bajaj Pulsar", "channel_id": "UCyjsBkQ3rWlARQb9_UWqM5Q", "kind": "bike" },
       { "name": "Bajaj Dominar", "channel_id": "UC8_sWwYKtkG7PZwi3mKJnXg", "kind": "bike" },
       { "name": "TVS Motor", "channel_id": "UCmXFdsJtTAbbYrH7zz-lkkw", "kind": "bike" },
@@ -168,11 +167,31 @@
       { "name": "Vega", "channel_id": "UCpxLU1yk2-y1zrfYl3nGoqg", "kind": "gear" },
       { "name": "Axor", "channel_id": "UCKs80jqeRpYKu46zgK2CiYw", "kind": "gear" },
       { "name": "Motul", "channel_id": "UCF4J2AcBRC4HU1FUHZ9sRmw", "kind": "gear" },
-      { "name": "Pakelo", "channel_id": "UCmWqX2z6-KiJAbBV-UPI_-w", "kind": "gear" },
       { "name": "Pakelo", "channel_id": "UCyIBWxaCKKMeCPOeji3r-SQ", "kind": "gear" },
       { "name": "Maddog", "channel_id": "UClbACAav3fRfyV8t2r0JK-Q", "kind": "gear" }
     ]
   },
+  "makers": [
+    {"name": "Royal Enfield", "slug": "royal-enfield", "made_in": "India", "site": "https://www.royalenfield.com/in/en/home/", "youtube": "UCyxUUHqmz9IiAnrROJc0mag", "match": ["Royal Enfield", "Himalayan", "Classic 350", "Classic 650", "Bullet 350", "Hunter 350", "Meteor 350", "Super Meteor", "Guerrilla 450", "Interceptor", "Continental GT", "Shotgun 650", "Bear 650", "Scram 440", "Goan Classic", "Flying Flea", "रॉयल एनफील्ड", "हिमालयन", "बुलेट"]},
+    {"name": "Hero MotoCorp", "slug": "hero", "made_in": "India", "site": "https://www.heromotocorp.com/en-in.html", "youtube": "UCHZv18DM7aX5Wir7GrqVlnA", "match": ["Hero MotoCorp", "Hero", "Xpulse", "XPulse", "Karizma", "Splendor", "Xtreme", "Mavrick", "Glamour", "Passion Plus", "Vida", "स्प्लेंडर"]},
+    {"name": "Bajaj", "slug": "bajaj", "made_in": "India", "site": "https://www.bajajauto.com/", "youtube": "UCyjsBkQ3rWlARQb9_UWqM5Q", "match": ["Bajaj", "Pulsar", "Dominar", "Avenger", "Platina", "Freedom 125", "पल्सर", "बजाज"]},
+    {"name": "TVS", "slug": "tvs", "made_in": "India", "site": "https://www.tvsmotor.com/", "youtube": "UCmXFdsJtTAbbYrH7zz-lkkw", "match": ["TVS", "Apache", "Ronin", "Raider"]},
+    {"name": "KTM", "slug": "ktm", "made_in": "Austria", "site": "https://www.ktmindia.com/", "youtube": "UCevzFamjWTOInfGYyTTR0sQ", "match": ["KTM", "Duke", "RC 390", "RC 200", "Adventure 390", "Enduro R"]},
+    {"name": "Honda", "slug": "honda", "made_in": "Japan", "site": "https://www.honda2wheelersindia.com/", "youtube": "UCDMHVijtWzuUr9F7d74Hicw", "match": ["Honda", "CB350", "CB300", "CB500", "CB650", "CB1000", "Hornet", "Shine", "Unicorn", "Hness", "H'ness", "Africa Twin", "Gold Wing", "Transalp", "NX500", "CBR"]},
+    {"name": "Yamaha", "slug": "yamaha", "made_in": "Japan", "site": "https://www.yamaha-motor-india.com/", "youtube": "UC0WN3qNaNGy5_JhvLyEtXrg", "match": ["Yamaha", "R15", "R3", "MT-15", "MT 15", "MT-03", "FZ", "XSR", "Aerox", "RX100"]},
+    {"name": "Suzuki", "slug": "suzuki", "made_in": "Japan", "site": "https://www.suzukimotorcycle.co.in/", "youtube": "UCjVm-ARl4jm9k2eFn2kAb5g", "match": ["Suzuki", "Gixxer", "Hayabusa", "V-Strom", "GSX"]},
+    {"name": "Kawasaki", "slug": "kawasaki", "made_in": "Japan", "site": "https://www.kawasaki-india.com/", "youtube": "UCo2aLI_DHChJbtNlXQ_akKQ", "match": ["Kawasaki", "Ninja", "Z900", "Z1100", "Z650", "KLE", "KLX", "Versys", "Vulcan", "Eliminator"]},
+    {"name": "Triumph", "slug": "triumph", "made_in": "United Kingdom", "site": "https://www.triumphmotorcycles.in/", "youtube": "UC9FzrKL9sMbopG3CaMHcTKQ", "match": ["Triumph", "Speed 400", "Speed T4", "Scrambler 400", "Tracker 400", "Tiger", "Trident", "Bonneville", "Rocket 3", "Thruxton"]},
+    {"name": "Harley-Davidson", "slug": "harley-davidson", "made_in": "United States", "site": "https://www.harley-davidson.com/in/en/index.html", "youtube": "UCV-ny1plRHlO8heaeRF45vw", "match": ["Harley-Davidson", "Harley", "X440", "Sprint 440"]},
+    {"name": "Ultraviolette", "slug": "ultraviolette", "made_in": "India", "site": "https://www.ultraviolette.com/", "youtube": "UCWWTQuQdiYZNW2HncFFbHrg", "match": ["Ultraviolette", "F77", "X-47", "X47", "Shockwave"]},
+    {"name": "Jawa Yezdi and BSA", "slug": "jawa-yezdi-bsa", "made_in": "India", "site": "https://www.jawayezdimotorcycles.com/", "youtube": "UC1BCIquU4oyLOmXNjY2Pswg", "match": ["Jawa", "Yezdi", "BSA", "Gold Star", "Perak"]},
+    {"name": "Aprilia", "slug": "aprilia", "made_in": "Italy", "site": "https://www.aprilia.com/in_EN/", "youtube": "UC5zvHXSbuLwWHPDuuUb-kgA", "match": ["Aprilia", "RS 457", "Tuono", "SXR", "SR 175", "SR 160"]},
+    {"name": "Ducati", "slug": "ducati", "made_in": "Italy", "site": "https://www.ducati.com/in/en/home", "youtube": "UChcYw8H4mu2FAdG86W5b7GQ", "match": ["Ducati", "Panigale", "Multistrada", "Streetfighter", "Diavel", "Hypermotard", "Monster"]},
+    {"name": "BMW Motorrad", "slug": "bmw-motorrad", "made_in": "Germany", "site": "https://www.bmw-motorrad.in/", "match": ["BMW Motorrad", "G 310", "R 1300", "S 1000", "F 900", "M 1000"]},
+    {"name": "Norton", "slug": "norton", "made_in": "United Kingdom", "site": "https://nortonmotorcycles.com/", "match": ["Norton"]},
+    {"name": "Benelli", "slug": "benelli", "made_in": "Italy", "site": "https://benelliindia.com/", "match": ["Benelli", "TRK 502", "TRK 552", "Leoncino"]},
+    {"name": "Husqvarna", "slug": "husqvarna", "made_in": "Sweden", "site": "https://www.husqvarna-motorcycles.com/", "match": ["Husqvarna", "Svartpilen", "Vitpilen"]}
+  ],
   "keep_days": 5,
   "archive_days": 30,
   "limits": {
@@ -183,6 +202,7 @@
     "accessories_shown": 15,
     "events_ahead_months": 3,
     "upcoming_max": 8,
+    "videos_max": 6,
     "upcoming_ahead_months": 12,
     "new_session_minutes": 30
   },

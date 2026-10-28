@@ -146,7 +146,8 @@ await writeJson(path('content/upcoming.json'), upcoming);
 
 // ---------- Brands: the aftermarket makers we follow ----------
 
-await writeJson(path('content/brands.json'), { brands: config.sections.accessories?.brands ?? [] });
+// The bike makers too, with the names that identify their stories, for the brand pages.
+await writeJson(path('content/brands.json'), { brands: config.sections.accessories?.brands ?? [], makers: config.makers ?? [] });
 
 console.log(
   `Published ${ed.edition}: ${count} stories, ${ed.events?.length ?? 0} events, ${ed.accessories?.length ?? 0} accessories. ` +

@@ -612,6 +612,7 @@ const pool = {
   events: sections.events ?? [],
   accessories: sections.accessories ?? [],
   brands: (config.sections.accessories?.brands ?? []).map(({ name, aka, made_in }) => ({ name, aka, made_in })),
+  makers: (config.makers ?? []).map(({ name, made_in }) => ({ name, made_in })),
   events_calendar: (await readJson(path('content/events.json'), { events: [] })).events,
   upcoming_calendar: (await readJson(path('content/upcoming.json'), { items: [] })).items,
   previous_edition: previous,
