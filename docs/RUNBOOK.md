@@ -4,7 +4,8 @@ Run these steps in order, once a day, at about 09:00 IST. Obey the daily-run rul
 IST date: `TZ=Asia/Kolkata date +%F`.
 
 1. **Already done?** `git checkout main && git pull`. If `content/latest.json` has `"edition"` equal to today's IST
-   date, stop: the run is done.
+   date and its `published_at` is 08:30 IST or later, stop: the run is done. An edition published earlier that day
+   (an overnight refresh) is redone with the morning's news.
 
 2. **Fetch.** `npm ci`, then `node scripts/fetch.mjs`. It writes `pool/YYYY-MM-DD.json` and prints one line per
    source. A source that fails is listed as failed; carry on.

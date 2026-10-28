@@ -13,7 +13,7 @@ if (!file) {
   process.exit(2);
 }
 
-const EVENT_KINDS = ['race', 'festival', 'ride', 'track-day', 'training', 'expo', 'meetup', 'other'];
+const EVENT_KINDS = ['race', 'festival', 'ride', 'track-day', 'training', 'expo', 'meetup', 'launch', 'other'];
 const GEAR = ['helmet', 'riding-gear', 'luggage', 'protection', 'electronics', 'performance', 'styling', 'care', 'other'];
 const TYPES = ['launch', 'price', 'recall', 'sales', 'ev', 'policy', 'upcoming', 'spy', 'rumour', 'racing', 'other'];
 const HYPE = ['game-changer', 'game changer', 'stunning', 'eagerly awaited', 'eagerly-awaited', 'much-awaited', 'much awaited', 'highly anticipated', 'breathtaking', 'jaw-dropping', 'mind-blowing', 'revolutionary', 'groundbreaking', 'ground-breaking', 'unveils the future', 'all-new avatar'];

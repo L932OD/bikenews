@@ -9,7 +9,7 @@
   };
   const EVENT_KIND = {
     race: 'Race', festival: 'Festival', ride: 'Ride', 'track-day': 'Track day', training: 'Training', expo: 'Expo',
-    meetup: 'Meetup', other: 'Event',
+    meetup: 'Meetup', launch: 'Launch event', other: 'Event',
   };
   const GEAR_LABEL = {
     helmet: 'Helmet', 'riding-gear': 'Riding gear', luggage: 'Luggage', protection: 'Protection',
@@ -438,7 +438,6 @@
       h('section', { class: 'today' },
         h('p', { class: 'today__date' }, today ? dayLabel(today) : ''),
         h('p', { class: 'today__title' }, summaryLine(d)), sinceLink(d)),
-      brandStrip(d),
       d.latest ? latestCarousel(d.latest) : null,
       h('div', { class: 'sections' },
         homeLaunches(d.eds), homeEvents(d.events, today, horizonOf(d, today), upcomingLink(d)), homeTrending(d.trends), homeGear(d.eds)));
@@ -478,8 +477,6 @@
   function renderLaunches(app, d) {
     const today = d.latest?.edition;
     const active = LAUNCH_FILTERS.find(([label]) => label === (state.launchFilter || 'All')) ?? LAUNCH_FILTERS[0];
-    const chips = h('div', { class: 'filters', role: 'group', 'aria-label': 'Show' }, LAUNCH_FILTERS.map(([label]) =>
-      h('button', { class: 'chip', type: 'button', 'aria-pressed': String(label === active[0]), onclick: () => { state.launchFilter = label; route(); } }, label)));
     const seen = new Set();
     const all = [];
     for (const ed of d.eds) {
@@ -492,6 +489,12 @@
       }
     }
     const shown = all.filter((x) => !active[1] || active[1].includes(x.it.type)).sort((a, b) => byNewest(a.at, b.at));
+    // One dropdown instead of a wall of buttons; each choice says how many stories it holds.
+    const count = (types) => all.filter((x) => !types || types.includes(x.it.type)).length;
+    const chips = h('label', { class: 'feedfilter', for: 'feed-filter' }, h('span', { class: 'label' }, 'Show'),
+      h('span', { class: 'feedfilter__box' },
+        h('select', { id: 'feed-filter', onchange: (e) => { state.launchFilter = e.target.value; route(); } },
+          LAUNCH_FILTERS.map(([label, types]) => h('option', { value: label, selected: label === active[0] ? 'selected' : null }, `${label === 'All' ? 'All stories' : label} (${count(types)})`)))));
     const days = new Map();
     for (const x of shown) {
       const k = ymdOf(ist(x.at));
@@ -571,15 +574,51 @@
     return { stories, upcoming, searches, videos, events, gear };
   }
 
-  // "Brands in the news": the makers with stories in the last 5 days, most first.
+  // What a brand's page holds that can be read: its stories, its picked videos, and for an aftermarket brand its
+  // new products. Each has a published_at, so "unread" can be counted.
+  function brandItems(d, b) {
+    const x = brandData(d, b);
+    return [...x.stories, ...x.videos, ...(b.kind === 'gear' ? x.gear : [])];
+  }
+
+  // Which brands this reader has opened, and when. Kept only in this browser.
+  function seenBrands() {
+    try { return JSON.parse(localStorage.getItem('brandSeen') || '{}') || {}; } catch { return {}; }
+  }
+  function markBrandSeen(slug) {
+    try { const seen = seenBrands(); seen[slug] = Date.now(); localStorage.setItem('brandSeen', JSON.stringify(seen)); } catch {}
+  }
+
+  // A brand's logo in a circle, or its initials when we have no logo.
+  function brandLogo(b, cls = 'blogo') {
+    if (b.logo) return h('img', { class: cls, src: b.logo, alt: '', loading: 'lazy', width: '64', height: '64' });
+    const initials = b.name.split(/[\s-]+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+    return h('span', { class: `${cls} blogo--mono` }, initials);
+  }
+
+  // Brand stories on the Feed: one ring per brand with something in the last 5 days. The number is what came in
+  // since the reader last opened that brand; a brand already read shows no number and moves to the end, so brands
+  // with news always come first.
   function brandStrip(d) {
-    const counts = BRANDS.filter((b) => b.kind === 'maker').map((b) => ({ b, n: brandData(d, b).stories.length })).filter((x) => x.n).sort((x, y) => y.n - x.n);
-    if (!counts.length) return null;
-    return h('nav', { class: 'brandstrip', 'aria-label': 'Brands in the news' },
-      h('span', { class: 'label' }, 'Brands in the news'),
-      h('div', { class: 'brandstrip__list' },
-        counts.map(({ b, n }) => h('a', { class: 'bchip', href: brandHref(b) }, b.name, h('b', null, String(n)))),
-        h('a', { class: 'bchip bchip--all', href: '#/brands' }, 'All brands', h('span', { 'aria-hidden': 'true' }, ' →'))));
+    const seen = seenBrands();
+    const rows = BRANDS.map((b) => {
+      const items = brandItems(d, b);
+      const unread = items.filter((it) => !seen[b.slug] || (Date.parse(it.published_at) || 0) > seen[b.slug]).length;
+      const latest = items.map((it) => it.published_at).sort((p, q) => byNewest(p, q))[0];
+      return { b, total: items.length, unread, latest };
+    }).filter((r) => r.total)
+      .sort((p, q) => (q.unread > 0) - (p.unread > 0) || q.unread - p.unread || byNewest(p.latest, q.latest));
+    if (!rows.length) return null;
+    return h('nav', { class: 'stories', 'aria-label': 'Brands with news' },
+      h('ul', { class: 'stories__list' },
+        rows.map(({ b, unread }) => h('li', null,
+          h('a', { class: unread ? 'story story--unread' : 'story', href: brandHref(b), 'aria-label': unread ? `${b.name}, ${unread} unread` : `${b.name}, all read` },
+            h('span', { class: 'story__ring' }, brandLogo(b, 'story__logo')),
+            unread ? h('span', { class: 'story__badge', 'aria-hidden': 'true' }, String(unread)) : null,
+            h('span', { class: 'story__name' }, b.name)))),
+        h('li', null, h('a', { class: 'story story--all', href: '#/brands', 'aria-label': 'All brands' },
+          h('span', { class: 'story__ring' }, h('span', { class: 'story__logo blogo--mono story__all' }, '···')),
+          h('span', { class: 'story__name' }, 'All brands')))));
   }
 
   const block = (title, count, ...body) => h('section', { class: 'card bblock' }, h('h2', { class: 'bblock__title' }, title, count != null ? h('span', { class: 'bblock__n' }, String(count)) : null), ...body);
@@ -604,8 +643,10 @@
     put(app,
       h('header', { class: 'page-head brandhead', 'data-section': 'launches' },
         h('a', { class: 'back', href: '#/brands' }, h('span', { 'aria-hidden': 'true' }, '←'), ' All brands'),
-        h('p', { class: 'brandhead__kind' }, `${b.kind === 'maker' ? 'Bike maker' : 'Aftermarket'} · ${madeIn}`),
-        h('h1', { class: 'page-title' }, b.name),
+        h('div', { class: 'brandhead__id' }, brandLogo(b, 'brandhead__logo'),
+          h('div', null,
+            h('p', { class: 'brandhead__kind' }, `${b.kind === 'maker' ? 'Bike maker' : 'Aftermarket'} · ${madeIn}`),
+            h('h1', { class: 'page-title' }, b.name))),
         h('p', { class: 'brandhead__glance' }, parts.join(' · '), newCount ? h('span', { class: 'brandhead__new' }, ` · ${newCount} new since your last visit`) : null),
         h('div', { class: 'sources brandhead__links' }, links)),
       h('div', { class: 'bpage' },
@@ -636,6 +677,8 @@
         h('a', { class: 'blist__head', href: itemHref('events', e.id) }, e.name), h('p', { class: 'blist__sub' }, `${eventDates(e)} · ${e.city}`))))) : null,
       x.gear.length ? block(b.kind === 'gear' ? 'New products' : `Gear for ${b.name} bikes`, x.gear.length, h('ul', { class: 'blist' }, x.gear.map((a) => h('li', { class: 'blist__item' },
         h('a', { class: 'blist__head', href: itemHref('accessories', a.id) }, a.headline), h('p', { class: 'blist__sub' }, [a.brand, a.price?.value].filter(Boolean).join(' · ')))))) : null));
+    // Opening the page reads the brand: its number on the Feed goes to 0 and it moves to the end.
+    markBrandSeen(b.slug);
   }
 
   function renderBrands(app, d) {
@@ -645,7 +688,7 @@
     };
     const list = (kind) => BRANDS.filter((b) => b.kind === kind).map(row).sort((p, q) => q.n - p.n || q.up - p.up || p.b.name.localeCompare(q.b.name));
     const grid = (rows) => h('ul', { class: 'bgrid' }, rows.map(({ b, n, up }) => h('li', null,
-      h('a', { class: 'bcard', href: brandHref(b) },
+      h('a', { class: 'bcard', href: brandHref(b) }, brandLogo(b, 'bcard__logo'),
         h('span', { class: 'bcard__name' }, b.name),
         h('span', { class: 'bcard__meta' }, b.made_in === 'India' ? 'Indian' : b.made_in),
         h('span', { class: 'bcard__count' }, n ? `${n} ${n === 1 ? 'story' : 'stories'}` : 'Quiet this week', up ? ` · ${up} coming` : '')))));
@@ -693,7 +736,7 @@
     const kinds = ['All', ...new Set(all.map((e) => e.kind))];
     const active = kinds.includes(state.eventKind) ? state.eventKind : 'All';
     const chips = kinds.length > 2 ? h('div', { class: 'filters', role: 'group', 'aria-label': 'Show' }, kinds.map((k) =>
-      h('button', { class: 'chip', type: 'button', 'aria-pressed': String(k === active), onclick: () => { state.eventKind = k; route(); } }, k === 'All' ? 'All' : `${EVENT_KIND[k] || k}s`))) : null;
+      h('button', { class: 'chip', type: 'button', 'aria-pressed': String(k === active), onclick: () => { state.eventKind = k; route(); } }, k === 'All' ? 'All' : (EVENT_KIND[k] || k).replace(/(ch|sh|s|x)$/, '$1e') + 's'))) : null;
     const shown = all.filter((e) => active === 'All' || e.kind === active);
     const months = new Map();
     for (const ev of shown) {

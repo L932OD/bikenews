@@ -77,13 +77,18 @@ organisers' own pages) and `events_calendar` (the events already listed).
 - **What counts:** motorcycle races and championships, festivals, track days, riding academies and training, group
   rides and expeditions open to the public, rider meets and expos, held in India (or by an Indian brand for Indian
   riders). Not police or government awareness rallies, not car events, not events abroad.
+- **Launch events count too** (`kind` `launch`): when a maker announces when and where it will launch or unveil a bike
+  or product in India (Yamaha's R2 launch event, a bike's unveil in Goa, a show-stand reveal at an Indian expo). The
+  start date must be in the sources, as for every event; `city` is the city or venue, "Online" for an online launch,
+  or "Venue to be announced". Name it for what is launched: "Yamaha R2 launch". The same bike may also be in
+  `upcoming`; that is fine. A global reveal abroad (EICMA in Milan) is not an event here; it goes in `upcoming`.
 - **Add an event only when its sources give the start date** (at least the day and month). No source date, no entry:
   "this November" is not enough. An event that is already over is left out.
 - **The next 3 months only.** An event starting more than 3 months from today waits until it is within 3 months.
 - **0 to 8 a day.** Add events not yet in `events_calendar`. Repeat a listed event (same `id`) only when something
   changed (new dates, venue, tickets) and tag it `"update"`; it then replaces the old entry.
 - `id`: kebab-case, stable across days (`india-bike-week-2026`). `kind`: `race`, `festival`, `ride`, `track-day`,
-  `training`, `expo`, `meetup` or `other`. `start_date` / `end_date` as `YYYY-MM-DD` (`end_date` null for one day or an
+  `training`, `expo`, `meetup`, `launch` or `other`. `start_date` / `end_date` as `YYYY-MM-DD` (`end_date` null for one day or an
   open-ended season). `city`: "Panchgani, Maharashtra", or "Venues to be announced". `organiser`: who runs it.
   `register`: the organiser's tickets or registration page if a source gives it, else null.
 - `text`: at most 40 words on what it is and what happens there. Numbers must be in the sources, as for news.

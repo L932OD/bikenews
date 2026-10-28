@@ -927,3 +927,37 @@ a.kicker--link:hover { color: var(--blue-text, var(--ink)); border-bottom-color:
   .bpage { grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); }
   .bpage > .bblock:first-child { grid-row: span 6; }
 }
+
+/* ---------- Brand stories on the Feed ---------- */
+
+.stories { margin: 0 -4px; min-width: 0; }
+.stories__list { display: flex; gap: 14px; overflow-x: auto; padding: 4px 4px 8px; margin: 0; list-style: none; scroll-snap-type: x proximity; scrollbar-width: none; }
+.stories__list::-webkit-scrollbar { display: none; }
+.stories__list li { flex: none; scroll-snap-align: start; }
+.story { position: relative; display: grid; justify-items: center; gap: 6px; width: 76px; text-decoration: none; color: var(--ink); }
+/* Unread: a blue ring. Read: a thin grey ring, and the name greys out. */
+.story__ring { display: grid; place-items: center; width: 72px; height: 72px; border-radius: 50%; padding: 3px; background: var(--rule); }
+.story--unread .story__ring { background: conic-gradient(from 210deg, #1E5BD8, #5B8DEF, #1E5BD8); }
+.story__logo { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: #FFFFFF; border: 3px solid var(--asphalt); box-sizing: border-box; }
+.story__badge { position: absolute; top: 48px; right: 2px; min-width: 24px; height: 24px; padding: 0 6px; border-radius: 999px; border: 2px solid var(--asphalt); background: var(--blue-fill, #1E5BD8); color: #FFFFFF; font-family: var(--f-label); font-weight: 600; font-size: 13px; line-height: 20px; text-align: center; font-variant-numeric: tabular-nums; }
+.story__name { max-width: 76px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: var(--f-label); font-weight: 600; font-size: 13px; letter-spacing: 0.02em; }
+.story:not(.story--unread) .story__name { color: var(--muted); }
+.story:hover .story__name { text-decoration: underline; }
+.story:focus-visible { outline: 2px solid var(--blue-text, var(--ink)); outline-offset: 4px; border-radius: 12px; }
+.blogo--mono { display: grid; place-items: center; background: var(--panel-2); color: var(--ink); font-family: var(--f-label); font-weight: 600; font-size: 20px; letter-spacing: 0.04em; }
+.story__all { font-size: 22px; color: var(--muted); }
+
+/* Brand logo on its page and in the list of all brands. */
+.brandhead__id { display: flex; align-items: center; gap: 16px; margin-top: 8px; }
+.brandhead__logo { flex: none; width: 64px; height: 64px; border-radius: 50%; object-fit: cover; background: #FFFFFF; border: 1px solid var(--rule); }
+.brandhead__id .brandhead__kind { margin: 0 0 2px; }
+.bcard { grid-template-columns: 40px minmax(0, 1fr); column-gap: 12px; }
+.bcard__logo { grid-row: span 3; width: 40px; height: 40px; border-radius: 50%; object-fit: cover; background: #FFFFFF; border: 1px solid var(--rule); font-size: 14px; }
+.bcard > :not(.bcard__logo) { grid-column: 2; }
+
+/* The Feed's filter: one dropdown. */
+.feedfilter { display: flex; align-items: center; gap: 12px; padding: 0 4px; }
+.feedfilter__box { position: relative; display: inline-flex; }
+.feedfilter__box::after { content: ""; position: absolute; right: 16px; top: 50%; width: 8px; height: 8px; margin-top: -6px; border-right: 2px solid var(--ink); border-bottom: 2px solid var(--ink); transform: rotate(45deg); pointer-events: none; }
+.feedfilter select { appearance: none; -webkit-appearance: none; min-height: 44px; padding: 0 44px 0 16px; border: 1px solid var(--rule); border-radius: 999px; background: var(--panel); color: var(--ink); font-family: var(--f-label); font-weight: 600; font-size: 16px; letter-spacing: 0.04em; cursor: pointer; }
+.feedfilter select:focus-visible { outline: 2px solid var(--blue-text, var(--ink)); outline-offset: 2px; }
