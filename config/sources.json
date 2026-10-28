@@ -1,6 +1,6 @@
 {
-  "window_hours": 36,
-  "fallback_window_hours": 48,
+  "window_hours": 48,
+  "fallback_window_hours": 72,
   "min_items": 15,
   "text_chars": 1500,
   "summary_chars": 400,
@@ -135,10 +135,18 @@
     "max_items": 30
   },
   "keep_days": 5,
+  "limits": {
+    "stories_min": 5,
+    "stories_max": 15,
+    "subs_max": 3,
+    "accessories_max": 15,
+    "accessories_shown": 15,
+    "events_ahead_months": 3
+  },
   "sections": {
     "events": {
       "name": "Events",
-      "window_days": 45,
+      "window_days": 90,
       "queries": [
         "India Bike Week",
         "Motoverse Royal Enfield",

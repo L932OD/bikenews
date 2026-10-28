@@ -821,3 +821,7 @@ body[data-page="accessories"] .paper { --stripe: var(--acc-gear); }
 /* A product the brand has teased: filled, so it stands out from the outlined tags. */
 .tag.tag--soon { --c: var(--acc-gear); background: var(--c); color: #0B0C0E; }
 :root:not([data-theme="dark"]) .tag.tag--soon { background: var(--blue-fill); border-color: var(--blue-fill); color: #FFFFFF; }
+
+/* When each story was published: on cards, at the end of the meta line. */
+.stamp { margin-left: auto; font-family: var(--f-label); font-weight: 600; font-size: 13px; letter-spacing: 0.08em; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.road__time, .gear__time { white-space: nowrap; font-variant-numeric: tabular-nums; }

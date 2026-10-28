@@ -40,6 +40,8 @@ const entry = {
 archive.editions = [entry, ...archive.editions.filter((e) => e.edition !== ed.edition)]
   .filter((e) => e.edition >= cutoff)
   .sort((a, b) => b.edition.localeCompare(a.edition));
+// What the page shows: how many accessories, and how far ahead the events calendar looks.
+archive.page = { accessories_shown: config.limits.accessories_shown, events_ahead_months: config.limits.events_ahead_months };
 await writeJson(path('content/archive.json'), archive);
 
 let removed = 0;

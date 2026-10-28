@@ -39,8 +39,9 @@ A rider in India who wants to know, in two minutes, what happened in Indian two-
 
 ## How many, decided by the day
 
-- **5 to 12 items in total** (lead + subs + headlines). On a quiet day, 5 good items beat 12 weak ones. On a busy day,
-  stop at 12.
+- **5 to 15 items in total** (lead + subs + headlines), from today and yesterday (the pool covers the last 48 hours),
+  so a reader who missed a day can catch up. On a quiet day, 5 good items beat 15 weak ones. On a busy day, stop at
+  15.
 - **Lead: 0 or 1.** Only when one story clearly stands out. A quiet day has no lead (`"lead": null`).
 - **Sub-stories: 0 to 3.** The next strongest.
 - **Headlines:** the rest.
@@ -78,6 +79,7 @@ organisers' own pages) and `events_calendar` (the events already listed).
   riders). Not police or government awareness rallies, not car events, not events abroad.
 - **Add an event only when its sources give the start date** (at least the day and month). No source date, no entry:
   "this November" is not enough. An event that is already over is left out.
+- **The next 3 months only.** An event starting more than 3 months from today waits until it is within 3 months.
 - **0 to 8 a day.** Add events not yet in `events_calendar`. Repeat a listed event (same `id`) only when something
   changed (new dates, venue, tickets) and tag it `"update"`; it then replaces the old entry.
 - `id`: kebab-case, stable across days (`india-bike-week-2026`). `kind`: `race`, `festival`, `ride`, `track-day`,
@@ -104,9 +106,9 @@ site sometimes reports a new accessory).
 - **What counts:** helmets, riding gear (jackets, gloves, boots, pants), luggage, crash protection, electronics
   (intercoms, mounts, dashcams), performance and styling parts, and a bike maker's own accessory packs, launched or
   newly on sale in India, or teased by the brand. Not bikes themselves, not reviews of bikes, not car accessories.
-- **Teased products first.** A brand's teaser of a product still to come goes at the top of the list, above launches,
-  with `"teased": true` (the page marks it "Coming soon"). Its `price` is null unless the brand has given one.
-- **0 to 6 a day.** Nothing that was in the last 5 editions unless there is genuinely new information (tag `"update"`).
+- **Teased products always make the list.** A brand's teaser of a product still to come is never left out; mark it
+  `"teased": true` (the page tags it "Coming soon"). Its `price` is null unless the brand has given one.
+- **0 to 15 a day.** The page shows the 15 newest, by `published_at`. Nothing that was in the last 5 editions unless there is genuinely new information (tag `"update"`).
 - `brand`, `product` (its name only), `category`: `helmet`, `riding-gear`, `luggage`, `protection`, `electronics`,
   `performance`, `styling`, `care` or `other`. `for_bikes`: the bikes it is made for, as the source names them, or
   `["Universal"]`. `price`: `{ "value": "₹6,700", "label": "MRP, starting" }` when the source gives it, else null.
@@ -118,8 +120,9 @@ site sometimes reports a new accessory).
 - **Lead:** headline of at most 16 words; write-up of 60 to 100 words; `why` ("Why it matters") of at most 25 words;
   a `figure` (usually the price) and up to three `specs` when the source gives them.
 - **Sub-story:** headline of at most 16 words; write-up of at most 50 words; `figure` and `specs` optional.
-- **Headline item:** one line, at most 16 words, saying what happened (not the site's clickbait title). Copy the pool
-  item's `published_at` onto it so the page can show the time.
+- **Headline item:** one line, at most 16 words, saying what happened (not the site's clickbait title).
+- **`published_at` on every story** (lead, subs and headlines): copied from one of its sources in the pool, usually
+  the first report. The feed is sorted by it, newest first, and shows the date and time.
 - **Kicker:** the brand or maker, at most 4 words (lead and subs only).
 - Plain, exact English, written for someone who knows bikes (cc, hp, Nm and ex-showroom need no explaining).
 - Prices as the source gives them (₹1.29 lakh ex-showroom, Delhi). Write ₹, not Rs.
@@ -139,6 +142,7 @@ site sometimes reports a new accessory).
     "id": "short-kebab-id",
     "kicker": "Royal Enfield",
     "type": "launch",
+    "published_at": "2026-10-28T10:51:00Z",
     "figure": { "value": "₹3.37 lakh", "label": "ex-showroom, Delhi" },
     "specs": [["Engine", "648cc twin"], ["Power", "47hp"]],
     "headline": "...",
@@ -147,7 +151,7 @@ site sometimes reports a new accessory).
     "sources": [{ "name": "Rushlane", "url": "https://..." }],
     "tag": null
   },
-  "subs": [{ "id": "...", "kicker": "...", "type": "...", "headline": "...", "text": "...", "sources": [], "tag": null }],
+  "subs": [{ "id": "...", "kicker": "...", "type": "...", "published_at": "...", "headline": "...", "text": "...", "sources": [], "tag": null }],
   "headlines": [{ "id": "...", "type": "...", "headline": "...", "published_at": "...", "sources": [], "tag": null }],
   "trends_summary": { "headline": "...", "text": "..." },
   "trending": [{ "term": "exact term from the pool", "traffic": "+150%", "why": "...", "sources": [] }],

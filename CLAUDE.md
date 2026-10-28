@@ -8,7 +8,7 @@ India's motorcycle news, once a day. Code fetches the news; Claude chooses and w
 - `index.html`, `styles.css`, `app.js`, `fonts/`: the site. No framework, no build step. `manifest.webmanifest`,
   `sw.js` and `icons/` make it a home-screen web app (offline reading of the last edition).
 - `docs/RUNBOOK.md`: the daily steps. `docs/DESK.md`: the editorial brief.
-- The site has four sections: New launches (the editions), Events (`content/events.json`, kept until each event is
+- The site has four sections: Feed (the editions' stories, newest first), Events (`content/events.json`, kept until each event is
   over), Trending now (`content/trends.json`, from Google Trends Explore) and Aftermarket (the editions'
   `accessories`, with the brands we follow in `config/sources.json` → `content/brands.json`). News, pools and trends history are kept for `keep_days` (5) days, then deleted.
 

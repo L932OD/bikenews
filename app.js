@@ -1,4 +1,4 @@
-// Bike News: a home screen of four sections (New launches, Events, Trending now, Aftermarket), each opening a
+// Bike News: a home screen of four sections (Feed, Events, Trending now, Aftermarket), each opening a
 // detail page. Reads content/latest.json, archive.json, events.json, trends.json, brands.json and the kept editions.
 (() => {
   'use strict';
@@ -15,7 +15,7 @@
     helmet: 'Helmet', 'riding-gear': 'Riding gear', luggage: 'Luggage', protection: 'Protection',
     electronics: 'Electronics', performance: 'Performance', styling: 'Styling', care: 'Care', other: 'Accessory',
   };
-  // Launch filters on the New launches page: label -> the story types it shows.
+  // Filters on the Feed page: label -> the story types it shows.
   const LAUNCH_FILTERS = [
     ['All', null], ['Launches', ['launch', 'price']], ['Upcoming', ['upcoming']], ['Spy shots', ['spy', 'rumour']],
     ['EV', ['ev']], ['Business', ['sales', 'policy']], ['Racing', ['racing']], ['Other', ['other', 'recall']],
@@ -66,10 +66,18 @@
     const d = parseYmd(ymd);
     return `${DAYS[d.getUTCDay()]} ${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]}`;
   }
-  function itemTime(iso, edition) {
+  // The date and time an item was published: "28 Oct, 14:19".
+  function stamp(iso) {
     const t = ist(iso);
-    if (!t) return '';
-    return ymdOf(t) === edition ? `${pad2(t.hh)}:${pad2(t.mm)}` : `${t.d} ${MONTHS[t.m]}`;
+    return t ? `${t.d} ${MONTHS[t.m]}, ${pad2(t.hh)}:${pad2(t.mm)}` : '';
+  }
+  const stampTag = (iso) => (iso ? h('time', { class: 'stamp', datetime: iso }, stamp(iso)) : null);
+  const byNewest = (a, b) => (Date.parse(b) || 0) - (Date.parse(a) || 0);
+  // The last day the events page looks ahead to: today plus the months the archive says.
+  function horizonOf(d, today) {
+    const end = parseYmd(today);
+    end.setUTCMonth(end.getUTCMonth() + (d.archive?.page?.events_ahead_months ?? 3));
+    return end.toISOString().slice(0, 10);
   }
   const daysBetween = (a, b) => Math.round((parseYmd(b) - parseYmd(a)) / 86400000);
   function relDay(ymd, today) {
@@ -213,7 +221,7 @@
     const rest = stories.filter((x) => x !== latest?.lead).sort((a, b) => order.indexOf(a.type) - order.indexOf(b.type));
     const list = [...top, ...rest].slice(0, 4);
     const total = eds.reduce((n, e) => n + storiesOf(e).length, 0);
-    return sectionCard('launches', '#/launches', 'New launches', total, total === 1 ? 'story' : 'stories',
+    return sectionCard('launches', '#/launches', 'Feed', total, total === 1 ? 'story' : 'stories',
       list.length
         ? h('ol', { class: 'mini' }, list.map((it, i) => h('li', { class: i === 0 ? 'mini__item mini__item--lead' : 'mini__item' },
           h('a', { class: 'mini__link', href: itemHref('launches', it.id) },
@@ -221,12 +229,13 @@
             h('p', { class: 'mini__line' }, it.headline),
             i === 0 && it.figure ? h('p', { class: 'mini__figure' }, it.figure.value, h('span', null, ` ${it.figure.label}`)) : null))))
         : empty('No stories yet today.'),
-      'All launches and news');
+      'The full feed');
   }
 
-  function homeEvents(calendar, today) {
-    const list = (calendar?.events ?? []).slice(0, 4);
-    return sectionCard('events', '#/events', 'Events', calendar?.events?.length ?? 0, 'coming up',
+  function homeEvents(calendar, today, horizon) {
+    const ahead = (calendar?.events ?? []).filter((ev) => ev.start_date <= horizon);
+    const list = ahead.slice(0, 4);
+    return sectionCard('events', '#/events', 'Events', ahead.length, 'in the next 3 months',
       list.length
         ? h('ol', { class: 'mini' }, list.map((ev) => {
           const d = parseYmd(ev.start_date);
@@ -259,7 +268,7 @@
   }
 
   function homeGear(eds) {
-    const items = eds.flatMap((e) => e.accessories ?? []).sort((x, y) => Boolean(y.teased) - Boolean(x.teased));
+    const items = gearItems(eds).map(({ a }) => a);
     return sectionCard('gear', '#/accessories', 'Aftermarket', items.length, items.length === 1 ? 'new product' : 'new products',
       items.length
         ? h('ol', { class: 'mini' }, items.slice(0, 4).map((a) => h('li', { class: 'mini__item' },
@@ -303,7 +312,7 @@
       h('p', { class: 'slide__src' }, h('span', { class: 'label' }, (it.sources || []).length > 1 ? `Reported by ${it.sources.length}` : 'Reported by'),
         (it.sources || []).slice(0, 3).map((x) => link(x, 'src')),
         (it.sources || []).length > 3 ? h('span', { class: 'more' }, `+${it.sources.length - 3} more`) : null,
-        it.published_at ? h('span', { class: 'road__time' }, itemTime(it.published_at, latest.edition)) : null)));
+        it.published_at ? h('time', { class: 'road__time', datetime: it.published_at }, stamp(it.published_at)) : null)));
     const track = h('div', { class: 'carousel__track', 'aria-live': 'off' }, slides);
     const segs = stories.map((_, k) => h('button', { class: 'seg', type: 'button', 'aria-label': `Story ${k + 1}: ${stories[k].headline}`, onclick: () => go(k, true) }, h('span')));
     const count = h('span', { class: 'carousel__count' });
@@ -370,16 +379,16 @@
         h('p', { class: 'today__title' }, summaryLine(d))),
       d.latest ? latestCarousel(d.latest) : null,
       h('div', { class: 'sections' },
-        homeLaunches(d.eds), homeEvents(d.events, today), homeTrending(d.trends), homeGear(d.eds)));
+        homeLaunches(d.eds), homeEvents(d.events, today, horizonOf(d, today)), homeTrending(d.trends), homeGear(d.eds)));
   }
 
-  // ---------- New launches ----------
+  // ---------- Feed ----------
 
   function leadCard(it) {
     return h('article', { class: 'card card--lead', 'data-anchor': it.id }, stripes(),
       h('div', { class: 'lead' },
         h('header', { class: 'lead__head' },
-          h('div', { class: 'meta' }, h('span', { class: 'label label--lead' }, 'Lead'), hotFor(it), tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null),
+          h('div', { class: 'meta' }, h('span', { class: 'label label--lead' }, 'Lead'), hotFor(it), tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null, stampTag(it.published_at)),
           h('h2', { class: 'headline' }, it.headline)),
         it.figure ? h('div', { class: 'lead__plate' }, plate(it.figure)) : null,
         h('div', { class: 'lead__body' }, h('p', { class: 'text' }, it.text)),
@@ -388,40 +397,61 @@
   }
   function subCard(it) {
     return h('article', { class: 'card card--sub', 'data-anchor': it.id }, stripes(),
-      h('div', { class: 'meta' }, hotFor(it), tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null),
+      h('div', { class: 'meta' }, hotFor(it), tag(it.type), updateTag(it), it.kicker ? h('span', { class: 'kicker' }, it.kicker) : null, stampTag(it.published_at)),
       h('div', { class: 'sub__top' }, h('h3', { class: 'headline' }, it.headline), plate(it.figure)),
       it.text ? h('p', { class: 'text' }, it.text) : null,
       specs(it.specs), sources(it.sources));
   }
-  function roadList(items, edition) {
+  function roadList(items) {
     return h('ul', { class: 'road__list' }, items.map((it) => h('li', { class: 'road__item', 'data-anchor': it.id },
       h('span', { class: 'dot', 'data-type': it.type, title: TYPE_LABEL[it.type] || '' }),
       h('p', { class: 'road__line' }, h('span', { class: 'sr' }, `${TYPE_LABEL[it.type] || 'News'}: `), it.headline,
         ['spy', 'rumour'].includes(it.type) ? tag(it.type) : null, updateTag(it), hotFor(it)),
       h('p', { class: 'road__src' }, (it.sources || []).map((x) => link(x)),
-        it.published_at ? h('span', { class: 'road__time' }, itemTime(it.published_at, edition)) : null))));
+        it.published_at ? h('time', { class: 'road__time', datetime: it.published_at }, stamp(it.published_at)) : null))));
   }
 
+  // Every story of the last 5 days in one list, newest first, under the day it was published. Today's lead and
+  // sub-stories keep their larger cards; the rest are lines, grouped while they run together.
   function renderLaunches(app, d) {
     const today = d.latest?.edition;
     const active = LAUNCH_FILTERS.find(([label]) => label === (state.launchFilter || 'All')) ?? LAUNCH_FILTERS[0];
     const chips = h('div', { class: 'filters', role: 'group', 'aria-label': 'Show' }, LAUNCH_FILTERS.map(([label]) =>
       h('button', { class: 'chip', type: 'button', 'aria-pressed': String(label === active[0]), onclick: () => { state.launchFilter = label; route(); } }, label)));
-    const days = d.eds.map((ed) => {
-      const all = storiesOf(ed);
-      const shown = active[1] ? all.filter((x) => active[1].includes(x.type)) : all;
-      if (!shown.length) return null;
-      const head = h('h2', { class: 'day-head' }, h('span', null, relDay(ed.edition, today)), h('span', { class: 'day-head__date' }, dayLabel(ed.edition)));
-      if (!active[1] && ed.edition === today) {
-        return h('section', { class: 'day' }, head,
-          ed.lead ? leadCard(ed.lead) : null,
-          ed.subs?.length ? h('div', { class: 'subs' }, ed.subs.map(subCard)) : null,
-          ed.headlines?.length ? h('section', { class: 'card road' }, stripes(), h('h3', { class: 'label', style: 'margin-bottom:10px' }, 'Also on the road'), roadList(ed.headlines, ed.edition)) : null);
+    const seen = new Set();
+    const all = [];
+    for (const ed of d.eds) {
+      const big = new Map([[ed.lead?.id, 'lead'], ...(ed.subs ?? []).map((x) => [x.id, 'sub'])]);
+      for (const it of storiesOf(ed)) {
+        if (seen.has(it.id)) continue;
+        seen.add(it.id);
+        const at = it.published_at ?? `${ed.edition}T09:00:00+05:30`;
+        all.push({ it: { ...it, published_at: at }, at, kind: ed.edition === today ? big.get(it.id) ?? 'line' : 'line' });
       }
-      return h('section', { class: 'day' }, head, h('div', { class: 'card road' }, roadList(shown, ed.edition)));
-    }).filter(Boolean);
-    put(app, pageHead('launches', 'New launches', 'Every bike story from the last 5 days, newest first.'), chips,
-      days.length ? days : empty('Nothing of this kind in the last 5 days.'));
+    }
+    const shown = all.filter((x) => !active[1] || active[1].includes(x.it.type)).sort((a, b) => byNewest(a.at, b.at));
+    const days = new Map();
+    for (const x of shown) {
+      const k = ymdOf(ist(x.at));
+      if (!days.has(k)) days.set(k, []);
+      days.get(k).push(x);
+    }
+    const sections = [...days].map(([ymd, list]) => {
+      const blocks = [];
+      let lines = [];
+      const flush = () => { if (lines.length) blocks.push(h('div', { class: 'card road' }, roadList(lines))); lines = []; };
+      for (const x of list) {
+        if (x.kind === 'line') { lines.push(x.it); continue; }
+        flush();
+        blocks.push(x.kind === 'lead' ? leadCard(x.it) : subCard(x.it));
+      }
+      flush();
+      return h('section', { class: 'day' },
+        h('h2', { class: 'day-head' }, h('span', null, today ? relDay(ymd, today) : dayLabel(ymd)), h('span', { class: 'day-head__date' }, `${dayLabel(ymd)} · ${list.length} ${list.length === 1 ? 'story' : 'stories'}`)),
+        blocks);
+    });
+    put(app, pageHead('launches', 'Feed', 'Every bike story from the last 5 days, newest first, with the date and time it was published.'), chips,
+      sections.length ? sections : empty('Nothing of this kind in the last 5 days.'));
   }
 
   // ---------- Events ----------
@@ -458,7 +488,8 @@
 
   function renderEvents(app, d) {
     const today = d.latest?.edition ?? new Date().toISOString().slice(0, 10);
-    const all = d.events?.events ?? [];
+    const horizon = horizonOf(d, today);
+    const all = (d.events?.events ?? []).filter((ev) => ev.start_date <= horizon);
     const kinds = ['All', ...new Set(all.map((e) => e.kind))];
     const active = kinds.includes(state.eventKind) ? state.eventKind : 'All';
     const chips = kinds.length > 2 ? h('div', { class: 'filters', role: 'group', 'aria-label': 'Show' }, kinds.map((k) =>
@@ -470,7 +501,7 @@
       if (!months.has(k)) months.set(k, []);
       months.get(k).push(ev);
     }
-    put(app, pageHead('events', 'Events', 'Races, festivals, rides and meets in India, announced ahead so you can plan.'), chips,
+    put(app, pageHead('events', 'Events', 'Races, festivals, rides and meets in India in the next 3 months, so you can plan.'), chips,
       shown.length
         ? [...months].map(([k, list]) => h('section', { class: 'month' },
           h('h2', { class: 'day-head' }, h('span', null, `${MONTHS_LONG[Number(k.slice(5)) - 1]} ${k.slice(0, 4)}`), h('span', { class: 'day-head__date' }, `${list.length} ${list.length === 1 ? 'event' : 'events'}`)),
@@ -534,7 +565,7 @@
   function gearCard(a, edition, brands) {
     return h('article', { class: 'card gear', 'data-anchor': a.id }, stripes(),
       h('div', { class: 'meta' }, h('span', { class: 'tag', 'data-gear': a.category }, GEAR_LABEL[a.category] || 'Accessory'), soonTag(a), updateTag(a),
-        h('span', { class: 'kicker' }, a.brand), a.published_at ? h('span', { class: 'gear__time' }, itemTime(a.published_at, edition)) : null),
+        h('span', { class: 'kicker' }, a.brand), a.published_at ? h('time', { class: 'gear__time', datetime: a.published_at }, stamp(a.published_at)) : null),
       h('div', { class: 'sub__top' }, h('h3', { class: 'headline' }, a.headline), plate(a.price)),
       h('p', { class: 'text' }, a.text),
       h('p', { class: 'gear__fits' }, h('span', { class: 'label' }, 'Fits'), ' ', a.for_bikes.join(', ')),
@@ -569,16 +600,23 @@
         b.instagram ? igLink(b.instagram) : null))));
   }
 
+  // Accessories of the kept editions, newest first, each once.
+  function gearItems(eds, max = Infinity) {
+    const seen = new Set();
+    return eds.flatMap((ed) => (ed.accessories ?? []).map((a) => ({ a, ed: ed.edition })))
+      .filter(({ a }) => !seen.has(a.id) && seen.add(a.id))
+      .sort((x, y) => byNewest(x.a.published_at ?? `${x.ed}T09:00:00+05:30`, y.a.published_at ?? `${y.ed}T09:00:00+05:30`))
+      .slice(0, max);
+  }
+
   function renderGear(app, d) {
-    // Teased products first, then the newest.
-    const items = d.eds.flatMap((ed) => (ed.accessories ?? []).map((a) => ({ a, ed: ed.edition })))
-      .sort((x, y) => Boolean(y.a.teased) - Boolean(x.a.teased));
+    const items = gearItems(d.eds, d.archive?.page?.accessories_shown ?? 15);
     const cats = ['All', ...new Set(items.map(({ a }) => a.category))];
     const active = cats.includes(state.gearCat) ? state.gearCat : 'All';
     const chips = cats.length > 2 ? h('div', { class: 'filters', role: 'group', 'aria-label': 'Show' }, cats.map((c) =>
       h('button', { class: 'chip', type: 'button', 'aria-pressed': String(c === active), onclick: () => { state.gearCat = c; route(); } }, c === 'All' ? 'All' : GEAR_LABEL[c] || c))) : null;
     const shown = items.filter(({ a }) => active === 'All' || a.category === active);
-    put(app, pageHead('gear', 'Aftermarket', 'New helmets, riding gear, luggage and parts from the last 5 days, and the bikes they fit.'), chips,
+    put(app, pageHead('gear', 'Aftermarket', 'The latest helmets, riding gear, luggage and parts, newest first, and the bikes they fit.'), chips,
       shown.length ? h('div', { class: 'gears' }, shown.map(({ a, ed }) => gearCard(a, ed, d.brands))) : empty('No new accessories in the last 5 days.'),
       brandList(d.brands));
   }
@@ -586,7 +624,7 @@
   // ---------- Router ----------
 
   const state = {};
-  const ROUTES = { '#/launches': ['New launches', renderLaunches], '#/events': ['Events', renderEvents], '#/trending': ['Trending now', renderTrending], '#/accessories': ['Aftermarket', renderGear] };
+  const ROUTES = { '#/launches': ['Feed', renderLaunches], '#/events': ['Events', renderEvents], '#/trending': ['Trending now', renderTrending], '#/accessories': ['Aftermarket', renderGear] };
   let data = null;
 
   async function load() {

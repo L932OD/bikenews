@@ -18,6 +18,9 @@ const GEAR = ['helmet', 'riding-gear', 'luggage', 'protection', 'electronics', '
 const TYPES = ['launch', 'price', 'recall', 'sales', 'ev', 'policy', 'upcoming', 'spy', 'rumour', 'racing', 'other'];
 const HYPE = ['game-changer', 'game changer', 'stunning', 'eagerly awaited', 'eagerly-awaited', 'much-awaited', 'much awaited', 'highly anticipated', 'breathtaking', 'jaw-dropping', 'mind-blowing', 'revolutionary', 'groundbreaking', 'ground-breaking', 'unveils the future', 'all-new avatar'];
 
+const config = await readJson(path('config/sources.json'));
+const LIMITS = config.limits;
+
 const errors = [];
 const err = (where, msg) => errors.push(`${where}: ${msg}`);
 
@@ -119,6 +122,13 @@ function checkStory(where, it, kind) {
   if (!(it.tag === null || it.tag === undefined || it.tag === 'update')) err(`${where}.tag`, 'must be null or "update"');
   checkText(`${where}.headline`, it.headline, { max: 16 });
 
+  const found = checkSources(where, it.sources, poolByUrl);
+  // Every story carries the time it was published, copied from one of its sources, so the feed can sort by it.
+  if (typeof it.published_at !== 'string' || Number.isNaN(Date.parse(it.published_at))) err(`${where}.published_at`, 'is missing; copy the pool item\'s published_at');
+  else if (found.length && found.some((src) => src.published_at) && !found.some((src) => Date.parse(src.published_at) === Date.parse(it.published_at))) {
+    err(`${where}.published_at`, 'must be the published_at of one of its sources in the pool');
+  }
+
   if (kind !== 'headline') {
     if (typeof it.kicker !== 'string' || !it.kicker || wordCount(it.kicker) > 4) err(`${where}.kicker`, 'needs a short kicker (at most 4 words)');
   }
@@ -140,8 +150,6 @@ function checkStory(where, it, kind) {
       err(`${where}.specs`, 'must be at most three [label, value] pairs');
     }
   }
-
-  const found = checkSources(where, it.sources, poolByUrl);
 
   if (kind !== 'headline' && found.length) {
     checkNumbers(`${where}.text`, it.text, found);
@@ -165,8 +173,8 @@ if (Array.isArray(subs)) subs.forEach((s, i) => checkStory(`subs[${i}]`, s, 'sub
 if (Array.isArray(heads)) heads.forEach((s, i) => checkStory(`headlines[${i}]`, s, 'headline'));
 
 const total = (lead ? 1 : 0) + (subs.length || 0) + (heads.length || 0);
-if (total < 5 || total > 12) err('edition', `has ${total} items; it needs 5 to 12 (lead + subs + headlines)`);
-if (subs.length > 3) err('subs', `has ${subs.length}; at most 3`);
+if (total < LIMITS.stories_min || total > LIMITS.stories_max) err('edition', `has ${total} items; it needs ${LIMITS.stories_min} to ${LIMITS.stories_max} (lead + subs + headlines)`);
+if (subs.length > LIMITS.subs_max) err('subs', `has ${subs.length}; at most ${LIMITS.subs_max}`);
 if (trending.length > 5) err('trending', `has ${trending.length}; at most 5`);
 
 // What is trending and why. A term must come from the day's Google Trends data (daily trends, or the Explore
@@ -226,6 +234,12 @@ if (ts != null) {
 const sectionPool = (key) => new Map([...(pool[key] ?? []), ...pool.items].map((it) => [normUrl(it.url), it]));
 const isDate = (d) => /^\d{4}-\d{2}-\d{2}$/.test(d || '') && !Number.isNaN(Date.parse(d));
 
+// The last day of the events page: today plus events_ahead_months.
+const horizon = (() => {
+  const d = new Date(`${date}T00:00:00Z`);
+  d.setUTCMonth(d.getUTCMonth() + LIMITS.events_ahead_months);
+  return d.toISOString().slice(0, 10);
+})();
 const events = ed.events ?? [];
 if (!Array.isArray(events)) err('events', 'must be a list');
 else {
@@ -239,6 +253,7 @@ else {
     if (!isDate(ev?.start_date)) err(`${where}.start_date`, 'must be a YYYY-MM-DD date');
     if (ev?.end_date != null && (!isDate(ev.end_date) || ev.end_date < ev.start_date)) err(`${where}.end_date`, 'must be a date on or after start_date, or null');
     if (isDate(ev?.start_date) && (ev.end_date || ev.start_date) < date) err(where, 'is already over; the events page lists only events still to come');
+    if (isDate(ev?.start_date) && ev.start_date > horizon) err(`${where}.start_date`, `is after ${horizon}; the events page lists the next ${LIMITS.events_ahead_months} months only`);
     if (typeof ev?.city !== 'string' || !ev.city) err(`${where}.city`, 'is missing');
     checkText(`${where}.text`, ev?.text, { max: 40 });
     if (ev?.register != null && !String(ev.register).startsWith('https://')) err(`${where}.register`, 'must be an https URL or null');
@@ -261,7 +276,7 @@ for (const f of recentFiles) for (const a of (await readJson(path('content/editi
 const gear = ed.accessories ?? [];
 if (!Array.isArray(gear)) err('accessories', 'must be a list');
 else {
-  if (gear.length > 6) err('accessories', `has ${gear.length}; at most 6 a day`);
+  if (gear.length > LIMITS.accessories_max) err('accessories', `has ${gear.length}; at most ${LIMITS.accessories_max} a day`);
   const gearPool = sectionPool('accessories');
   gear.forEach((a, i) => {
     const where = `accessories[${i}]`;
@@ -288,7 +303,7 @@ else {
 
 // ---------- Motorcycles only (performance scooters allowed) ----------
 
-const filters = (await readJson(path('config/sources.json'))).title_filters;
+const filters = config.title_filters;
 const carRe = new RegExp(filters.cars, 'i');
 const bikeRe = new RegExp(filters.bikes, 'i');
 const scooterRe = new RegExp(filters.scooters, 'i');
