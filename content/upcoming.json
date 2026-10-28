@@ -1,0 +1,130 @@
+{
+  "items": [
+    {
+      "id": "re-himalayan-750",
+      "name": "Royal Enfield Himalayan 750",
+      "brand": "Royal Enfield",
+      "kind": "bike",
+      "status": "teased",
+      "when": {
+        "date": "2026-11-03",
+        "month": null,
+        "label": "EICMA, from 3 Nov"
+      },
+      "text": "Royal Enfield’s first parallel-twin Himalayan and the first bike on its new 750cc platform, teased with the coordinates of Milan.",
+      "sources": [
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/himalayan-750-to-be-unveiled-at-eicma-what-we-know/"
+        },
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/royal-enfield-himalayan-750-first-teaser-out-eicma-debut-confirmed-12559610.html"
+        }
+      ],
+      "first_seen": "2026-10-29",
+      "updated": "2026-10-29"
+    },
+    {
+      "id": "re-continental-gt-750",
+      "name": "Royal Enfield Continental GT 750",
+      "brand": "Royal Enfield",
+      "kind": "bike",
+      "status": "confirmed",
+      "when": {
+        "date": null,
+        "month": "2026-11",
+        "label": "EICMA, November"
+      },
+      "text": "A 750 version of the Continental GT café racer, set for its official debut at EICMA 2026.",
+      "sources": [
+        {
+          "name": "Overdrive",
+          "url": "https://www.overdrive.in/news-cars-auto/royal-enfield-continental-gt-750-to-officially-debut-at-eicma-2026/"
+        },
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/himalayan-750-to-be-unveiled-at-eicma-what-we-know/"
+        }
+      ],
+      "first_seen": "2026-10-29",
+      "updated": "2026-10-29"
+    },
+    {
+      "id": "hero-xpulse-421",
+      "name": "Hero Xpulse 421",
+      "brand": "Hero MotoCorp",
+      "kind": "bike",
+      "status": "teased",
+      "when": {
+        "date": null,
+        "month": "2026-11",
+        "label": "EICMA, November"
+      },
+      "text": "Hero’s own teaser says the XPulse is set to roar at EICMA 2026; the Xpulse 421 is expected with a 421cc liquid-cooled single.",
+      "sources": [
+        {
+          "name": "Hero MotoCorp on YouTube",
+          "url": "https://www.youtube.com/watch?v=o_m6p5xA2Hk"
+        },
+        {
+          "name": "BikeDekho",
+          "url": "https://www.bikedekho.com/news/hero-xpulse-421-teased-could-be-unveiled-at-eicma-20546"
+        },
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/tvs-returns-to-eicma-as-europe-push-starts-paying-off/"
+        }
+      ],
+      "first_seen": "2026-10-29",
+      "updated": "2026-10-29"
+    },
+    {
+      "id": "norton-450-roadster",
+      "name": "Norton 450cc roadster",
+      "brand": "Norton",
+      "kind": "bike",
+      "status": "expected",
+      "when": {
+        "date": null,
+        "month": "2026-11",
+        "label": "EICMA, November"
+      },
+      "text": "An all-new 450cc-class roadster from the TVS-owned brand; India launch expected in the second half of 2027.",
+      "sources": [
+        {
+          "name": "MotorBeam",
+          "url": "https://www.motorbeam.com/new-norton-450cc-roadster-to-debut-at-eicma-2026/"
+        },
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/tvs-returns-to-eicma-as-europe-push-starts-paying-off/"
+        }
+      ],
+      "first_seen": "2026-10-29",
+      "updated": "2026-10-29"
+    },
+    {
+      "id": "triumph-tiger-1200-2027",
+      "name": "2027 Triumph Tiger 1200",
+      "brand": "Triumph",
+      "kind": "bike",
+      "status": "confirmed",
+      "when": {
+        "date": null,
+        "month": "2027-03",
+        "label": "March 2027"
+      },
+      "text": "GT Pro and Rally Explorer variants with a 1,160cc triple; prices come closer to the start of bookings.",
+      "sources": [
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/next-generation-triumph-tiger-1200-unveiled-in-india-launch-soon/"
+        }
+      ],
+      "first_seen": "2026-10-29",
+      "updated": "2026-10-29"
+    }
+  ],
+  "updated": "2026-10-29T00:42:24+05:30"
+}

@@ -1,6 +1,14 @@
 {
   "editions": [
     {
+      "edition": "2026-10-29",
+      "published_at": "2026-10-29T00:42:24+05:30",
+      "stories": 11,
+      "events": 0,
+      "accessories": 0,
+      "lead": "Ultraviolette adds cruise control, Park Assist and a battery pyro fuse to the X-47 Venom"
+    },
+    {
       "edition": "2026-10-28",
       "published_at": "2026-10-28T23:16:01+05:30",
       "stories": 15,
@@ -10,7 +18,9 @@
     }
   ],
   "page": {
+    "feed_days": 5,
     "accessories_shown": 15,
-    "events_ahead_months": 3
+    "events_ahead_months": 3,
+    "new_session_minutes": 30
   }
 }
