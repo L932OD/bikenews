@@ -1,6 +1,6 @@
 {
   "edition": "2026-10-28",
-  "published_at": "2026-10-28T20:58:46+05:30",
+  "published_at": "2026-10-28T23:16:01+05:30",
   "lead": {
     "id": "ktm-200-duke-update",
     "kicker": "KTM",
@@ -44,7 +44,8 @@
         "url": "https://gaadiwaadi.com/new-ktm-200-duke-launched-at-rs-2-07-lakh-gets-quickshifter-ride-modes/"
       }
     ],
-    "tag": null
+    "tag": null,
+    "published_at": "2026-10-28T10:51:54.000Z"
   },
   "subs": [
     {
@@ -71,7 +72,8 @@
           "url": "https://www.overdrive.in/news-cars-auto/royal-enfield-himalayan-750-teased-ahead-of-its-global-debut-in-eicma-heres-what-we-know-so-far/"
         }
       ],
-      "tag": null
+      "tag": null,
+      "published_at": "2026-10-27T06:50:09.000Z"
     },
     {
       "id": "hero-xpulse-421-teaser",
@@ -85,7 +87,8 @@
           "url": "https://www.bikedekho.com/news/hero-xpulse-421-teased-could-be-unveiled-at-eicma-20546"
         }
       ],
-      "tag": null
+      "tag": null,
+      "published_at": "2026-10-28T09:03:53.000Z"
     },
     {
       "id": "kawasaki-z900-2027",
@@ -107,7 +110,8 @@
           "url": "https://www.bikedekho.com/news/breaking-2027-kawasaki-z900-launched-in-india-at-999-lakh-20561"
         }
       ],
-      "tag": null
+      "tag": null,
+      "published_at": "2026-10-28T12:36:27.000Z"
     }
   ],
   "headlines": [
@@ -259,6 +263,49 @@
         {
           "name": "Gaadiwaadi",
           "url": "https://gaadiwaadi.com/tvs-motor-confirms-return-to-eicma-to-unveil-new-models/"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "bajaj-capacity-775-lakh",
+      "type": "sales",
+      "headline": "Bajaj Auto will raise annual production capacity to 7.75 lakh units",
+      "published_at": "2026-10-28T01:36:31.000Z",
+      "sources": [
+        {
+          "name": "ET Auto",
+          "url": "https://auto.economictimes.indiatimes.com/news/industry/bajaj-auto-to-raise-annual-capacity-to-7-75-lakh-units-amid-rising-demand/135248959"
+        },
+        {
+          "name": "MotorBeam",
+          "url": "https://www.motorbeam.com/bajaj-auto-annual-production-capacity-expansion/"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "pulsar-n250-2v-ends",
+      "type": "other",
+      "headline": "Bajaj stops making the two-valve Pulsar N250 as the N250SS takes over",
+      "published_at": "2026-10-28T12:46:05.000Z",
+      "sources": [
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/bajaj-pulsar-n250-2v-nears-end-as-n250ss-takes-over/"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "bajaj-adventure-bike-testing",
+      "type": "spy",
+      "headline": "Bajaj’s adventure bike seen testing again",
+      "published_at": "2026-10-27T12:08:36.000Z",
+      "sources": [
+        {
+          "name": "Overdrive",
+          "url": "https://www.overdrive.in/news-cars-auto/bajaj-adventure-bike-spotted-testing/"
         }
       ],
       "tag": null
@@ -543,14 +590,6 @@
       "BikeAdvice"
     ],
     "left_out": [
-      {
-        "id": "motorbeam-a60bf9d8",
-        "why": "Bajaj capacity plan; much of it is scooters and three-wheelers"
-      },
-      {
-        "id": "bikewale-80653552",
-        "why": "Pulsar N250 2V run-out, minor"
-      },
       {
         "id": "autocar-c3c43506",
         "why": "KLE650 global reveal, no India plan yet"

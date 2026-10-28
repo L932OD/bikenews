@@ -2,11 +2,15 @@
   "editions": [
     {
       "edition": "2026-10-28",
-      "published_at": "2026-10-28T20:58:46+05:30",
-      "stories": 12,
+      "published_at": "2026-10-28T23:16:01+05:30",
+      "stories": 15,
       "events": 5,
       "accessories": 4,
       "lead": "KTM 200 Duke gets a quickshifter, traction control and ride modes at ₹2.07 lakh"
     }
-  ]
+  ],
+  "page": {
+    "accessories_shown": 15,
+    "events_ahead_months": 3
+  }
 }
