@@ -23,9 +23,14 @@ A rider in India who wants to know, in two minutes, what happened in Indian two-
 
 - The same news on several sites is **one item**, with all its sources listed. Coverage by more sites is the strongest
   sign of importance.
-- What matters most: a launch with a price, a price change, a recall or safety issue, monthly sales, a policy or
-  subsidy change, a big brand move. Then: an upcoming launch with a date, a confirmed spec. Least: spy shots, rumours,
-  listicles, "top 5" pieces and reviews. Leave listicles, explainers and celebrity purchases out.
+- What matters most: a launch with a price, **a brand's own teaser of a product still to come**, a price change, a
+  recall or safety issue, monthly sales, a policy or subsidy change, a big brand move. Then: an upcoming launch with a
+  date, a confirmed spec. Least: spy shots, rumours, listicles, "top 5" pieces and reviews. Leave listicles,
+  explainers and celebrity purchases out.
+- **Teasers come first.** When a brand itself teases a bike or product that is coming (an official teaser image or
+  video, a "coming soon" post, a reveal date), it is high precedence: it is the lead or a sub-story unless a launch
+  with a price outranks it, and it always makes the edition. Give it `type` `upcoming`, and say what is coming and
+  when, as far as the sources say. A teaser is the brand's own; a spy shot or a dealer leak is not a teaser.
 - A spy shot or a rumour is given that `type` (`spy`, `rumour`), so the page labels it as unconfirmed.
 - Nothing from yesterday's edition (`previous_edition` in the pool) again unless there is genuinely new information;
   then tag it `"update"`.
@@ -98,7 +103,9 @@ site sometimes reports a new accessory).
   sold in India. International brands only when launched or newly priced in India.
 - **What counts:** helmets, riding gear (jackets, gloves, boots, pants), luggage, crash protection, electronics
   (intercoms, mounts, dashcams), performance and styling parts, and a bike maker's own accessory packs, launched or
-  newly on sale in India. Not bikes themselves, not reviews of bikes, not car accessories.
+  newly on sale in India, or teased by the brand. Not bikes themselves, not reviews of bikes, not car accessories.
+- **Teased products first.** A brand's teaser of a product still to come goes at the top of the list, above launches,
+  with `"teased": true` (the page marks it "Coming soon"). Its `price` is null unless the brand has given one.
 - **0 to 6 a day.** Nothing that was in the last 5 editions unless there is genuinely new information (tag `"update"`).
 - `brand`, `product` (its name only), `category`: `helmet`, `riding-gear`, `luggage`, `protection`, `electronics`,
   `performance`, `styling`, `care` or `other`. `for_bikes`: the bikes it is made for, as the source names them, or
@@ -145,7 +152,7 @@ site sometimes reports a new accessory).
   "trends_summary": { "headline": "...", "text": "..." },
   "trending": [{ "term": "exact term from the pool", "traffic": "+150%", "why": "...", "sources": [] }],
   "events": [{ "id": "...", "name": "...", "kind": "festival", "start_date": "2026-12-04", "end_date": "2026-12-05", "city": "...", "organiser": "...", "text": "...", "register": null, "sources": [], "tag": null }],
-  "accessories": [{ "id": "...", "brand": "...", "product": "...", "category": "helmet", "for_bikes": ["Universal"], "price": null, "headline": "...", "text": "...", "published_at": "...", "sources": [], "tag": null }],
+  "accessories": [{ "id": "...", "brand": "...", "product": "...", "category": "helmet", "teased": false, "for_bikes": ["Universal"], "price": null, "headline": "...", "text": "...", "published_at": "...", "sources": [], "tag": null }],
   "checks": { "pool_items": 46, "sources_failed": [], "left_out": [{ "id": "pool-item-id", "why": "car, not a bike" }] }
 }
 ```

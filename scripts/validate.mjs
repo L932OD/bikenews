@@ -276,6 +276,7 @@ else {
     checkText(`${where}.text`, a?.text, { max: 40 });
     if (a?.price != null && (typeof a.price?.value !== 'string' || !a.price.value)) err(`${where}.price`, 'needs a value and a label, or null');
     if (!(a?.tag == null || a.tag === 'update')) err(`${where}.tag`, 'must be null or "update"');
+    if (a?.teased != null && typeof a.teased !== 'boolean') err(`${where}.teased`, 'must be true, false or left out');
     const found = checkSources(where, a?.sources, gearPool);
     if (found.length) {
       checkNumbers(`${where}.text`, a.text, found);

@@ -91,6 +91,8 @@
   const link = (src, cls) => h('a', { class: cls, href: src.url, target: '_blank', rel: 'noopener' }, src.name);
   const tag = (type) => h('span', { class: 'tag', 'data-type': type }, TYPE_LABEL[type] || 'News');
   const updateTag = (it) => (it.tag === 'update' ? h('span', { class: 'tag tag--update' }, 'Update') : null);
+  // A product the brand has teased but not launched yet.
+  const soonTag = (it) => (it.teased ? h('span', { class: 'tag tag--soon' }, 'Coming soon') : null);
   const stripes = () => h('span', { class: 'stripes', 'aria-hidden': 'true' });
   const sources = (list, label = 'Read at') =>
     h('div', { class: 'sources' }, h('span', { class: 'label' }, label), (list || []).map((x) => link(x, 'src')));
@@ -257,12 +259,12 @@
   }
 
   function homeGear(eds) {
-    const items = eds.flatMap((e) => e.accessories ?? []);
+    const items = eds.flatMap((e) => e.accessories ?? []).sort((x, y) => Boolean(y.teased) - Boolean(x.teased));
     return sectionCard('gear', '#/accessories', 'Aftermarket', items.length, items.length === 1 ? 'new product' : 'new products',
       items.length
         ? h('ol', { class: 'mini' }, items.slice(0, 4).map((a) => h('li', { class: 'mini__item' },
           h('a', { class: 'mini__link', href: itemHref('accessories', a.id) },
-            h('div', { class: 'mini__meta' }, h('span', { class: 'kicker' }, a.brand), h('span', { class: 'mini__cat' }, GEAR_LABEL[a.category] || 'Accessory')),
+            h('div', { class: 'mini__meta' }, h('span', { class: 'kicker' }, a.brand), h('span', { class: 'mini__cat' }, GEAR_LABEL[a.category] || 'Accessory'), soonTag(a)),
             h('p', { class: 'mini__line' }, a.product),
             a.price ? h('p', { class: 'mini__price' }, a.price.value) : null))))
         : empty('No new accessories in the last few days.'),
@@ -531,7 +533,7 @@
 
   function gearCard(a, edition, brands) {
     return h('article', { class: 'card gear', 'data-anchor': a.id }, stripes(),
-      h('div', { class: 'meta' }, h('span', { class: 'tag', 'data-gear': a.category }, GEAR_LABEL[a.category] || 'Accessory'), updateTag(a),
+      h('div', { class: 'meta' }, h('span', { class: 'tag', 'data-gear': a.category }, GEAR_LABEL[a.category] || 'Accessory'), soonTag(a), updateTag(a),
         h('span', { class: 'kicker' }, a.brand), a.published_at ? h('span', { class: 'gear__time' }, itemTime(a.published_at, edition)) : null),
       h('div', { class: 'sub__top' }, h('h3', { class: 'headline' }, a.headline), plate(a.price)),
       h('p', { class: 'text' }, a.text),
@@ -568,7 +570,9 @@
   }
 
   function renderGear(app, d) {
-    const items = d.eds.flatMap((ed) => (ed.accessories ?? []).map((a) => ({ a, ed: ed.edition })));
+    // Teased products first, then the newest.
+    const items = d.eds.flatMap((ed) => (ed.accessories ?? []).map((a) => ({ a, ed: ed.edition })))
+      .sort((x, y) => Boolean(y.a.teased) - Boolean(x.a.teased));
     const cats = ['All', ...new Set(items.map(({ a }) => a.category))];
     const active = cats.includes(state.gearCat) ? state.gearCat : 'All';
     const chips = cats.length > 2 ? h('div', { class: 'filters', role: 'group', 'aria-label': 'Show' }, cats.map((c) =>

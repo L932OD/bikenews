@@ -191,7 +191,10 @@
         "GIVI India",
         "Motul India motorcycle",
         "Pakelo motorcycle oil",
-        "Maddog auxiliary lights"
+        "Maddog auxiliary lights",
+        "helmet teased India",
+        "riding gear teaser India",
+        "motorcycle accessories coming soon India"
       ],
       "exclude_title": "\\b(bathroom|faucet|kitchen|police|challan|violations?|fine[sd]?|rule)\\b",
       "max_per_query": 5,

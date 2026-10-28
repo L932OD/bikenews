@@ -817,3 +817,7 @@ body[data-page="accessories"] .paper { --stripe: var(--acc-gear); }
 .brand-row__name a:hover { text-decoration: underline; }
 .brand-row__made { color: var(--muted); font-size: 13px; }
 .brand-row .src { flex: none; }
+
+/* A product the brand has teased: filled, so it stands out from the outlined tags. */
+.tag.tag--soon { --c: var(--acc-gear); background: var(--c); color: #0B0C0E; }
+:root:not([data-theme="dark"]) .tag.tag--soon { background: var(--blue-fill); border-color: var(--blue-fill); color: #FFFFFF; }
