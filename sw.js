@@ -1,6 +1,6 @@
 // Bike News offline support. The page shell and fonts come from the cache; editions are fetched fresh
 // and fall back to the last copy when there is no signal.
-const SHELL = 'bike-news-shell-v5';
+const SHELL = 'bike-news-shell-v6';
 const DATA = 'bike-news-data';
 const FILES = [
   './', 'styles.css', 'app.js', 'manifest.webmanifest', 'icons/apple-touch-icon.png',

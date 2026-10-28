@@ -1,0 +1,122 @@
+{
+  "brands": [
+    {
+      "name": "Zana",
+      "aka": [
+        "Zana International",
+        "Zana Motorcycles"
+      ],
+      "made_in": "India",
+      "site": "https://www.zanamotorcycles.com",
+      "instagram": "zanamotorcycles"
+    },
+    {
+      "name": "Rimoto",
+      "aka": [
+        "Rimoto Gear"
+      ],
+      "made_in": "India",
+      "site": "https://rimotogear.com",
+      "instagram": "rimotogear",
+      "store": "shopify"
+    },
+    {
+      "name": "Lone Ranger",
+      "aka": [
+        "Lone Ranger India",
+        "Lone Ranger Gear"
+      ],
+      "made_in": "India",
+      "site": "https://lonerangerindia.com",
+      "instagram": "lonerangerindia",
+      "store": "shopify"
+    },
+    {
+      "name": "Barrel",
+      "aka": [
+        "Barrel Exhaust",
+        "Barrel Exhausts"
+      ],
+      "made_in": "India",
+      "site": "https://www.barrelexhaust.com",
+      "instagram": "barrelexhaust",
+      "store": "shopify"
+    },
+    {
+      "name": "BluArmor",
+      "aka": [
+        "Blu Armor",
+        "BluArmour"
+      ],
+      "made_in": "India",
+      "site": "https://thebluarmor.com",
+      "instagram": "thebluarmor",
+      "store": "shopify"
+    },
+    {
+      "name": "GIVI",
+      "aka": [
+        "Givi India",
+        "Moto1 India"
+      ],
+      "made_in": "Italy",
+      "site": "https://www.givi.it",
+      "instagram": "givi_official",
+      "india": {
+        "name": "Moto1 India",
+        "site": "https://moto1india.com",
+        "instagram": "moto1_accessories"
+      }
+    },
+    {
+      "name": "Vega",
+      "aka": [
+        "Vega Helmets",
+        "Vega Auto"
+      ],
+      "made_in": "India",
+      "site": "https://vegaauto.com",
+      "instagram": "vegahelmets",
+      "store": "shopify"
+    },
+    {
+      "name": "Axor",
+      "aka": [
+        "Axor Helmets"
+      ],
+      "made_in": "India",
+      "site": "https://axorhelmets.com",
+      "instagram": "axorhelmet",
+      "store": "shopify"
+    },
+    {
+      "name": "Motul",
+      "aka": [
+        "Motul India"
+      ],
+      "made_in": "France",
+      "site": "https://www.motul.com/en-IN",
+      "instagram": "motulindia"
+    },
+    {
+      "name": "Pakelo",
+      "aka": [
+        "Pakelo Lubricants"
+      ],
+      "made_in": "Italy",
+      "site": "https://pakelo.com",
+      "instagram": "pakelo.lubricants"
+    },
+    {
+      "name": "Maddog",
+      "aka": [
+        "Maddog Lights",
+        "Maddog Industries",
+        "Mad Dog"
+      ],
+      "made_in": "India",
+      "site": "https://www.maddog.co.in",
+      "instagram": "maddoglights"
+    }
+  ]
+}

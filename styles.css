@@ -804,3 +804,16 @@ body[data-page="accessories"] .paper { --stripe: var(--acc-gear); }
 .mini__meta .hot, .road__line .hot { height: 19px; font-size: 11px; padding: 0 6px; }
 .road__line .hot { margin-left: 8px; vertical-align: 2px; }
 .search__term .hot { margin-left: 8px; vertical-align: 3px; }
+
+/* Aftermarket: the maker's own links on each card, and the brands we follow. */
+.gear .sources.maker { margin-top: 8px; }
+.brands { background: var(--panel); border-radius: var(--radius); padding: var(--pad); margin-top: var(--gap); }
+.brands__title { margin: 0; font-family: var(--f-label); font-weight: 600; font-size: 22px; letter-spacing: 0.02em; }
+.brands__note { margin: 4px 0 12px; color: var(--muted); font-size: 15px; }
+.brands__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0 24px; }
+.brand-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; border-top: 1px solid var(--rule); }
+.brand-row__name { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+.brand-row__name a { color: var(--ink); font-weight: 600; font-size: 17px; text-decoration: none; }
+.brand-row__name a:hover { text-decoration: underline; }
+.brand-row__made { color: var(--muted); font-size: 13px; }
+.brand-row .src { flex: none; }

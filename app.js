@@ -1,5 +1,5 @@
 // Bike News: a home screen of four sections (New launches, Events, Trending now, Aftermarket), each opening a
-// detail page. Reads content/latest.json, archive.json, events.json, trends.json and the kept editions.
+// detail page. Reads content/latest.json, archive.json, events.json, trends.json, brands.json and the kept editions.
 (() => {
   'use strict';
 
@@ -529,14 +529,42 @@
 
   // ---------- Aftermarket ----------
 
-  function gearCard(a, edition) {
+  function gearCard(a, edition, brands) {
     return h('article', { class: 'card gear', 'data-anchor': a.id }, stripes(),
       h('div', { class: 'meta' }, h('span', { class: 'tag', 'data-gear': a.category }, GEAR_LABEL[a.category] || 'Accessory'), updateTag(a),
         h('span', { class: 'kicker' }, a.brand), a.published_at ? h('span', { class: 'gear__time' }, itemTime(a.published_at, edition)) : null),
       h('div', { class: 'sub__top' }, h('h3', { class: 'headline' }, a.headline), plate(a.price)),
       h('p', { class: 'text' }, a.text),
       h('p', { class: 'gear__fits' }, h('span', { class: 'label' }, 'Fits'), ' ', a.for_bikes.join(', ')),
-      sources(a.sources));
+      sources(a.sources), makerLinks(brandOf(a.brand, brands)));
+  }
+
+  // The maker behind an accessory, from the brands we follow: its own site and Instagram.
+  function brandOf(name, brands) {
+    const want = String(name || '').toLowerCase();
+    return (brands ?? []).find((b) => [b.name, ...(b.aka ?? [])].some((n) => {
+      const have = n.toLowerCase();
+      return want === have || want.startsWith(`${have} `);
+    })) ?? null;
+  }
+  const igLink = (handle) => h('a', { class: 'src', href: `https://www.instagram.com/${handle}/`, target: '_blank', rel: 'noopener' }, `@${handle}`);
+  function makerLinks(b) {
+    if (!b) return null;
+    return h('div', { class: 'sources maker' }, h('span', { class: 'label' }, 'From the maker'),
+      link({ name: 'Website', url: b.site }, 'src'), b.instagram ? igLink(b.instagram) : null,
+      b.india ? link({ name: b.india.name, url: b.india.site }, 'src') : null);
+  }
+  const MADE_IN = { India: 'Indian', Italy: 'Italian', France: 'French' };
+  function brandList(brands) {
+    if (!brands?.length) return null;
+    const ordered = [...brands].sort((a, b) => (b.made_in === 'India') - (a.made_in === 'India') || a.name.localeCompare(b.name));
+    return h('section', { class: 'brands', 'aria-labelledby': 'brands-title' },
+      h('h2', { class: 'brands__title', id: 'brands-title' }, 'Brands we follow'),
+      h('p', { class: 'brands__note' }, 'New products from their own stores and the press, every morning. Indian makers first.'),
+      h('ul', { class: 'brands__list' }, ordered.map((b) => h('li', { class: 'brand-row', 'data-anchor': `brand-${b.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}` },
+        h('div', { class: 'brand-row__name' }, h('a', { href: b.site, target: '_blank', rel: 'noopener' }, b.name),
+          h('span', { class: 'brand-row__made' }, MADE_IN[b.made_in] ?? b.made_in)),
+        b.instagram ? igLink(b.instagram) : null))));
   }
 
   function renderGear(app, d) {
@@ -547,7 +575,8 @@
       h('button', { class: 'chip', type: 'button', 'aria-pressed': String(c === active), onclick: () => { state.gearCat = c; route(); } }, c === 'All' ? 'All' : GEAR_LABEL[c] || c))) : null;
     const shown = items.filter(({ a }) => active === 'All' || a.category === active);
     put(app, pageHead('gear', 'Aftermarket', 'New helmets, riding gear, luggage and parts from the last 5 days, and the bikes they fit.'), chips,
-      shown.length ? h('div', { class: 'gears' }, shown.map(({ a, ed }) => gearCard(a, ed))) : empty('No new accessories in the last 5 days.'));
+      shown.length ? h('div', { class: 'gears' }, shown.map(({ a, ed }) => gearCard(a, ed, d.brands))) : empty('No new accessories in the last 5 days.'),
+      brandList(d.brands));
   }
 
   // ---------- Router ----------
@@ -557,13 +586,14 @@
   let data = null;
 
   async function load() {
-    const [latest, archive, events, trends] = await Promise.all([
+    const [latest, archive, events, trends, brandFile] = await Promise.all([
       optional(getJson('content/latest.json')), optional(getJson('content/archive.json')),
-      optional(getJson('content/events.json')), optional(getJson('content/trends.json')),
+      optional(getJson('content/events.json')), optional(getJson('content/trends.json')), optional(getJson('content/brands.json')),
     ]);
+    const brands = brandFile?.brands ?? [];
     const eds = await editions(archive, latest);
     if (latest && !eds.some((e) => e.edition === latest.edition)) eds.unshift(latest);
-    return { latest, archive, events, trends, eds };
+    return { latest, archive, events, trends, eds, brands };
   }
 
   // "#/launches/some-id" -> the section "#/launches" and the item "some-id".

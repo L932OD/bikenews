@@ -4,6 +4,7 @@
 //   content/archive.json   the editions kept (the last keep_days days)
 //   content/events.json    every event still to come, built up day by day
 //   content/trends.json    today's Google Trends data, plus a short history
+//   content/brands.json    the aftermarket brands we follow, with their sites and Instagram
 // Editions older than keep_days are deleted. Events stay until they are over.
 // Usage: node scripts/publish.mjs content/editions/YYYY-MM-DD.json
 import { readdir, unlink } from 'node:fs/promises';
@@ -113,6 +114,10 @@ trends.days = [day, ...trends.days.filter((d) => d.date !== today)].filter((d) =
 trends.updated = ed.published_at;
 trends.timeline = ex ? { keywords: ex.keywords, points: ex.timeline } : trends.timeline ?? null;
 await writeJson(path('content/trends.json'), trends);
+
+// ---------- Brands: the aftermarket makers we follow ----------
+
+await writeJson(path('content/brands.json'), { brands: config.sections.accessories?.brands ?? [] });
 
 console.log(
   `Published ${ed.edition}: ${count} stories, ${ed.events?.length ?? 0} events, ${ed.accessories?.length ?? 0} accessories. ` +

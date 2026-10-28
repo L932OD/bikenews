@@ -290,6 +290,50 @@ async function readSection(key, sec, known) {
   return { items: [...out, ...pages], status };
 }
 
+// Brands that run their own online store publish its product list, with the date each product was added. A product
+// added in the last few days is a new product, straight from the maker; spares and merchandise are left out.
+async function readStores(sec, known) {
+  const status = { id: 'brand-stores', name: 'Brand stores', status: 'ok', in_pool: 0 };
+  const exclude = new RegExp(sec.store_exclude, 'i');
+  const failed = [];
+  const out = [];
+  const inr = (n) => `₹${Math.round(n).toLocaleString('en-IN')}`;
+  for (const b of sec.brands.filter((b) => b.store === 'shopify')) {
+    try {
+      const res = await get(`${b.site}/products.json?limit=250`, { headers: { Accept: 'application/json' } });
+      const found = [];
+      for (const p of JSON.parse(res.body).products ?? []) {
+        const added = Date.parse(p.created_at);
+        if (!p.published_at || !(now - added <= sec.store_window_days * 86_400_000)) continue;
+        if (exclude.test(`${p.title} ${p.product_type}`) || offTopic(p.title)) continue;
+        const prices = (p.variants ?? []).map((v) => Number(v.price)).filter((n) => n > 0);
+        const price = prices.length ? `Price on the brand's store: ${inr(Math.min(...prices))}${Math.max(...prices) > Math.min(...prices) ? ` to ${inr(Math.max(...prices))}` : ''}.` : '';
+        const url = `${b.site}/products/${p.handle}`;
+        if (known.has(normUrl(url))) continue;
+        known.add(normUrl(url));
+        found.push({
+          id: `store-${itemId(url)}`,
+          source: b.name,
+          source_id: 'brand-stores',
+          from_store: true,
+          title: clean(p.title).toLowerCase().startsWith(b.name.toLowerCase()) ? clean(p.title) : `${b.name}: ${clean(p.title)}`,
+          published_at: new Date(added).toISOString(),
+          summary: clean([p.product_type, price].filter(Boolean).join('. ')),
+          url,
+          text: clip(clean(`${price} ${p.body_html ?? ''}`), config.text_chars),
+        });
+      }
+      out.push(...found.sort((x, y) => y.published_at.localeCompare(x.published_at)).slice(0, sec.store_max_per_brand));
+    } catch (err) {
+      failed.push(`${b.name} (${String(err.message || err)})`);
+    }
+  }
+  status.in_pool = out.length;
+  if (failed.length) status.error = `no list from ${failed.join(', ')}`;
+  if (failed.length && failed.length === sec.brands.filter((b) => b.store === 'shopify').length) status.status = 'failed';
+  return { items: out, status };
+}
+
 // ---------- Google Trends Explore ----------
 
 // The same data the Explore page draws: interest over time for each keyword, what people searched alongside
@@ -477,6 +521,11 @@ for (const [key, sec] of Object.entries(config.sections)) {
   const { items: found, status } = await readSection(key, sec, knownUrls);
   sections[key] = found;
   report.push(status);
+  if (sec.brands) {
+    const stores = await readStores(sec, knownUrls);
+    sections[key].push(...stores.items);
+    report.push(stores.status);
+  }
 }
 
 let explore = null;
@@ -508,6 +557,7 @@ const pool = {
   explore,
   events: sections.events ?? [],
   accessories: sections.accessories ?? [],
+  brands: (config.sections.accessories?.brands ?? []).map(({ name, aka, made_in }) => ({ name, aka, made_in })),
   events_calendar: (await readJson(path('content/events.json'), { events: [] })).events,
   previous_edition: previous,
 };

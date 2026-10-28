@@ -86,9 +86,16 @@ organisers' own pages) and `events_calendar` (the events already listed).
 What aftermarket and gear makers launched, and for which bikes. Read `accessories` in the pool (and `items`: a bike
 site sometimes reports a new accessory).
 
-- **Indian manufacturers first:** Indian gear and parts makers (Studds, SMK, Steelbird, Vega, Axor, Rynox, ViaTerra,
-  Solace, Raida, Royal Enfield's own gear and accessories, and the like) and products made for bikes sold in India.
-  International brands only when launched or newly priced in India.
+- **The brands we follow** are listed in the pool's `brands` (Zana, Rimoto, Lone Ranger, Barrel, BluArmor, GIVI,
+  Vega, Axor, Motul, Pakelo, Maddog). Look for them first. Write `brand` exactly as its `name` there (`"Barrel"`,
+  not `"Barrel Exhausts"`), so the page can link the maker's site and Instagram.
+- **Straight from the maker:** items with `"from_store": true` are products the brand added to its own online store
+  in the last few days. One counts as new only when it is a real product (not a colour of one already shown, not
+  merchandise), and the brand's store is its source. Its price, when there is one, is
+  `{ "value": "₹4,999", "label": "Brand store price" }`. When the press also reported it, list both sources.
+- **Indian manufacturers first:** Indian gear and parts makers (the Indian brands we follow, Studds, SMK, Steelbird,
+  Rynox, ViaTerra, Solace, Raida, Royal Enfield's own gear and accessories, and the like) and products made for bikes
+  sold in India. International brands only when launched or newly priced in India.
 - **What counts:** helmets, riding gear (jackets, gloves, boots, pants), luggage, crash protection, electronics
   (intercoms, mounts, dashcams), performance and styling parts, and a bike maker's own accessory packs, launched or
   newly on sale in India. Not bikes themselves, not reviews of bikes, not car accessories.
