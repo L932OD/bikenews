@@ -115,7 +115,7 @@
   }
   const pageHead = (section, title, sub) =>
     h('header', { class: 'page-head', 'data-section': section },
-      h('a', { class: 'back', href: '#/' }, h('span', { 'aria-hidden': 'true' }, '←'), ' Home'),
+      backLink(),
       h('h1', { class: 'page-title' }, title),
       sub ? h('p', { class: 'page-sub' }, sub) : null);
   const empty = (text) => h('p', { class: 'empty' }, text);
@@ -208,6 +208,36 @@
     if (!name) return null;
     const b = brandByName(name);
     return b ? h('a', { class: 'kicker kicker--link', href: brandHref(b) }, name) : h('span', { class: 'kicker' }, name);
+  }
+
+  // ---------- Going back ----------
+
+  // The pages the reader has opened in this visit, so Back returns to the page they came from (the Feed, a brand,
+  // the list of brands) and to the same place on it, not to Home.
+  const trail = [];
+  const scrolls = new Map();
+  let returning = false;
+  const hashOf = (url) => { try { return new URL(url).hash || '#/'; } catch { return '#/'; } };
+  function track(hash) {
+    returning = trail.length > 1 && trail[trail.length - 2] === hash;
+    if (returning) trail.pop();
+    else if (trail.at(-1) !== hash) trail.push(hash);
+  }
+  function pageName(hash) {
+    const [, sec = '', key] = hash.split('/');
+    if (!sec) return 'Home';
+    if (sec === 'brand') return BRANDS.find((b) => b.slug === key)?.name ?? 'Brand';
+    if (sec === 'archive' && key) return dayLabel(key);
+    return ROUTES[`#/${sec}`]?.[0] ?? 'Home';
+  }
+  // The tab pages go back to Home; the pages inside them (a brand, all brands, a day in the archive, upcoming
+  // launches) go back to wherever the reader came from.
+  const TABS = ['#/launches', '#/events', '#/trending', '#/accessories'];
+  function backLink() {
+    const isTab = TABS.includes(sectionOf()) && !itemOf();
+    const prev = !isTab && trail.length > 1 ? trail[trail.length - 2] : null;
+    return h('a', { class: 'back', href: prev ?? '#/', onclick: prev ? (e) => { e.preventDefault(); history.back(); } : null },
+      h('span', { 'aria-hidden': 'true' }, '←'), ` ${prev ? pageName(prev) : 'Home'}`);
   }
 
   // ---------- Cluster bar ----------
@@ -599,15 +629,20 @@
   // Brand stories on the Feed: one ring per brand with something in the last 5 days. The number is what came in
   // since the reader last opened that brand; a brand already read shows no number and moves to the end, so brands
   // with news always come first.
-  function brandStrip(d) {
+  // What came in since the reader last opened this brand (everything, if they never have).
+  const unreadSince = (seen, b) => (it) => !seen[b.slug] || (Date.parse(it.published_at) || 0) > seen[b.slug];
+  function brandRows(d) {
     const seen = seenBrands();
-    const rows = BRANDS.map((b) => {
+    return BRANDS.map((b) => {
       const items = brandItems(d, b);
-      const unread = items.filter((it) => !seen[b.slug] || (Date.parse(it.published_at) || 0) > seen[b.slug]).length;
+      const unread = items.filter(unreadSince(seen, b)).length;
       const latest = items.map((it) => it.published_at).sort((p, q) => byNewest(p, q))[0];
       return { b, total: items.length, unread, latest };
-    }).filter((r) => r.total)
-      .sort((p, q) => (q.unread > 0) - (p.unread > 0) || q.unread - p.unread || byNewest(p.latest, q.latest));
+    }).sort((p, q) => (q.unread > 0) - (p.unread > 0) || q.unread - p.unread || byNewest(p.latest, q.latest) || p.b.name.localeCompare(q.b.name));
+  }
+
+  function brandStrip(d) {
+    const rows = brandRows(d).filter((r) => r.total);
     if (!rows.length) return null;
     return h('nav', { class: 'stories', 'aria-label': 'Brands with news' },
       h('ul', { class: 'stories__list' },
@@ -639,20 +674,23 @@
       x.events.length ? `${x.events.length} ${x.events.length === 1 ? 'event' : 'events'}` : null,
       x.searches.length ? `searched ${x.searches[0].traffic}` : null,
     ].filter(Boolean);
-    const newCount = x.stories.filter((it) => isNew(it.published_at)).length;
+    // "New" on a brand's page means new since the reader last opened this brand, as its number on the Feed does.
+    const fresh = unreadSince(seenBrands(), b);
+    const tagNew = (it) => (fresh(it) ? h('span', { class: 'tag tag--new' }, 'New') : null);
+    const newCount = brandItems(d, b).filter(fresh).length;
     put(app,
       h('header', { class: 'page-head brandhead', 'data-section': 'launches' },
-        h('a', { class: 'back', href: '#/brands' }, h('span', { 'aria-hidden': 'true' }, '←'), ' All brands'),
+        backLink(),
         h('div', { class: 'brandhead__id' }, brandLogo(b, 'brandhead__logo'),
           h('div', null,
             h('p', { class: 'brandhead__kind' }, `${b.kind === 'maker' ? 'Bike maker' : 'Aftermarket'} · ${madeIn}`),
             h('h1', { class: 'page-title' }, b.name))),
-        h('p', { class: 'brandhead__glance' }, parts.join(' · '), newCount ? h('span', { class: 'brandhead__new' }, ` · ${newCount} new since your last visit`) : null),
+        h('p', { class: 'brandhead__glance' }, parts.join(' · '), newCount ? h('span', { class: 'brandhead__new' }, ` · ${newCount} new since you last looked`) : null),
         h('div', { class: 'sources brandhead__links' }, links)),
       h('div', { class: 'bpage' },
       x.stories.length
         ? block('Latest', x.stories.length, h('ul', { class: 'blist' }, x.stories.map((it) => h('li', { class: 'blist__item' },
-          h('div', { class: 'meta' }, newTag(it.published_at), hotFor(it), tag(it.type), stampTag(it.published_at)),
+          h('div', { class: 'meta' }, tagNew(it), hotFor(it), tag(it.type), stampTag(it.published_at)),
           h('a', { class: 'blist__head', href: itemHref('launches', it.id) }, it.headline),
           it.text ? h('p', { class: 'blist__text' }, it.text) : null,
           h('p', { class: 'road__src' }, (it.sources || []).slice(0, 3).map((s) => link(s)), it.sources?.length > 3 ? h('span', null, `+${it.sources.length - 3}`) : null)))))
@@ -670,7 +708,7 @@
         h('a', { class: 'blist__head', href: itemHref('trending', trendKey(q.term)) }, q.term),
         h('span', { class: isHot(q.traffic) ? 'stat stat--hot' : 'stat' }, h('b', null, q.traffic), ' searches'))))) : null,
       x.videos.length ? block(`From ${b.name} on YouTube`, x.videos.length, h('ul', { class: 'blist' }, x.videos.map((v) => h('li', { class: 'blist__item' },
-        h('div', { class: 'meta' }, newTag(v.published_at), h('span', { class: 'tag' }, VIDEO_KIND[v.kind] || 'Video'), stampTag(v.published_at)),
+        h('div', { class: 'meta' }, tagNew(v), h('span', { class: 'tag' }, VIDEO_KIND[v.kind] || 'Video'), stampTag(v.published_at)),
         h('a', { class: 'blist__head', href: v.url, target: '_blank', rel: 'noopener' }, v.title, h('span', { class: 'ext', 'aria-hidden': 'true' }, ' ↗')),
         h('p', { class: 'blist__text' }, v.why))))) : null,
       x.events.length ? block('Events', x.events.length, h('ul', { class: 'blist' }, x.events.map((e) => h('li', { class: 'blist__item' },
@@ -681,20 +719,19 @@
     markBrandSeen(b.slug);
   }
 
+  // All brands: only what is new for each, since the reader last opened it. Brands with news first.
   function renderBrands(app, d) {
-    const row = (b) => {
-      const x = brandData(d, b);
-      return { b, n: x.stories.length, up: x.upcoming.length };
-    };
-    const list = (kind) => BRANDS.filter((b) => b.kind === kind).map(row).sort((p, q) => q.n - p.n || q.up - p.up || p.b.name.localeCompare(q.b.name));
-    const grid = (rows) => h('ul', { class: 'bgrid' }, rows.map(({ b, n, up }) => h('li', null,
-      h('a', { class: 'bcard', href: brandHref(b) }, brandLogo(b, 'bcard__logo'),
+    const rows = brandRows(d);
+    const grid = (kind) => h('ul', { class: 'bgrid' }, rows.filter((r) => r.b.kind === kind).map(({ b, unread }) => h('li', null,
+      h('a', { class: unread ? 'bcard bcard--new' : 'bcard', href: brandHref(b), 'aria-label': unread ? `${b.name}, ${unread} new` : `${b.name}, nothing new` },
+        brandLogo(b, 'bcard__logo'),
         h('span', { class: 'bcard__name' }, b.name),
         h('span', { class: 'bcard__meta' }, b.made_in === 'India' ? 'Indian' : b.made_in),
-        h('span', { class: 'bcard__count' }, n ? `${n} ${n === 1 ? 'story' : 'stories'}` : 'Quiet this week', up ? ` · ${up} coming` : '')))));
-    put(app, pageHead('launches', 'Brands', 'Every maker and aftermarket brand we follow, busiest first. Open one for everything about it.'),
-      h('h2', { class: 'day-head' }, h('span', null, 'Bike makers')), grid(list('maker')),
-      h('h2', { class: 'day-head' }, h('span', null, 'Aftermarket')), grid(list('gear')));
+        h('span', { class: 'bcard__count' }, unread ? `${unread} new` : 'Nothing new')))));
+    const fresh = rows.filter((r) => r.unread).length;
+    put(app, pageHead('launches', 'Brands', fresh ? `${fresh} ${fresh === 1 ? 'brand has' : 'brands have'} something new since you last opened ${fresh === 1 ? 'it' : 'them'}. They come first.` : 'Nothing new from any brand since you last looked.'),
+      h('h2', { class: 'day-head' }, h('span', null, 'Bike makers')), grid('maker'),
+      h('h2', { class: 'day-head' }, h('span', null, 'Aftermarket')), grid('gear'));
   }
 
   // ---------- Events ----------
@@ -735,8 +772,13 @@
     const all = (d.events?.events ?? []).filter((ev) => ev.start_date <= horizon);
     const kinds = ['All', ...new Set(all.map((e) => e.kind))];
     const active = kinds.includes(state.eventKind) ? state.eventKind : 'All';
-    const chips = kinds.length > 2 ? h('div', { class: 'filters', role: 'group', 'aria-label': 'Show' }, kinds.map((k) =>
-      h('button', { class: 'chip', type: 'button', 'aria-pressed': String(k === active), onclick: () => { state.eventKind = k; route(); } }, k === 'All' ? 'All' : (EVENT_KIND[k] || k).replace(/(ch|sh|s|x)$/, '$1e') + 's'))) : null;
+    // One dropdown, like the Feed's: each kind with how many events it holds.
+    const plural = (k) => (EVENT_KIND[k] || k).replace(/(ch|sh|s|x)$/, '$1e') + 's';
+    const chips = kinds.length > 2 ? h('label', { class: 'feedfilter', for: 'event-filter' }, h('span', { class: 'label' }, 'Show'),
+      h('span', { class: 'feedfilter__box' },
+        h('select', { id: 'event-filter', onchange: (e) => { state.eventKind = e.target.value; route(); } },
+          kinds.map((k) => h('option', { value: k, selected: k === active ? 'selected' : null },
+            `${k === 'All' ? 'All events' : plural(k)} (${k === 'All' ? all.length : all.filter((e) => e.kind === k).length})`))))) : null;
     const shown = all.filter((e) => active === 'All' || e.kind === active);
     const months = new Map();
     for (const ev of shown) {
@@ -947,6 +989,8 @@
     carouselStop?.();
     carouselStop = null;
     HOT = hotStories(data);
+    const hash = location.hash || '#/';
+    track(hash);
     const section = sectionOf();
     const item = itemOf();
     const [label, render] = ROUTES[section] ?? [null, renderHome];
@@ -956,7 +1000,8 @@
     document.body.dataset.page = label ? section.slice(2) : 'home';
     await render(app, data);
     const target = item ? [...app.querySelectorAll('[data-anchor]')].find((el) => el.dataset.anchor === item) : null;
-    if (!target) return window.scrollTo(0, 0);
+    // Coming back to a page puts the reader where they were on it.
+    if (!target) return window.scrollTo(0, returning ? scrolls.get(hash) ?? 0 : 0);
     // Place the item just below the bar, and mark it for a moment so the eye finds it.
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     target.setAttribute('tabindex', '-1');
@@ -981,7 +1026,7 @@
   themeBtn?.addEventListener('click', () => applyTheme(document.documentElement.getAttribute('data-theme') !== 'dark'));
   themeBtn?.setAttribute('aria-label', document.documentElement.getAttribute('data-theme') === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
 
-  window.addEventListener('hashchange', () => { route(); });
+  window.addEventListener('hashchange', (e) => { scrolls.set(hashOf(e.oldURL), window.scrollY); route(); });
   route();
 
   // As a home-screen app there is no reload button: fetch again when the app comes back after a while.
