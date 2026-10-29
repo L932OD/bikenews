@@ -66,7 +66,8 @@ const calendar = await readJson(path('content/events.json'), { events: [] });
 const byId = new Map(calendar.events.map((e) => [e.id, e]));
 for (const ev of ed.events ?? []) {
   const old = byId.get(ev.id);
-  byId.set(ev.id, { ...ev, first_seen: old?.first_seen ?? today, updated: today });
+  // updated_at: when this edition added or changed it, so the page can count what is new to the reader.
+  byId.set(ev.id, { ...ev, first_seen: old?.first_seen ?? today, updated: today, updated_at: ed.published_at });
 }
 const events = [...byId.values()]
   .filter((e) => (e.end_date || e.start_date) >= today)
@@ -132,7 +133,7 @@ const upById = new Map(upcoming.items.map((u) => [u.id, u]));
 for (const u of ed.upcoming ?? []) {
   if (u.launched) { upById.delete(u.id); continue; }
   const old = upById.get(u.id);
-  upById.set(u.id, { ...u, first_seen: old?.first_seen ?? today, updated: today });
+  upById.set(u.id, { ...u, first_seen: old?.first_seen ?? today, updated: today, updated_at: ed.published_at });
 }
 const lastDay = (u) => u.when.date ?? addDays(`${addMonth(u.when.month)}-01`, -1);
 function addMonth(ym) {

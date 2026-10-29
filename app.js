@@ -210,6 +210,23 @@
     return b ? h('a', { class: 'kicker kicker--link', href: brandHref(b) }, name) : h('span', { class: 'kicker' }, name);
   }
 
+  // ---------- What the reader has looked at ----------
+
+  // When the reader last looked at each list (the Feed as a whole or one kind of story, the events, upcoming
+  // launches). Counts beside them show only what came in since; once looked at, they go back to nothing.
+  // Kept only in this browser.
+  function lookedAt() {
+    try { return JSON.parse(localStorage.getItem('lookedAt') || '{}') || {}; } catch { return {}; }
+  }
+  function markLooked(key) {
+    try { const seen = lookedAt(); seen[key] = Date.now(); localStorage.setItem('lookedAt', JSON.stringify(seen)); } catch {}
+  }
+  // An item is unread when it came in after the reader last looked at its whole list and at its own kind.
+  const unreadIn = (seen, whole, own) => (iso) => (Date.parse(iso) || 0) > Math.max(seen[whole] ?? 0, seen[own] ?? 0);
+  const newCount = (n) => (n ? ` · ${n} new` : '');
+  // When an event or upcoming launch came in (older entries have only the day).
+  const addedAt = (x) => x.updated_at ?? (x.updated ? `${x.updated}T09:00:00+05:30` : null);
+
   // ---------- Going back ----------
 
   // The pages the reader has opened in this visit, so Back returns to the page they came from (the Feed, a brand,
@@ -520,11 +537,15 @@
     }
     const shown = all.filter((x) => !active[1] || active[1].includes(x.it.type)).sort((a, b) => byNewest(a.at, b.at));
     // One dropdown instead of a wall of buttons; each choice says how many stories it holds.
-    const count = (types) => all.filter((x) => !types || types.includes(x.it.type)).length;
+    // Each choice shows a number only when it holds stories the reader has not looked at yet.
+    const looked = lookedAt();
+    const kindOf = (type) => LAUNCH_FILTERS.find(([, types]) => types?.includes(type))?.[0] ?? 'Other';
+    const unread = all.filter((x) => unreadIn(looked, 'feed:All', `feed:${kindOf(x.it.type)}`)(x.at));
+    const count = (label, types) => unread.filter((x) => !types || types.includes(x.it.type)).length;
     const chips = h('label', { class: 'feedfilter', for: 'feed-filter' }, h('span', { class: 'label' }, 'Show'),
       h('span', { class: 'feedfilter__box' },
         h('select', { id: 'feed-filter', onchange: (e) => { state.launchFilter = e.target.value; route(); } },
-          LAUNCH_FILTERS.map(([label, types]) => h('option', { value: label, selected: label === active[0] ? 'selected' : null }, `${label === 'All' ? 'All stories' : label} (${count(types)})`)))));
+          LAUNCH_FILTERS.map(([label, types]) => h('option', { value: label, selected: label === active[0] ? 'selected' : null }, `${label === 'All' ? 'All stories' : label}${newCount(count(label, types))}`)))));
     const days = new Map();
     for (const x of shown) {
       const k = ymdOf(ist(x.at));
@@ -554,6 +575,7 @@
     });
     put(app, pageHead('launches', 'Feed', 'Every bike story from the last 5 days, newest first, with the date and time it was published.'), brandStrip(d), chips,
       sections.length ? sections : empty('Nothing of this kind in the last 5 days.'), olderDays(d));
+    markLooked(`feed:${active[0]}`);
   }
 
   // ---------- Archive: the days before the Feed's ----------
@@ -772,13 +794,15 @@
     const all = (d.events?.events ?? []).filter((ev) => ev.start_date <= horizon);
     const kinds = ['All', ...new Set(all.map((e) => e.kind))];
     const active = kinds.includes(state.eventKind) ? state.eventKind : 'All';
-    // One dropdown, like the Feed's: each kind with how many events it holds.
+    // One dropdown, like the Feed's: a number only beside kinds with events the reader has not looked at.
+    const seen = lookedAt();
+    const unreadEvents = all.filter((e) => unreadIn(seen, 'events:All', `events:${e.kind}`)(addedAt(e)));
     const plural = (k) => (EVENT_KIND[k] || k).replace(/(ch|sh|s|x)$/, '$1e') + 's';
     const chips = kinds.length > 2 ? h('label', { class: 'feedfilter', for: 'event-filter' }, h('span', { class: 'label' }, 'Show'),
       h('span', { class: 'feedfilter__box' },
         h('select', { id: 'event-filter', onchange: (e) => { state.eventKind = e.target.value; route(); } },
           kinds.map((k) => h('option', { value: k, selected: k === active ? 'selected' : null },
-            `${k === 'All' ? 'All events' : plural(k)} (${k === 'All' ? all.length : all.filter((e) => e.kind === k).length})`))))) : null;
+            `${k === 'All' ? 'All events' : plural(k)}${newCount(unreadEvents.filter((e) => k === 'All' || e.kind === k).length)}`))))) : null;
     const shown = all.filter((e) => active === 'All' || e.kind === active);
     const months = new Map();
     for (const ev of shown) {
@@ -792,16 +816,22 @@
           h('h2', { class: 'day-head' }, h('span', null, `${MONTHS_LONG[Number(k.slice(5)) - 1]} ${k.slice(0, 4)}`), h('span', { class: 'day-head__date' }, `${list.length} ${list.length === 1 ? 'event' : 'events'}`)),
           h('div', { class: 'events' }, list.map((ev) => eventCard(ev, today)))))
         : empty('No upcoming events on the calendar yet.'));
+    markLooked(`events:${active}`);
   }
 
   // Events and Upcoming launches are two calendars under one tab.
   function calendarTabs(current, d) {
-    const tab = (href, label, n) => h('a', { class: 'chip', href, 'aria-current': href === current ? 'page' : null }, label, n ? h('span', { class: 'chip__n' }, String(n)) : null);
+    // A number only for what is new since the reader last looked at that calendar.
+    const tab = (href, label, n) => h('a', { class: 'chip', href, 'aria-current': href === current ? 'page' : null, 'aria-label': n ? `${label}, ${n} new` : label },
+      label, n ? h('span', { class: 'chip__n chip__n--new' }, `${n} new`) : null);
     const today = d.latest?.edition ?? new Date().toISOString().slice(0, 10);
     const horizon = horizonOf(d, today);
+    const seen = lookedAt();
+    const newEvents = (d.events?.events ?? []).filter((e) => e.start_date <= horizon && unreadIn(seen, 'events:All', `events:${e.kind}`)(addedAt(e))).length;
+    const newUpcoming = d.upcoming.filter((u) => unreadIn(seen, 'upcoming', 'upcoming')(addedAt(u))).length;
     return h('nav', { class: 'filters tabs', 'aria-label': 'Calendars' },
-      tab('#/events', 'Events', (d.events?.events ?? []).filter((e) => e.start_date <= horizon).length),
-      tab('#/upcoming', 'Upcoming launches', d.upcoming.length));
+      tab('#/events', 'Events', newEvents),
+      tab('#/upcoming', 'Upcoming launches', newUpcoming));
   }
 
   // ---------- Upcoming launches ----------
@@ -842,9 +872,40 @@
           h('h2', { class: 'day-head' }, h('span', null, `${MONTHS_LONG[Number(k.slice(5)) - 1]} ${k.slice(0, 4)}`), h('span', { class: 'day-head__date' }, `${list.length} ${list.length === 1 ? 'launch' : 'launches'}`)),
           h('div', { class: 'events' }, list.map(upcomingCard))))
         : empty('Nothing teased or announced yet.'));
+    markLooked('upcoming');
   }
 
   // ---------- Trending now ----------
+
+  // When a search started trending and how it has moved: "Trending since Thu 22 Oct, 20:30 · 8 days · up from
+  // 5000+ on Tue", over a strip of the last 7 days with the days it has been trending filled in.
+  function trendTimeline(d, term, startedAt, hot = false) {
+    const days = d.trends?.days ?? [];
+    const today = days[0]?.date;
+    if (!today) return null;
+    const history = days.map((x) => ({ date: x.date, traffic: (x.searches ?? []).find((q) => q.term.toLowerCase() === term.toLowerCase())?.traffic })).filter((x) => x.traffic);
+    const now = history[0]?.traffic;
+    const before = history.find((x) => x.traffic !== now);
+    const pct = (v) => Number(String(v).replace(/[^\d]/g, '')) || 0;
+    const t = startedAt ? ist(startedAt) : null;
+    const startYmd = t ? ymdOf(t) : null;
+    const span = startYmd ? daysBetween(startYmd, today) + 1 : null;
+    const parts = t
+      ? [`Trending since ${DAYS[t.wd]} ${t.d} ${MONTHS[t.m]}, ${pad2(t.hh)}:${pad2(t.mm)}`, span === 1 ? 'started today' : `${span} days`]
+      : ['Rising over the last 24 hours'];
+    if (before) parts.push(`${pct(now) >= pct(before.traffic) ? 'up' : 'down'} from ${before.traffic} on ${DAYS[parseYmd(before.date).getUTCDay()]}`);
+    const strip = Array.from({ length: 7 }, (_, i) => {
+      const ymd = addDaysYmd(today, i - 6);
+      const on = startYmd ? ymd >= startYmd : i === 6;
+      const wd = DAYS[parseYmd(ymd).getUTCDay()];
+      return h('li', { class: `tline__day${on ? ' is-on' : ''}${ymd === startYmd ? ' is-start' : ''}${i === 6 ? ' is-today' : ''}`, title: `${wd} ${parseYmd(ymd).getUTCDate()} ${MONTHS[parseYmd(ymd).getUTCMonth()]}` },
+        h('span', { class: 'tline__bar' }), h('span', { class: 'tline__wd' }, i === 6 ? 'Today' : wd.slice(0, 2)));
+    });
+    return h('div', { class: hot ? 'tline tline--hot' : 'tline' },
+      h('p', { class: 'tline__text' }, parts.join(' · ')),
+      h('ol', { class: 'tline__days', 'aria-hidden': 'true' }, strip));
+  }
+  const addDaysYmd = (ymd, n) => new Date(parseYmd(ymd).getTime() + n * 86400000).toISOString().slice(0, 10);
 
   function renderTrending(app, d) {
     const day = d.trends?.days?.[0];
@@ -853,7 +914,7 @@
     // The week's other bike searches: the ones already explained above are not repeated.
     const explained = new Set(picks.map((p) => p.term.toLowerCase()));
     const searches = (day.searches ?? []).filter((x) => !explained.has(x.term.toLowerCase()));
-    const sinceLabel = (iso) => { const t = ist(iso); return t ? `since ${DAYS[t.wd]} ${t.d} ${MONTHS[t.m]}` : ''; };
+    const startOf = (term) => (day.searches ?? []).find((q) => q.term.toLowerCase() === term.toLowerCase())?.started_at ?? null;
     put(app,
       pageHead('trending', 'Trending now', 'What India is searching for about bikes, how much, and why.'),
       h('section', { class: 'card brief' }, stripes(),
@@ -865,6 +926,7 @@
             stat(p.traffic),
             h('div', { class: 'search__body' },
               h('p', { class: 'search__term' }, p.term, isHot(p.traffic) ? hotTag('Hot') : null),
+              trendTimeline(d, p.term, startOf(p.term), isHot(p.traffic)),
               h('p', { class: 'text' }, p.why),
               sources(p.sources, 'Why')))))
           : empty('Nothing bike-related stood out in today’s searches.')),
@@ -876,7 +938,7 @@
             stat(x.traffic),
             h('div', { class: 'search__body' },
               h('p', { class: 'search__term' }, x.term, isHot(x.traffic) ? hotTag('Hot') : null),
-              h('p', { class: 'search__meta' }, sinceLabel(x.started_at)),
+              trendTimeline(d, x.term, x.started_at, isHot(x.traffic)),
               x.why ? h('p', { class: 'text' }, x.why) : null,
               x.story ? h('a', { class: 'search__story', href: x.story.id ? itemHref('launches', x.story.id) : '#/launches' }, h('span', { class: 'label' }, 'The story'), ' ', x.story.headline)
                 : x.sources?.length ? sources(x.sources, 'Why') : null)))))
