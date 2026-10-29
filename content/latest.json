@@ -1,6 +1,6 @@
 {
   "edition": "2026-10-29",
-  "published_at": "2026-10-29T00:42:24+05:30",
+  "published_at": "2026-10-29T09:21:47+05:30",
   "lead": {
     "id": "ultraviolette-x47-venom-updates",
     "kicker": "Ultraviolette",
@@ -92,6 +92,19 @@
   ],
   "headlines": [
     {
+      "id": "kawasaki-z900-2027-power",
+      "type": "other",
+      "headline": "Kawasaki lists the 2027 Z900 at 121bhp, 1bhp down on the 2026 model",
+      "published_at": "2026-10-29T03:30:06.000Z",
+      "sources": [
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/2027-kawasaki-z900-at-rs-999-lakh-barely-changes/"
+        }
+      ],
+      "tag": "update"
+    },
+    {
       "id": "hero-q2-fy27-results",
       "type": "sales",
       "headline": "Hero MotoCorp’s Q2 net profit rises 42% to ₹1,861 crore",
@@ -181,11 +194,24 @@
         }
       ],
       "tag": null
+    },
+    {
+      "id": "bajaj-two-new-brands",
+      "type": "upcoming",
+      "headline": "Bajaj Auto plans two new motorcycle brands for the 125cc to 250cc range in FY27",
+      "published_at": "2026-10-28T09:38:08.000Z",
+      "sources": [
+        {
+          "name": "Autocar Professional",
+          "url": "https://www.autocarpro.in/news/bajaj-auto-plans-two-new-motorcycle-brands-across-125-250cc-range-in-fy27-135526"
+        }
+      ],
+      "tag": null
     }
   ],
   "trends_summary": {
     "headline": "Ultraviolette’s X-47 Venom leads bike searches at 20000+ as it gets cruise control",
-    "text": "Honda’s black CB350C follows at 10000+ and Harley’s Sprint 440 at 5000+. Searches for Norton motorcycles rose 80% with news of a 450cc roadster for EICMA, and Bajaj’s adventure bike rose 90% as the name Trekker was reported."
+    "text": "Honda’s black CB350C follows at 10000+ and Harley’s Sprint 440 at 5000+. Searches for Norton motorcycles in India rose 450% on news of a 450cc roadster for EICMA, and Bajaj’s adventure bike rose 50% as the name Trekker was reported."
   },
   "trending": [
     {
@@ -234,8 +260,8 @@
       ]
     },
     {
-      "term": "norton motorcycles",
-      "traffic": "+80%",
+      "term": "norton motorcycles india",
+      "traffic": "+450%",
       "why": "Norton, owned by TVS, will show an all-new 450cc roadster at EICMA 2026, with an India launch expected in 2027.",
       "sources": [
         {
@@ -246,7 +272,7 @@
     },
     {
       "term": "bajaj adventure bike",
-      "traffic": "+90%",
+      "traffic": "+50%",
       "why": "New spy shots show its console, likely the Pulsar N250’s, and a report gives its name as the Trekker.",
       "sources": [
         {
@@ -430,9 +456,10 @@
   ],
   "accessories": [],
   "checks": {
-    "pool_items": 105,
+    "pool_items": 111,
     "sources_failed": [
-      "BikeAdvice"
+      "BikeAdvice",
+      "Brand channels on YouTube"
     ],
     "left_out": [
       {
@@ -466,6 +493,18 @@
       {
         "id": "youtube-2b00f62e",
         "why": "towing stunt, nothing new"
+      },
+      {
+        "id": "autocarpro-b01a031b",
+        "why": "Maharashtra EV incentive is for Bajaj’s electric scooters"
+      },
+      {
+        "id": "etauto-3990eaa0",
+        "why": "TVS capacity plan is scooters and EVs"
+      },
+      {
+        "id": "bikedekho-32e30b6d",
+        "why": "scooter comparison"
       }
     ]
   }
