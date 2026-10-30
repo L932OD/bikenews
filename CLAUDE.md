@@ -14,13 +14,14 @@ India's motorcycle news, once a day. Code fetches the news; Claude chooses and w
 
 ## Two kinds of session
 
-**A daily run** is any session started by the routine, or asked to "follow docs/RUNBOOK.md".
+**A daily run** is any session started by the routine (09:00 and 21:00 IST, each with a retry at :29), or asked to
+"follow docs/RUNBOOK.md". The morning run writes the day's edition; the evening run adds to it.
 
 - It only writes `content/` (editions, `latest.json`, `archive.json`, `events.json`, `trends.json`, `brands.json`) and
   `pool/`.
 - It never touches code, styles, config, docs, `package.json` or `vercel.json`, even to fix a bug. If something is
   broken, stop and say what.
-- It commits once (`Edition YYYY-MM-DD`) and pushes to `main`.
+- It commits once (`Edition YYYY-MM-DD`, or `Edition YYYY-MM-DD (evening)`) and pushes to `main`.
 
 **A build session** is everything else: changing the code, the page, the sources or the brief. Build sessions work on
 a branch, run `node scripts/fetch.mjs` and the validator to check their changes, and never publish an edition to

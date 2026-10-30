@@ -81,6 +81,44 @@ function checkText(where, value, { max, min, required = true } = {}) {
 // ---------- Stories ----------
 
 const allUrls = new Map(); // normalised URL -> where it is used
+
+// ---------- The evening run ----------
+
+// At 21:00 the run adds to the day's edition: what the morning published stays as it was (its sources may have
+// left the pool since), and only what is new is checked against the pool. Limits count the new items.
+const morning = pool.this_morning ?? null;
+const evening = Boolean(morning);
+const storiesIn = (e) => [e?.lead, ...(e?.subs ?? []), ...(e?.headlines ?? [])].filter(Boolean);
+const morningIndex = new Map([
+  ...storiesIn(morning).map((x) => [`story:${x.id}`, x]),
+  ...(morning?.events ?? []).map((x) => [`event:${x.id}`, x]),
+  ...(morning?.accessories ?? []).map((x) => [`gear:${x.id}`, x]),
+  ...(morning?.upcoming ?? []).map((x) => [`upcoming:${x.id}`, x]),
+  ...(morning?.videos ?? []).map((x) => [`video:${x.url}`, x]),
+]);
+// A carried item is exactly as the morning published it; its sources stay taken, so new items cannot reuse them.
+function carried(kind, x) {
+  if (!evening || !x) return false;
+  const m = morningIndex.get(`${kind}:${kind === 'video' ? x.url : x.id}`);
+  if (!m || JSON.stringify(m) !== JSON.stringify(x)) return false;
+  for (const src of x.sources ?? []) allUrls.set(normUrl(src.url), `this morning's ${kind} ${x.id ?? ''}`.trim());
+  return true;
+}
+const newOnly = (kind, list) => (Array.isArray(list) ? list.filter((x) => !carried.peek(kind, x)) : []);
+carried.peek = (kind, x) => {
+  const m = evening && x ? morningIndex.get(`${kind}:${kind === 'video' ? x.url : x.id}`) : null;
+  return Boolean(m && JSON.stringify(m) === JSON.stringify(x));
+};
+if (evening) {
+  if (ed.published_at !== morning.published_at) err('published_at', `must stay ${morning.published_at}, when this morning's edition was published; the evening run sets updated_at`);
+  if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?\+05:30$/.test(ed.updated_at || '')) err('updated_at', 'must be the IST time of the evening run, like 2026-10-30T21:12:00+05:30');
+  const now = new Set(storiesIn(ed).map((x) => x.id));
+  for (const x of storiesIn(morning)) if (!now.has(x.id)) err('edition', `drops this morning's story "${x.id}"; the evening run keeps every morning story and only adds`);
+  for (const [k, list] of [['events', 'events'], ['accessories', 'accessories'], ['videos', 'videos']]) {
+    const keep = new Set((ed[list] ?? []).map((x) => x.id ?? x.url));
+    for (const x of morning[list] ?? []) if (!keep.has(x.id ?? x.url)) err(k, `drops this morning's ${x.id ?? x.url}; keep it and add`);
+  }
+}
 const ids = new Set();
 
 function checkSources(where, sources, lookup, used = allUrls) {
@@ -114,6 +152,7 @@ function checkNumbers(where, text, poolItems) {
 
 function checkStory(where, it, kind) {
   if (!it || typeof it !== 'object') return err(where, 'must be an object');
+  if (carried('story', it)) { ids.add(it.id); return; }
   if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(it.id || '')) err(`${where}.id`, 'must be a short kebab-case id');
   else if (ids.has(it.id)) err(`${where}.id`, `"${it.id}" is used twice`);
   else ids.add(it.id);
@@ -173,8 +212,15 @@ if (Array.isArray(subs)) subs.forEach((s, i) => checkStory(`subs[${i}]`, s, 'sub
 if (Array.isArray(heads)) heads.forEach((s, i) => checkStory(`headlines[${i}]`, s, 'headline'));
 
 const total = (lead ? 1 : 0) + (subs.length || 0) + (heads.length || 0);
-if (total < LIMITS.stories_min || total > LIMITS.stories_max) err('edition', `has ${total} items; it needs ${LIMITS.stories_min} to ${LIMITS.stories_max} (lead + subs + headlines)`);
-if (subs.length > LIMITS.subs_max) err('subs', `has ${subs.length}; at most ${LIMITS.subs_max}`);
+const added = newOnly('story', [lead, ...subs, ...heads].filter(Boolean)).length;
+if (evening) {
+  if (added > LIMITS.stories_max) err('edition', `adds ${added} stories this evening; at most ${LIMITS.stories_max} a run`);
+  if (total > LIMITS.stories_day_max) err('edition', `has ${total} stories; at most ${LIMITS.stories_day_max} a day`);
+  if (subs.length > LIMITS.subs_max + LIMITS.subs_evening_extra) err('subs', `has ${subs.length}; at most ${LIMITS.subs_max + LIMITS.subs_evening_extra} after the evening run`);
+} else {
+  if (total < LIMITS.stories_min || total > LIMITS.stories_max) err('edition', `has ${total} items; it needs ${LIMITS.stories_min} to ${LIMITS.stories_max} (lead + subs + headlines)`);
+  if (subs.length > LIMITS.subs_max) err('subs', `has ${subs.length}; at most ${LIMITS.subs_max}`);
+}
 if (trending.length > 5) err('trending', `has ${trending.length}; at most 5`);
 
 // What is trending and why. A term must come from the day's Google Trends data (daily trends, or the Explore
@@ -243,10 +289,11 @@ const horizon = (() => {
 const events = ed.events ?? [];
 if (!Array.isArray(events)) err('events', 'must be a list');
 else {
-  if (events.length > 8) err('events', `has ${events.length}; at most 8 a day`);
+  if (newOnly('event', events).length > 8) err('events', `adds ${newOnly('event', events).length}; at most 8 a run`);
   const eventPool = sectionPool('events');
   events.forEach((ev, i) => {
     const where = `events[${i}]`;
+    if (carried('event', ev)) return;
     if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(ev?.id || '')) err(`${where}.id`, 'must be a short kebab-case id');
     if (typeof ev?.name !== 'string' || !ev.name || wordCount(ev.name) > 10) err(`${where}.name`, 'needs a name of at most 10 words');
     if (!EVENT_KINDS.includes(ev?.kind)) err(`${where}.kind`, `must be one of ${EVENT_KINDS.join(', ')}`);
@@ -276,10 +323,11 @@ for (const f of recentFiles) for (const a of (await readJson(path('content/editi
 const gear = ed.accessories ?? [];
 if (!Array.isArray(gear)) err('accessories', 'must be a list');
 else {
-  if (gear.length > LIMITS.accessories_max) err('accessories', `has ${gear.length}; at most ${LIMITS.accessories_max} a day`);
+  if (newOnly('gear', gear).length > LIMITS.accessories_max) err('accessories', `adds ${newOnly('gear', gear).length}; at most ${LIMITS.accessories_max} a run`);
   const gearPool = sectionPool('accessories');
   gear.forEach((a, i) => {
     const where = `accessories[${i}]`;
+    if (carried('gear', a)) { ids.add(a.id); return; }
     if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(a?.id || '')) err(`${where}.id`, 'must be a short kebab-case id');
     else if (ids.has(a.id)) err(`${where}.id`, `"${a.id}" is used twice`);
     else ids.add(a.id);
@@ -315,11 +363,12 @@ const upcomingHorizon = (() => {
 const upcoming = ed.upcoming ?? [];
 if (!Array.isArray(upcoming)) err('upcoming', 'must be a list');
 else {
-  if (upcoming.length > LIMITS.upcoming_max) err('upcoming', `has ${upcoming.length}; at most ${LIMITS.upcoming_max} a day`);
+  if (newOnly('upcoming', upcoming).length > LIMITS.upcoming_max) err('upcoming', `adds ${newOnly('upcoming', upcoming).length}; at most ${LIMITS.upcoming_max} a run`);
   const upPool = sectionPool('accessories');
   const upIds = new Set();
   upcoming.forEach((u, i) => {
     const where = `upcoming[${i}]`;
+    if (carried('upcoming', u)) { upIds.add(u.id); return; }
     if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(u?.id || '')) err(`${where}.id`, 'must be a short kebab-case id, stable across days');
     else if (upIds.has(u.id)) err(`${where}.id`, `"${u.id}" is used twice`);
     else upIds.add(u.id);
@@ -359,10 +408,11 @@ const VIDEO_KINDS = ['teaser', 'launch', 'product', 'feature', 'event'];
 const videos = ed.videos ?? [];
 if (!Array.isArray(videos)) err('videos', 'must be a list');
 else {
-  if (videos.length > LIMITS.videos_max) err('videos', `has ${videos.length}; at most ${LIMITS.videos_max} a day`);
+  if (newOnly('video', videos).length > LIMITS.videos_max) err('videos', `adds ${newOnly('video', videos).length}; at most ${LIMITS.videos_max} a run`);
   const vids = new Map(pool.items.filter((it) => it.from_youtube).map((it) => [normUrl(it.url), it]));
   videos.forEach((v, i) => {
     const where = `videos[${i}]`;
+    if (carried('video', v)) return;
     const it = vids.get(normUrl(v?.url || ''));
     if (!it) return err(`${where}.url`, 'must be a video from the pool (an item with "from_youtube": true)');
     if (typeof v.brand !== 'string' || !v.brand) err(`${where}.brand`, 'is missing');
@@ -405,6 +455,33 @@ else {
   else if (c.pool_items !== pool.items.length) err('checks.pool_items', `is ${c.pool_items}, but the pool has ${pool.items.length} items`);
   if (!Array.isArray(c.sources_failed)) err('checks.sources_failed', 'must be a list');
   if (!Array.isArray(c.left_out)) err('checks.left_out', 'must be a list');
+}
+
+// ---------- Every brand item is decided ----------
+
+// Items about the brands we follow (a maker's own news search, its YouTube videos, its store's new products) must
+// each be in the edition or in checks.left_out with a reason ({ "id": ... } or { "ids": [...] }), so none is skipped
+// unseen. Items this morning's or yesterday's edition already used or left out are decided already.
+const decided = new Set();
+const takeEdition = (e) => {
+  if (!e) return;
+  const all = [...storiesIn(e), ...(e.events ?? []), ...(e.accessories ?? []), ...(e.upcoming ?? []), ...(e.trending ?? [])];
+  for (const x of all) for (const src of x.sources ?? []) decided.add(normUrl(src.url));
+  for (const v of e.videos ?? []) decided.add(normUrl(v.url));
+  for (const l of e.checks?.left_out ?? []) for (const id of [l.id, ...(l.ids ?? [])].filter(Boolean)) decided.add(`id:${id}`);
+};
+takeEdition(ed);
+takeEdition(morning);
+takeEdition(pool.previous_edition);
+for (const f of recentFiles) takeEdition(await readJson(path('content/editions', f), null));
+const brandItems = [...pool.items.filter((it) => it.brand_check || it.from_youtube), ...(pool.accessories ?? []).filter((it) => it.from_store)];
+const undecided = brandItems.filter((it) => !decided.has(normUrl(it.url)) && !decided.has(`id:${it.id}`));
+if (undecided.length) {
+  err('checks.left_out', `${undecided.length} brand item${undecided.length > 1 ? 's are' : ' is'} neither in the edition nor left out with a reason: ${undecided.slice(0, 12).map((it) => `${it.id} (${it.source}: ${it.title.slice(0, 60)})`).join('; ')}${undecided.length > 12 ? '; …' : ''}`);
+}
+for (const [i, l] of (c?.left_out ?? []).entries()) {
+  if (!(typeof l?.id === 'string' || (Array.isArray(l?.ids) && l.ids.length))) err(`checks.left_out[${i}]`, 'needs an id, or ids for several items with the same reason');
+  if (typeof l?.why !== 'string' || !l.why) err(`checks.left_out[${i}].why`, 'needs a short reason');
 }
 
 // ---------- Report ----------

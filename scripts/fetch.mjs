@@ -49,7 +49,9 @@ function politely(host, fn) {
   return run;
 }
 
-async function get(url, opts = {}) {
+// retryOn: further statuses worth another try for this request (YouTube's feeds answer 404 or 500 now and then for
+// channels that exist).
+async function get(url, { retryOn = [], ...opts } = {}) {
   const host = new URL(url).hostname;
   for (let attempt = 0; ; attempt++) {
     const res = await politely(host, () =>
@@ -61,7 +63,7 @@ async function get(url, opts = {}) {
       }),
     );
     if (res.ok) return { url: res.url, headers: res.headers, body: await res.text() };
-    if ((res.status === 429 || res.status === 503) && attempt < config.retries) {
+    if ((res.status === 429 || res.status === 503 || retryOn.includes(res.status)) && attempt < config.retries) {
       const after = Number(res.headers.get('retry-after'));
       await sleep(Math.min(after > 0 ? after * 1000 : 2000 * 2 ** attempt, 15_000));
       continue;
@@ -238,9 +240,9 @@ function pageText(html) {
 // Section stories stay relevant for weeks (an event announced in September is still on in December), so the same
 // Google News links come back every day. Links resolved in the last few pools are reused instead of fetched again.
 const resolvedCache = new Map();
-for (const f of (await readdir(path('pool')).catch(() => [])).filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f) && f.slice(0, 10) < today)) {
+for (const f of (await readdir(path('pool')).catch(() => [])).filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f) && f.slice(0, 10) <= today)) {
   const old = await readJson(path('pool', f), null);
-  for (const it of [...(old?.events ?? []), ...(old?.accessories ?? [])]) if (it.gn_link && it.url) resolvedCache.set(it.gn_link, it);
+  for (const it of [...(old?.items ?? []), ...(old?.events ?? []), ...(old?.accessories ?? [])]) if (it.gn_link && it.url) resolvedCache.set(it.gn_link, it);
 }
 
 async function readSection(key, sec, known) {
@@ -334,6 +336,64 @@ async function readStores(sec, known) {
   return { items: out, status };
 }
 
+// ---------- Every bike maker, every run ----------
+
+// One Google News search per bike maker over the last window_hours, so no maker's news is missed because no bike
+// site wrote it up. A headline counts only when it names the maker or one of its models and is about bikes.
+// (The aftermarket brands each have their own search in sections.accessories.)
+const termsRe = (terms) => new RegExp(`(^|[^\\p{L}\\p{N}])(${terms.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})(?![\\p{L}\\p{N}])`, 'iu');
+async function readMakerNews(cfg, makers, known) {
+  const status = { id: cfg.id, name: cfg.name, status: 'ok', in_pool: 0 };
+  const src = { id: cfg.id, name: cfg.name, kind: 'gnews', publisher_from_feed: true, max_items: 20 };
+  const failed = [];
+  const raws = [];
+  for (const m of makers) {
+    const brandRe = termsRe([m.name, ...(m.match ?? [])]);
+    const modelRe = (m.match ?? []).length ? termsRe(m.match.filter((t) => t.toLowerCase() !== m.name.toLowerCase())) : null;
+    try {
+      const found = (await readFeed({ ...src, url: gnSearch(m.news_query ? `"${m.news_query}"` : `"${m.name}"`, 1) }))
+        .filter((it) => it.published_at && now - Date.parse(it.published_at) <= cfg.window_hours * 3_600_000)
+        .filter((it) => brandRe.test(it.title) && !offTopic(it.title) && !notRiders.test(it.title) && (bikeTitle.test(it.title) || bikeName.test(it.title) || modelRe?.test(it.title)))
+        .slice(0, cfg.max_per_brand);
+      for (const it of found) raws.push({ ...it, brand_check: m.name });
+    } catch (err) {
+      failed.push(`${m.name} (${String(err.message || err)})`);
+    }
+  }
+  const out = [];
+  for (const item of await mapLimit(raws, config.concurrency, (it) => complete(it, src))) {
+    if (!item.url || known.has(normUrl(item.url))) continue;
+    known.add(normUrl(item.url));
+    out.push({ id: `${cfg.id}-${itemId(item.url)}`, ...item });
+  }
+  status.in_pool = out.length;
+  if (failed.length) status.error = `no search for ${failed.join(', ')}`;
+  if (failed.length === makers.length) status.status = 'failed';
+  return { items: out, status };
+}
+
+// The checklist: for every brand we follow, what this run found about it (news, its own videos, its store, gear),
+// and anything that could not be read, so a brand is never skipped without anyone knowing.
+function brandChecklist(pool, report) {
+  const ytFailed = new Set(report.find((r) => r.id === config.youtube?.id)?.failed_channels ?? []);
+  const storeErr = report.find((r) => r.id === 'brand-stores')?.error ?? '';
+  const brands = [
+    ...(config.makers ?? []).map((m) => ({ name: m.name, kind: 'maker', re: termsRe([m.name, ...(m.match ?? [])]), channels: config.youtube?.channels.filter((c) => c.channel_id === m.youtube).map((c) => c.name) ?? [] })),
+    ...(config.sections.accessories?.brands ?? []).map((b) => ({ name: b.name, kind: 'gear', re: termsRe([b.name, ...(b.aka ?? [])]), channels: config.youtube?.channels.filter((c) => c.name === b.name).map((c) => c.name) ?? [], store: b.store })),
+  ];
+  return brands.map((b) => {
+    const news = pool.items.filter((it) => !it.from_youtube && b.re.test(it.title)).length;
+    const videos = pool.items.filter((it) => it.from_youtube && b.re.test(`${it.source} ${it.title}`)).length;
+    const store = pool.accessories.filter((it) => it.from_store && it.source === b.name).length;
+    const gear = pool.accessories.filter((it) => !it.from_store && b.re.test(it.title)).length;
+    const errors = [
+      ...b.channels.filter((c) => ytFailed.has(c)).map((c) => `YouTube channel ${c} could not be read`),
+      ...(b.store && storeErr.includes(b.name) ? ['store could not be read'] : []),
+    ];
+    return { brand: b.name, kind: b.kind, news, videos, store, gear, errors };
+  });
+}
+
 // ---------- Brand channels on YouTube ----------
 
 // Every YouTube channel has a public feed of its latest videos. Brands often post teasers and launch films there
@@ -343,9 +403,9 @@ async function readYouTube(yt) {
   const failed = [];
   const out = [];
   const list = (x) => (Array.isArray(x) ? x : x ? [x] : []);
-  for (const ch of yt.channels) {
-    try {
-      const res = await get(`${yt.url}${ch.channel_id}`);
+  // A channel whose feed fails is tried again at the end, after the others, before it counts as failed.
+  const readChannel = async (ch, retry = true) => {
+      const res = await get(`${yt.url}${ch.channel_id}`, { retryOn: retry ? yt.retry_statuses ?? [] : [] });
       for (const e of list(xml.parse(res.body).feed?.entry)) {
         const published = e.published;
         if (!published || now - Date.parse(published) > yt.window_hours * 3_600_000) continue;
@@ -366,12 +426,23 @@ async function readYouTube(yt) {
           text: clip(desc, yt.text_chars),
         });
       }
-    } catch (err) {
-      failed.push(`${ch.name} (${String(err.message || err)})`);
+  };
+  // When YouTube is failing for everyone (three channels in a row), the first pass stops retrying and leaves the
+  // rest to the second pass, so a bad moment does not hold the run up for minutes.
+  const pending = [];
+  let inRow = 0;
+  for (const ch of yt.channels) {
+    try { await readChannel(ch, inRow < 3); inRow = 0; } catch { pending.push(ch); inRow++; }
+  }
+  if (pending.length) {
+    await sleep(yt.second_pass_wait_ms ?? 20_000);
+    for (const ch of pending) {
+      try { await readChannel(ch); } catch (err) { failed.push({ name: ch.name, error: String(err.message || err) }); }
     }
   }
   status.in_pool = out.length;
-  if (failed.length) status.error = `no feed from ${failed.join(', ')}`;
+  status.failed_channels = failed.map((f) => f.name);
+  if (failed.length) status.error = `no feed from ${failed.map((f) => `${f.name} (${f.error})`).join(', ')}`;
   if (failed.length === yt.channels.length) status.status = 'failed';
   return { items: out, status };
 }
@@ -435,6 +506,14 @@ async function complete(raw, src) {
   delete item.feed_html;
   item.url = item.link;
   if (src.kind === 'gnews') {
+    // A story already decoded in an earlier run (this morning's, or one of the last few days') is reused as it was,
+    // so the evening run asks Google News for far less.
+    const hit = resolvedCache.get(raw.link);
+    if (hit?.url) {
+      const { id: _id, ...kept } = hit;
+      return { ...kept, source: raw.source, source_id: raw.source_id, title: raw.title, published_at: raw.published_at ?? hit.published_at, gn_link: raw.link };
+    }
+    item.gn_link = raw.link;
     try {
       item.url = await resolveGoogleNews(item.link);
     } catch (err) {
@@ -568,6 +647,14 @@ if (config.youtube) {
   report.push(yt.status);
 }
 
+// Every bike maker's own search, after the news so its stories are not counted twice.
+if (config.brand_news) {
+  const known = new Set(items.map((it) => normUrl(it.url)));
+  const mk = await readMakerNews(config.brand_news, config.makers ?? [], known);
+  items.push(...mk.items);
+  report.push(mk.status);
+}
+
 // Section searches, after the news so their stories are not counted twice.
 const knownUrls = new Set(items.map((it) => normUrl(it.url)));
 const sections = {};
@@ -590,9 +677,11 @@ try {
   report.push({ id: config.explore.id, name: config.explore.name, status: 'failed', error: String(err.message || err) });
 }
 
-// Yesterday's edition (the most recent one before today), so nothing repeats without new information.
+// Yesterday's edition (the most recent one before today), so nothing repeats without new information. When today's
+// edition already exists (the morning run), the evening run adds to it: it is in the pool as this_morning.
 let previous = null;
 const latest = await readJson(path('content/latest.json'), null);
+const thisMorning = latest && latest.edition === today ? latest : null;
 if (latest && latest.edition < today) previous = latest;
 else {
   const files = (await readdir(path('content/editions')).catch(() => [])).filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f) && f.slice(0, 10) < today).sort();
@@ -616,7 +705,9 @@ const pool = {
   events_calendar: (await readJson(path('content/events.json'), { events: [] })).events,
   upcoming_calendar: (await readJson(path('content/upcoming.json'), { items: [] })).items,
   previous_edition: previous,
+  this_morning: thisMorning,
 };
+pool.brand_check = brandChecklist(pool, report);
 
 const out = path('pool', `${today}.json`);
 await writeJson(out, pool);
@@ -633,3 +724,9 @@ for (const r of report) {
   console.log(`  ${r.status === 'ok' ? 'ok    ' : 'FAILED'} ${r.name.padEnd(22)} ${r.status === 'ok' ? `${r.in_pool ?? r.in_feed} items${r.in_window === 0 ? ` (none in the last ${windowHours} h)` : ""}${r.unresolved ? `, ${r.unresolved} unresolved` : ''}${r.off_topic_dropped ? `, ${r.off_topic_dropped} car or scooter headlines dropped` : ''}` : r.error}`);
 }
 if (dropped.off_topic || dropped.duplicate || dropped.off_section || dropped.unresolved) console.log(`  dropped: ${JSON.stringify(dropped)}`);
+
+// The brand checklist: every brand we follow, what was found, and anything that could not be read.
+const found = (b) => [b.news && `${b.news} news`, b.videos && `${b.videos} videos`, b.store && `${b.store} store`, b.gear && `${b.gear} gear`].filter(Boolean).join(', ');
+const withNews = pool.brand_check.filter((b) => found(b));
+console.log(`Brand check: ${pool.brand_check.length} brands checked, ${withNews.length} with something in the pool${thisMorning ? ' (evening run: adds to this morning)' : ''}`);
+for (const b of pool.brand_check) console.log(`  ${b.errors.length ? 'CHECK ' : '      '}${b.brand.padEnd(24)} ${found(b) || 'nothing new'}${b.errors.length ? ` · ${b.errors.join('; ')}` : ''}`);

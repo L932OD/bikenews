@@ -25,6 +25,10 @@ const cutoff = addDays(today, -(keep - 1));
 const archiveCutoff = addDays(today, -(config.archive_days - 1));
 const count = (ed.lead ? 1 : 0) + (ed.subs?.length || 0) + (ed.headlines?.length || 0);
 const pool = await readJson(path('pool', `${today}.json`), {});
+// The time of this run: the evening run's updated_at, else the morning's published_at.
+const runAt = ed.updated_at ?? ed.published_at;
+const stamps = ['first_seen', 'updated', 'updated_at'];
+const sameEntry = (a, b) => JSON.stringify(Object.fromEntries(Object.entries(a).filter(([k]) => !stamps.includes(k)))) === JSON.stringify(Object.fromEntries(Object.entries(b).filter(([k]) => !stamps.includes(k))));
 
 await writeJson(path('content/latest.json'), ed);
 
@@ -34,6 +38,7 @@ const archive = await readJson(path('content/archive.json'), { editions: [] });
 const entry = {
   edition: ed.edition,
   published_at: ed.published_at,
+  updated_at: ed.updated_at ?? null,
   stories: count,
   events: ed.events?.length ?? 0,
   accessories: ed.accessories?.length ?? 0,
@@ -66,13 +71,15 @@ const calendar = await readJson(path('content/events.json'), { events: [] });
 const byId = new Map(calendar.events.map((e) => [e.id, e]));
 for (const ev of ed.events ?? []) {
   const old = byId.get(ev.id);
-  // updated_at: when this edition added or changed it, so the page can count what is new to the reader.
-  byId.set(ev.id, { ...ev, first_seen: old?.first_seen ?? today, updated: today, updated_at: ed.published_at });
+  // updated_at: when a run added or changed it, so the page can count what is new to the reader. An entry the
+  // evening run carries over unchanged keeps its morning stamps.
+  if (old && sameEntry(old, ev)) continue;
+  byId.set(ev.id, { ...ev, first_seen: old?.first_seen ?? today, updated: today, updated_at: runAt });
 }
 const events = [...byId.values()]
   .filter((e) => (e.end_date || e.start_date) >= today)
   .sort((a, b) => a.start_date.localeCompare(b.start_date));
-await writeJson(path('content/events.json'), { updated: ed.published_at, events });
+await writeJson(path('content/events.json'), { updated: runAt, events });
 
 // ---------- Trends: today's Explore data and Autos trends, with a keep_days history ----------
 
@@ -121,7 +128,7 @@ const day = ex
   ? { date: today, keywords: ex.keywords, averages: ex.averages, top_from: lead ?? null, top: topList.slice(0, 10), rising: risingList.slice(0, 10), states: ex.states.slice(0, 8), autos, searches, picks: ed.trending ?? [], summary: ed.trends_summary ?? null }
   : { date: today, keywords: [], averages: [], top: [], rising: [], states: [], autos, searches, picks: ed.trending ?? [], summary: ed.trends_summary ?? null };
 trends.days = [day, ...trends.days.filter((d) => d.date !== today)].filter((d) => d.date >= cutoff).sort((a, b) => b.date.localeCompare(a.date));
-trends.updated = ed.published_at;
+trends.updated = ed.updated_at ?? ed.published_at;
 trends.timeline = ex ? { keywords: ex.keywords, points: ex.timeline } : trends.timeline ?? null;
 await writeJson(path('content/trends.json'), trends);
 
@@ -133,7 +140,8 @@ const upById = new Map(upcoming.items.map((u) => [u.id, u]));
 for (const u of ed.upcoming ?? []) {
   if (u.launched) { upById.delete(u.id); continue; }
   const old = upById.get(u.id);
-  upById.set(u.id, { ...u, first_seen: old?.first_seen ?? today, updated: today, updated_at: ed.published_at });
+  if (old && sameEntry(old, u)) continue;
+  upById.set(u.id, { ...u, first_seen: old?.first_seen ?? today, updated: today, updated_at: runAt });
 }
 const lastDay = (u) => u.when.date ?? addDays(`${addMonth(u.when.month)}-01`, -1);
 function addMonth(ym) {
@@ -142,7 +150,7 @@ function addMonth(ym) {
 }
 const whenKey = (u) => u.when.date ?? `${u.when.month}-99`;
 upcoming.items = [...upById.values()].filter((u) => lastDay(u) >= today).sort((a, b) => whenKey(a).localeCompare(whenKey(b)));
-upcoming.updated = ed.published_at;
+upcoming.updated = runAt;
 await writeJson(path('content/upcoming.json'), upcoming);
 
 // ---------- Brands: the aftermarket makers we follow ----------

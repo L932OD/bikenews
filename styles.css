@@ -981,3 +981,17 @@ a.kicker--link:hover { color: var(--blue-text, var(--ink)); border-bottom-color:
 .tline__wd { font-family: var(--f-label); font-weight: 600; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .tline__day.is-today .tline__wd { color: var(--ink); }
 .search--hot .tline__day.is-on .tline__bar, .tline--hot .tline__day.is-on .tline__bar { background: var(--hot); }
+
+/* NEW: a filled pill on everything unread; it fades once the item has been on screen for a second. */
+.tag.tag--new { --c: var(--blue-fill, #1E5BD8); background: var(--blue-fill, #1E5BD8); border-color: var(--blue-fill, #1E5BD8); color: #FFFFFF; transition: opacity 0.6s ease, background-color 0.6s ease, color 0.6s ease; }
+.tag.tag--new.is-read { opacity: 0.35; background: transparent; color: var(--blue-text, #1E5BD8); }
+@media (prefers-reduced-motion: reduce) { .tag.tag--new { transition: none; } }
+:root[data-theme="dark"] .tag.tag--new { --c: #7FA6FF; background: #7FA6FF; border-color: #7FA6FF; color: #0B0C0E; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tag.tag--new { color: #FFFFFF; } }
+
+/* Mark all as read, beside the Feed's dropdown. */
+.feedfilter { flex-wrap: wrap; }
+.markall { margin-left: auto; min-height: 44px; padding: 0 16px; border: 0; border-radius: 999px; background: transparent; color: var(--blue-text, var(--ink)); font-family: var(--f-label); font-weight: 600; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; }
+.markall:hover { text-decoration: underline; }
+.markall:focus-visible { outline: 2px solid var(--blue-text, var(--ink)); outline-offset: 2px; }
+.feedbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }

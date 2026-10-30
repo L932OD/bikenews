@@ -47,6 +47,33 @@ A rider in India who wants to know, in two minutes, what happened in Indian two-
 - **Headlines:** the rest.
 - **Trending: 0 to 5,** plus a short summary. See "What is trending and why" below.
 
+## The evening run
+
+At 21:00 IST the run adds to the day's edition; it does not replace it. The pool's `this_morning` is the morning's
+edition, as published.
+
+- **Keep everything the morning published, exactly as it is** (the checker compares each item with the morning's).
+  The one change allowed: when the evening brings a clearly bigger story (a launch with a price, a brand's own
+  teaser), it becomes the lead and the morning's lead moves, unchanged, to the top of `subs`.
+- **Add only what is new since the morning:** stories, events, upcoming launches, videos and accessories that the
+  morning did not have. Up to 15 new stories (30 in the day), up to 2 more sub-stories. A quiet evening may add
+  little; never pad.
+- **Replace** `trends_summary` and `trending` with the evening's figures.
+- Keep `published_at`; set `updated_at` to the time of the evening run. In `checks`, `left_out` lists what the
+  evening considered and dropped (the morning's list may be kept).
+
+## Every brand, every run
+
+The pool's `brand_check` lists every brand we follow (bike makers and aftermarket brands) with what the run found
+for it: news, its own videos, its store, gear, and anything that could not be read. Read it first, so no brand's news
+is missed.
+
+- **Every brand item must be decided.** Items from a maker's own news search (`"brand_check"`), brand videos
+  (`"from_youtube"`) and store products (`"from_store"`) are each used in the edition or listed in
+  `checks.left_out` with a reason. Several with the same reason can share one entry:
+  `{ "ids": ["youtube-…", "youtube-…"], "why": "adverts, nothing new" }`. Items the last few editions already used or
+  left out need nothing more. The checker lists any that are undecided.
+
 ## What is trending and why (`trends_summary` and `trending`)
 
 Readers want to know what India is searching for about bikes, how much, and why. Two kinds of data in the pool:
@@ -212,4 +239,5 @@ site sometimes reports a new accessory).
 - `sources` use the pool item's `url` exactly (the publisher URL, never a Google News link). No URL may be used twice.
   Trending sources come from that trend's `news` links or from pool items about it.
 - `checks.pool_items` is the number of items in the pool; `sources_failed` copies the pool's `sources_failed`;
-  `left_out` lists pool items you considered and dropped, with a short reason.
+  `left_out` lists pool items you considered and dropped, with a short reason (`id`, or `ids` for several).
+- `updated_at`: only after the evening run, its IST time.

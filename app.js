@@ -184,7 +184,6 @@
     }
   }
   const isNew = (iso) => Boolean(SINCE && iso && Date.parse(iso) > SINCE);
-  const newTag = (iso) => (isNew(iso) ? h('span', { class: 'tag tag--new' }, 'New') : null);
   const sinceText = () => (SINCE ? stamp(new Date(SINCE).toISOString()) : '');
 
   // ---------- Brands ----------
@@ -210,22 +209,75 @@
     return b ? h('a', { class: 'kicker kicker--link', href: brandHref(b) }, name) : h('span', { class: 'kicker' }, name);
   }
 
-  // ---------- What the reader has looked at ----------
+  // ---------- Read and unread ----------
 
-  // When the reader last looked at each list (the Feed as a whole or one kind of story, the events, upcoming
-  // launches). Counts beside them show only what came in since; once looked at, they go back to nothing.
+  // A story, event, upcoming launch, video or product is read once it has been on the reader's screen for about a
+  // second, or when they tap it. Until then it keeps a NEW tag, day after day, until it ages out. Every count of what
+  // is new (the brand rings, the Feed and Events dropdowns, the calendar tabs, Home) counts the same unread items.
   // Kept only in this browser.
-  function lookedAt() {
-    try { return JSON.parse(localStorage.getItem('lookedAt') || '{}') || {}; } catch { return {}; }
+  const READ_MS = 1000;
+  let READ = { base: 0, items: {} };
+  function loadRead(previousVisit) {
+    try {
+      const saved = JSON.parse(localStorage.getItem('read') || 'null');
+      if (saved && saved.items) return saved;
+    } catch {}
+    // The first time: what came in before the reader's last visit counts as read already.
+    return { base: previousVisit ?? 0, items: {} };
   }
-  function markLooked(key) {
-    try { const seen = lookedAt(); seen[key] = Date.now(); localStorage.setItem('lookedAt', JSON.stringify(seen)); } catch {}
+  let saveTimer = null;
+  function saveRead() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+      const cutoff = Date.now() - 40 * 86400000;
+      for (const [k, t] of Object.entries(READ.items)) if (t < cutoff) delete READ.items[k];
+      try { localStorage.setItem('read', JSON.stringify(READ)); } catch {}
+    }, 300);
   }
-  // An item is unread when it came in after the reader last looked at its whole list and at its own kind.
-  const unreadIn = (seen, whole, own) => (iso) => (Date.parse(iso) || 0) > Math.max(seen[whole] ?? 0, seen[own] ?? 0);
+  // Unread: it came in after the starting point and has not been read since it came in (an event that changes is
+  // unread again).
+  const isUnread = (key, iso) => { const t = Date.parse(iso) || 0; return t > READ.base && !((READ.items[key] ?? 0) >= t); };
+  function markRead(key) { if (!key) return; READ.items[key] = Date.now(); saveRead(); }
+  function markAllRead() { READ = { base: Date.now(), items: {} }; saveRead(); route(); }
+  const keyOf = {
+    story: (x) => `story:${x.id}`, gear: (x) => `gear:${x.id}`, video: (x) => `video:${x.url}`,
+    event: (x) => `event:${x.id}`, upcoming: (x) => `upcoming:${x.id}`,
+  };
+  // An item on a brand's page: a product, a video or a story.
+  const anyKey = (x) => (x.category ? keyOf.gear(x) : x.headline && x.type ? keyOf.story(x) : x.url ? keyOf.video(x) : keyOf.story(x));
+  // The NEW pill, and the attributes that let the page watch an item and mark it read.
+  const newPill = (key, iso) => (isUnread(key, iso) ? h('span', { class: 'tag tag--new' }, 'New') : null);
+  const reads = (key, iso) => (isUnread(key, iso) ? { 'data-read': key } : {});
   const newCount = (n) => (n ? ` · ${n} new` : '');
   // When an event or upcoming launch came in (older entries have only the day).
   const addedAt = (x) => x.updated_at ?? (x.updated ? `${x.updated}T09:00:00+05:30` : null);
+
+  // Watch what is on screen: an unread item that stays at least 60% in view (or fills half the screen) for a second
+  // is marked read, and its NEW pill fades. Counts update on the next page.
+  let watcher = null;
+  function watchReading(root) {
+    watcher?.disconnect();
+    if (!('IntersectionObserver' in window)) return;
+    const timers = new Map();
+    const done = (el) => {
+      timers.delete(el);
+      if (document.visibilityState !== 'visible') return;
+      markRead(el.dataset.read);
+      for (const pill of el.querySelectorAll(':scope .tag--new')) if (pill.closest('[data-read]') === el) pill.classList.add('is-read');
+      watcher.unobserve(el);
+    };
+    watcher = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        const el = e.target;
+        const inView = e.isIntersecting && (e.intersectionRatio >= 0.6 || e.intersectionRect.height >= window.innerHeight * 0.5);
+        if (inView && !timers.has(el)) timers.set(el, setTimeout(() => done(el), READ_MS));
+        if (!inView && timers.has(el)) { clearTimeout(timers.get(el)); timers.delete(el); }
+      }
+    }, { threshold: [0, 0.25, 0.5, 0.6, 0.75, 1] });
+    for (const el of root.querySelectorAll('[data-read]')) watcher.observe(el);
+  }
+  // Tapping anything inside an item reads it.
+  document.addEventListener('click', (e) => { const el = e.target.closest?.('[data-read]'); if (el) markRead(el.dataset.read); }, true);
 
   // ---------- Going back ----------
 
@@ -265,7 +317,7 @@
     document.getElementById('r-date').textContent = day.toUpperCase();
     const count = latest ? storiesOf(latest).length : 0;
     document.getElementById('r-count').replaceChildren(h('b', null, pad2(count)), ' Stories');
-    const t = latest && ist(latest.published_at);
+    const t = latest && ist(latest.updated_at ?? latest.published_at);
     document.getElementById('r-time').replaceChildren(h('span', { class: 'long' }, 'Updated '), h('b', null, t ? `${pad2(t.hh)}:${pad2(t.mm)}` : '--:--'));
     for (const a of document.querySelectorAll('.nav a')) {
       if (a.getAttribute('href') === (NAV_OF[sectionOf()] ?? sectionOf())) a.setAttribute('aria-current', 'page');
@@ -381,12 +433,12 @@
   }
 
   // One line on what the day holds, counted from the data itself.
-  // "6 new since your last visit": stories and accessories published after it, linking to the Feed.
+  // "6 new to read": the stories and products the reader has not read yet, linking to the Feed.
   function sinceLink(d) {
-    if (!SINCE) return null;
-    const n = d.eds.flatMap(storiesOf).filter((it) => isNew(it.published_at)).length + d.eds.flatMap((e) => e.accessories ?? []).filter((a) => isNew(a.published_at)).length;
+    const n = d.eds.flatMap(storiesOf).filter((it) => isUnread(keyOf.story(it), it.published_at)).length
+      + d.eds.flatMap((e) => e.accessories ?? []).filter((a) => isUnread(keyOf.gear(a), a.published_at)).length;
     return h('a', { class: 'since', href: '#/launches' },
-      h('b', null, n ? `${n} new` : 'Nothing new'), ` since your last visit, ${sinceText()}`, n ? h('span', { 'aria-hidden': 'true' }, ' →') : null);
+      n ? [h('b', null, `${n} new`), ' to read', h('span', { 'aria-hidden': 'true' }, ' →')] : 'All caught up');
   }
 
   function summaryLine(d) {
@@ -411,8 +463,8 @@
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let i = 0, timer = null, paused = reduce, held = false;
 
-    const slides = stories.map((it, k) => h('article', { class: 'slide', 'aria-roledescription': 'slide', 'aria-label': `${k + 1} of ${n}` },
-      h('div', { class: 'meta' }, newTag(it.published_at), k === 0 && latest.lead ? h('span', { class: 'label label--lead' }, 'Lead') : null, hotFor(it), tag(it.type), updateTag(it), kicker(it.kicker)),
+    const slides = stories.map((it, k) => h('article', { class: 'slide', 'aria-roledescription': 'slide', 'aria-label': `${k + 1} of ${n}`, ...reads(keyOf.story(it), it.published_at) },
+      h('div', { class: 'meta' }, newPill(keyOf.story(it), it.published_at), k === 0 && latest.lead ? h('span', { class: 'label label--lead' }, 'Lead') : null, hotFor(it), tag(it.type), updateTag(it), kicker(it.kicker)),
       // The headline's link covers the whole card; the source links sit above it.
       h('h2', { class: 'slide__headline' }, h('a', { class: 'slide__link', href: itemHref('launches', it.id) }, it.headline)),
       it.figure ? h('p', { class: 'slide__figure' }, it.figure.value, h('span', null, ` ${it.figure.label}`)) : null,
@@ -493,10 +545,10 @@
   // ---------- Feed ----------
 
   function leadCard(it) {
-    return h('article', { class: 'card card--lead', 'data-anchor': it.id }, stripes(),
+    return h('article', { class: 'card card--lead', 'data-anchor': it.id, ...reads(keyOf.story(it), it.published_at) }, stripes(),
       h('div', { class: 'lead' },
         h('header', { class: 'lead__head' },
-          h('div', { class: 'meta' }, newTag(it.published_at), h('span', { class: 'label label--lead' }, 'Lead'), hotFor(it), tag(it.type), updateTag(it), kicker(it.kicker), stampTag(it.published_at)),
+          h('div', { class: 'meta' }, newPill(keyOf.story(it), it.published_at), h('span', { class: 'label label--lead' }, 'Lead'), hotFor(it), tag(it.type), updateTag(it), kicker(it.kicker), stampTag(it.published_at)),
           h('h2', { class: 'headline' }, it.headline)),
         it.figure ? h('div', { class: 'lead__plate' }, plate(it.figure)) : null,
         h('div', { class: 'lead__body' }, h('p', { class: 'text' }, it.text)),
@@ -504,16 +556,16 @@
         h('footer', { class: 'lead__foot' }, specs(it.specs), sources(it.sources))));
   }
   function subCard(it) {
-    return h('article', { class: 'card card--sub', 'data-anchor': it.id }, stripes(),
-      h('div', { class: 'meta' }, newTag(it.published_at), hotFor(it), tag(it.type), updateTag(it), kicker(it.kicker), stampTag(it.published_at)),
+    return h('article', { class: 'card card--sub', 'data-anchor': it.id, ...reads(keyOf.story(it), it.published_at) }, stripes(),
+      h('div', { class: 'meta' }, newPill(keyOf.story(it), it.published_at), hotFor(it), tag(it.type), updateTag(it), kicker(it.kicker), stampTag(it.published_at)),
       h('div', { class: 'sub__top' }, h('h3', { class: 'headline' }, it.headline), plate(it.figure)),
       it.text ? h('p', { class: 'text' }, it.text) : null,
       specs(it.specs), sources(it.sources));
   }
   function roadList(items) {
-    return h('ul', { class: 'road__list' }, items.map((it) => h('li', { class: 'road__item', 'data-anchor': it.id },
+    return h('ul', { class: 'road__list' }, items.map((it) => h('li', { class: 'road__item', 'data-anchor': it.id, ...reads(keyOf.story(it), it.published_at) },
       h('span', { class: 'dot', 'data-type': it.type, title: TYPE_LABEL[it.type] || '' }),
-      h('p', { class: 'road__line' }, newTag(it.published_at), h('span', { class: 'sr' }, `${TYPE_LABEL[it.type] || 'News'}: `), it.headline,
+      h('p', { class: 'road__line' }, newPill(keyOf.story(it), it.published_at), h('span', { class: 'sr' }, `${TYPE_LABEL[it.type] || 'News'}: `), it.headline,
         ['spy', 'rumour'].includes(it.type) ? tag(it.type) : null, updateTag(it), hotFor(it)),
       h('p', { class: 'road__src' }, (it.sources || []).map((x) => link(x)),
         it.published_at ? h('time', { class: 'road__time', datetime: it.published_at }, stamp(it.published_at)) : null))));
@@ -536,16 +588,14 @@
       }
     }
     const shown = all.filter((x) => !active[1] || active[1].includes(x.it.type)).sort((a, b) => byNewest(a.at, b.at));
-    // One dropdown instead of a wall of buttons; each choice says how many stories it holds.
-    // Each choice shows a number only when it holds stories the reader has not looked at yet.
-    const looked = lookedAt();
-    const kindOf = (type) => LAUNCH_FILTERS.find(([, types]) => types?.includes(type))?.[0] ?? 'Other';
-    const unread = all.filter((x) => unreadIn(looked, 'feed:All', `feed:${kindOf(x.it.type)}`)(x.at));
+    // One dropdown instead of a wall of buttons; a choice shows a number only when it holds unread stories.
+    const unread = all.filter((x) => isUnread(keyOf.story(x.it), x.at));
     const count = (label, types) => unread.filter((x) => !types || types.includes(x.it.type)).length;
-    const chips = h('label', { class: 'feedfilter', for: 'feed-filter' }, h('span', { class: 'label' }, 'Show'),
+    const chips = h('div', { class: 'feedbar' }, h('label', { class: 'feedfilter', for: 'feed-filter' }, h('span', { class: 'label' }, 'Show'),
       h('span', { class: 'feedfilter__box' },
         h('select', { id: 'feed-filter', onchange: (e) => { state.launchFilter = e.target.value; route(); } },
-          LAUNCH_FILTERS.map(([label, types]) => h('option', { value: label, selected: label === active[0] ? 'selected' : null }, `${label === 'All' ? 'All stories' : label}${newCount(count(label, types))}`)))));
+          LAUNCH_FILTERS.map(([label, types]) => h('option', { value: label, selected: label === active[0] ? 'selected' : null }, `${label === 'All' ? 'All stories' : label}${newCount(count(label, types))}`))))),
+      unread.length ? h('button', { class: 'markall', type: 'button', onclick: markAllRead }, 'Mark all as read') : null);
     const days = new Map();
     for (const x of shown) {
       const k = ymdOf(ist(x.at));
@@ -575,7 +625,6 @@
     });
     put(app, pageHead('launches', 'Feed', 'Every bike story from the last 5 days, newest first, with the date and time it was published.'), brandStrip(d), chips,
       sections.length ? sections : empty('Nothing of this kind in the last 5 days.'), olderDays(d));
-    markLooked(`feed:${active[0]}`);
   }
 
   // ---------- Archive: the days before the Feed's ----------
@@ -633,13 +682,6 @@
     return [...x.stories, ...x.videos, ...(b.kind === 'gear' ? x.gear : [])];
   }
 
-  // Which brands this reader has opened, and when. Kept only in this browser.
-  function seenBrands() {
-    try { return JSON.parse(localStorage.getItem('brandSeen') || '{}') || {}; } catch { return {}; }
-  }
-  function markBrandSeen(slug) {
-    try { const seen = seenBrands(); seen[slug] = Date.now(); localStorage.setItem('brandSeen', JSON.stringify(seen)); } catch {}
-  }
 
   // A brand's logo in a circle, or its initials when we have no logo.
   function brandLogo(b, cls = 'blogo') {
@@ -648,16 +690,15 @@
     return h('span', { class: `${cls} blogo--mono` }, initials);
   }
 
-  // Brand stories on the Feed: one ring per brand with something in the last 5 days. The number is what came in
-  // since the reader last opened that brand; a brand already read shows no number and moves to the end, so brands
-  // with news always come first.
-  // What came in since the reader last opened this brand (everything, if they never have).
-  const unreadSince = (seen, b) => (it) => !seen[b.slug] || (Date.parse(it.published_at) || 0) > seen[b.slug];
+  // Brand stories on the Feed: one ring per brand with something in the last 5 days. The number is what the reader
+  // has not read yet; a brand with everything read shows no number and moves to the end, so brands with news always
+  // come first.
+  // A brand's number: its stories, videos and products the reader has not read yet.
+  const unreadItem = (it) => isUnread(anyKey(it), it.published_at);
   function brandRows(d) {
-    const seen = seenBrands();
     return BRANDS.map((b) => {
       const items = brandItems(d, b);
-      const unread = items.filter(unreadSince(seen, b)).length;
+      const unread = items.filter(unreadItem).length;
       const latest = items.map((it) => it.published_at).sort((p, q) => byNewest(p, q))[0];
       return { b, total: items.length, unread, latest };
     }).sort((p, q) => (q.unread > 0) - (p.unread > 0) || q.unread - p.unread || byNewest(p.latest, q.latest) || p.b.name.localeCompare(q.b.name));
@@ -696,10 +737,8 @@
       x.events.length ? `${x.events.length} ${x.events.length === 1 ? 'event' : 'events'}` : null,
       x.searches.length ? `searched ${x.searches[0].traffic}` : null,
     ].filter(Boolean);
-    // "New" on a brand's page means new since the reader last opened this brand, as its number on the Feed does.
-    const fresh = unreadSince(seenBrands(), b);
-    const tagNew = (it) => (fresh(it) ? h('span', { class: 'tag tag--new' }, 'New') : null);
-    const newCount = brandItems(d, b).filter(fresh).length;
+    // The same unread items its ring counts on the Feed.
+    const unreadHere = brandItems(d, b).filter(unreadItem).length;
     put(app,
       h('header', { class: 'page-head brandhead', 'data-section': 'launches' },
         backLink(),
@@ -707,12 +746,12 @@
           h('div', null,
             h('p', { class: 'brandhead__kind' }, `${b.kind === 'maker' ? 'Bike maker' : 'Aftermarket'} · ${madeIn}`),
             h('h1', { class: 'page-title' }, b.name))),
-        h('p', { class: 'brandhead__glance' }, parts.join(' · '), newCount ? h('span', { class: 'brandhead__new' }, ` · ${newCount} new since you last looked`) : null),
+        h('p', { class: 'brandhead__glance' }, parts.join(' · '), unreadHere ? h('span', { class: 'brandhead__new' }, ` · ${unreadHere} unread`) : null),
         h('div', { class: 'sources brandhead__links' }, links)),
       h('div', { class: 'bpage' },
       x.stories.length
-        ? block('Latest', x.stories.length, h('ul', { class: 'blist' }, x.stories.map((it) => h('li', { class: 'blist__item' },
-          h('div', { class: 'meta' }, tagNew(it), hotFor(it), tag(it.type), stampTag(it.published_at)),
+        ? block('Latest', x.stories.length, h('ul', { class: 'blist' }, x.stories.map((it) => h('li', { class: 'blist__item', ...reads(keyOf.story(it), it.published_at) },
+          h('div', { class: 'meta' }, newPill(keyOf.story(it), it.published_at), hotFor(it), tag(it.type), stampTag(it.published_at)),
           h('a', { class: 'blist__head', href: itemHref('launches', it.id) }, it.headline),
           it.text ? h('p', { class: 'blist__text' }, it.text) : null,
           h('p', { class: 'road__src' }, (it.sources || []).slice(0, 3).map((s) => link(s)), it.sources?.length > 3 ? h('span', null, `+${it.sources.length - 3}`) : null)))))
@@ -729,16 +768,14 @@
       x.searches.length ? block('What riders are searching', x.searches.length, h('ul', { class: 'blist' }, x.searches.map((q) => h('li', { class: 'blist__item blist__item--row' },
         h('a', { class: 'blist__head', href: itemHref('trending', trendKey(q.term)) }, q.term),
         h('span', { class: isHot(q.traffic) ? 'stat stat--hot' : 'stat' }, h('b', null, q.traffic), ' searches'))))) : null,
-      x.videos.length ? block(`From ${b.name} on YouTube`, x.videos.length, h('ul', { class: 'blist' }, x.videos.map((v) => h('li', { class: 'blist__item' },
-        h('div', { class: 'meta' }, tagNew(v), h('span', { class: 'tag' }, VIDEO_KIND[v.kind] || 'Video'), stampTag(v.published_at)),
+      x.videos.length ? block(`From ${b.name} on YouTube`, x.videos.length, h('ul', { class: 'blist' }, x.videos.map((v) => h('li', { class: 'blist__item', ...reads(keyOf.video(v), v.published_at) },
+        h('div', { class: 'meta' }, newPill(keyOf.video(v), v.published_at), h('span', { class: 'tag' }, VIDEO_KIND[v.kind] || 'Video'), stampTag(v.published_at)),
         h('a', { class: 'blist__head', href: v.url, target: '_blank', rel: 'noopener' }, v.title, h('span', { class: 'ext', 'aria-hidden': 'true' }, ' ↗')),
         h('p', { class: 'blist__text' }, v.why))))) : null,
       x.events.length ? block('Events', x.events.length, h('ul', { class: 'blist' }, x.events.map((e) => h('li', { class: 'blist__item' },
         h('a', { class: 'blist__head', href: itemHref('events', e.id) }, e.name), h('p', { class: 'blist__sub' }, `${eventDates(e)} · ${e.city}`))))) : null,
-      x.gear.length ? block(b.kind === 'gear' ? 'New products' : `Gear for ${b.name} bikes`, x.gear.length, h('ul', { class: 'blist' }, x.gear.map((a) => h('li', { class: 'blist__item' },
+      x.gear.length ? block(b.kind === 'gear' ? 'New products' : `Gear for ${b.name} bikes`, x.gear.length, h('ul', { class: 'blist' }, x.gear.map((a) => h('li', { class: 'blist__item', ...reads(keyOf.gear(a), a.published_at) },
         h('a', { class: 'blist__head', href: itemHref('accessories', a.id) }, a.headline), h('p', { class: 'blist__sub' }, [a.brand, a.price?.value].filter(Boolean).join(' · ')))))) : null));
-    // Opening the page reads the brand: its number on the Feed goes to 0 and it moves to the end.
-    markBrandSeen(b.slug);
   }
 
   // All brands: only what is new for each, since the reader last opened it. Brands with news first.
@@ -773,11 +810,11 @@
   function eventCard(ev, today) {
     const d = parseYmd(ev.start_date);
     const n = daysBetween(today, ev.start_date);
-    return h('article', { class: 'card event', 'data-anchor': ev.id },
+    return h('article', { class: 'card event', 'data-anchor': ev.id, ...reads(keyOf.event(ev), addedAt(ev)) },
       h('div', { class: 'datebox datebox--big', 'aria-hidden': 'true' },
         h('span', { class: 'datebox__m' }, MONTHS[d.getUTCMonth()]), h('span', { class: 'datebox__d' }, String(d.getUTCDate())), h('span', { class: 'datebox__w' }, DAYS[d.getUTCDay()])),
       h('div', { class: 'event__body' },
-        h('div', { class: 'meta' }, h('span', { class: 'tag', 'data-kind': ev.kind }, EVENT_KIND[ev.kind] || 'Event'), ev.tag === 'update' ? updateTag(ev) : null,
+        h('div', { class: 'meta' }, newPill(keyOf.event(ev), addedAt(ev)), h('span', { class: 'tag', 'data-kind': ev.kind }, EVENT_KIND[ev.kind] || 'Event'), ev.tag === 'update' ? updateTag(ev) : null,
           h('span', { class: 'event__when' }, n <= 0 ? 'On now' : n === 1 ? 'Tomorrow' : `In ${n} days`)),
         h('h3', { class: 'headline event__name' }, ev.name),
         h('p', { class: 'event__facts' }, h('b', null, eventDates(ev)), ` · ${ev.city}`, ev.organiser ? ` · by ${ev.organiser}` : ''),
@@ -794,9 +831,8 @@
     const all = (d.events?.events ?? []).filter((ev) => ev.start_date <= horizon);
     const kinds = ['All', ...new Set(all.map((e) => e.kind))];
     const active = kinds.includes(state.eventKind) ? state.eventKind : 'All';
-    // One dropdown, like the Feed's: a number only beside kinds with events the reader has not looked at.
-    const seen = lookedAt();
-    const unreadEvents = all.filter((e) => unreadIn(seen, 'events:All', `events:${e.kind}`)(addedAt(e)));
+    // One dropdown, like the Feed's: a number only beside kinds with unread events.
+    const unreadEvents = all.filter((e) => isUnread(keyOf.event(e), addedAt(e)));
     const plural = (k) => (EVENT_KIND[k] || k).replace(/(ch|sh|s|x)$/, '$1e') + 's';
     const chips = kinds.length > 2 ? h('label', { class: 'feedfilter', for: 'event-filter' }, h('span', { class: 'label' }, 'Show'),
       h('span', { class: 'feedfilter__box' },
@@ -816,19 +852,17 @@
           h('h2', { class: 'day-head' }, h('span', null, `${MONTHS_LONG[Number(k.slice(5)) - 1]} ${k.slice(0, 4)}`), h('span', { class: 'day-head__date' }, `${list.length} ${list.length === 1 ? 'event' : 'events'}`)),
           h('div', { class: 'events' }, list.map((ev) => eventCard(ev, today)))))
         : empty('No upcoming events on the calendar yet.'));
-    markLooked(`events:${active}`);
   }
 
   // Events and Upcoming launches are two calendars under one tab.
   function calendarTabs(current, d) {
-    // A number only for what is new since the reader last looked at that calendar.
+    // A number only for unread events and launches.
     const tab = (href, label, n) => h('a', { class: 'chip', href, 'aria-current': href === current ? 'page' : null, 'aria-label': n ? `${label}, ${n} new` : label },
       label, n ? h('span', { class: 'chip__n chip__n--new' }, `${n} new`) : null);
     const today = d.latest?.edition ?? new Date().toISOString().slice(0, 10);
     const horizon = horizonOf(d, today);
-    const seen = lookedAt();
-    const newEvents = (d.events?.events ?? []).filter((e) => e.start_date <= horizon && unreadIn(seen, 'events:All', `events:${e.kind}`)(addedAt(e))).length;
-    const newUpcoming = d.upcoming.filter((u) => unreadIn(seen, 'upcoming', 'upcoming')(addedAt(u))).length;
+    const newEvents = (d.events?.events ?? []).filter((e) => e.start_date <= horizon && isUnread(keyOf.event(e), addedAt(e))).length;
+    const newUpcoming = d.upcoming.filter((u) => isUnread(keyOf.upcoming(u), addedAt(u))).length;
     return h('nav', { class: 'filters tabs', 'aria-label': 'Calendars' },
       tab('#/events', 'Events', newEvents),
       tab('#/upcoming', 'Upcoming launches', newUpcoming));
@@ -842,7 +876,7 @@
   function upcomingCard(u) {
     const ymd = u.when.date ?? `${u.when.month}-01`;
     const d = parseYmd(ymd);
-    return h('article', { class: 'card event upcoming', 'data-anchor': u.id },
+    return h('article', { class: 'card event upcoming', 'data-anchor': u.id, ...reads(keyOf.upcoming(u), addedAt(u)) },
       // A date shows the month, the day and the weekday; a month alone shows the month large, with its year.
       u.when.date
         ? h('div', { class: 'datebox datebox--big', 'aria-hidden': 'true' },
@@ -850,7 +884,7 @@
         : h('div', { class: 'datebox datebox--big datebox--month', 'aria-hidden': 'true' },
           h('span', { class: 'datebox__m' }, String(d.getUTCFullYear())), h('span', { class: 'datebox__d' }, MONTHS[d.getUTCMonth()]), h('span', { class: 'datebox__w' }, 'Month')),
       h('div', { class: 'event__body' },
-        h('div', { class: 'meta' }, h('span', { class: `tag tag--${u.status}` }, UP_STATUS[u.status] || 'Upcoming'),
+        h('div', { class: 'meta' }, newPill(keyOf.upcoming(u), addedAt(u)), h('span', { class: `tag tag--${u.status}` }, UP_STATUS[u.status] || 'Upcoming'),
           h('span', { class: 'tag', 'data-kind': u.kind }, u.kind === 'gear' ? 'Gear' : 'Bike'), kicker(u.brand)),
         h('h3', { class: 'headline event__name' }, u.name),
         h('p', { class: 'event__facts' }, h('b', null, u.when.label)),
@@ -872,7 +906,6 @@
           h('h2', { class: 'day-head' }, h('span', null, `${MONTHS_LONG[Number(k.slice(5)) - 1]} ${k.slice(0, 4)}`), h('span', { class: 'day-head__date' }, `${list.length} ${list.length === 1 ? 'launch' : 'launches'}`)),
           h('div', { class: 'events' }, list.map(upcomingCard))))
         : empty('Nothing teased or announced yet.'));
-    markLooked('upcoming');
   }
 
   // ---------- Trending now ----------
@@ -960,8 +993,8 @@
   // ---------- Aftermarket ----------
 
   function gearCard(a, edition, brands) {
-    return h('article', { class: 'card gear', 'data-anchor': a.id }, stripes(),
-      h('div', { class: 'meta' }, h('span', { class: 'tag', 'data-gear': a.category }, GEAR_LABEL[a.category] || 'Accessory'), newTag(a.published_at), soonTag(a), updateTag(a),
+    return h('article', { class: 'card gear', 'data-anchor': a.id, ...reads(keyOf.gear(a), a.published_at) }, stripes(),
+      h('div', { class: 'meta' }, h('span', { class: 'tag', 'data-gear': a.category }, GEAR_LABEL[a.category] || 'Accessory'), newPill(keyOf.gear(a), a.published_at), soonTag(a), updateTag(a),
         kicker(a.brand), a.published_at ? h('time', { class: 'gear__time', datetime: a.published_at }, stamp(a.published_at)) : null),
       h('div', { class: 'sub__top' }, h('h3', { class: 'headline' }, a.headline), plate(a.price)),
       h('p', { class: 'text' }, a.text),
@@ -1031,6 +1064,7 @@
       optional(getJson('content/upcoming.json')),
     ]);
     SINCE = lastVisit(archive?.page?.new_session_minutes ?? 30);
+    READ = loadRead(SINCE);
     const brands = brandFile?.brands ?? [];
     BRANDS = indexBrands(brandFile);
     const eds = await editions(archive, latest);
@@ -1061,6 +1095,7 @@
     setReadout(data.latest, label);
     document.body.dataset.page = label ? section.slice(2) : 'home';
     await render(app, data);
+    watchReading(app);
     const target = item ? [...app.querySelectorAll('[data-anchor]')].find((el) => el.dataset.anchor === item) : null;
     // Coming back to a page puts the reader where they were on it.
     if (!target) return window.scrollTo(0, returning ? scrolls.get(hash) ?? 0 : 0);
