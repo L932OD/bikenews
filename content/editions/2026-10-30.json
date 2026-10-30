@@ -1,0 +1,317 @@
+{
+  "edition": "2026-10-30",
+  "published_at": "2026-10-30T09:15:00+05:30",
+  "lead": {
+    "id": "triumph-tiger-1200-2027-price",
+    "kicker": "Triumph",
+    "type": "price",
+    "published_at": "2026-10-29T07:45:02.000Z",
+    "figure": {
+      "value": "₹20.99 lakh",
+      "label": "price, on sale from March 2027"
+    },
+    "specs": [
+      [
+        "Engine",
+        "1,160cc triple"
+      ],
+      [
+        "Power",
+        "158hp"
+      ],
+      [
+        "Torque",
+        "130Nm"
+      ]
+    ],
+    "headline": "Triumph prices the 2027 Tiger 1200 at ₹20.99 lakh, on sale in India from March 2027",
+    "text": "Triumph has revealed India pricing for the GT Pro and Rally Explorer, a couple of days after the global unveiling. Both use an updated 1,160cc liquid-cooled triple that makes 158hp, 8hp more than before, and 130Nm. Semi-active Showa suspension with automatic self-levelling and radar-based rider aids are new. The front wheel is now 19 inches on both, so the 21-inch option is gone.",
+    "why": "The flagship adventure tourer now has a price and a date, so buyers can plan ahead of the March 2027 arrival.",
+    "sources": [
+      {
+        "name": "Autocar India",
+        "url": "https://www.autocarindia.com/bike-news/2027-triumph-tiger-1200-launched-at-rs-2099-lakh-441157"
+      },
+      {
+        "name": "NDTV Auto",
+        "url": "https://www.ndtv.com/auto/2027-triumph-tiger-1200-launched-in-india-at-rs-20-99-lakh-12252914"
+      }
+    ],
+    "tag": "update"
+  },
+  "subs": [
+    {
+      "id": "hero-premium-launches-fy27",
+      "kicker": "Hero MotoCorp",
+      "type": "other",
+      "published_at": "2026-10-30T01:30:00.000Z",
+      "headline": "Hero plans three to four more premium motorcycles before March 2027",
+      "text": "CEO Harshavardhan Chitale said the launches will come across Xtreme, Xpulse, Karizma and the Harley-Davidson range, with Karizma set for refreshes and new categories. Hero's share of larger-capacity motorcycles is below 2 percent. Models, prices and dates have not been disclosed.",
+      "sources": [
+        {
+          "name": "Autocar India",
+          "url": "https://www.autocarindia.com/bike-news/new-hero-karizma-and-xpulse-models-being-readied-for-launch-441166"
+        },
+        {
+          "name": "Autocar Professional",
+          "url": "https://www.autocarpro.in/news/hero-motocorp-plans-3-4-more-premium-motorcycle-launches-by-march-2027-135552"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "harley-x350t-spied",
+      "kicker": "Harley-Davidson",
+      "type": "spy",
+      "published_at": "2026-10-29T11:00:46.000Z",
+      "headline": "Harley-Davidson X350T spied in India with a downsized 350cc engine",
+      "text": "The X440T has been spotted undisguised with X350T on its tank, an orange colour theme and new graphics. The smaller engine keeps it within the revised 350cc tax bracket. Otherwise it looks identical to the X440T, and a launch is expected soon.",
+      "sources": [
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/new-harley-davidson-x350t-india-spec-350cc-spied-12559774.html"
+        },
+        {
+          "name": "BikeAdvice",
+          "url": "https://bikeadvice.in/harley-davidson-x350t-spotted-in-india-with-a-downsized-350-cc-engine/"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "flying-flea-c6-pune",
+      "kicker": "Royal Enfield",
+      "type": "ev",
+      "published_at": "2026-10-29T07:45:17.000Z",
+      "figure": {
+        "value": "₹2.79 lakh",
+        "label": "C6, ex-showroom"
+      },
+      "headline": "Royal Enfield's Flying Flea C6 goes on sale in Pune with 10 centres",
+      "text": "Pune is the third city for the electric C6 after Bengaluru and Hyderabad. Ten sales and service centres open at once, taking Flying Flea to 26 touchpoints. The C6 costs ₹2.79 lakh ex-showroom, or ₹1.99 lakh under the Battery-as-a-Service model.",
+      "sources": [
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/flying-flea-c6-expands-to-pune-with-10-centres/"
+        },
+        {
+          "name": "Autocar Professional",
+          "url": "https://www.autocarpro.in/news/flying-flea-begins-pune-operations-135559"
+        },
+        {
+          "name": "BikeAdvice",
+          "url": "https://bikeadvice.in/royal-enfield-flying-flea-c6-sales-start-in-pune/"
+        },
+        {
+          "name": "Gaadiwaadi",
+          "url": "https://gaadiwaadi.com/royal-enfield-aggressively-expands-flying-flea-c6s-footprint-now-in-pune/"
+        }
+      ],
+      "tag": null
+    }
+  ],
+  "headlines": [
+    {
+      "id": "motorcycle-sales-h1-fy27",
+      "type": "sales",
+      "headline": "India sold 69,28,700 motorcycles in April to September, up 10.44%, with Splendor on top",
+      "published_at": "2026-10-29T06:22:00.000Z",
+      "sources": [
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/top-50-motorcycles-h1-fy2027-splendor-shine-pulsar-apache-classic-350-12559752.html"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "thruxton-400-tft-spied",
+      "type": "spy",
+      "headline": "Triumph Thruxton 400 spied with the Bonneville T40's TFT display and cruise control switches",
+      "published_at": "2026-10-29T06:44:08.000Z",
+      "sources": [
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/2027-triumph-thruxton-400-spied-testing-tft-screen-from-bonneville-t40-12559759.html"
+        },
+        {
+          "name": "Autocar India",
+          "url": "https://www.autocarindia.com/bike-news/triumph-thruxton-400-spotted-testing-with-tft-dash-from-bonneville-t40-441162"
+        },
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/triumph-thruxton-400-spied-with-tft-display-and-new-features/"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "sprint-440-production",
+      "type": "spy",
+      "headline": "Pictures suggest Harley-Davidson Sprint 440 production has begun, with launch said to be near",
+      "published_at": "2026-10-29T08:58:39.000Z",
+      "sources": [
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/new-harley-sprint-440-cruiser-production-starts-launch-soon-12559767.html"
+        }
+      ],
+      "tag": "update"
+    },
+    {
+      "id": "moto-guzzi-trip-500",
+      "type": "other",
+      "headline": "Moto Guzzi unveils the Trip 500 roadster on Aprilia's 457cc parallel twin",
+      "published_at": "2026-10-29T06:23:49.000Z",
+      "sources": [
+        {
+          "name": "BikeDekho",
+          "url": "https://www.bikedekho.com/news/category-first-look/moto-guzzi-trip-500-unveiled-ahead-of-eicma-20563"
+        },
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/moto-guzzi-trip-500-unveiled-in-europe/"
+        },
+        {
+          "name": "Autocar India",
+          "url": "https://www.autocarindia.com/bike-news/india-made-moto-guzzi-the-trip-revealed-441158"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "tvs-ronin-agonda-indonesia",
+      "type": "launch",
+      "headline": "TVS launches the Ronin Agonda Edition in Indonesia at IDR 37.08 million",
+      "published_at": "2026-10-29T11:52:15.000Z",
+      "sources": [
+        {
+          "name": "Autocar Professional",
+          "url": "https://www.autocarpro.in/news/tvs-motor-launches-ronin-agonda-edition-in-indonesia-135561"
+        },
+        {
+          "name": "ET Auto",
+          "url": "https://auto.economictimes.indiatimes.com/news/two-wheelers/tvs-motor-launches-ronin-agonda-series-in-indonesia-priced-at-idr-37-08-million/135339641"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "bajaj-adv-spied-tft",
+      "type": "spy",
+      "headline": "Bajaj's upcoming adventure bike spied again with a TFT console and offroad hardware",
+      "published_at": "2026-10-29T22:04:43.000Z",
+      "sources": [
+        {
+          "name": "BikeDekho",
+          "url": "https://www.bikedekho.com/news/bajajs-upcoming-adv-spied-again-gets-proper-offroad-hardware-loads-of-tech-20548"
+        }
+      ],
+      "tag": "update"
+    }
+  ],
+  "trends_summary": {
+    "headline": "Harley's Sprint 440 and Hero's Karizma XMR 250 keep drawing 5000+ searches",
+    "text": "Both searches passed 5000+ this week. Production pictures of the Sprint 440 leaked, and Hero said it will refresh the Karizma and add premium launches before March 2027."
+  },
+  "trending": [
+    {
+      "term": "harley davidson sprint 440 cruiser",
+      "traffic": "5000+",
+      "why": "Leaked pictures suggest Sprint 440 production has started; Autocar India expects its India launch after the EICMA 2026 debut.",
+      "sources": [
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/new-harley-sprint-440-cruiser-production-starts-launch-soon-12559767.html"
+        },
+        {
+          "name": "Autocar India",
+          "url": "https://www.autocarindia.com/bike-news/new-hero-karizma-and-xpulse-models-being-readied-for-launch-441166"
+        }
+      ]
+    },
+    {
+      "term": "hero karizma xmr 250 new colors",
+      "traffic": "5000+",
+      "why": "Hero said it will refresh the Karizma range; Autocar India expects the long overdue XMR 250, seen undisguised several times.",
+      "sources": [
+        {
+          "name": "Autocar Professional",
+          "url": "https://www.autocarpro.in/news/hero-motocorp-plans-3-4-more-premium-motorcycle-launches-by-march-2027-135552"
+        }
+      ]
+    }
+  ],
+  "events": [],
+  "upcoming": [
+    {
+      "id": "triumph-tiger-1200-2027",
+      "name": "2027 Triumph Tiger 1200",
+      "brand": "Triumph",
+      "kind": "bike",
+      "status": "confirmed",
+      "when": {
+        "date": null,
+        "month": "2027-03",
+        "label": "March 2027"
+      },
+      "text": "GT Pro and Rally Explorer variants with a 1,160cc triple, priced at ₹20.99 lakh.",
+      "sources": [
+        {
+          "name": "Autocar India",
+          "url": "https://www.autocarindia.com/bike-news/2027-triumph-tiger-1200-launched-at-rs-2099-lakh-441157"
+        }
+      ]
+    }
+  ],
+  "videos": [],
+  "accessories": [],
+  "checks": {
+    "pool_items": 93,
+    "sources_failed": [
+      "Brand channels on YouTube"
+    ],
+    "left_out": [
+      {
+        "id": "autocar-6728b814",
+        "why": "Classic 350 tubeless wheels; already in the 2026-10-28 edition"
+      },
+      {
+        "id": "etauto-64e56565",
+        "why": "Hero Vida is a scooter"
+      },
+      {
+        "id": "autocarpro-9db42606",
+        "why": "industry growth outlook for all two-wheelers, mostly not motorcycles"
+      },
+      {
+        "id": "overdrive-f9f331e1",
+        "why": "Kawasaki KLE650 global unveil with no India plan stated"
+      },
+      {
+        "id": "bikewale-46155251",
+        "why": "Indian Motorcycle US restructuring"
+      },
+      {
+        "id": "bikeadvice-f4d8f6ff",
+        "why": "listicle"
+      },
+      {
+        "id": "bikeadvice-599c6129",
+        "why": "listicle"
+      },
+      {
+        "id": "ndtv-0480d628",
+        "why": "highway traffic fines, not a motorcycle story"
+      },
+      {
+        "id": "bikewale-56c37314",
+        "why": "SHAD crash bars for the BMW R 1300 GS, India availability unconfirmed"
+      },
+      {
+        "id": "accessories-3df77d25",
+        "why": "Kawasaki Z300 launch is from 25 to 27 October, outside the news window"
+      }
+    ]
+  }
+}

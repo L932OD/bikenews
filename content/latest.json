@@ -1,90 +1,110 @@
 {
-  "edition": "2026-10-29",
-  "published_at": "2026-10-29T09:21:47+05:30",
+  "edition": "2026-10-30",
+  "published_at": "2026-10-30T09:15:00+05:30",
   "lead": {
-    "id": "ultraviolette-x47-venom-updates",
-    "kicker": "Ultraviolette",
-    "type": "ev",
+    "id": "triumph-tiger-1200-2027-price",
+    "kicker": "Triumph",
+    "type": "price",
+    "published_at": "2026-10-29T07:45:02.000Z",
+    "figure": {
+      "value": "₹20.99 lakh",
+      "label": "price, on sale from March 2027"
+    },
     "specs": [
       [
-        "Cruise control",
-        "New"
+        "Engine",
+        "1,160cc triple"
       ],
       [
-        "Park Assist",
-        "Front and rear cameras"
+        "Power",
+        "158hp"
       ],
       [
-        "Camera view",
-        "120 degree"
+        "Torque",
+        "130Nm"
       ]
     ],
-    "headline": "Ultraviolette adds cruise control, Park Assist and a battery pyro fuse to the X-47 Venom",
-    "text": "Ultraviolette has announced three additions to the X-47 Venom electric motorcycle on its own YouTube channel. Cruise control now holds a set speed. Park Assist uses the integrated dual dashcam, with front and rear cameras and a 120 degree wide angle, to help when moving in reverse. And a Pyro Fuse, a battery safety device taken from four-wheelers, isolates the battery instantly during critical events.",
-    "why": "The X-47 Venom is the most searched bike in India this week, and cruise control is still rare on Indian electric motorcycles.",
-    "published_at": "2026-10-28T13:47:20.000Z",
+    "headline": "Triumph prices the 2027 Tiger 1200 at ₹20.99 lakh, on sale in India from March 2027",
+    "text": "Triumph has revealed India pricing for the GT Pro and Rally Explorer, a couple of days after the global unveiling. Both use an updated 1,160cc liquid-cooled triple that makes 158hp, 8hp more than before, and 130Nm. Semi-active Showa suspension with automatic self-levelling and radar-based rider aids are new. The front wheel is now 19 inches on both, so the 21-inch option is gone.",
+    "why": "The flagship adventure tourer now has a price and a date, so buyers can plan ahead of the March 2027 arrival.",
     "sources": [
       {
-        "name": "Ultraviolette on YouTube",
-        "url": "https://www.youtube.com/watch?v=J2c4dTHDJi8"
+        "name": "Autocar India",
+        "url": "https://www.autocarindia.com/bike-news/2027-triumph-tiger-1200-launched-at-rs-2099-lakh-441157"
       },
       {
-        "name": "Ultraviolette on YouTube",
-        "url": "https://www.youtube.com/watch?v=mxBZ4u8CXkY"
-      },
-      {
-        "name": "Ultraviolette on YouTube",
-        "url": "https://www.youtube.com/watch?v=8Bz2jUQmkCU"
+        "name": "NDTV Auto",
+        "url": "https://www.ndtv.com/auto/2027-triumph-tiger-1200-launched-in-india-at-rs-20-99-lakh-12252914"
       }
     ],
-    "tag": null
+    "tag": "update"
   },
   "subs": [
     {
-      "id": "norton-450-roadster-eicma",
-      "kicker": "Norton",
-      "type": "upcoming",
-      "headline": "Norton will show a new 450cc roadster at EICMA, for India in 2027",
-      "text": "Norton, owned by TVS Motor Company, is moving into the middleweight segment with an all-new 450cc-class roadster. It makes its global debut at EICMA 2026 and is expected to launch in India in the second half of 2027, likely with a single-cylinder engine.",
-      "published_at": "2026-10-27T00:25:41.000Z",
+      "id": "hero-premium-launches-fy27",
+      "kicker": "Hero MotoCorp",
+      "type": "other",
+      "published_at": "2026-10-30T01:30:00.000Z",
+      "headline": "Hero plans three to four more premium motorcycles before March 2027",
+      "text": "CEO Harshavardhan Chitale said the launches will come across Xtreme, Xpulse, Karizma and the Harley-Davidson range, with Karizma set for refreshes and new categories. Hero's share of larger-capacity motorcycles is below 2 percent. Models, prices and dates have not been disclosed.",
       "sources": [
         {
-          "name": "MotorBeam",
-          "url": "https://www.motorbeam.com/new-norton-450cc-roadster-to-debut-at-eicma-2026/"
+          "name": "Autocar India",
+          "url": "https://www.autocarindia.com/bike-news/new-hero-karizma-and-xpulse-models-being-readied-for-launch-441166"
+        },
+        {
+          "name": "Autocar Professional",
+          "url": "https://www.autocarpro.in/news/hero-motocorp-plans-3-4-more-premium-motorcycle-launches-by-march-2027-135552"
         }
       ],
       "tag": null
     },
     {
-      "id": "bajaj-q2-fy27-results",
-      "kicker": "Bajaj Auto",
-      "type": "sales",
+      "id": "harley-x350t-spied",
+      "kicker": "Harley-Davidson",
+      "type": "spy",
+      "published_at": "2026-10-29T11:00:46.000Z",
+      "headline": "Harley-Davidson X350T spied in India with a downsized 350cc engine",
+      "text": "The X440T has been spotted undisguised with X350T on its tank, an orange colour theme and new graphics. The smaller engine keeps it within the revised 350cc tax bracket. Otherwise it looks identical to the X440T, and a launch is expected soon.",
+      "sources": [
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/new-harley-davidson-x350t-india-spec-350cc-spied-12559774.html"
+        },
+        {
+          "name": "BikeAdvice",
+          "url": "https://bikeadvice.in/harley-davidson-x350t-spotted-in-india-with-a-downsized-350-cc-engine/"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "flying-flea-c6-pune",
+      "kicker": "Royal Enfield",
+      "type": "ev",
+      "published_at": "2026-10-29T07:45:17.000Z",
       "figure": {
-        "value": "₹3,353.76 crore",
-        "label": "Q2 FY27 net profit"
+        "value": "₹2.79 lakh",
+        "label": "C6, ex-showroom"
       },
-      "headline": "Bajaj Auto’s Q2 profit rises 35% as revenue crosses ₹20,000 crore for the first time",
-      "text": "Standalone revenue grew 34% to ₹20,003.43 crore, a record, and profit after tax rose 35% to ₹3,353.76 crore. Export volumes rose 41 percent and electric sales kept growing.",
-      "published_at": "2026-10-27T10:11:34.000Z",
+      "headline": "Royal Enfield's Flying Flea C6 goes on sale in Pune with 10 centres",
+      "text": "Pune is the third city for the electric C6 after Bengaluru and Hyderabad. Ten sales and service centres open at once, taking Flying Flea to 26 touchpoints. The C6 costs ₹2.79 lakh ex-showroom, or ₹1.99 lakh under the Battery-as-a-Service model.",
       "sources": [
         {
-          "name": "Autocar Professional",
-          "url": "https://www.autocarpro.in/news/bajaj-auto-q2-net-profit-rises-35-percent-to-rs-3354-crore-as-revenue-crosses-rs-20000-crore-135494"
-        }
-      ],
-      "tag": null
-    },
-    {
-      "id": "bajaj-rural-slowdown-warning",
-      "kicker": "Bajaj Auto",
-      "type": "sales",
-      "headline": "Bajaj warns entry-level motorcycle demand may weaken after the festive season",
-      "text": "Joint Managing Director Rakesh Sharma says drought, inflation and tighter rural lending could weigh on commuter motorcycles in Q4, while premium motorcycles and electric two-wheelers keep growing.",
-      "published_at": "2026-10-27T16:31:43.000Z",
-      "sources": [
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/flying-flea-c6-expands-to-pune-with-10-centres/"
+        },
         {
           "name": "Autocar Professional",
-          "url": "https://www.autocarpro.in/news/bajaj-auto-warns-rural-stress-could-deepen-entry-level-motorcycle-slowdown-in-q4-135514"
+          "url": "https://www.autocarpro.in/news/flying-flea-begins-pune-operations-135559"
+        },
+        {
+          "name": "BikeAdvice",
+          "url": "https://bikeadvice.in/royal-enfield-flying-flea-c6-sales-start-in-pune/"
+        },
+        {
+          "name": "Gaadiwaadi",
+          "url": "https://gaadiwaadi.com/royal-enfield-aggressively-expands-flying-flea-c6s-footprint-now-in-pune/"
         }
       ],
       "tag": null
@@ -92,298 +112,138 @@
   ],
   "headlines": [
     {
-      "id": "kawasaki-z900-2027-power",
-      "type": "other",
-      "headline": "Kawasaki lists the 2027 Z900 at 121bhp, 1bhp down on the 2026 model",
-      "published_at": "2026-10-29T03:30:06.000Z",
+      "id": "motorcycle-sales-h1-fy27",
+      "type": "sales",
+      "headline": "India sold 69,28,700 motorcycles in April to September, up 10.44%, with Splendor on top",
+      "published_at": "2026-10-29T06:22:00.000Z",
       "sources": [
         {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/top-50-motorcycles-h1-fy2027-splendor-shine-pulsar-apache-classic-350-12559752.html"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "thruxton-400-tft-spied",
+      "type": "spy",
+      "headline": "Triumph Thruxton 400 spied with the Bonneville T40's TFT display and cruise control switches",
+      "published_at": "2026-10-29T06:44:08.000Z",
+      "sources": [
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/2027-triumph-thruxton-400-spied-testing-tft-screen-from-bonneville-t40-12559759.html"
+        },
+        {
+          "name": "Autocar India",
+          "url": "https://www.autocarindia.com/bike-news/triumph-thruxton-400-spotted-testing-with-tft-dash-from-bonneville-t40-441162"
+        },
+        {
           "name": "BikeWale",
-          "url": "https://www.bikewale.com/news/2027-kawasaki-z900-at-rs-999-lakh-barely-changes/"
+          "url": "https://www.bikewale.com/news/triumph-thruxton-400-spied-with-tft-display-and-new-features/"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "sprint-440-production",
+      "type": "spy",
+      "headline": "Pictures suggest Harley-Davidson Sprint 440 production has begun, with launch said to be near",
+      "published_at": "2026-10-29T08:58:39.000Z",
+      "sources": [
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/new-harley-sprint-440-cruiser-production-starts-launch-soon-12559767.html"
         }
       ],
       "tag": "update"
     },
     {
-      "id": "hero-q2-fy27-results",
-      "type": "sales",
-      "headline": "Hero MotoCorp’s Q2 net profit rises 42% to ₹1,861 crore",
-      "published_at": "2026-10-28T15:10:43.000Z",
-      "sources": [
-        {
-          "name": "ET Auto",
-          "url": "https://auto.economictimes.indiatimes.com/amp/news/two-wheelers/hero-motocorp-q2-net-profit-rises-42-to-1861-crore/135270915"
-        }
-      ],
-      "tag": null
-    },
-    {
-      "id": "re-classic-650-125th-anniversary",
+      "id": "moto-guzzi-trip-500",
       "type": "other",
-      "headline": "Royal Enfield shows a 125th Anniversary Edition Classic 650 in colour-shifting Hypershift paint",
-      "published_at": "2026-10-26T15:00:16.000Z",
+      "headline": "Moto Guzzi unveils the Trip 500 roadster on Aprilia's 457cc parallel twin",
+      "published_at": "2026-10-29T06:23:49.000Z",
       "sources": [
         {
-          "name": "Royal Enfield on YouTube",
-          "url": "https://www.youtube.com/watch?v=Xnlex1Pig_4"
-        }
-      ],
-      "tag": null
-    },
-    {
-      "id": "ktm-eicma-2026-lineup",
-      "type": "upcoming",
-      "headline": "KTM reveals the updated line-up it will show at EICMA 2026",
-      "published_at": "2026-10-28T08:02:26.000Z",
-      "sources": [
-        {
-          "name": "Overdrive",
-          "url": "https://www.overdrive.in/news-cars-auto/ktm-reveals-its-updated-model-lineup-for-eicma-2026/"
-        }
-      ],
-      "tag": null
-    },
-    {
-      "id": "bsa-gold-star-650-colours",
-      "type": "launch",
-      "headline": "BSA Gold Star 650 now comes in Birmingham Blue and Brooklands Black",
-      "published_at": "2026-10-27T12:11:37.000Z",
-      "sources": [
-        {
-          "name": "Jawa Yezdi Motorcycles on YouTube",
-          "url": "https://www.youtube.com/watch?v=dJ1vmafUS5A"
-        }
-      ],
-      "tag": null
-    },
-    {
-      "id": "bajaj-trekker-name",
-      "type": "rumour",
-      "headline": "Bajaj’s upcoming adventure bike is reported to be called the Trekker",
-      "published_at": "2026-10-28T10:30:29.000Z",
-      "sources": [
-        {
-          "name": "Gaadiwaadi",
-          "url": "https://gaadiwaadi.com/upcoming-bajaj-trekker-adventure-bike-top-5-things-we-know-so-far/"
-        }
-      ],
-      "tag": null
-    },
-    {
-      "id": "bajaj-chief-product-officer",
-      "type": "other",
-      "headline": "Bajaj Auto appoints Madhusudan Gopalan as Chief Product Officer",
-      "published_at": "2026-10-27T11:38:48.000Z",
-      "sources": [
-        {
-          "name": "ET Auto",
-          "url": "https://auto.economictimes.indiatimes.com/amp/news/industry/bajaj-auto-appoints-madhusudan-gopalan-as-chief-product-officer/135232708"
-        }
-      ],
-      "tag": null
-    },
-    {
-      "id": "jawa-yezdi-bsa-spare-parts",
-      "type": "other",
-      "headline": "Jawa, Yezdi and BSA open genuine spare-parts sales beyond their dealers",
-      "published_at": "2026-10-27T03:33:56.000Z",
-      "sources": [
+          "name": "BikeDekho",
+          "url": "https://www.bikedekho.com/news/category-first-look/moto-guzzi-trip-500-unveiled-ahead-of-eicma-20563"
+        },
         {
           "name": "BikeWale",
-          "url": "https://www.bikewale.com/news/jawa-yezdi-and-bsa-expand-spare-parts-network-to-ease-ownership/"
+          "url": "https://www.bikewale.com/news/moto-guzzi-trip-500-unveiled-in-europe/"
+        },
+        {
+          "name": "Autocar India",
+          "url": "https://www.autocarindia.com/bike-news/india-made-moto-guzzi-the-trip-revealed-441158"
         }
       ],
       "tag": null
     },
     {
-      "id": "bajaj-two-new-brands",
-      "type": "upcoming",
-      "headline": "Bajaj Auto plans two new motorcycle brands for the 125cc to 250cc range in FY27",
-      "published_at": "2026-10-28T09:38:08.000Z",
+      "id": "tvs-ronin-agonda-indonesia",
+      "type": "launch",
+      "headline": "TVS launches the Ronin Agonda Edition in Indonesia at IDR 37.08 million",
+      "published_at": "2026-10-29T11:52:15.000Z",
       "sources": [
         {
           "name": "Autocar Professional",
-          "url": "https://www.autocarpro.in/news/bajaj-auto-plans-two-new-motorcycle-brands-across-125-250cc-range-in-fy27-135526"
+          "url": "https://www.autocarpro.in/news/tvs-motor-launches-ronin-agonda-edition-in-indonesia-135561"
+        },
+        {
+          "name": "ET Auto",
+          "url": "https://auto.economictimes.indiatimes.com/news/two-wheelers/tvs-motor-launches-ronin-agonda-series-in-indonesia-priced-at-idr-37-08-million/135339641"
         }
       ],
       "tag": null
+    },
+    {
+      "id": "bajaj-adv-spied-tft",
+      "type": "spy",
+      "headline": "Bajaj's upcoming adventure bike spied again with a TFT console and offroad hardware",
+      "published_at": "2026-10-29T22:04:43.000Z",
+      "sources": [
+        {
+          "name": "BikeDekho",
+          "url": "https://www.bikedekho.com/news/bajajs-upcoming-adv-spied-again-gets-proper-offroad-hardware-loads-of-tech-20548"
+        }
+      ],
+      "tag": "update"
     }
   ],
   "trends_summary": {
-    "headline": "Ultraviolette’s X-47 Venom leads bike searches at 20000+ as it gets cruise control",
-    "text": "Honda’s black CB350C follows at 10000+ and Harley’s Sprint 440 at 5000+. Searches for Norton motorcycles in India rose 450% on news of a 450cc roadster for EICMA, and Bajaj’s adventure bike rose 50% as the name Trekker was reported."
+    "headline": "Harley's Sprint 440 and Hero's Karizma XMR 250 keep drawing 5000+ searches",
+    "text": "Both searches passed 5000+ this week. Production pictures of the Sprint 440 leaked, and Hero said it will refresh the Karizma and add premium launches before March 2027."
   },
   "trending": [
     {
-      "term": "ultraviolette x47 venom",
-      "traffic": "20000+",
-      "why": "Ultraviolette added cruise control, Park Assist with front and rear cameras, and a battery pyro fuse to the X-47 Venom this week.",
-      "sources": [
-        {
-          "name": "Ultraviolette on YouTube",
-          "url": "https://www.youtube.com/watch?v=FtdgH2wyrqo"
-        },
-        {
-          "name": "Ultraviolette on YouTube",
-          "url": "https://www.youtube.com/watch?v=OoFmPtBiF1Y"
-        }
-      ]
-    },
-    {
-      "term": "honda cb350c black edition launch",
-      "traffic": "10000+",
-      "why": "Honda launched a darker CB350C ahead of Diwali at around ₹2.32 lakh on-road; the name is not official yet.",
+      "term": "harley davidson sprint 440 cruiser",
+      "traffic": "5000+",
+      "why": "Leaked pictures suggest Sprint 440 production has started; Autocar India expects its India launch after the EICMA 2026 debut.",
       "sources": [
         {
           "name": "Rushlane",
-          "url": "https://www.rushlane.com/new-honda-cb350c-black-edition-launched-first-look-12559632.html"
+          "url": "https://www.rushlane.com/new-harley-sprint-440-cruiser-production-starts-launch-soon-12559767.html"
         },
-        {
-          "name": "Overdrive",
-          "url": "https://www.overdrive.in/news-cars-auto/honda-cb350c-special-black-edition-launched-at-rs-2-lakh/"
-        }
-      ]
-    },
-    {
-      "term": "harley davidson sprint 440 cruiser",
-      "traffic": "5000+",
-      "why": "A production-ready Sprint 440, the cruiser from the Harley-Davidson and Hero MotoCorp venture, was seen at a showroom without camouflage.",
-      "sources": [
         {
           "name": "Autocar India",
-          "url": "https://www.autocarindia.com/bike-news/harley-davidson-sprint-440-spotted-ahead-of-launch-441144"
-        },
-        {
-          "name": "NDTV Auto",
-          "url": "https://www.ndtv.com/auto/harley-davidson-sprint-440-cruiser-spotted-undisguised-ahead-of-launch-12241097"
+          "url": "https://www.autocarindia.com/bike-news/new-hero-karizma-and-xpulse-models-being-readied-for-launch-441166"
         }
       ]
     },
     {
-      "term": "norton motorcycles india",
-      "traffic": "+450%",
-      "why": "Norton, owned by TVS, will show an all-new 450cc roadster at EICMA 2026, with an India launch expected in 2027.",
+      "term": "hero karizma xmr 250 new colors",
+      "traffic": "5000+",
+      "why": "Hero said it will refresh the Karizma range; Autocar India expects the long overdue XMR 250, seen undisguised several times.",
       "sources": [
         {
-          "name": "MotorBeam",
-          "url": "https://www.motorbeam.com/new-norton-450cc-roadster-to-debut-at-eicma-2026/"
-        }
-      ]
-    },
-    {
-      "term": "bajaj adventure bike",
-      "traffic": "+50%",
-      "why": "New spy shots show its console, likely the Pulsar N250’s, and a report gives its name as the Trekker.",
-      "sources": [
-        {
-          "name": "BikeWale",
-          "url": "https://www.bikewale.com/news/upcoming-bajaj-adventure-bike-new-details-revealed/"
-        },
-        {
-          "name": "Gaadiwaadi",
-          "url": "https://gaadiwaadi.com/upcoming-bajaj-trekker-adventure-bike-top-5-things-we-know-so-far/"
+          "name": "Autocar Professional",
+          "url": "https://www.autocarpro.in/news/hero-motocorp-plans-3-4-more-premium-motorcycle-launches-by-march-2027-135552"
         }
       ]
     }
   ],
   "events": [],
   "upcoming": [
-    {
-      "id": "re-himalayan-750",
-      "name": "Royal Enfield Himalayan 750",
-      "brand": "Royal Enfield",
-      "kind": "bike",
-      "status": "teased",
-      "when": {
-        "date": "2026-11-03",
-        "month": null,
-        "label": "EICMA, from 3 Nov"
-      },
-      "text": "Royal Enfield’s first parallel-twin Himalayan and the first bike on its new 750cc platform, teased with the coordinates of Milan.",
-      "sources": [
-        {
-          "name": "BikeWale",
-          "url": "https://www.bikewale.com/news/himalayan-750-to-be-unveiled-at-eicma-what-we-know/"
-        },
-        {
-          "name": "Rushlane",
-          "url": "https://www.rushlane.com/royal-enfield-himalayan-750-first-teaser-out-eicma-debut-confirmed-12559610.html"
-        }
-      ]
-    },
-    {
-      "id": "re-continental-gt-750",
-      "name": "Royal Enfield Continental GT 750",
-      "brand": "Royal Enfield",
-      "kind": "bike",
-      "status": "confirmed",
-      "when": {
-        "date": null,
-        "month": "2026-11",
-        "label": "EICMA, November"
-      },
-      "text": "A 750 version of the Continental GT café racer, set for its official debut at EICMA 2026.",
-      "sources": [
-        {
-          "name": "Overdrive",
-          "url": "https://www.overdrive.in/news-cars-auto/royal-enfield-continental-gt-750-to-officially-debut-at-eicma-2026/"
-        },
-        {
-          "name": "BikeWale",
-          "url": "https://www.bikewale.com/news/himalayan-750-to-be-unveiled-at-eicma-what-we-know/"
-        }
-      ]
-    },
-    {
-      "id": "hero-xpulse-421",
-      "name": "Hero Xpulse 421",
-      "brand": "Hero MotoCorp",
-      "kind": "bike",
-      "status": "teased",
-      "when": {
-        "date": null,
-        "month": "2026-11",
-        "label": "EICMA, November"
-      },
-      "text": "Hero’s own teaser says the XPulse is set to roar at EICMA 2026; the Xpulse 421 is expected with a 421cc liquid-cooled single.",
-      "sources": [
-        {
-          "name": "Hero MotoCorp on YouTube",
-          "url": "https://www.youtube.com/watch?v=o_m6p5xA2Hk"
-        },
-        {
-          "name": "BikeDekho",
-          "url": "https://www.bikedekho.com/news/hero-xpulse-421-teased-could-be-unveiled-at-eicma-20546"
-        },
-        {
-          "name": "BikeWale",
-          "url": "https://www.bikewale.com/news/tvs-returns-to-eicma-as-europe-push-starts-paying-off/"
-        }
-      ]
-    },
-    {
-      "id": "norton-450-roadster",
-      "name": "Norton 450cc roadster",
-      "brand": "Norton",
-      "kind": "bike",
-      "status": "expected",
-      "when": {
-        "date": null,
-        "month": "2026-11",
-        "label": "EICMA, November"
-      },
-      "text": "An all-new 450cc-class roadster from the TVS-owned brand; India launch expected in the second half of 2027.",
-      "sources": [
-        {
-          "name": "MotorBeam",
-          "url": "https://www.motorbeam.com/new-norton-450cc-roadster-to-debut-at-eicma-2026/"
-        },
-        {
-          "name": "BikeWale",
-          "url": "https://www.bikewale.com/news/tvs-returns-to-eicma-as-europe-push-starts-paying-off/"
-        }
-      ]
-    },
     {
       "id": "triumph-tiger-1200-2027",
       "name": "2027 Triumph Tiger 1200",
@@ -395,116 +255,62 @@
         "month": "2027-03",
         "label": "March 2027"
       },
-      "text": "GT Pro and Rally Explorer variants with a 1,160cc triple; prices come closer to the start of bookings.",
+      "text": "GT Pro and Rally Explorer variants with a 1,160cc triple, priced at ₹20.99 lakh.",
       "sources": [
         {
-          "name": "BikeWale",
-          "url": "https://www.bikewale.com/news/next-generation-triumph-tiger-1200-unveiled-in-india-launch-soon/"
+          "name": "Autocar India",
+          "url": "https://www.autocarindia.com/bike-news/2027-triumph-tiger-1200-launched-at-rs-2099-lakh-441157"
         }
       ]
     }
   ],
-  "videos": [
-    {
-      "url": "https://www.youtube.com/watch?v=J2c4dTHDJi8",
-      "brand": "Ultraviolette",
-      "kind": "feature",
-      "title": "The X-47 Venom gets cruise control",
-      "why": "Ultraviolette’s own clip announcing cruise control on the X-47 Venom.",
-      "published_at": "2026-10-28T13:47:20.000Z"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=mxBZ4u8CXkY",
-      "brand": "Ultraviolette",
-      "kind": "feature",
-      "title": "Park Assist on the X-47 Venom, with front and rear cameras",
-      "why": "The integrated dual dashcam gives a 120 degree view front and rear to help when reversing.",
-      "published_at": "2026-10-28T10:16:32.000Z"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=8Bz2jUQmkCU",
-      "brand": "Ultraviolette",
-      "kind": "feature",
-      "title": "A pyro fuse that isolates the X-47 Venom’s battery",
-      "why": "A battery safety device from four-wheelers that cuts the battery off instantly in critical events.",
-      "published_at": "2026-10-28T05:46:28.000Z"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=o_m6p5xA2Hk",
-      "brand": "Hero MotoCorp",
-      "kind": "teaser",
-      "title": "Hero’s own teaser: the Xpulse heads to EICMA",
-      "why": "Hero says the XPulse is set to roar at EICMA 2026, its first official word on what it will show.",
-      "published_at": "2026-10-26T16:11:05.000Z"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=Xnlex1Pig_4",
-      "brand": "Royal Enfield",
-      "kind": "product",
-      "title": "The 125th Anniversary Edition Classic 650 in Hypershift paint",
-      "why": "A Classic 650 edition for Royal Enfield’s 125 years, in a paint that shifts colour with every move.",
-      "published_at": "2026-10-26T15:00:16.000Z"
-    },
-    {
-      "url": "https://www.youtube.com/watch?v=dJ1vmafUS5A",
-      "brand": "Jawa Yezdi and BSA",
-      "kind": "product",
-      "title": "BSA Gold Star 650 in two new colours",
-      "why": "The Gold Star 650 now comes in Birmingham Blue and Brooklands Black.",
-      "published_at": "2026-10-27T12:11:37.000Z"
-    }
-  ],
+  "videos": [],
   "accessories": [],
   "checks": {
-    "pool_items": 111,
+    "pool_items": 93,
     "sources_failed": [
-      "BikeAdvice",
       "Brand channels on YouTube"
     ],
     "left_out": [
       {
-        "id": "bikewale-11eb7985",
-        "why": "Himalayan 750 recap; in the upcoming calendar instead"
+        "id": "autocar-6728b814",
+        "why": "Classic 350 tubeless wheels; already in the 2026-10-28 edition"
       },
       {
-        "id": "autocarpro-f2ae06df",
-        "why": "TVS capacity plan is mostly scooters and EVs"
+        "id": "etauto-64e56565",
+        "why": "Hero Vida is a scooter"
       },
       {
-        "id": "gaadiwaadi-7bb46ec3",
+        "id": "autocarpro-9db42606",
+        "why": "industry growth outlook for all two-wheelers, mostly not motorcycles"
+      },
+      {
+        "id": "overdrive-f9f331e1",
+        "why": "Kawasaki KLE650 global unveil with no India plan stated"
+      },
+      {
+        "id": "bikewale-46155251",
+        "why": "Indian Motorcycle US restructuring"
+      },
+      {
+        "id": "bikeadvice-f4d8f6ff",
         "why": "listicle"
       },
       {
-        "id": "autocar-c3c43506",
-        "why": "KLE650 global reveal, no India plan yet"
+        "id": "bikeadvice-599c6129",
+        "why": "listicle"
       },
       {
-        "id": "motorbeam-0833b4b2",
-        "why": "E100 fuel rule is not about motorcycles"
+        "id": "ndtv-0480d628",
+        "why": "highway traffic fines, not a motorcycle story"
       },
       {
-        "id": "youtube-3e728535",
-        "why": "Yamaha XSR155 advert, nothing new"
+        "id": "bikewale-56c37314",
+        "why": "SHAD crash bars for the BMW R 1300 GS, India availability unconfirmed"
       },
       {
-        "id": "youtube-dd9da694",
-        "why": "commuter scooter video"
-      },
-      {
-        "id": "youtube-2b00f62e",
-        "why": "towing stunt, nothing new"
-      },
-      {
-        "id": "autocarpro-b01a031b",
-        "why": "Maharashtra EV incentive is for Bajaj’s electric scooters"
-      },
-      {
-        "id": "etauto-3990eaa0",
-        "why": "TVS capacity plan is scooters and EVs"
-      },
-      {
-        "id": "bikedekho-32e30b6d",
-        "why": "scooter comparison"
+        "id": "accessories-3df77d25",
+        "why": "Kawasaki Z300 launch is from 25 to 27 October, outside the news window"
       }
     ]
   }
