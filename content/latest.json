@@ -108,6 +108,66 @@
         }
       ],
       "tag": null
+    },
+    {
+      "id": "ducati-monster-dark",
+      "kicker": "Ducati",
+      "type": "upcoming",
+      "published_at": "2026-10-30T11:00:13.000Z",
+      "figure": {
+        "value": "EUR 10,990",
+        "label": "global price"
+      },
+      "specs": [
+        [
+          "Engine",
+          "890cc V2"
+        ],
+        [
+          "Power",
+          "111hp"
+        ],
+        [
+          "Torque",
+          "91.1Nm"
+        ]
+      ],
+      "headline": "Ducati unveils the Monster Dark, with an India launch expected in 2027",
+      "text": "The Monster Dark is a stripped-back entry model with unpainted frame sections, black exhaust end caps and a single-material seat. It keeps the standard Monster's 890cc V2 engine. Deliveries abroad start in November 2026; India is expected to get it in 2027.",
+      "sources": [
+        {
+          "name": "Autocar Professional",
+          "url": "https://www.autocarpro.in/news/ducati-unveils-all-black-monster-dark-india-launch-in-2027-135581"
+        },
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/ducati-monster-v2-dark-unveiled-india-launch-in-2027/"
+        },
+        {
+          "name": "HT Auto",
+          "url": "https://auto.hindustantimes.com/auto/two-wheelers/ducati-monster-dark-unveiled-with-890cc-v2-engine-india-launch-expected-in-2027-41793354091307.html"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "re-himalayan-750-video-teaser",
+      "kicker": "Royal Enfield",
+      "type": "upcoming",
+      "published_at": "2026-10-30T05:16:12.000Z",
+      "headline": "Royal Enfield teases the Himalayan 750 on video ahead of its expected EICMA 2026 debut",
+      "text": "Royal Enfield has released an official teaser video for the Himalayan 750, its first Himalayan on the new 750cc platform. The bike is expected to make its debut at EICMA 2026 in Milan.",
+      "sources": [
+        {
+          "name": "NDTV Auto",
+          "url": "https://www.ndtv.com/auto/royal-enfield-himalayan-750-officially-teased-on-video-watch-12257271"
+        },
+        {
+          "name": "HT Auto",
+          "url": "https://auto.hindustantimes.com/auto/two-wheelers/royal-enfield-himalayan-750-teased-ahead-of-expected-eicma-2026-debut-41793341185340.html"
+        }
+      ],
+      "tag": "update"
     }
   ],
   "headlines": [
@@ -208,11 +268,54 @@
         }
       ],
       "tag": "update"
+    },
+    {
+      "id": "bajaj-pulsar-220-new-gen",
+      "type": "upcoming",
+      "headline": "Bajaj confirms a new-generation Pulsar 220, expected in early 2027 after its adventure bike",
+      "published_at": "2026-10-30T08:43:26.000Z",
+      "sources": [
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/bajaj-pulsar-220-to-get-new-gen-no-upgrades-for-p180-f250-12559839.html"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "eicma-2026-india-lineup",
+      "type": "upcoming",
+      "headline": "Himalayan 750, TVS 450, Xpulse 421 and Harley's cruiser lead India-linked bikes expected at EICMA 2026",
+      "published_at": "2026-10-30T06:20:57.000Z",
+      "sources": [
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/tvs-450-xpulse-421-harley-cruiser-440-re-750-and-more-expected-at-eicma-2026-12559821.html"
+        },
+        {
+          "name": "Overdrive",
+          "url": "https://www.overdrive.in/news-cars-auto/eicma-2026-royal-enfield-bmw-tvs-and-hero-lead-a-packed-milan-line-up/"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "motorcycle-exports-h1-fy27",
+      "type": "sales",
+      "headline": "India exported 27,64,662 motorcycles in April to September, up 31.83%, led by Bajaj Boxer",
+      "published_at": "2026-10-30T04:22:15.000Z",
+      "sources": [
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/motorcycle-exports-h1-fy2027-boxer-star-city-pulsar-ct-fz-12559806.html"
+        }
+      ],
+      "tag": null
     }
   ],
   "trends_summary": {
-    "headline": "Harley's Sprint 440 and Hero's Karizma XMR 250 keep drawing 5000+ searches",
-    "text": "Both searches passed 5000+ this week. Production pictures of the Sprint 440 leaked, and Hero said it will refresh the Karizma and add premium launches before March 2027."
+    "headline": "Riders search for EICMA 2026 bikes, Harley's Sprint 440 and Ducati prices",
+    "text": "Searches for 'eicma 2026 upcoming motorcycles' broke out today, as the Himalayan 750 teaser and India-linked line-ups made news. Harley's Sprint 440 and Hero's Karizma XMR 250 held 5000+ searches this week, and 'ducati bike price' rose 160% after the Monster Dark unveil."
   },
   "trending": [
     {
@@ -221,8 +324,8 @@
       "why": "Leaked pictures suggest Sprint 440 production has started; Autocar India expects its India launch after the EICMA 2026 debut.",
       "sources": [
         {
-          "name": "Rushlane",
-          "url": "https://www.rushlane.com/new-harley-sprint-440-cruiser-production-starts-launch-soon-12559767.html"
+          "name": "Gaadiwaadi",
+          "url": "https://gaadiwaadi.com/upcoming-harley-davidson-sprint-440-cruiser-top-5-things-to-know/"
         },
         {
           "name": "Autocar India",
@@ -238,6 +341,32 @@
         {
           "name": "Autocar Professional",
           "url": "https://www.autocarpro.in/news/hero-motocorp-plans-3-4-more-premium-motorcycle-launches-by-march-2027-135552"
+        }
+      ]
+    },
+    {
+      "term": "eicma 2026 upcoming motorcycles",
+      "traffic": "Breakout",
+      "why": "Riders want to know which bikes Milan will bring to India: the Himalayan 750 has been teased on video and Rushlane lists the India-linked models expected.",
+      "sources": [
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/tvs-450-xpulse-421-harley-cruiser-440-re-750-and-more-expected-at-eicma-2026-12559821.html"
+        },
+        {
+          "name": "NDTV Auto",
+          "url": "https://www.ndtv.com/auto/royal-enfield-himalayan-750-officially-teased-on-video-watch-12257271"
+        }
+      ]
+    },
+    {
+      "term": "ducati bike price",
+      "traffic": "+160%",
+      "why": "Ducati unveiled the Monster Dark today; the standard Monster costs ₹13.99 lakh ex-showroom in India and the Dark is expected here in 2027.",
+      "sources": [
+        {
+          "name": "Autocar Professional",
+          "url": "https://www.autocarpro.in/news/ducati-unveils-all-black-monster-dark-india-launch-in-2027-135581"
         }
       ]
     }
@@ -264,12 +393,66 @@
       ]
     }
   ],
-  "videos": [],
-  "accessories": [],
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=KHh9XcsjJ0o",
+      "brand": "Royal Enfield",
+      "kind": "teaser",
+      "title": "Royal Enfield teases the Himalayan with 'No roads. Coming soon.'",
+      "why": "The brand's own teaser for the Himalayan, posted a day before the Himalayan teaser reached the press.",
+      "published_at": "2026-10-29T12:01:49.000Z"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Duv8yiqPx6M",
+      "brand": "Royal Enfield",
+      "kind": "product",
+      "title": "Royal Enfield Factory Custom lets riders pick colour and finish",
+      "why": "Royal Enfield promotes Factory Custom, a service to build a one-of-one motorcycle by choosing the shade and finish.",
+      "published_at": "2026-10-30T12:48:53.000Z"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=SNH1AyRq3YE",
+      "brand": "Ultraviolette",
+      "kind": "product",
+      "title": "Ultraviolette shows the B-MAX airbag vest for the X-47 Venom",
+      "why": "Ultraviolette promotes the B-MAX vest as protection built for the unexpected, shown with the X-47 Venom.",
+      "published_at": "2026-10-30T05:41:34.000Z"
+    }
+  ],
+  "accessories": [
+    {
+      "id": "smk-ares-helmet",
+      "brand": "SMK",
+      "product": "Ares",
+      "category": "helmet",
+      "teased": false,
+      "for_bikes": [
+        "Universal"
+      ],
+      "price": {
+        "value": "₹6,950",
+        "label": "Ares Solid, incl. taxes"
+      },
+      "headline": "SMK launches the Ares dual-sport full-face helmet in India from ₹6,950",
+      "text": "The Ares comes in Solid, Claw and Infinity versions, with a detachable sun peak, a main visor and an internal sun visor. Claw and Infinity cost ₹7,250. Sales have begun through SMK dealers; online availability follows later.",
+      "published_at": "2026-10-30T13:17:20.000Z",
+      "sources": [
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/smk-ares-at-rs-6950-brings-serious-dual-sport-value/"
+        },
+        {
+          "name": "Motoring Trends",
+          "url": "https://www.motoring-trends.com/aftermarket/smk-launches-ares-dual-sport-helmet-in-india-starting-at-inr-6950"
+        }
+      ],
+      "tag": null
+    }
+  ],
   "checks": {
-    "pool_items": 93,
+    "pool_items": 143,
     "sources_failed": [
-      "Brand channels on YouTube"
+      "BikeAdvice"
     ],
     "left_out": [
       {
@@ -311,7 +494,152 @@
       {
         "id": "accessories-3df77d25",
         "why": "Kawasaki Z300 launch is from 25 to 27 October, outside the news window"
+      },
+      {
+        "ids": [
+          "youtube-4ae0b06b",
+          "youtube-e8539b9c",
+          "youtube-d87073e3",
+          "youtube-aeaedb85",
+          "youtube-e20be4a7",
+          "youtube-5dd83e6e",
+          "youtube-2d3506f9",
+          "youtube-8419286e",
+          "youtube-6a19a34f",
+          "youtube-21237f83",
+          "youtube-ce90ff7c",
+          "youtube-6298942e",
+          "youtube-0f58d122",
+          "youtube-ca78f140",
+          "youtube-7508fb89",
+          "youtube-b7e3ff0a",
+          "youtube-722451f6",
+          "youtube-cb10ffe8",
+          "youtube-fea38ac0",
+          "youtube-2b00f62e",
+          "youtube-7b316f5c",
+          "youtube-e541f1c6",
+          "youtube-fe73df20",
+          "youtube-079e568f"
+        ],
+        "why": "adverts, rider stories, festival greetings, commuter scooters and repeats; nothing new for riders"
+      },
+      {
+        "ids": [
+          "brand-news-611fb6e2",
+          "brand-news-619abdac",
+          "brand-news-b8f70394",
+          "brand-news-253f16f7",
+          "brand-news-c095f416",
+          "brand-news-03af1c16",
+          "brand-news-6381cc49",
+          "brand-news-41ac8a8f",
+          "brand-news-7a3e1cd0",
+          "brand-news-8e6df4bb",
+          "brand-news-6e39fddd",
+          "brand-news-1f53089d",
+          "brand-news-b9a099bd",
+          "brand-news-382a6b21",
+          "brand-news-2fb8e28f",
+          "brand-news-c5c93cc1",
+          "brand-news-ca795038",
+          "brand-news-3e4dc076",
+          "brand-news-e2e2d308",
+          "brand-news-9126dfba",
+          "brand-news-392cce5d",
+          "brand-news-fdc0fc42",
+          "brand-news-7ecd88c4",
+          "brand-news-6d652f0f",
+          "brand-news-de34e737",
+          "brand-news-3dbc8c1c",
+          "brand-news-139add45",
+          "brand-news-cc4e4e07",
+          "brand-news-6e46a01d",
+          "brand-news-d0661d09",
+          "brand-news-a695576d",
+          "brand-news-bd715fc0"
+        ],
+        "why": "foreign or global news, share-price pieces, buyer's guides, unrelated KTM trains, or the same story as one in the edition"
+      },
+      {
+        "ids": [
+          "bikewale-6c83e5d8",
+          "ndtv-feb15871",
+          "bikewale-55e01319",
+          "etauto-e2f4d0d2",
+          "bikedekho-86af1a9d",
+          "overdrive-1c5199dd"
+        ],
+        "why": "KTM 200 Duke and Kawasaki Z900 launches, already in earlier editions"
+      },
+      {
+        "ids": [
+          "autocar-b1db10f5",
+          "brand-news-41ac8a8f",
+          "brand-news-8e6df4bb",
+          "etauto-e465dc99",
+          "motorbeam-39bedaa1",
+          "etauto-3990eaa0",
+          "autocarpro-fd3fe2ca",
+          "brand-news-7a3e1cd0"
+        ],
+        "why": "Bajaj product lines, rural slowdown and EV capacity: already covered or about scooters"
+      },
+      {
+        "ids": [
+          "rushlane-3937e781",
+          "gaadiwaadi-9f45e7a8",
+          "bikewale-1a596cbe",
+          "ndtv-f647539e",
+          "gaadiwaadi-07db55f0"
+        ],
+        "why": "Moto Guzzi Trip 500 and Harley X350T/Sprint 440: same stories as in the morning edition"
+      },
+      {
+        "ids": [
+          "ndtv-305e478f",
+          "ndtv-d467c53b",
+          "ndtv-c06ab6a9",
+          "overdrive-584980c3",
+          "ndtv-e30b7289",
+          "gaadiwaadi-1038b12c",
+          "bikedekho-5ac6fda1",
+          "autocarpro-99ca85eb",
+          "bikewale-6d342fd6",
+          "brand-news-a695576d"
+        ],
+        "why": "cars, scooters, or bikes with no India plan stated"
+      },
+      {
+        "ids": [
+          "bikedekho-65e827fb",
+          "bikedekho-7ecfbdd7",
+          "bikedekho-b5c6e173",
+          "bikedekho-e2da8eed",
+          "bikedekho-9c91323e",
+          "bikedekho-fe3eb04c",
+          "overdrive-4e4aa3ab",
+          "overdrive-1cfebcf9",
+          "overdrive-24a1c67d",
+          "overdrive-822f44b0",
+          "overdrive-b1a65a6e",
+          "overdrive-5a8dac84",
+          "overdrive-48d0ba79"
+        ],
+        "why": "comparisons, buying guides, image-only pages and repeats"
+      },
+      {
+        "ids": [
+          "motorbeam-4faa793e",
+          "overdrive-54b76b4f",
+          "etauto-e1e6722a",
+          "autocarpro-d8031e60",
+          "autocarpro-78bcebed",
+          "autocarpro-17d57a1b"
+        ],
+        "why": "traffic fines, scooter or component-maker news, not motorcycle stories"
       }
     ]
-  }
+  },
+  "updated_at": "2026-10-30T21:28:48+05:30"
 }

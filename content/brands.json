@@ -163,6 +163,7 @@
     {
       "name": "Hero MotoCorp",
       "slug": "hero",
+      "news_query": "Hero MotoCorp",
       "logo": "icons/brands/hero.jpg",
       "made_in": "India",
       "site": "https://www.heromotocorp.com/en-in.html",
@@ -185,6 +186,7 @@
     {
       "name": "Bajaj",
       "slug": "bajaj",
+      "news_query": "Bajaj Auto",
       "logo": "icons/brands/bajaj.jpg",
       "made_in": "India",
       "site": "https://www.bajajauto.com/",
@@ -203,6 +205,7 @@
     {
       "name": "TVS",
       "slug": "tvs",
+      "news_query": "TVS Motor",
       "logo": "icons/brands/tvs.jpg",
       "made_in": "India",
       "site": "https://www.tvsmotor.com/",
@@ -233,6 +236,7 @@
     {
       "name": "Honda",
       "slug": "honda",
+      "news_query": "Honda motorcycle",
       "logo": "icons/brands/honda.jpg",
       "made_in": "Japan",
       "site": "https://www.honda2wheelersindia.com/",
@@ -259,6 +263,7 @@
     {
       "name": "Yamaha",
       "slug": "yamaha",
+      "news_query": "Yamaha motorcycle",
       "logo": "icons/brands/yamaha.jpg",
       "made_in": "Japan",
       "site": "https://www.yamaha-motor-india.com/",
@@ -279,6 +284,7 @@
     {
       "name": "Suzuki",
       "slug": "suzuki",
+      "news_query": "Suzuki motorcycle",
       "logo": "icons/brands/suzuki.jpg",
       "made_in": "Japan",
       "site": "https://www.suzukimotorcycle.co.in/",
@@ -294,6 +300,7 @@
     {
       "name": "Kawasaki",
       "slug": "kawasaki",
+      "news_query": "Kawasaki India",
       "logo": "icons/brands/kawasaki.jpg",
       "made_in": "Japan",
       "site": "https://www.kawasaki-india.com/",
@@ -314,6 +321,7 @@
     {
       "name": "Triumph",
       "slug": "triumph",
+      "news_query": "Triumph motorcycle",
       "logo": "icons/brands/triumph.jpg",
       "made_in": "United Kingdom",
       "site": "https://www.triumphmotorcycles.in/",
@@ -363,6 +371,7 @@
     {
       "name": "Jawa Yezdi and BSA",
       "slug": "jawa-yezdi-bsa",
+      "news_query": "Jawa Yezdi",
       "logo": "icons/brands/jawa-yezdi-bsa.jpg",
       "made_in": "India",
       "site": "https://www.jawayezdimotorcycles.com/",
@@ -425,6 +434,7 @@
     {
       "name": "Norton",
       "slug": "norton",
+      "news_query": "Norton motorcycle",
       "logo": "icons/brands/norton.jpg",
       "made_in": "United Kingdom",
       "site": "https://nortonmotorcycles.com/",
@@ -447,6 +457,7 @@
     {
       "name": "Husqvarna",
       "slug": "husqvarna",
+      "news_query": "Husqvarna motorcycle",
       "logo": "icons/brands/husqvarna.jpg",
       "made_in": "Sweden",
       "site": "https://www.husqvarna-motorcycles.com/",
