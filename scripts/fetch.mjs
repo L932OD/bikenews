@@ -347,13 +347,15 @@ async function readMakerNews(cfg, makers, known) {
   const src = { id: cfg.id, name: cfg.name, kind: 'gnews', publisher_from_feed: true, max_items: 20 };
   const failed = [];
   const raws = [];
+  // Dealer price pages, comparisons, reviews, race reports and stock tips are not news about the maker.
+  const noise = cfg.exclude_title ? new RegExp(cfg.exclude_title, 'i') : null;
   for (const m of makers) {
     const brandRe = termsRe([m.name, ...(m.match ?? [])]);
     const modelRe = (m.match ?? []).length ? termsRe(m.match.filter((t) => t.toLowerCase() !== m.name.toLowerCase())) : null;
     try {
       const found = (await readFeed({ ...src, url: gnSearch(m.news_query ? `"${m.news_query}"` : `"${m.name}"`, 1) }))
         .filter((it) => it.published_at && now - Date.parse(it.published_at) <= cfg.window_hours * 3_600_000)
-        .filter((it) => brandRe.test(it.title) && !offTopic(it.title) && !notRiders.test(it.title) && (bikeTitle.test(it.title) || bikeName.test(it.title) || modelRe?.test(it.title)))
+        .filter((it) => brandRe.test(it.title) && !offTopic(it.title) && !noise?.test(it.title) && !notRiders.test(it.title) && (bikeTitle.test(it.title) || bikeName.test(it.title) || modelRe?.test(it.title)))
         .slice(0, cfg.max_per_brand);
       for (const it of found) raws.push({ ...it, brand_check: m.name });
     } catch (err) {

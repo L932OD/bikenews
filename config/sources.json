@@ -177,7 +177,8 @@
     "id": "brand-news",
     "name": "Brand news check",
     "window_hours": 14,
-    "max_per_brand": 5
+    "max_per_brand": 5,
+    "exclude_title": "\\b(on[- ]road price|price in [A-Z]\\w+|vs\\.?|versus|comparison|review|motogp|moto ?gp|grand prix|sepang|reasons to buy|top \\d+|things we expect|share price|target of|stock)\\b"
   },
   "makers": [
     {"name": "Royal Enfield", "slug": "royal-enfield", "logo": "icons/brands/royal-enfield.jpg", "made_in": "India", "site": "https://www.royalenfield.com/in/en/home/", "youtube": "UCyxUUHqmz9IiAnrROJc0mag", "match": ["Royal Enfield", "Himalayan", "Classic 350", "Classic 650", "Bullet 350", "Hunter 350", "Meteor 350", "Super Meteor", "Guerrilla 450", "Interceptor", "Continental GT", "Shotgun 650", "Bear 650", "Scram 440", "Goan Classic", "Flying Flea", "रॉयल एनफील्ड", "हिमालयन", "बुलेट"]},
