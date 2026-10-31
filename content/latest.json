@@ -81,6 +81,45 @@
   ],
   "headlines": [
     {
+      "id": "re-classic-650-125th-sold-out",
+      "type": "other",
+      "headline": "Royal Enfield Classic 650 125th Anniversary Edition sells out in under 6 minutes",
+      "published_at": "2026-10-31T09:42:25.000Z",
+      "sources": [
+        {
+          "name": "Gaadiwaadi",
+          "url": "https://gaadiwaadi.com/re-classic-650-125th-anniversary-edition-sells-out-in-under-6-minutes/"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "hero-herotsav-offers",
+      "type": "other",
+      "headline": "Hero MotoCorp's Herotsav sale runs November 1 to 4 with cashback up to ₹10,000",
+      "published_at": "2026-10-31T06:39:04.000Z",
+      "sources": [
+        {
+          "name": "Autocar Professional",
+          "url": "https://www.autocarpro.in/news/hero-motocorp-announces-four-day-festive-retail-offer-from-november-1-135599"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "re-five-november-launches",
+      "type": "upcoming",
+      "published_at": "2026-10-31T02:30:01.000Z",
+      "headline": "Royal Enfield has five motorcycles due from November, led by the Himalayan 750",
+      "sources": [
+        {
+          "name": "Cartoq",
+          "url": "https://www.cartoq.com/bike-news/royal-enfield-five-new-motorcycles-himalayan-750-continental-gt-750/"
+        }
+      ],
+      "tag": null
+    },
+    {
       "id": "re-himalayan-750-eicma-confirmed",
       "type": "upcoming",
       "published_at": "2026-10-30T16:49:00.000Z",
@@ -96,24 +135,11 @@
         }
       ],
       "tag": "update"
-    },
-    {
-      "id": "re-five-november-launches",
-      "type": "upcoming",
-      "published_at": "2026-10-31T02:30:01.000Z",
-      "headline": "Royal Enfield has five motorcycles due from November, led by the Himalayan 750",
-      "sources": [
-        {
-          "name": "Cartoq",
-          "url": "https://www.cartoq.com/bike-news/royal-enfield-five-new-motorcycles-himalayan-750-continental-gt-750/"
-        }
-      ],
-      "tag": null
     }
   ],
   "trends_summary": {
-    "headline": "Riders search for Harley’s Sprint 440, Hero’s Karizma and Ducati prices ahead of EICMA",
-    "text": "Searches for “eicma 2026 upcoming motorcycles” broke out as riders look for India-linked bikes such as the Himalayan 750. Harley’s Sprint 440 cruiser and Hero’s Karizma XMR 250 each hold 5000+ searches this week, and “ducati bike price” rose 350% after the Monster Dark unveil."
+    "headline": "Riders search for Harley's Sprint 440, Hero's Karizma and alternatives to the Honda CB500",
+    "text": "Harley-Davidson's Sprint 440 cruiser and Hero's Karizma XMR 250 each hold 5000+ searches this week. \"Bikes similar to honda cb500\" broke out in the last day, as BikeDekho listed rivals such as the Triumph Bonneville T40 and Himalayan 450."
   },
   "trending": [
     {
@@ -139,28 +165,13 @@
       ]
     },
     {
-      "term": "eicma 2026 upcoming motorcycles",
+      "term": "bikes similar to honda cb500",
       "traffic": "Breakout",
-      "why": "Royal Enfield confirmed the Himalayan 750 for Milan and Rushlane lists the India-linked models expected at EICMA.",
+      "why": "BikeDekho published a guide to Honda CB500 alternatives, including the Triumph Bonneville T40, TVS Apache RTR 310 and Himalayan 450.",
       "sources": [
         {
-          "name": "Rushlane",
-          "url": "https://www.rushlane.com/tvs-450-xpulse-421-harley-cruiser-440-re-750-and-more-expected-at-eicma-2026-12559821.html"
-        },
-        {
-          "name": "The Daily Jagran",
-          "url": "https://www.thedailyjagran.com/auto/news/royal-enfield-himalayan-750-debut-at-eicma-2026-heres-what-we-know-so-far-10334626"
-        }
-      ]
-    },
-    {
-      "term": "ducati bike price",
-      "traffic": "+350%",
-      "why": "Ducati unveiled the Monster V2 Dark, priced at EUR 10,990 in global markets, with an India launch expected in 2027.",
-      "sources": [
-        {
-          "name": "BikeWale",
-          "url": "https://www.bikewale.com/news/ducati-monster-v2-dark-unveiled-india-launch-in-2027/"
+          "name": "BikeDekho",
+          "url": "https://www.bikedekho.com/news/category-general-news/honda-cb500-same-price-other-options-20573"
         }
       ]
     }
@@ -170,7 +181,7 @@
   "videos": [],
   "accessories": [],
   "checks": {
-    "pool_items": 102,
+    "pool_items": 120,
     "sources_failed": [
       "BikeAdvice"
     ],
@@ -234,7 +245,150 @@
           "store-9db47e2a"
         ],
         "why": "already shown in the 2026-10-28 edition"
+      },
+      {
+        "ids": [
+          "brand-news-7637b578"
+        ],
+        "why": "Bajaj's two new brands: already in the 2026-10-29 edition"
+      },
+      {
+        "ids": [
+          "brand-news-d69c2aa8",
+          "gaadiwaadi-f0197d7e"
+        ],
+        "why": "Flying Flea C6 in Pune: already in the 2026-10-30 edition"
+      },
+      {
+        "ids": [
+          "ndtv-331f43a8"
+        ],
+        "why": "Thruxton 400 spy shots: already in the 2026-10-30 edition"
+      },
+      {
+        "ids": [
+          "ndtv-478f9e5c",
+          "brand-news-94112590",
+          "brand-news-02ffa36c",
+          "overdrive-48d0ba79"
+        ],
+        "why": "Ducati Monster Dark: already in the 2026-10-30 edition"
+      },
+      {
+        "ids": [
+          "rushlane-0c6807ec"
+        ],
+        "why": "half-year sales: motorcycle sales and exports already in the 2026-10-30 edition"
+      },
+      {
+        "ids": [
+          "brand-news-55d04e0e",
+          "brand-news-785aadb0",
+          "brand-news-86c8f6a9",
+          "brand-news-40f70bd1"
+        ],
+        "why": "Herotsav, same story as the Autocar Professional item used"
+      },
+      {
+        "ids": [
+          "brand-news-f44a8868",
+          "brand-news-24034c5f",
+          "overdrive-c6d3e677",
+          "overdrive-fe7970da",
+          "overdrive-cc153b6d",
+          "overdrive-092c1be3"
+        ],
+        "why": "Harley X350T, already in the morning edition"
+      },
+      {
+        "ids": [
+          "youtube-eeeff4c3",
+          "youtube-c8d1df49",
+          "youtube-e8539b9c",
+          "youtube-d87073e3",
+          "youtube-2d3506f9",
+          "youtube-8419286e",
+          "youtube-58c22e7f",
+          "youtube-6a19a34f",
+          "youtube-ce90ff7c",
+          "youtube-6298942e",
+          "youtube-0f58d122",
+          "youtube-ca78f140",
+          "youtube-7508fb89",
+          "youtube-7ed3a6f8",
+          "youtube-e541f1c6",
+          "youtube-4ae0b06b"
+        ],
+        "why": "adverts, greetings, rider stories and commuter scooters, nothing new for riders"
+      },
+      {
+        "ids": [
+          "youtube-422ce45a"
+        ],
+        "why": "air-bag vest advert, no product news or price"
+      },
+      {
+        "ids": [
+          "youtube-56a98c20",
+          "youtube-98a32803"
+        ],
+        "why": "already in the 2026-10-30 edition"
+      },
+      {
+        "ids": [
+          "brand-news-bdf086f0",
+          "brand-news-4cdb17bc",
+          "brand-news-7f10a307",
+          "brand-news-31c9a482"
+        ],
+        "why": "share-price note, US corporate news, an electric-bike background piece and a US buyer's guide"
+      },
+      {
+        "ids": [
+          "brand-news-34b32aba",
+          "brand-news-e923fd18",
+          "brand-news-b3b23703",
+          "brand-news-93f8e808"
+        ],
+        "why": "spam page, car, listicle and a football stadium"
+      },
+      {
+        "ids": [
+          "brand-news-90bb754f",
+          "brand-news-2f35f3ba",
+          "brand-news-1e2e480e",
+          "brand-news-0704d648",
+          "brand-news-c7490f36",
+          "brand-news-a380e18e"
+        ],
+        "why": "MotoGP and motocross, no Indian rider or team"
+      },
+      {
+        "ids": [
+          "brand-news-5bb32977",
+          "brand-news-5544eafa"
+        ],
+        "why": "Diwali test-ride contest, promotion with no product news"
+      },
+      {
+        "ids": [
+          "brand-news-d7f1029f"
+        ],
+        "why": "celebrity purchase"
+      },
+      {
+        "ids": [
+          "brand-news-727f6017"
+        ],
+        "why": "SHAD crash bars for the BMW R 1300 GS, no India launch in the source"
+      },
+      {
+        "ids": [
+          "accessories-8e6df4bb"
+        ],
+        "why": "Bajaj adventure bike spy story, already covered on 2026-10-30"
       }
     ]
-  }
+  },
+  "updated_at": "2026-10-31T21:14:00+05:30"
 }
