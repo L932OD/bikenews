@@ -1,0 +1,240 @@
+{
+  "edition": "2026-10-31",
+  "published_at": "2026-10-31T09:40:00+05:30",
+  "lead": null,
+  "subs": [
+    {
+      "id": "pulsar-n250ss-launch",
+      "kicker": "Bajaj",
+      "type": "launch",
+      "published_at": "2026-10-29T12:36:44.000Z",
+      "figure": {
+        "value": "₹1,59,406",
+        "label": "ex-showroom, Delhi"
+      },
+      "specs": [
+        [
+          "Display",
+          "5-inch TFT"
+        ]
+      ],
+      "headline": "Bajaj launches the Pulsar N250SS at ₹1.59 lakh with a TFT console and ride modes",
+      "text": "The N250SS tops the N250 line-up, ₹14,136 above the standard bike. It gets a 5-inch TFT console with Bluetooth and Google Maps mirroring, plus an electronic throttle body that enables ride modes. It comes in four new colours.",
+      "sources": [
+        {
+          "name": "BikeDekho",
+          "url": "https://www.bikedekho.com/news/bajaj-pulsar-n250ss-features-explained-20567"
+        },
+        {
+          "name": "BikeDekho",
+          "url": "https://www.bikedekho.com/news/category-general-news/2026-bajaj-pulsar-n250-ss-colours-explained-20568"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "honda-rebel-300-deliveries",
+      "kicker": "Honda",
+      "type": "other",
+      "published_at": "2026-10-31T03:39:51.000Z",
+      "figure": {
+        "value": "₹2.62 lakh",
+        "label": "Rebel 300 E-Clutch price"
+      },
+      "headline": "Honda Rebel 300 deliveries start around Dhanteras, with BigWing dealers calling first-batch buyers",
+      "text": "BigWing dealers are telling buyers that deliveries of both the standard and E-Clutch Rebel 300 begin soon. One E-Clutch buyer was offered delivery on 6 November. The Rebel 300 starts at ₹2.22 lakh; the first batch size is not known.",
+      "sources": [
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/honda-rebel-300-deliveries-to-start-soon-bigwing-dealers-12559871.html"
+        }
+      ],
+      "tag": null
+    },
+    {
+      "id": "harley-x350t-undisguised",
+      "kicker": "Harley-Davidson",
+      "type": "spy",
+      "published_at": "2026-10-30T07:32:20.000Z",
+      "headline": "Harley-Davidson X350T spotted undisguised at a dealership, likely a 349cc version of the X440T",
+      "text": "The X350T carries its name on the tank, with orange paint, a TFT display and upside-down forks. BikeWale expects a 349cc version of the X440T’s 440cc engine, which would fall under the 18 per cent GST rate, against 40 per cent above 350cc. No price or date is confirmed.",
+      "sources": [
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/harley-davidson-x350-t-spied-undisguised-with-downsized-engine/"
+        },
+        {
+          "name": "Business Today",
+          "url": "https://www.businesstoday.in/auto/photo/harley-davidson-x350t-spied-in-india-what-the-new-badge-reveals-and-why-the-350cc-tax-threshold-matters-564849-2026-10-31"
+        },
+        {
+          "name": "Overdrive",
+          "url": "https://www.overdrive.in/news-cars-auto/harley-davidson-x350t-spotted-undisguised-ahead-of-india-launch/"
+        },
+        {
+          "name": "NDTV Auto",
+          "url": "https://www.ndtv.com/auto/new-harley-davidson-x350t-india-spec-spied-launch-imminent-12257777"
+        }
+      ],
+      "tag": "update"
+    }
+  ],
+  "headlines": [
+    {
+      "id": "re-himalayan-750-eicma-confirmed",
+      "type": "upcoming",
+      "published_at": "2026-10-30T16:49:00.000Z",
+      "headline": "Royal Enfield confirms the Himalayan 750 for EICMA 2026 and shares another teaser",
+      "sources": [
+        {
+          "name": "The Daily Jagran",
+          "url": "https://www.thedailyjagran.com/auto/news/royal-enfield-himalayan-750-debut-at-eicma-2026-heres-what-we-know-so-far-10334626"
+        },
+        {
+          "name": "Sangri Today",
+          "url": "https://www.sangritoday.com/amp/business/automobiles/royal-enfield-himalayan-750-new-teaser-reveals-adventure-bike-ahead-of-global-unveiling"
+        }
+      ],
+      "tag": "update"
+    },
+    {
+      "id": "re-five-november-launches",
+      "type": "upcoming",
+      "published_at": "2026-10-31T02:30:01.000Z",
+      "headline": "Royal Enfield has five motorcycles due from November, led by the Himalayan 750",
+      "sources": [
+        {
+          "name": "Cartoq",
+          "url": "https://www.cartoq.com/bike-news/royal-enfield-five-new-motorcycles-himalayan-750-continental-gt-750/"
+        }
+      ],
+      "tag": null
+    }
+  ],
+  "trends_summary": {
+    "headline": "Riders search for Harley’s Sprint 440, Hero’s Karizma and Ducati prices ahead of EICMA",
+    "text": "Searches for “eicma 2026 upcoming motorcycles” broke out as riders look for India-linked bikes such as the Himalayan 750. Harley’s Sprint 440 cruiser and Hero’s Karizma XMR 250 each hold 5000+ searches this week, and “ducati bike price” rose 350% after the Monster Dark unveil."
+  },
+  "trending": [
+    {
+      "term": "harley davidson sprint 440 cruiser",
+      "traffic": "5000+",
+      "why": "Gaadiwaadi ran a top-five explainer on the upcoming Sprint 440 cruiser, while a Harley X350T was spotted undisguised at a dealership.",
+      "sources": [
+        {
+          "name": "Gaadiwaadi",
+          "url": "https://gaadiwaadi.com/upcoming-harley-davidson-sprint-440-cruiser-top-5-things-to-know/"
+        }
+      ]
+    },
+    {
+      "term": "hero karizma xmr 250 new colors",
+      "traffic": "5000+",
+      "why": "Hero plans three to four more premium motorcycles this financial year, and Autocar India expects new Karizma and Xpulse models.",
+      "sources": [
+        {
+          "name": "Autocar India",
+          "url": "https://www.autocarindia.com/bike-news/new-hero-karizma-and-xpulse-models-being-readied-for-launch-441166"
+        }
+      ]
+    },
+    {
+      "term": "eicma 2026 upcoming motorcycles",
+      "traffic": "Breakout",
+      "why": "Royal Enfield confirmed the Himalayan 750 for Milan and Rushlane lists the India-linked models expected at EICMA.",
+      "sources": [
+        {
+          "name": "Rushlane",
+          "url": "https://www.rushlane.com/tvs-450-xpulse-421-harley-cruiser-440-re-750-and-more-expected-at-eicma-2026-12559821.html"
+        },
+        {
+          "name": "The Daily Jagran",
+          "url": "https://www.thedailyjagran.com/auto/news/royal-enfield-himalayan-750-debut-at-eicma-2026-heres-what-we-know-so-far-10334626"
+        }
+      ]
+    },
+    {
+      "term": "ducati bike price",
+      "traffic": "+350%",
+      "why": "Ducati unveiled the Monster V2 Dark, priced at EUR 10,990 in global markets, with an India launch expected in 2027.",
+      "sources": [
+        {
+          "name": "BikeWale",
+          "url": "https://www.bikewale.com/news/ducati-monster-v2-dark-unveiled-india-launch-in-2027/"
+        }
+      ]
+    }
+  ],
+  "events": [],
+  "upcoming": [],
+  "videos": [],
+  "accessories": [],
+  "checks": {
+    "pool_items": 102,
+    "sources_failed": [
+      "BikeAdvice"
+    ],
+    "left_out": [
+      {
+        "ids": [
+          "youtube-25dc8ba0",
+          "youtube-e20be4a7",
+          "youtube-5dd83e6e",
+          "youtube-06294c60"
+        ],
+        "why": "commuter adverts and a Halloween greeting, nothing new for riders"
+      },
+      {
+        "ids": [
+          "brand-news-80ed8ccf",
+          "brand-news-4b43059a",
+          "brand-news-385f351f",
+          "brand-news-db447db5"
+        ],
+        "why": "unrelated stock listings, old pages and non-motorcycle pages"
+      },
+      {
+        "ids": [
+          "brand-news-a383e8ae",
+          "brand-news-366cb30d"
+        ],
+        "why": "reviews"
+      },
+      {
+        "ids": [
+          "brand-news-20ede2e7",
+          "brand-news-cffc1c57",
+          "brand-news-e03c69e1"
+        ],
+        "why": "scooter-led EV sales, share-price note, and a rider anecdote"
+      },
+      {
+        "ids": [
+          "brand-news-847aadf6"
+        ],
+        "why": "explainer on the 200 Duke update already in the 2026-10-28 edition"
+      },
+      {
+        "ids": [
+          "brand-news-c2ff185c"
+        ],
+        "why": "aftermarket exhaust for a bike not sold in India"
+      },
+      {
+        "ids": [
+          "brand-news-4f322886",
+          "brand-news-30f3d8b1",
+          "brand-news-2abfdbf7"
+        ],
+        "why": "Moto Guzzi Trip 500 and Ducati Monster Dark: already in the 2026-10-30 edition"
+      },
+      {
+        "ids": [
+          "store-087cc324",
+          "store-9db47e2a"
+        ],
+        "why": "already shown in the 2026-10-28 edition"
+      }
+    ]
+  }
+}
